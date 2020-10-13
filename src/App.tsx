@@ -1,7 +1,8 @@
 import React from "react";
+import Home from "./routes/Home";
 
 function App() {
-	return <div>Say Hello!</div>;
+	return <Home></Home>;
 }
 
 export default App;
