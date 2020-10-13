@@ -1,15 +1,7 @@
 import React from "react";
-import SignUpForm from "../components/SignUpForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
-type SignUpInputs = {
-	email: string;
-	username: string;
-	name: string;
-	password: string;
-};
 
 const schema = yup.object().shape({
 	email: yup.string().email("유효한 이메일 주소가 아닙니다.").required(),
@@ -30,19 +22,45 @@ const schema = yup.object().shape({
 		.required(),
 });
 
-const SignUpFormContainer = () => {
+type SignUpInputs = {
+	email: string;
+	username: string;
+	name: string;
+	password: string;
+};
+
+const SignUpForm = () => {
 	const { register, handleSubmit, errors } = useForm<SignUpInputs>({
 		resolver: yupResolver(schema),
 	});
 	const onSubmit = handleSubmit((data: SignUpInputs) => console.log(data));
-
 	return (
-		<SignUpForm
-			onSubmit={onSubmit}
-			register={register}
-			validationErrors={errors}
-		></SignUpForm>
+		<>
+			<form onSubmit={onSubmit}>
+				<div>
+					<label>email</label>
+					<input type="text" name="email" ref={register} />
+					<p>{errors.email?.message}</p>
+				</div>
+				<div>
+					<label>username</label>
+					<input type="text" name="username" ref={register} />
+					<p>{errors.username?.message}</p>
+				</div>
+				<div>
+					<label>name</label>
+					<input name="name" ref={register} />
+					<p>{errors.name?.message}</p>
+				</div>
+				<div>
+					<label>password</label>
+					<input name="password" type="password" ref={register} />
+					<p>{errors.password?.message}</p>
+				</div>
+				<input type="submit" />
+			</form>
+		</>
 	);
 };
 
-export default SignUpFormContainer;
+export default SignUpForm;
