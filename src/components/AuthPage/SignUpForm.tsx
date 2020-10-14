@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useHistory } from "react-router-dom";
+import { useSignUp } from "../../services/auth";
 
 const schema = yup.object().shape({
 	email: yup.string().email("유효한 이메일 주소가 아닙니다.").required(),
@@ -30,36 +32,48 @@ type SignUpInputs = {
 };
 
 const SignUpForm = () => {
+	let history = useHistory();
 	const { register, handleSubmit, errors } = useForm<SignUpInputs>({
 		resolver: yupResolver(schema),
 	});
-	const onSubmit = handleSubmit((data: SignUpInputs) => console.log(data));
+	const [signUp, { loading }] = useSignUp();
+	const onSubmit = useCallback(
+		(data) => {
+			signUp({ variables: data });
+			history.push("/");
+		},
+		[history, signUp]
+	);
 	return (
-		<>
-			<form onSubmit={onSubmit}>
-				<div>
-					<label>email</label>
-					<input type="text" name="email" ref={register} />
-					<p>{errors.email?.message}</p>
-				</div>
-				<div>
-					<label>username</label>
-					<input type="text" name="username" ref={register} />
-					<p>{errors.username?.message}</p>
-				</div>
-				<div>
-					<label>name</label>
-					<input name="name" ref={register} />
-					<p>{errors.name?.message}</p>
-				</div>
-				<div>
-					<label>password</label>
-					<input name="password" type="password" ref={register} />
-					<p>{errors.password?.message}</p>
-				</div>
-				<input type="submit" />
-			</form>
-		</>
+		<div>
+			{loading ? (
+				<div>Loading... </div>
+			) : (
+				<form onSubmit={handleSubmit(onSubmit)}>
+					<div>
+						<label>email</label>
+						<input type="text" name="email" ref={register} />
+						<p>{errors.email?.message}</p>
+					</div>
+					<div>
+						<label>username</label>
+						<input type="text" name="username" ref={register} />
+						<p>{errors.username?.message}</p>
+					</div>
+					<div>
+						<label>name</label>
+						<input name="name" ref={register} />
+						<p>{errors.name?.message}</p>
+					</div>
+					<div>
+						<label>password</label>
+						<input name="password" type="password" ref={register} />
+						<p>{errors.password?.message}</p>
+					</div>
+					<input type="submit" />
+				</form>
+			)}
+		</div>
 	);
 };
 
