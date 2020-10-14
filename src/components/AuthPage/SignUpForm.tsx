@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useSignUp } from "../../services/auth";
+import { MutationSignUpArgs } from "../../generated/graphql";
 
 const schema = yup.object().shape({
 	email: yup.string().email("유효한 이메일 주소가 아닙니다.").required(),
@@ -24,16 +25,9 @@ const schema = yup.object().shape({
 		.required(),
 });
 
-type SignUpInputs = {
-	email: string;
-	username: string;
-	name: string;
-	password: string;
-};
-
 const SignUpForm = () => {
 	let history = useHistory();
-	const { register, handleSubmit, errors } = useForm<SignUpInputs>({
+	const { register, handleSubmit, errors } = useForm<MutationSignUpArgs>({
 		resolver: yupResolver(schema),
 	});
 	const [signUp, { loading }] = useSignUp();
