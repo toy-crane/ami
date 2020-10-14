@@ -1,10 +1,11 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
+import { ErrorMessage } from "./formComponents";
 
 const schema = yup.object().shape({
 	email: yup.string().email("유효한 이메일 주소가 아닙니다.").required(),
@@ -27,14 +28,21 @@ const schema = yup.object().shape({
 
 const SignUpForm = () => {
 	let history = useHistory();
-	const { register, handleSubmit, errors } = useForm<MutationSignUpArgs>({
+	const [error, setError] = useState("");
+	const { register, handleSubmit, errors: ValidationErrors } = useForm<
+		MutationSignUpArgs
+	>({
 		resolver: yupResolver(schema),
 	});
 	const [signUp, { loading }] = useSignUp();
 	const onSubmit = useCallback(
-		(data) => {
-			signUp({ variables: data });
-			history.push("/");
+		async (data) => {
+			try {
+				await signUp({ variables: data });
+				history.push("/");
+			} catch (error) {
+				setError(error.message || error);
+			}
 		},
 		[history, signUp]
 	);
@@ -47,24 +55,25 @@ const SignUpForm = () => {
 					<div>
 						<label>email</label>
 						<input type="text" name="email" ref={register} />
-						<p>{errors.email?.message}</p>
+						<p>{ValidationErrors.email?.message}</p>
 					</div>
 					<div>
 						<label>username</label>
 						<input type="text" name="username" ref={register} />
-						<p>{errors.username?.message}</p>
+						<p>{ValidationErrors.username?.message}</p>
 					</div>
 					<div>
 						<label>name</label>
 						<input name="name" ref={register} />
-						<p>{errors.name?.message}</p>
+						<p>{ValidationErrors.name?.message}</p>
 					</div>
 					<div>
 						<label>password</label>
 						<input name="password" type="password" ref={register} />
-						<p>{errors.password?.message}</p>
+						<p>{ValidationErrors.password?.message}</p>
 					</div>
 					<input type="submit" />
+					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}
 		</div>
