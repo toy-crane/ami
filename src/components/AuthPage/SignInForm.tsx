@@ -2,34 +2,34 @@ import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
-import { useSignUp } from "../../services/auth";
-import { MutationSignUpArgs } from "../../generated/graphql";
+import { useSignIn } from "../../services/auth";
+import { MutationSignInArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./formComponents";
-import { signUpSchema } from "./validation/schema";
+import { signInSchema } from "./validation/schema";
 
-const SignUpForm = () => {
+const SignInForm = () => {
 	let history = useHistory();
 	const [error, setError] = useState("");
 	const { register, handleSubmit, errors: ValidationErrors } = useForm<
-		MutationSignUpArgs
+		MutationSignInArgs
 	>({
-		resolver: yupResolver(signUpSchema),
+		resolver: yupResolver(signInSchema),
 	});
-	const [signUp, { loading }] = useSignUp();
+	const [signIn, { loading }] = useSignIn();
 	const onSubmit = useCallback(
 		async (data) => {
 			try {
-				await signUp({ variables: data });
+				await signIn({ variables: data });
 				history.push("/");
 			} catch (error) {
 				setError(error.message || error);
 			}
 		},
-		[history, signUp]
+		[history, signIn]
 	);
 	return (
 		<div>
-			SignUp
+			Sign-In
 			{loading ? (
 				<div>Loading... </div>
 			) : (
@@ -38,16 +38,6 @@ const SignUpForm = () => {
 						<label>email</label>
 						<input type="text" name="email" ref={register} />
 						<p>{ValidationErrors.email?.message}</p>
-					</div>
-					<div>
-						<label>username</label>
-						<input type="text" name="username" ref={register} />
-						<p>{ValidationErrors.username?.message}</p>
-					</div>
-					<div>
-						<label>name</label>
-						<input name="name" ref={register} />
-						<p>{ValidationErrors.name?.message}</p>
 					</div>
 					<div>
 						<label>password</label>
@@ -62,4 +52,4 @@ const SignUpForm = () => {
 	);
 };
 
-export default SignUpForm;
+export default SignInForm;

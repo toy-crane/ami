@@ -1,3 +1,4 @@
-import { useSignUpMutation } from "../generated/graphql";
+import { useSignInMutation, useSignUpMutation } from "../generated/graphql";
 
 export const useSignUp = useSignUpMutation;
+export const useSignIn = useSignInMutation;

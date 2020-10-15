@@ -140,7 +140,7 @@
         "description": null,
         "fields": [
           {
-            "name": "login",
+            "name": "signIn",
             "description": null,
             "args": [
               {
