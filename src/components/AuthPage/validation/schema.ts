@@ -6,7 +6,7 @@ const userNameValidator = yup
 	.max(20, "닉네임은 최대 20글자입니다.")
 	.required();
 
-const nameValidatior = yup
+const nameValidator = yup
 	.string()
 	.min(2, "이름은 최소 2글자 이상입니다.")
 	.max(20, "이름은 최대 20글자까지 입니다.")
@@ -26,7 +26,7 @@ const emailValidator = yup
 export const signUpSchema = yup.object().shape({
 	email: emailValidator,
 	username: userNameValidator,
-	name: nameValidatior,
+	name: nameValidator,
 	password: passwordValidator,
 });
 
