@@ -6,10 +6,12 @@ import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./formComponents";
 import { signUpSchema } from "./validation/schema";
+import { useToken } from "../../services/tokenService";
 
 const SignUpForm = () => {
 	let history = useHistory();
 	const [error, setError] = useState("");
+	const { setToken } = useToken();
 	const { register, handleSubmit, errors: ValidationErrors } = useForm<
 		MutationSignUpArgs
 	>({
@@ -17,15 +19,18 @@ const SignUpForm = () => {
 	});
 	const [signUp, { loading }] = useSignUp();
 	const onSubmit = useCallback(
-		async (data) => {
+		async (variables) => {
 			try {
-				await signUp({ variables: data });
+				const { data } = await signUp({ variables });
+				if (data && data.signUp.token) {
+					setToken(data.signUp.token);
+				}
 				history.push("/");
 			} catch (error) {
 				setError(error.message || error);
 			}
 		},
-		[history, signUp]
+		[history, setToken, signUp]
 	);
 	return (
 		<div>

@@ -6,6 +6,7 @@ import { useSignIn } from "../../services/auth";
 import { MutationSignInArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./formComponents";
 import { signInSchema } from "./validation/schema";
+import { useToken } from "../../services/tokenService";
 
 const SignInForm = () => {
 	let history = useHistory();
@@ -16,16 +17,21 @@ const SignInForm = () => {
 		resolver: yupResolver(signInSchema),
 	});
 	const [signIn, { loading }] = useSignIn();
+	const { setToken } = useToken();
+
 	const onSubmit = useCallback(
-		async (data) => {
+		async (variables) => {
 			try {
-				await signIn({ variables: data });
+				const { data } = await signIn({ variables });
+				if (data && data.signIn.token) {
+					setToken(data.signIn.token);
+				}
 				history.push("/");
 			} catch (error) {
 				setError(error.message || error);
 			}
 		},
-		[history, signIn]
+		[history, setToken, signIn]
 	);
 	return (
 		<div>

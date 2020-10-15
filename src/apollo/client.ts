@@ -21,7 +21,7 @@ const authMiddleware = (token: string) => {
 };
 
 export const useApolloClient = () => {
-	const [token] = useToken();
+	const { token } = useToken();
 	return new ApolloClient({
 		link: authMiddleware(token).concat(httpLink),
 		cache: new InMemoryCache(),
