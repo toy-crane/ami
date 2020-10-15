@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
