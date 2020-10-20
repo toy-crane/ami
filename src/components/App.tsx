@@ -1,11 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
-import AuthPage from "./AuthPage";
-import MainPage from "./MainPage";
 import { useApolloClient } from "../apollo/client";
-import { useIsSignIn, withAuth } from "../services/auth";
+import { useIsSignIn } from "../services/auth";
 import Header from "./Header";
+import Routes from "./Routes";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
@@ -25,10 +24,7 @@ function App() {
 				<>
 					{isSignIn && <Header />}
 					<Wrapper>
-						<Switch>
-							<Route exact path="/" component={withAuth(MainPage)} />
-							<Route exact path="/sign-(in|up)" component={AuthPage} />
-						</Switch>
+						<Routes isSignIn={isSignIn}></Routes>
 					</Wrapper>
 				</>
 			</Router>
