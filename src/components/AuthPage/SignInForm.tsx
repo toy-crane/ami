@@ -11,10 +11,14 @@ import { useToken } from "../../services/tokenService";
 const SignInForm = () => {
 	let history = useHistory();
 	const [error, setError] = useState("");
-	const { register, handleSubmit, errors: ValidationErrors } = useForm<
-		MutationSignInArgs
-	>({
+	const {
+		register,
+		handleSubmit,
+		errors: ValidationErrors,
+		formState,
+	} = useForm<MutationSignInArgs>({
 		resolver: yupResolver(signInSchema),
+		mode: "onChange",
 	});
 	const [signIn, { loading }] = useSignIn();
 	const { setToken } = useToken();
@@ -50,7 +54,7 @@ const SignInForm = () => {
 						<input name="password" type="password" ref={register} />
 						<p>{ValidationErrors.password?.message}</p>
 					</div>
-					<input type="submit" />
+					<input type="submit" disabled={!formState.isValid} />
 					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}

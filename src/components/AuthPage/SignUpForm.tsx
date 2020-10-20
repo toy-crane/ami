@@ -12,10 +12,14 @@ const SignUpForm = () => {
 	let history = useHistory();
 	const [error, setError] = useState("");
 	const { setToken } = useToken();
-	const { register, handleSubmit, errors: ValidationErrors } = useForm<
-		MutationSignUpArgs
-	>({
+	const {
+		register,
+		handleSubmit,
+		errors: ValidationErrors,
+		formState,
+	} = useForm<MutationSignUpArgs>({
 		resolver: yupResolver(signUpSchema),
+		mode: "onChange",
 	});
 	const [signUp, { loading }] = useSignUp();
 	const onSubmit = useCallback(
@@ -59,7 +63,7 @@ const SignUpForm = () => {
 						<input name="password" type="password" ref={register} />
 						<p>{ValidationErrors.password?.message}</p>
 					</div>
-					<input type="submit" />
+					<input type="submit" disabled={!formState.isValid} />
 					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}
