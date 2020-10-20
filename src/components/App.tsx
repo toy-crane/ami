@@ -5,17 +5,22 @@ import AuthPage from "./AuthPage";
 import MainPage from "./MainPage";
 import { useApolloClient } from "../apollo/client";
 import { useIsSignIn, withAuth } from "../services/auth";
+import Header from "./Header";
 function App() {
 	const apolloClient = useApolloClient();
 	const isSignIn = useIsSignIn();
 	console.log(`로그인 상태 ${isSignIn}`);
+
 	return (
 		<ApolloProvider client={apolloClient}>
 			<Router>
-				<Switch>
-					<Route exact path="/" component={withAuth(MainPage)} />
-					<Route exact path="/sign-(in|up)" component={AuthPage} />
-				</Switch>
+				<>
+					{isSignIn && <Header />}
+					<Switch>
+						<Route exact path="/" component={withAuth(MainPage)} />
+						<Route exact path="/sign-(in|up)" component={AuthPage} />
+					</Switch>
+				</>
 			</Router>
 		</ApolloProvider>
 	);
