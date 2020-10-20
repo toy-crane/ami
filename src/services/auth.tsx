@@ -13,6 +13,8 @@ import { useHistory } from "react-router-dom";
 export const useSignUp = useSignUpMutation;
 // signIn hooks
 export const useSignIn = useSignInMutation;
+// useMe hooks
+export const useMe = useMeQuery;
 // logout hooks
 export const useLogout = () => {
 	const { removeToken } = useToken();
