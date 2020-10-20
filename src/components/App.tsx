@@ -4,9 +4,11 @@ import { ApolloProvider } from "@apollo/client";
 import AuthPage from "./AuthPage";
 import MainPage from "./MainPage";
 import { useApolloClient } from "../apollo/client";
-import { withAuth } from "../services/auth";
+import { useIsSignIn, withAuth } from "../services/auth";
 function App() {
 	const apolloClient = useApolloClient();
+	const isSignIn = useIsSignIn();
+	console.log(`로그인 상태 ${isSignIn}`);
 	return (
 		<ApolloProvider client={apolloClient}>
 			<Router>

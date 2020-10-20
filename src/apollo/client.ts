@@ -8,7 +8,6 @@ const httpLink = createHttpLink({
 
 const authMiddleware = (token: string) => {
 	// token이 있으면 요청마다 항상 token을 실어서 보낸다.
-	console.log(`token is ${token}`);
 	const authLink = setContext((_, { headers }) => {
 		return {
 			headers: {

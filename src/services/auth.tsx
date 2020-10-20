@@ -23,6 +23,15 @@ export const useLogout = () => {
 	};
 	return logout;
 };
+// check signIn hooks
+export const useIsSignIn = () => {
+	const { token } = useToken();
+	if (token) {
+		return true;
+	} else {
+		return false;
+	}
+};
 
 const MyContext = React.createContext<UserPersonalData | null>(null);
 
