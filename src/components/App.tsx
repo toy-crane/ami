@@ -6,6 +6,14 @@ import MainPage from "./MainPage";
 import { useApolloClient } from "../apollo/client";
 import { useIsSignIn, withAuth } from "../services/auth";
 import Header from "./Header";
+import styled from "@emotion/styled";
+
+const Wrapper = styled.div`
+	margin: 0 auto;
+	max-width: 1000px;
+	width: 100%;
+`;
+
 function App() {
 	const apolloClient = useApolloClient();
 	const isSignIn = useIsSignIn();
@@ -16,10 +24,12 @@ function App() {
 			<Router>
 				<>
 					{isSignIn && <Header />}
-					<Switch>
-						<Route exact path="/" component={withAuth(MainPage)} />
-						<Route exact path="/sign-(in|up)" component={AuthPage} />
-					</Switch>
+					<Wrapper>
+						<Switch>
+							<Route exact path="/" component={withAuth(MainPage)} />
+							<Route exact path="/sign-(in|up)" component={AuthPage} />
+						</Switch>
+					</Wrapper>
 				</>
 			</Router>
 		</ApolloProvider>
