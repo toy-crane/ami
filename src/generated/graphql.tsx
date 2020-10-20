@@ -11,24 +11,28 @@ export type Scalars = {
   Float: number;
 };
 
-export type User = {
-  __typename?: 'User';
-  id: Scalars['ID'];
+export type UserPersonalData = {
+  __typename?: 'UserPersonalData';
   email: Scalars['String'];
   name: Scalars['String'];
   username?: Maybe<Scalars['String']>;
 };
 
-export type LoginResponse = {
-  __typename?: 'LoginResponse';
-  user?: Maybe<User>;
+export type SignInResponse = {
+  __typename?: 'SignInResponse';
+  user?: Maybe<UserPersonalData>;
   token?: Maybe<Scalars['String']>;
+};
+
+export type Query = {
+  __typename?: 'Query';
+  me: UserPersonalData;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
-  signIn: LoginResponse;
-  signUp: LoginResponse;
+  signIn: SignInResponse;
+  signUp: SignInResponse;
 };
 
 
@@ -45,16 +49,6 @@ export type MutationSignUpArgs = {
   username: Scalars['String'];
 };
 
-export type Query = {
-  __typename?: 'Query';
-  user: User;
-};
-
-
-export type QueryUserArgs = {
-  id: Scalars['Int'];
-};
-
 export type SignInMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
@@ -64,11 +58,11 @@ export type SignInMutationVariables = Exact<{
 export type SignInMutation = (
   { __typename?: 'Mutation' }
   & { signIn: (
-    { __typename?: 'LoginResponse' }
-    & Pick<LoginResponse, 'token'>
+    { __typename?: 'SignInResponse' }
+    & Pick<SignInResponse, 'token'>
     & { user?: Maybe<(
-      { __typename?: 'User' }
-      & Pick<User, 'name' | 'username' | 'email'>
+      { __typename?: 'UserPersonalData' }
+      & Pick<UserPersonalData, 'name' | 'username' | 'email'>
     )> }
   ) }
 );
@@ -84,11 +78,11 @@ export type SignUpMutationVariables = Exact<{
 export type SignUpMutation = (
   { __typename?: 'Mutation' }
   & { signUp: (
-    { __typename?: 'LoginResponse' }
-    & Pick<LoginResponse, 'token'>
+    { __typename?: 'SignInResponse' }
+    & Pick<SignInResponse, 'token'>
     & { user?: Maybe<(
-      { __typename?: 'User' }
-      & Pick<User, 'name' | 'username' | 'email'>
+      { __typename?: 'UserPersonalData' }
+      & Pick<UserPersonalData, 'name' | 'username' | 'email'>
     )> }
   ) }
 );
