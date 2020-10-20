@@ -1,4 +1,5 @@
 import { useCookies } from "react-cookie";
+import { useCallback } from "react";
 
 const TOKEN_NAME = "authToken";
 
@@ -6,7 +7,12 @@ const TOKEN_NAME = "authToken";
 export const useToken = () => {
 	const [cookies, setCookie, removeCookie] = useCookies([TOKEN_NAME]);
 	const token = cookies[TOKEN_NAME];
-	const setToken = (token: string) => setCookie(TOKEN_NAME, token);
-	const removeToken = () => removeCookie(TOKEN_NAME);
+	const setToken = useCallback(
+		(token: string) => setCookie(TOKEN_NAME, token),
+		[setCookie]
+	);
+	const removeToken = useCallback(() => removeCookie(TOKEN_NAME), [
+		removeCookie,
+	]);
 	return { token, setToken, removeToken };
 };
