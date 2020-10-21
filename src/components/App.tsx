@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { ApolloProvider } from "@apollo/client";
-import client from "../apollo/client";
 import { useIsSignIn } from "../services/auth";
 import Header from "./Header";
 import Routes from "./Routes";
