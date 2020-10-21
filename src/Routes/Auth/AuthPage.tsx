@@ -5,9 +5,9 @@ import SignUpForm from "../../components/Auth/SignUpForm";
 import styled from "@emotion/styled";
 
 export const Alternative = styled.div`
-	position: fixed;
-	bottom: 10px;
-	left: 10px;
+	label {
+		color: red;
+	}
 `;
 
 const AuthPage = () => {
@@ -21,8 +21,8 @@ const AuthPage = () => {
 
 			return (
 				<Alternative>
-					Don't have an account yet?{" "}
-					<label onClick={handleSignUp}>Sign up!</label>
+					계정이 없으신가요?
+					<label onClick={handleSignUp}>회원가입 바로가기</label>
 				</Alternative>
 			);
 		} else {
@@ -32,7 +32,8 @@ const AuthPage = () => {
 
 			return (
 				<Alternative>
-					Already have an accout? <label onClick={handleSignIn}>Sign in!</label>
+					이미 계정이 있으신가요?{" "}
+					<label onClick={handleSignIn}>로그인 바로가기</label>
 				</Alternative>
 			);
 		}
