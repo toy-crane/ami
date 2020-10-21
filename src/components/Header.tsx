@@ -1,9 +1,18 @@
 import React from "react";
-import { useMe } from "../services/auth";
+import { useLogout, useMe } from "../services/auth";
 
 const Header = () => {
 	const { data } = useMe();
-	return <div>{data && data.me ? <div>ID: {data.me.email}</div> : null}</div>;
+	const logout = useLogout();
+	return (
+		<div>
+			{data && data.me ? (
+				<div>
+					ID: {data.me.email} <button onClick={logout}>로그아웃</button>
+				</div>
+			) : null}
+		</div>
+	);
 };
 
 export default Header;

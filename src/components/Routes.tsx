@@ -1,7 +1,7 @@
 import React from "react";
-import MainPage from "./MainPage";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
+import MainPage from "../Routes/Main";
 
 type AppRouterProps = {
 	isSignIn: boolean;
