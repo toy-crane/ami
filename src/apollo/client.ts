@@ -1,7 +1,6 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { TOKEN_NAME } from "../services/tokenService";
-import Cookies from "js-cookie";
+import { getToken } from "../services/tokenService";
 
 const httpLink = createHttpLink({
 	uri: "http://localhost:4000/graphql",
@@ -19,7 +18,7 @@ const authMiddleware = (token: string | undefined) => {
 	});
 	return authLink;
 };
-const token = Cookies.get(TOKEN_NAME);
+const token = getToken();
 export default new ApolloClient({
 	link: authMiddleware(token).concat(httpLink),
 	cache: new InMemoryCache(),

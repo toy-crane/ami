@@ -1,7 +1,8 @@
 import { useCookies } from "react-cookie";
 import { useCallback } from "react";
+import Cookies from "js-cookie";
 
-export const TOKEN_NAME = "authToken";
+const TOKEN_NAME = "authToken";
 
 // cookie에 있는 토큰을 다루는 hooks
 export const useToken = () => {
@@ -15,4 +16,9 @@ export const useToken = () => {
 		removeCookie,
 	]);
 	return { token, setToken, removeToken };
+};
+
+// cookie에서 토큰을 가져오는 util 함수
+export const getToken = () => {
+	return Cookies.get(TOKEN_NAME);
 };
