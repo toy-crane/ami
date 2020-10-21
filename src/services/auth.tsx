@@ -5,9 +5,9 @@ import {
 	UserPersonalData,
 } from "../generated/graphql";
 import { useToken } from "./tokenService";
-import { useApolloClient } from "../apollo/client";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useApolloClient } from "@apollo/client";
 
 // signUp hooks
 export const useSignUp = useSignUpMutation;

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
-import { useApolloClient } from "../apollo/client";
+import client from "../apollo/client";
 import { useIsSignIn } from "../services/auth";
 import Header from "./Header";
 import Routes from "./Routes";
@@ -14,21 +14,16 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-	const apolloClient = useApolloClient();
 	const isSignIn = useIsSignIn();
-	console.log(`로그인 상태 ${isSignIn}`);
-
 	return (
-		<ApolloProvider client={apolloClient}>
-			<Router>
-				<>
-					{isSignIn && <Header />}
-					<Wrapper>
-						<Routes isSignIn={isSignIn}></Routes>
-					</Wrapper>
-				</>
-			</Router>
-		</ApolloProvider>
+		<Router>
+			<>
+				{isSignIn && <Header />}
+				<Wrapper>
+					<Routes isSignIn={isSignIn}></Routes>
+				</Wrapper>
+			</>
+		</Router>
 	);
 }
 
