@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
-import SignInForm from "../../components/AuthPage/SignInForm";
-import SignUpForm from "../../components/AuthPage/SignUpForm";
+import SignInForm from "../../components/Auth/SignInForm";
+import SignUpForm from "../../components/Auth/SignUpForm";
 import styled from "@emotion/styled";
 
 export const Alternative = styled.div`

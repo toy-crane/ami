@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import { useSignIn } from "../../services/auth";
 import { MutationSignInArgs } from "../../generated/graphql";
-import { ErrorMessage } from "./formComponents";
+import { ErrorMessage } from "./ErrorMessage";
 import { signInSchema } from "./validation/schema";
 import { useToken } from "../../services/tokenService";
 
