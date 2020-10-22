@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
@@ -20,22 +20,29 @@ const SignInForm = () => {
 		resolver: yupResolver(signInSchema),
 		mode: "onChange",
 	});
-	const [signIn, { loading }] = useSignIn();
-	const { setToken } = useToken();
+	const [signIn, { loading, data, error: MutationError }] = useSignIn();
+	const { setToken, token } = useToken();
+
+	useEffect(() => {
+		if (MutationError) {
+			setError(MutationError.message);
+		}
+		if (data && data.signIn.token) {
+			setToken(data.signIn.token);
+		}
+	}, [MutationError, data, setToken]);
+
+	useEffect(() => {
+		if (token) {
+			history.push("/");
+		}
+	}, [history, token]);
 
 	const onSubmit = useCallback(
 		async (variables) => {
-			try {
-				const { data } = await signIn({ variables });
-				if (data && data.signIn.token) {
-					setToken(data.signIn.token);
-				}
-				history.push("/");
-			} catch (error) {
-				setError(error.message || error);
-			}
+			signIn({ variables });
 		},
-		[history, setToken, signIn]
+		[signIn]
 	);
 	return (
 		<div>
