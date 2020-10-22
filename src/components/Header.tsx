@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLogout, useMe } from "../services/auth";
 
 const Header = () => {
 	const { data, loading, error } = useMe();
 	const logout = useLogout();
+
+	// 잘못된 토큰일 경우, 강제 로그아웃 시키기
+	useEffect(() => {
+		if (error) {
+			logout();
+		}
+	});
+
 	if (loading) {
 		return <div>loading...</div>;
-	}
-	if (error) {
-		return <div>{error.message}</div>;
 	}
 	return (
 		<div>
