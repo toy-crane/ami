@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
@@ -10,8 +10,8 @@ import { useToken } from "../../services/tokenService";
 
 const SignUpForm = () => {
 	let history = useHistory();
-	const [error, setError] = useState("");
-	const { setToken } = useToken();
+	const [error, setError] = useState<string>("");
+	const { token, setToken } = useToken();
 	const {
 		register,
 		handleSubmit,
@@ -21,20 +21,32 @@ const SignUpForm = () => {
 		resolver: yupResolver(signUpSchema),
 		mode: "onChange",
 	});
-	const [signUp, { loading }] = useSignUp();
+	const [signUp, { loading, data, error: MutationError }] = useSignUp();
+
+	useEffect(() => {
+		if (token) {
+			history.push("/");
+		}
+	}, [history, token]);
+
+	useEffect(() => {
+		if (MutationError) {
+			setError(MutationError.message);
+		}
+		if (data && data.signUp.token) {
+			setToken(data.signUp.token);
+		}
+	}, [error, data, history, MutationError, setToken]);
+
 	const onSubmit = useCallback(
 		async (variables) => {
 			try {
-				const { data } = await signUp({ variables });
-				if (data && data.signUp.token) {
-					setToken(data.signUp.token);
-				}
-				history.push("/");
+				signUp({ variables });
 			} catch (error) {
 				setError(error.message || error);
 			}
 		},
-		[history, setToken, signUp]
+		[signUp]
 	);
 	return (
 		<div>
