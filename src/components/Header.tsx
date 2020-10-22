@@ -2,8 +2,14 @@ import React from "react";
 import { useLogout, useMe } from "../services/auth";
 
 const Header = () => {
-	const { data } = useMe();
+	const { data, loading, error } = useMe();
 	const logout = useLogout();
+	if (loading) {
+		return <div>loading...</div>;
+	}
+	if (error) {
+		return <div>{error.message}</div>;
+	}
 	return (
 		<div>
 			{data && data.me ? (
