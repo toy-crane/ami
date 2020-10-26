@@ -6,7 +6,7 @@ import {
 	useRequestPasswordResetMutation,
 } from "../../generated/graphql";
 import { ErrorMessage } from "./ErrorMessage";
-import { resetPasswordSchema } from "./validation/schema";
+import { requestPasswordResetSchema } from "./validation/schema";
 import { useHistory } from "react-router-dom";
 
 const FindPasswordForm = () => {
@@ -18,7 +18,7 @@ const FindPasswordForm = () => {
 		errors: ValidationErrors,
 		formState,
 	} = useForm<MutationSignUpArgs>({
-		resolver: yupResolver(resetPasswordSchema),
+		resolver: yupResolver(requestPasswordResetSchema),
 		mode: "onChange",
 	});
 	const [
