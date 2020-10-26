@@ -2,6 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
 import MainPage from "../Routes/Main";
+import FindPasswordPage from "../Routes/Auth/FindPasswordPage";
 
 type AppRouterProps = {
 	isSignIn: boolean;
@@ -17,6 +18,7 @@ const LoggedInRoutes = () => (
 const LoggedOutRoutes = () => (
 	<Switch>
 		<Route exact path="/sign-(in|up)" component={AuthPage} />
+		<Route exact path="/find-password" component={FindPasswordPage} />
 		<Redirect from="*" to="/sign-in" />
 	</Switch>
 );

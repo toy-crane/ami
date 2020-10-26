@@ -34,3 +34,7 @@ export const signInSchema = yup.object().shape({
 	email: emailValidator,
 	password: passwordValidator,
 });
+
+export const resetPasswordSchema = yup.object().shape({
+	email: emailValidator,
+});
