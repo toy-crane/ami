@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import * as fragments from "../fragments";
 
 export default gql`
 	mutation resetPassword(
@@ -11,11 +12,7 @@ export default gql`
 			confirmPassword: $confirmPassword
 			resetToken: $resetToken
 		) {
-			user {
-				name
-				username
-				email
-			}
+			${fragments.User}
 			token
 		}
 	}

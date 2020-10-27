@@ -1,4 +1,5 @@
 import gql from "graphql-tag";
+import * as fragments from "../fragments";
 
 export default gql`
 	mutation SignUp(
@@ -14,11 +15,7 @@ export default gql`
 			username: $username
 		) {
 			token
-			user {
-				name
-				username
-				email
-			}
+			${fragments.User}	
 		}
 	}
 `;
