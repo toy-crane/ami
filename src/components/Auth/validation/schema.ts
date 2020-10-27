@@ -39,3 +39,7 @@ export const requestPasswordResetSchema = yup.object().shape({
 	email: emailValidator,
 });
 
+export const resetPasswordSchema = yup.object().shape({
+	password: passwordValidator,
+	confirmPassword: passwordValidator,
+});
