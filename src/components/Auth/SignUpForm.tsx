@@ -76,6 +76,11 @@ const SignUpForm = () => {
 						<input name="password" type="password" ref={register} />
 						<p>{ValidationErrors.password?.message}</p>
 					</div>
+					<div>
+						<label>비밀번호 확인</label>
+						<input name="confirmPassword" type="password" ref={register} />
+						<p>{ValidationErrors.confirmPassword?.message}</p>
+					</div>
 					<input
 						type="submit"
 						disabled={!formState.isValid}

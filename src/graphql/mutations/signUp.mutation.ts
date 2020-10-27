@@ -6,12 +6,14 @@ export default gql`
 		$name: String!
 		$email: String!
 		$password: String!
+		$confirmPassword: String!
 		$username: String!
 	) {
 		signUp(
 			name: $name
 			email: $email
 			password: $password
+			confirmPassword: $confirmPassword
 			username: $username
 		) {
 			token

@@ -28,6 +28,9 @@ export const signUpSchema = yup.object().shape({
 	username: userNameValidator,
 	name: nameValidator,
 	password: passwordValidator,
+	confirmPassword: yup
+		.string()
+		.oneOf([yup.ref("password"), undefined], "비밀번호가 일치하지 않습니다."),
 });
 
 export const signInSchema = yup.object().shape({

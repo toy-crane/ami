@@ -65,8 +65,14 @@ export type MutationSignUpArgs = {
   name: Scalars['String'];
   email: Scalars['String'];
   password: Scalars['String'];
+  confirmPassword: Scalars['String'];
   username: Scalars['String'];
 };
+
+export type UserFragment = (
+  { __typename?: 'UserPersonalData' }
+  & Pick<UserPersonalData, 'name' | 'username' | 'email'>
+);
 
 export type RequestPasswordResetMutationVariables = Exact<{
   email: Scalars['String'];
@@ -93,10 +99,6 @@ export type ResetPasswordMutation = (
   & { resetPassword: (
     { __typename?: 'SignInResponse' }
     & Pick<SignInResponse, 'token'>
-    & { user?: Maybe<(
-      { __typename?: 'UserPersonalData' }
-      & Pick<UserPersonalData, 'name' | 'username' | 'email'>
-    )> }
   ) }
 );
 
@@ -111,10 +113,6 @@ export type SignInMutation = (
   & { signIn: (
     { __typename?: 'SignInResponse' }
     & Pick<SignInResponse, 'token'>
-    & { user?: Maybe<(
-      { __typename?: 'UserPersonalData' }
-      & Pick<UserPersonalData, 'name' | 'username' | 'email'>
-    )> }
   ) }
 );
 
@@ -122,6 +120,7 @@ export type SignUpMutationVariables = Exact<{
   name: Scalars['String'];
   email: Scalars['String'];
   password: Scalars['String'];
+  confirmPassword: Scalars['String'];
   username: Scalars['String'];
 }>;
 
@@ -131,10 +130,6 @@ export type SignUpMutation = (
   & { signUp: (
     { __typename?: 'SignInResponse' }
     & Pick<SignInResponse, 'token'>
-    & { user?: Maybe<(
-      { __typename?: 'UserPersonalData' }
-      & Pick<UserPersonalData, 'name' | 'username' | 'email'>
-    )> }
   ) }
 );
 
@@ -149,7 +144,13 @@ export type MeQuery = (
   ) }
 );
 
-
+export const UserFragmentDoc = gql`
+    fragment User on UserPersonalData {
+  name
+  username
+  email
+}
+    `;
 export const RequestPasswordResetDocument = gql`
     mutation requestPasswordReset($email: String!) {
   requestPasswordReset(email: $email) {
@@ -185,11 +186,6 @@ export type RequestPasswordResetMutationOptions = Apollo.BaseMutationOptions<Req
 export const ResetPasswordDocument = gql`
     mutation resetPassword($password: String!, $confirmPassword: String!, $resetToken: String!) {
   resetPassword(password: $password, confirmPassword: $confirmPassword, resetToken: $resetToken) {
-    user {
-      name
-      username
-      email
-    }
     token
   }
 }
@@ -224,11 +220,6 @@ export type ResetPasswordMutationOptions = Apollo.BaseMutationOptions<ResetPassw
 export const SignInDocument = gql`
     mutation SignIn($email: String!, $password: String!) {
   signIn(email: $email, password: $password) {
-    user {
-      name
-      username
-      email
-    }
     token
   }
 }
@@ -260,14 +251,9 @@ export type SignInMutationHookResult = ReturnType<typeof useSignInMutation>;
 export type SignInMutationResult = Apollo.MutationResult<SignInMutation>;
 export type SignInMutationOptions = Apollo.BaseMutationOptions<SignInMutation, SignInMutationVariables>;
 export const SignUpDocument = gql`
-    mutation SignUp($name: String!, $email: String!, $password: String!, $username: String!) {
-  signUp(name: $name, email: $email, password: $password, username: $username) {
+    mutation SignUp($name: String!, $email: String!, $password: String!, $confirmPassword: String!, $username: String!) {
+  signUp(name: $name, email: $email, password: $password, confirmPassword: $confirmPassword, username: $username) {
     token
-    user {
-      name
-      username
-      email
-    }
   }
 }
     `;
@@ -289,6 +275,7 @@ export type SignUpMutationFn = Apollo.MutationFunction<SignUpMutation, SignUpMut
  *      name: // value for 'name'
  *      email: // value for 'email'
  *      password: // value for 'password'
+ *      confirmPassword: // value for 'confirmPassword'
  *      username: // value for 'username'
  *   },
  * });
