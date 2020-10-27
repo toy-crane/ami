@@ -26,6 +26,7 @@ export const useLogout = () => {
 export const useIsSignIn = () => {
 	const { token } = useToken();
 	if (token) {
+		console.log(token);
 		return true;
 	} else {
 		return false;

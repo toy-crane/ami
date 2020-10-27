@@ -9,12 +9,14 @@ export const useToken = () => {
 	const [cookies, setCookie, removeCookie] = useCookies([TOKEN_NAME]);
 	const token = cookies[TOKEN_NAME];
 	const setToken = useCallback(
-		(token: string) => setCookie(TOKEN_NAME, token),
+		(token: string) =>
+			setCookie(TOKEN_NAME, token, { path: "/", maxAge: 86400 }),
 		[setCookie]
 	);
-	const removeToken = useCallback(() => removeCookie(TOKEN_NAME), [
-		removeCookie,
-	]);
+	const removeToken = useCallback(
+		() => removeCookie(TOKEN_NAME, { path: "/" }),
+		[removeCookie]
+	);
 	return { token, setToken, removeToken };
 };
 
