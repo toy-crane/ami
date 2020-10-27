@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useCallback } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import SignInForm from "../../components/Auth/SignInForm";
 import SignUpForm from "../../components/Auth/SignUpForm";
@@ -13,31 +13,33 @@ export const Alternative = styled.div`
 const AuthPage = () => {
 	const location = useLocation();
 	const history = useHistory();
+	const goSignUp = useCallback(() => {
+		history.push("/sign-up");
+	}, [history]);
+	const goFindPassword = useCallback(() => {
+		history.push("/find-password");
+	}, [history]);
+	const goSignIn = useCallback(() => {
+		history.push("/sign-in");
+	}, [history]);
+
 	const alternative = useMemo(() => {
 		if (location.pathname === "/sign-in") {
-			const handleSignUp = () => {
-				history.push("/sign-up");
-			};
-
 			return (
 				<Alternative>
-					계정이 없으신가요?
-					<label onClick={handleSignUp}>회원가입 바로가기</label>
+					<button onClick={goFindPassword}>비밀번호 찾기</button>
+					<button onClick={goSignUp}>회원가입</button>
 				</Alternative>
 			);
 		} else {
-			const handleSignIn = () => {
-				history.push("/sign-in");
-			};
-
 			return (
 				<Alternative>
-					이미 계정이 있으신가요?{" "}
-					<label onClick={handleSignIn}>로그인 바로가기</label>
+					<button onClick={goFindPassword}>비밀번호 찾기</button>
+					<button onClick={goSignIn}>로그인</button>
 				</Alternative>
 			);
 		}
-	}, [history, location.pathname]);
+	}, [goFindPassword, goSignIn, goSignUp, location.pathname]);
 
 	return (
 		<>

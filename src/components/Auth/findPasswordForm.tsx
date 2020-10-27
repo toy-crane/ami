@@ -50,7 +50,7 @@ const FindPasswordForm = () => {
 		return (
 			<>
 				<div>이메일이 전송되었습니다!</div>
-				<div>${email}로 비밀번호 안내 메일을 보내드렸습니다.</div>
+				<div>{email}로 비밀번호 안내 메일을 보내드렸습니다.</div>
 				<button onClick={() => history.push("/")}>홈으로 가기</button>
 			</>
 		);
@@ -63,11 +63,11 @@ const FindPasswordForm = () => {
 				) : (
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
-							<label>email</label>
+							<label>이메일</label>
 							<input type="text" name="email" ref={register} />
 							<p>{ValidationErrors.email?.message}</p>
 						</div>
-						<input type="submit" disabled={!formState.isValid} />
+						<input type="submit" disabled={!formState.isValid} value="찾기" />
 						<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 					</form>
 				)}

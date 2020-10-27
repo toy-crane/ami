@@ -76,7 +76,7 @@ const ResetPasswordForm = ({ resetToken }: ResetPasswordFromProps) => {
 						<input name="confirmPassword" type="password" ref={register} />
 						<p>{ValidationErrors.confirmPassword?.message}</p>
 					</div>
-					<input type="submit" disabled={!formState.isValid} />
+					<input type="submit" disabled={!formState.isValid} value="설정하기" />
 					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}

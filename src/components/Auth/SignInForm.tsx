@@ -46,22 +46,21 @@ const SignInForm = () => {
 	);
 	return (
 		<div>
-			Sign-In
 			{loading ? (
 				<div>Loading... </div>
 			) : (
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div>
-						<label>email</label>
+						<label>이메일</label>
 						<input type="text" name="email" ref={register} />
 						<p>{ValidationErrors.email?.message}</p>
 					</div>
 					<div>
-						<label>password</label>
+						<label>비밀번호</label>
 						<input name="password" type="password" ref={register} />
 						<p>{ValidationErrors.password?.message}</p>
 					</div>
-					<input type="submit" disabled={!formState.isValid} />
+					<input type="submit" disabled={!formState.isValid} value="로그인" />
 					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}

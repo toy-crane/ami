@@ -50,32 +50,35 @@ const SignUpForm = () => {
 	);
 	return (
 		<div>
-			SignUp
 			{loading ? (
 				<div>Loading... </div>
 			) : (
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<div>
-						<label>email</label>
+						<label>이메일</label>
 						<input type="text" name="email" ref={register} />
 						<p>{ValidationErrors.email?.message}</p>
 					</div>
 					<div>
-						<label>username</label>
+						<label>닉네임</label>
 						<input type="text" name="username" ref={register} />
 						<p>{ValidationErrors.username?.message}</p>
 					</div>
 					<div>
-						<label>name</label>
+						<label>이름</label>
 						<input name="name" ref={register} />
 						<p>{ValidationErrors.name?.message}</p>
 					</div>
 					<div>
-						<label>password</label>
+						<label>비밀번호</label>
 						<input name="password" type="password" ref={register} />
 						<p>{ValidationErrors.password?.message}</p>
 					</div>
-					<input type="submit" disabled={!formState.isValid} />
+					<input
+						type="submit"
+						disabled={!formState.isValid}
+						value="회원 가입"
+					/>
 					<ErrorMessage data-testid="error-message">{error}</ErrorMessage>
 				</form>
 			)}
