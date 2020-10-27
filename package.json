@@ -23,6 +23,7 @@
 		"graphql": "^15.3.0",
 		"graphql-tag": "^2.11.0",
 		"js-cookie": "^2.2.1",
+		"query-string": "^6.13.6",
 		"react": "^16.13.1",
 		"react-cookie": "^4.0.3",
 		"react-dom": "^16.13.1",
@@ -31,6 +32,7 @@
 		"react-scripts": "3.4.3",
 		"redux": "^4.0.5",
 		"typescript": "~3.7.2",
+		"use-query-params": "^1.1.8",
 		"yup": "^0.29.3"
 	},
 	"scripts": {

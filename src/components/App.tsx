@@ -1,5 +1,4 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { useIsSignIn } from "../services/auth";
 import Header from "./Header";
 import Routes from "./Routes";
@@ -14,14 +13,12 @@ const Wrapper = styled.div`
 function App() {
 	const isSignIn = useIsSignIn();
 	return (
-		<Router>
 			<>
 				{isSignIn && <Header />}
 				<Wrapper>
 					<Routes isSignIn={isSignIn}></Routes>
 				</Wrapper>
 			</>
-		</Router>
 	);
 }
 
