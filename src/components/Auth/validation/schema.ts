@@ -41,5 +41,7 @@ export const requestPasswordResetSchema = yup.object().shape({
 
 export const resetPasswordSchema = yup.object().shape({
 	password: passwordValidator,
-	confirmPassword: passwordValidator,
+	confirmPassword: yup
+		.string()
+		.oneOf([yup.ref("password"), undefined], "비밀번호가 일치하지 않습니다."),
 });
