@@ -20,7 +20,9 @@ const SignInForm = () => {
 		resolver: yupResolver(signInSchema),
 		mode: "onChange",
 	});
-	const [signIn, { loading, data, error: MutationError }] = useSignIn();
+	const [signIn, { loading, data, error: MutationError }] = useSignIn({
+		errorPolicy: "all",
+	});
 	const { setToken, token } = useToken();
 
 	useEffect(() => {

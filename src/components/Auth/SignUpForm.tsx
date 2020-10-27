@@ -21,7 +21,9 @@ const SignUpForm = () => {
 		resolver: yupResolver(signUpSchema),
 		mode: "onChange",
 	});
-	const [signUp, { loading, data, error: MutationError }] = useSignUp();
+	const [signUp, { loading, data, error: MutationError }] = useSignUp({
+		errorPolicy: "all",
+	});
 
 	useEffect(() => {
 		if (token) {

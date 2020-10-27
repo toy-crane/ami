@@ -24,7 +24,9 @@ const FindPasswordForm = () => {
 	const [
 		requestPasswordReset,
 		{ data, loading, error: MutationError },
-	] = useRequestPasswordResetMutation();
+	] = useRequestPasswordResetMutation({
+		errorPolicy: "all",
+	});
 
 	useEffect(() => {
 		if (MutationError) {

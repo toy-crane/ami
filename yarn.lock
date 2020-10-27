@@ -49,6 +49,25 @@
     lodash "^4.17.15"
     resize-observer-polyfill "^1.5.0"
 
+"@apollo/client@^3.0.0-beta.23":
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.2.5.tgz#24e0a6faa1d231ab44807af237c6227410c75c4d"
+  integrity sha512-zpruxnFMz6K94gs2pqc3sidzFDbQpKT5D6P/J/I9s8ekHZ5eczgnRp6pqXC86Bh7+44j/btpmOT0kwiboyqTnA==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.0.0"
+    "@types/zen-observable" "^0.8.0"
+    "@wry/context" "^0.5.2"
+    "@wry/equality" "^0.2.0"
+    fast-json-stable-stringify "^2.0.0"
+    graphql-tag "^2.11.0"
+    hoist-non-react-statics "^3.3.2"
+    optimism "^0.13.0"
+    prop-types "^15.7.2"
+    symbol-observable "^2.0.0"
+    ts-invariant "^0.4.4"
+    tslib "^1.10.0"
+    zen-observable "^0.8.14"
+
 "@apollo/client@^3.2.4":
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.2.4.tgz#d9a308a900bd9e7053348367f66f3962804ed385"
@@ -68,6 +87,14 @@
     ts-invariant "^0.4.4"
     tslib "^1.10.0"
     zen-observable "^0.8.14"
+
+"@apollo/link-error@^2.0.0-beta.3":
+  version "2.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@apollo/link-error/-/link-error-2.0.0-beta.3.tgz#80182f2be07980921fe441a8d66c08914f5a9b56"
+  integrity sha512-blNBBi9+4SEfb4Bhn8cYqGFhb0C7MjqLiRwNdUqwGefl1w+G8Ze8pCLHAyPxXLcslirtht9LY0i6ZOpCzSXHCg==
+  dependencies:
+    "@apollo/client" "^3.0.0-beta.23"
+    tslib "^1.9.3"
 
 "@ardatan/aggregate-error@0.0.6":
   version "0.0.6"

@@ -30,7 +30,9 @@ const ResetPasswordForm = ({ resetToken }: ResetPasswordFromProps) => {
 	const [
 		resetPassword,
 		{ loading, data, error: mutationError },
-	] = useResetPasswordMutation();
+	] = useResetPasswordMutation({
+		errorPolicy: "all",
+	});
 	const { token, setToken } = useToken();
 
 	useEffect(() => {
