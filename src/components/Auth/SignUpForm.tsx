@@ -6,12 +6,9 @@ import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./ErrorMessage";
 import { signUpSchema } from "./validation/schema";
-import { useToken } from "../../services/tokenService";
 
 const SignUpForm = () => {
-	let history = useHistory();
 	const [error, setError] = useState<string>("");
-	const { token, setToken } = useToken();
 	const {
 		register,
 		handleSubmit,
@@ -24,21 +21,6 @@ const SignUpForm = () => {
 	const [signUp, { loading, data, error: MutationError }] = useSignUp({
 		errorPolicy: "all",
 	});
-
-	useEffect(() => {
-		if (token) {
-			history.push("/");
-		}
-	}, [history, token]);
-
-	useEffect(() => {
-		if (MutationError) {
-			setError(MutationError.message);
-		}
-		if (data && data.signUp.token) {
-			setToken(data.signUp.token);
-		}
-	}, [error, data, history, MutationError, setToken]);
 
 	const onSubmit = useCallback(
 		async (variables) => {
