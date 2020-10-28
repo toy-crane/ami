@@ -165,7 +165,7 @@ export type MeQuery = (
   { __typename?: 'Query' }
   & { me: (
     { __typename?: 'UserPersonalData' }
-    & Pick<UserPersonalData, 'name' | 'username' | 'email'>
+    & UserFragment
   ) }
 );
 
@@ -347,12 +347,10 @@ export type SignUpMutationOptions = Apollo.BaseMutationOptions<SignUpMutation, S
 export const MeDocument = gql`
     query me {
   me {
-    name
-    username
-    email
+    ...User
   }
 }
-    `;
+    ${UserFragmentDoc}`;
 
 /**
  * __useMeQuery__
