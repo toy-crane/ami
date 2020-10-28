@@ -6,9 +6,11 @@ import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./ErrorMessage";
 import { signUpSchema } from "./validation/schema";
+import { temporaryUserVar } from "../../apollo/cache";
 
 const SignUpForm = () => {
 	const [error, setError] = useState<string>("");
+	const history = useHistory();
 	const {
 		register,
 		handleSubmit,
@@ -21,6 +23,16 @@ const SignUpForm = () => {
 	const [signUp, { loading, data, error: MutationError }] = useSignUp({
 		errorPolicy: "all",
 	});
+
+	useEffect(() => {
+		if (MutationError) {
+			setError(MutationError.message);
+		}
+		if (data && data.signUp && data.signUp.user) {
+			temporaryUserVar({ email: data.signUp.user.email });
+			history.push("/check-verfication-email");
+		}
+	}, [MutationError, data, history]);
 
 	const onSubmit = useCallback(
 		async (variables) => {

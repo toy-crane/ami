@@ -4,6 +4,7 @@ import AuthPage from "../Routes/Auth";
 import MainPage from "../Routes/Main";
 import FindPasswordPage from "../Routes/Auth/FindPasswordPage";
 import ResetPasswordPage from "../Routes/Auth/ResetPasswordPage";
+import CheckVerificationEmailPage from "../Routes/Auth/CheckVerificationEmailPage";
 
 type AppRouterProps = {
 	isSignIn: boolean;
@@ -21,6 +22,11 @@ const LoggedOutRoutes = () => (
 		<Route exact path="/sign-(in|up)" component={AuthPage} />
 		<Route exact path="/find-password" component={FindPasswordPage} />
 		<Route exact path="/reset-password" component={ResetPasswordPage} />
+		<Route
+			exact
+			path="/check-verfication-email"
+			component={CheckVerificationEmailPage}
+		/>
 		<Redirect from="*" to="/sign-in" />
 	</Switch>
 );
