@@ -16,8 +16,10 @@ export default gql`
 			confirmPassword: $confirmPassword
 			username: $username
 		) {
-			token
-			${fragments.User}	
+			user {
+				...User
+			}
 		}
 	}
+	${fragments.User}
 `;

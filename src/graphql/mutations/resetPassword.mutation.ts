@@ -12,7 +12,6 @@ export default gql`
 			confirmPassword: $confirmPassword
 			resetToken: $resetToken
 		) {
-			${fragments.User}
 			token
 		}
 	}

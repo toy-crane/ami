@@ -5,5 +5,6 @@ export default gql`
 		name
 		username
 		email
+		isActive
 	}
 `;

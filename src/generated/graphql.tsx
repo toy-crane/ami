@@ -16,12 +16,18 @@ export type UserPersonalData = {
   email: Scalars['String'];
   name: Scalars['String'];
   username?: Maybe<Scalars['String']>;
+  isActive: Scalars['Boolean'];
 };
 
 export type SignInResponse = {
   __typename?: 'SignInResponse';
   user?: Maybe<UserPersonalData>;
   token?: Maybe<Scalars['String']>;
+};
+
+export type SignUpResponse = {
+  __typename?: 'SignUpResponse';
+  user?: Maybe<UserPersonalData>;
 };
 
 export type Query = {
@@ -37,14 +43,20 @@ export type RequestPasswordResetResponse = {
 export type Mutation = {
   __typename?: 'Mutation';
   requestPasswordReset?: Maybe<RequestPasswordResetResponse>;
+  resendVerificationToken: Scalars['Boolean'];
   resetPassword: SignInResponse;
   signIn: SignInResponse;
-  signUp: SignInResponse;
+  signUp: SignUpResponse;
 };
 
 
 export type MutationRequestPasswordResetArgs = {
   email?: Maybe<Scalars['String']>;
+};
+
+
+export type MutationResendVerificationTokenArgs = {
+  email: Scalars['String'];
 };
 
 
@@ -71,7 +83,7 @@ export type MutationSignUpArgs = {
 
 export type UserFragment = (
   { __typename?: 'UserPersonalData' }
-  & Pick<UserPersonalData, 'name' | 'username' | 'email'>
+  & Pick<UserPersonalData, 'name' | 'username' | 'email' | 'isActive'>
 );
 
 export type RequestPasswordResetMutationVariables = Exact<{
@@ -85,6 +97,16 @@ export type RequestPasswordResetMutation = (
     { __typename?: 'requestPasswordResetResponse' }
     & Pick<RequestPasswordResetResponse, 'email'>
   )> }
+);
+
+export type ResendVerificationTokenMutationVariables = Exact<{
+  email: Scalars['String'];
+}>;
+
+
+export type ResendVerificationTokenMutation = (
+  { __typename?: 'Mutation' }
+  & Pick<Mutation, 'resendVerificationToken'>
 );
 
 export type ResetPasswordMutationVariables = Exact<{
@@ -128,8 +150,11 @@ export type SignUpMutationVariables = Exact<{
 export type SignUpMutation = (
   { __typename?: 'Mutation' }
   & { signUp: (
-    { __typename?: 'SignInResponse' }
-    & Pick<SignInResponse, 'token'>
+    { __typename?: 'SignUpResponse' }
+    & { user?: Maybe<(
+      { __typename?: 'UserPersonalData' }
+      & UserFragment
+    )> }
   ) }
 );
 
@@ -149,6 +174,7 @@ export const UserFragmentDoc = gql`
   name
   username
   email
+  isActive
 }
     `;
 export const RequestPasswordResetDocument = gql`
@@ -183,6 +209,36 @@ export function useRequestPasswordResetMutation(baseOptions?: Apollo.MutationHoo
 export type RequestPasswordResetMutationHookResult = ReturnType<typeof useRequestPasswordResetMutation>;
 export type RequestPasswordResetMutationResult = Apollo.MutationResult<RequestPasswordResetMutation>;
 export type RequestPasswordResetMutationOptions = Apollo.BaseMutationOptions<RequestPasswordResetMutation, RequestPasswordResetMutationVariables>;
+export const ResendVerificationTokenDocument = gql`
+    mutation resendVerificationToken($email: String!) {
+  resendVerificationToken(email: $email)
+}
+    `;
+export type ResendVerificationTokenMutationFn = Apollo.MutationFunction<ResendVerificationTokenMutation, ResendVerificationTokenMutationVariables>;
+
+/**
+ * __useResendVerificationTokenMutation__
+ *
+ * To run a mutation, you first call `useResendVerificationTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResendVerificationTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resendVerificationTokenMutation, { data, loading, error }] = useResendVerificationTokenMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *   },
+ * });
+ */
+export function useResendVerificationTokenMutation(baseOptions?: Apollo.MutationHookOptions<ResendVerificationTokenMutation, ResendVerificationTokenMutationVariables>) {
+        return Apollo.useMutation<ResendVerificationTokenMutation, ResendVerificationTokenMutationVariables>(ResendVerificationTokenDocument, baseOptions);
+      }
+export type ResendVerificationTokenMutationHookResult = ReturnType<typeof useResendVerificationTokenMutation>;
+export type ResendVerificationTokenMutationResult = Apollo.MutationResult<ResendVerificationTokenMutation>;
+export type ResendVerificationTokenMutationOptions = Apollo.BaseMutationOptions<ResendVerificationTokenMutation, ResendVerificationTokenMutationVariables>;
 export const ResetPasswordDocument = gql`
     mutation resetPassword($password: String!, $confirmPassword: String!, $resetToken: String!) {
   resetPassword(password: $password, confirmPassword: $confirmPassword, resetToken: $resetToken) {
@@ -253,10 +309,12 @@ export type SignInMutationOptions = Apollo.BaseMutationOptions<SignInMutation, S
 export const SignUpDocument = gql`
     mutation SignUp($name: String!, $email: String!, $password: String!, $confirmPassword: String!, $username: String!) {
   signUp(name: $name, email: $email, password: $password, confirmPassword: $confirmPassword, username: $username) {
-    token
+    user {
+      ...User
+    }
   }
 }
-    `;
+    ${UserFragmentDoc}`;
 export type SignUpMutationFn = Apollo.MutationFunction<SignUpMutation, SignUpMutationVariables>;
 
 /**
