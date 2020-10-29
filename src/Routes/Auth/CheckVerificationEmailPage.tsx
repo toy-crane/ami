@@ -1,10 +1,8 @@
 import React from "react";
-import { useReactiveVar } from "@apollo/client";
-import { temporaryUserVar } from "../../apollo/cache";
 import { useResendVerificationTokenMutation } from "../../generated/graphql";
 
 const CheckVerificationEmailPage = () => {
-	const tempUser = useReactiveVar(temporaryUserVar);
+	const tempEmail = localStorage.getItem("tempEmail");
 	const [
 		resendVerificationToken,
 		{ loading, data },
@@ -12,13 +10,13 @@ const CheckVerificationEmailPage = () => {
 		errorPolicy: "all",
 	});
 	const handleClick = () => {
-		if (tempUser.email) {
-			resendVerificationToken({ variables: { email: tempUser.email } });
+		if (tempEmail) {
+			resendVerificationToken({ variables: { email: tempEmail } });
 		}
 	};
 	return (
 		<div>
-			{tempUser.email ? (
+			{tempEmail ? (
 				<div>
 					이메일을 확인하여 회원 가입을 완료해 주세요.
 					<button onClick={handleClick}>이메일 재전송하기</button>

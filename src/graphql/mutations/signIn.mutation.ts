@@ -7,5 +7,4 @@ export default gql`
 			token
 		}
 	}
-	${fragments.User}
 `;

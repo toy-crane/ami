@@ -30,23 +30,20 @@ export type SignUpResponse = {
   user?: Maybe<UserPersonalData>;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  me: UserPersonalData;
-};
-
-export type RequestPasswordResetResponse = {
-  __typename?: 'requestPasswordResetResponse';
-  email: Scalars['String'];
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
+  confirmVerificationToken: SignInResponse;
   requestPasswordReset?: Maybe<RequestPasswordResetResponse>;
   resendVerificationToken: Scalars['Boolean'];
   resetPassword: SignInResponse;
   signIn: SignInResponse;
   signUp: SignUpResponse;
+};
+
+
+export type MutationConfirmVerificationTokenArgs = {
+  verificationToken: Scalars['String'];
+  email: Scalars['String'];
 };
 
 
@@ -81,9 +78,33 @@ export type MutationSignUpArgs = {
   username: Scalars['String'];
 };
 
+export type Query = {
+  __typename?: 'Query';
+  me: UserPersonalData;
+};
+
+export type RequestPasswordResetResponse = {
+  __typename?: 'requestPasswordResetResponse';
+  email: Scalars['String'];
+};
+
 export type UserFragment = (
   { __typename?: 'UserPersonalData' }
   & Pick<UserPersonalData, 'name' | 'username' | 'email' | 'isActive'>
+);
+
+export type ConfirmVerificationTokenMutationVariables = Exact<{
+  email: Scalars['String'];
+  verificationToken: Scalars['String'];
+}>;
+
+
+export type ConfirmVerificationTokenMutation = (
+  { __typename?: 'Mutation' }
+  & { confirmVerificationToken: (
+    { __typename?: 'SignInResponse' }
+    & Pick<SignInResponse, 'token'>
+  ) }
 );
 
 export type RequestPasswordResetMutationVariables = Exact<{
@@ -177,6 +198,39 @@ export const UserFragmentDoc = gql`
   isActive
 }
     `;
+export const ConfirmVerificationTokenDocument = gql`
+    mutation confirmVerificationToken($email: String!, $verificationToken: String!) {
+  confirmVerificationToken(email: $email, verificationToken: $verificationToken) {
+    token
+  }
+}
+    `;
+export type ConfirmVerificationTokenMutationFn = Apollo.MutationFunction<ConfirmVerificationTokenMutation, ConfirmVerificationTokenMutationVariables>;
+
+/**
+ * __useConfirmVerificationTokenMutation__
+ *
+ * To run a mutation, you first call `useConfirmVerificationTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useConfirmVerificationTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [confirmVerificationTokenMutation, { data, loading, error }] = useConfirmVerificationTokenMutation({
+ *   variables: {
+ *      email: // value for 'email'
+ *      verificationToken: // value for 'verificationToken'
+ *   },
+ * });
+ */
+export function useConfirmVerificationTokenMutation(baseOptions?: Apollo.MutationHookOptions<ConfirmVerificationTokenMutation, ConfirmVerificationTokenMutationVariables>) {
+        return Apollo.useMutation<ConfirmVerificationTokenMutation, ConfirmVerificationTokenMutationVariables>(ConfirmVerificationTokenDocument, baseOptions);
+      }
+export type ConfirmVerificationTokenMutationHookResult = ReturnType<typeof useConfirmVerificationTokenMutation>;
+export type ConfirmVerificationTokenMutationResult = Apollo.MutationResult<ConfirmVerificationTokenMutation>;
+export type ConfirmVerificationTokenMutationOptions = Apollo.BaseMutationOptions<ConfirmVerificationTokenMutation, ConfirmVerificationTokenMutationVariables>;
 export const RequestPasswordResetDocument = gql`
     mutation requestPasswordReset($email: String!) {
   requestPasswordReset(email: $email) {

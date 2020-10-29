@@ -6,7 +6,6 @@ import { useSignUp } from "../../services/auth";
 import { MutationSignUpArgs } from "../../generated/graphql";
 import { ErrorMessage } from "./ErrorMessage";
 import { signUpSchema } from "./validation/schema";
-import { temporaryUserVar } from "../../apollo/cache";
 
 const SignUpForm = () => {
 	const [error, setError] = useState<string>("");
@@ -29,8 +28,8 @@ const SignUpForm = () => {
 			setError(MutationError.message);
 		}
 		if (data && data.signUp && data.signUp.user) {
-			temporaryUserVar({ email: data.signUp.user.email });
-			history.push("/check-verfication-email");
+			localStorage.setItem("tempEmail", data.signUp.user.email);
+			history.push("/check-verification-email");
 		}
 	}, [MutationError, data, history]);
 
