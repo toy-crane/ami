@@ -11,23 +11,16 @@ export type Scalars = {
   Float: number;
 };
 
+export type Query = {
+  __typename?: 'Query';
+  me: UserPersonalData;
+};
+
 export type UserPersonalData = {
   __typename?: 'UserPersonalData';
   email: Scalars['String'];
-  name: Scalars['String'];
-  username?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
-};
-
-export type SignInResponse = {
-  __typename?: 'SignInResponse';
-  user?: Maybe<UserPersonalData>;
-  token?: Maybe<Scalars['String']>;
-};
-
-export type SignUpResponse = {
-  __typename?: 'SignUpResponse';
-  user?: Maybe<UserPersonalData>;
 };
 
 export type Mutation = {
@@ -75,12 +68,12 @@ export type MutationSignUpArgs = {
   email: Scalars['String'];
   password: Scalars['String'];
   confirmPassword: Scalars['String'];
-  username: Scalars['String'];
 };
 
-export type Query = {
-  __typename?: 'Query';
-  me: UserPersonalData;
+export type SignInResponse = {
+  __typename?: 'SignInResponse';
+  user?: Maybe<UserPersonalData>;
+  token?: Maybe<Scalars['String']>;
 };
 
 export type RequestPasswordResetResponse = {
@@ -88,9 +81,20 @@ export type RequestPasswordResetResponse = {
   email: Scalars['String'];
 };
 
+export type SignUpResponse = {
+  __typename?: 'SignUpResponse';
+  user?: Maybe<UserPersonalData>;
+};
+
+export type SocketResponse = {
+  __typename?: 'SocketResponse';
+  user?: Maybe<UserPersonalData>;
+  socketId?: Maybe<Scalars['String']>;
+};
+
 export type UserFragment = (
   { __typename?: 'UserPersonalData' }
-  & Pick<UserPersonalData, 'name' | 'username' | 'email' | 'isActive'>
+  & Pick<UserPersonalData, 'name' | 'email' | 'isActive'>
 );
 
 export type ConfirmVerificationTokenMutationVariables = Exact<{
@@ -164,7 +168,6 @@ export type SignUpMutationVariables = Exact<{
   email: Scalars['String'];
   password: Scalars['String'];
   confirmPassword: Scalars['String'];
-  username: Scalars['String'];
 }>;
 
 
@@ -193,7 +196,6 @@ export type MeQuery = (
 export const UserFragmentDoc = gql`
     fragment User on UserPersonalData {
   name
-  username
   email
   isActive
 }
@@ -295,7 +297,11 @@ export type ResendVerificationTokenMutationResult = Apollo.MutationResult<Resend
 export type ResendVerificationTokenMutationOptions = Apollo.BaseMutationOptions<ResendVerificationTokenMutation, ResendVerificationTokenMutationVariables>;
 export const ResetPasswordDocument = gql`
     mutation resetPassword($password: String!, $confirmPassword: String!, $resetToken: String!) {
-  resetPassword(password: $password, confirmPassword: $confirmPassword, resetToken: $resetToken) {
+  resetPassword(
+    password: $password
+    confirmPassword: $confirmPassword
+    resetToken: $resetToken
+  ) {
     token
   }
 }
@@ -361,8 +367,13 @@ export type SignInMutationHookResult = ReturnType<typeof useSignInMutation>;
 export type SignInMutationResult = Apollo.MutationResult<SignInMutation>;
 export type SignInMutationOptions = Apollo.BaseMutationOptions<SignInMutation, SignInMutationVariables>;
 export const SignUpDocument = gql`
-    mutation SignUp($name: String!, $email: String!, $password: String!, $confirmPassword: String!, $username: String!) {
-  signUp(name: $name, email: $email, password: $password, confirmPassword: $confirmPassword, username: $username) {
+    mutation SignUp($name: String!, $email: String!, $password: String!, $confirmPassword: String!) {
+  signUp(
+    name: $name
+    email: $email
+    password: $password
+    confirmPassword: $confirmPassword
+  ) {
     user {
       ...User
     }
@@ -388,7 +399,6 @@ export type SignUpMutationFn = Apollo.MutationFunction<SignUpMutation, SignUpMut
  *      email: // value for 'email'
  *      password: // value for 'password'
  *      confirmPassword: // value for 'confirmPassword'
- *      username: // value for 'username'
  *   },
  * });
  */

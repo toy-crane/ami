@@ -24,10 +24,10 @@ export const useLogout = () => {
 };
 // check signIn hooks
 export const useIsSignIn = () => {
-	const { token } = useToken();
-	if (token) {
-		return true;
+	const { data, loading, error } = useMe();
+	if (data && data?.me.isActive && data.me.email) {
+		return { isSignIn: true, data, loading, error };
 	} else {
-		return false;
+		return { isSignIn: false, data, loading, error };
 	}
 };

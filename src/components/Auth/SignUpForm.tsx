@@ -56,11 +56,6 @@ const SignUpForm = () => {
 							<p>{ValidationErrors.email?.message}</p>
 						</div>
 						<div>
-							<label>닉네임</label>
-							<input type="text" name="username" ref={register} />
-							<p>{ValidationErrors.username?.message}</p>
-						</div>
-						<div>
 							<label>이름</label>
 							<input name="name" ref={register} />
 							<p>{ValidationErrors.name?.message}</p>
