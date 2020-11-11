@@ -1,16 +1,8 @@
-import {
-	useSignInMutation,
-	useSignUpMutation,
-	useMeQuery,
-} from "../generated/graphql";
+import { useMeQuery } from "../generated/graphql";
 import { useToken } from "./tokenService";
 import { useApolloClient } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
-// signUp hooks
-export const useSignUp = useSignUpMutation;
-// signIn hooks
-export const useSignIn = useSignInMutation;
 // useMe hooks
 export const useMe = useMeQuery;
 // logout hooks
