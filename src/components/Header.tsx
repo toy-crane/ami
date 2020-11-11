@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useLogout, useMe } from "../services/auth";
 
-type headerProps = {
-	email: string;
-	logout: () => void;
-};
-
-const Header = ({ email, logout }: headerProps) => {
+const Header = () => {
+	const logout = useLogout();
+	const { data, error } = useMe();
+	if (error) {
+		logout();
+	}
 	return (
 		<div>
-			ID: {email} <button onClick={logout}>로그아웃</button>
+			ID: {data && data.me.email} <button onClick={logout}>로그아웃</button>
 		</div>
 	);
 };

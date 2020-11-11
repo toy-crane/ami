@@ -5,6 +5,7 @@ import {
 } from "../generated/graphql";
 import { useToken } from "./tokenService";
 import { useApolloClient } from "@apollo/client";
+import { useHistory } from "react-router-dom";
 
 // signUp hooks
 export const useSignUp = useSignUpMutation;
@@ -16,18 +17,20 @@ export const useMe = useMeQuery;
 export const useLogout = () => {
 	const { removeToken } = useToken();
 	const apolloClient = useApolloClient();
+	const history = useHistory();
 	const logout = async () => {
 		await apolloClient.clearStore();
 		removeToken();
+		history.push("/");
 	};
 	return logout;
 };
 // check signIn hooks
 export const useIsSignIn = () => {
-	const { data, loading, error } = useMe();
-	if (data && data?.me.isActive && data.me.email) {
-		return { isSignIn: true, data, loading, error };
+	const { token } = useToken();
+	if (token) {
+		return true;
 	} else {
-		return { isSignIn: false, data, loading, error };
+		return false;
 	}
 };
