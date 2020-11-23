@@ -12,19 +12,14 @@ const Wrapper = styled.div`
 
 function App() {
 	const { data, loading } = useIsUserLoggedInQuery();
+	const isLoggedIn = data?.isLoggedIn || false;
 
 	return (
 		<>
-			{data ? (
-				<>
-					<Header isLoggedIn={data.isLoggedIn} />
-					<Wrapper>
-						<Routes isLoggedIn={data.isLoggedIn}></Routes>
-					</Wrapper>
-				</>
-			) : (
-				"loading..."
-			)}
+			<Header isLoggedIn={isLoggedIn} />
+			<Wrapper>
+				<Routes isLoggedIn={isLoggedIn}></Routes>
+			</Wrapper>
 		</>
 	);
 }
