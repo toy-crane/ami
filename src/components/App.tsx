@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import styled from "@emotion/styled";
+import { useIsUserLoggedInQuery } from "../generated/graphql";
 
 const Wrapper = styled.div`
 	margin: 0 auto;
@@ -9,11 +10,11 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-	const isLoggedIn = true;
+	const { data } = useIsUserLoggedInQuery();
 
 	return (
 		<>
-			{isLoggedIn ? <Header /> : null}
+			{data?.isLoggedIn ? <Header /> : null}
 			<Wrapper>{/* <Routes isSignIn={isSignIn}></Routes> */}</Wrapper>
 		</>
 	);
