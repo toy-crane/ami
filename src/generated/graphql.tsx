@@ -13,7 +13,7 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  isLoggedIn: Scalars['String'];
+  isLoggedIn: Scalars['Boolean'];
   me: User;
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header";
 import styled from "@emotion/styled";
 import { useIsUserLoggedInQuery } from "../generated/graphql";
+import Routes from "./Routes";
 
 const Wrapper = styled.div`
 	margin: 0 auto;
@@ -10,12 +11,20 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-	const { data } = useIsUserLoggedInQuery();
+	const { data, loading } = useIsUserLoggedInQuery();
 
 	return (
 		<>
-			{data?.isLoggedIn ? <Header /> : null}
-			<Wrapper>{/* <Routes isSignIn={isSignIn}></Routes> */}</Wrapper>
+			{data ? (
+				<>
+					<Header isLoggedIn={data.isLoggedIn} />
+					<Wrapper>
+						<Routes isLoggedIn={data.isLoggedIn}></Routes>
+					</Wrapper>
+				</>
+			) : (
+				"loading..."
+			)}
 		</>
 	);
 }

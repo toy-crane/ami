@@ -4,7 +4,7 @@ import AuthPage from "../Routes/Auth";
 import MainPage from "../Routes/Main";
 
 type AppRouterProps = {
-	isSignIn: boolean;
+	isLoggedIn: boolean;
 };
 
 const LoggedInRoutes = () => (
@@ -21,7 +21,7 @@ const LoggedOutRoutes = () => (
 	</Switch>
 );
 
-const AppRouter = ({ isSignIn }: AppRouterProps) =>
-	isSignIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
+const AppRouter = ({ isLoggedIn }: AppRouterProps) =>
+	isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
 
 export default AppRouter;
