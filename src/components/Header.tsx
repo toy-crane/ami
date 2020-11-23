@@ -1,9 +1,9 @@
 import React from "react";
-import { useLogout, useMe } from "../services/auth";
+import { useLogout, useGetMe } from "../services/auth";
 
 const Header = () => {
 	const logout = useLogout();
-	const { data, error } = useMe();
+	const { data, error } = useGetMe();
 	if (error) {
 		logout();
 	}

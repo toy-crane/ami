@@ -7,6 +7,7 @@ export default new InMemoryCache({
 			fields: {
 				isLoggedIn: {
 					read() {
+						console.log("hello", isLoggedIn());
 						return isLoggedIn();
 					},
 				},

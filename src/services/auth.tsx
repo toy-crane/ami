@@ -1,10 +1,10 @@
-import { useMeQuery } from "../generated/graphql";
+import { useGetMeQuery } from "../generated/graphql";
 import { useToken } from "./tokenService";
 import { useApolloClient } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 
-// useMe hooks
-export const useMe = useMeQuery;
+// useGetMe hooks
+export const useGetMe = useGetMeQuery;
 // logout hooks
 export const useLogout = () => {
 	const { removeToken } = useToken();

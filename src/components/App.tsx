@@ -1,7 +1,5 @@
 import React from "react";
-import { useIsSignIn } from "../services/auth";
 import Header from "./Header";
-import Routes from "./Routes";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
@@ -11,14 +9,12 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-	const isSignIn = useIsSignIn();
+	const isLoggedIn = true;
 
 	return (
 		<>
-			{isSignIn ? <Header /> : null}
-			<Wrapper>
-				<Routes isSignIn={isSignIn}></Routes>
-			</Wrapper>
+			{isLoggedIn ? <Header /> : null}
+			<Wrapper>{/* <Routes isSignIn={isSignIn}></Routes> */}</Wrapper>
 		</>
 	);
 }
