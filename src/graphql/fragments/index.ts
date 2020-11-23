@@ -1,1 +1,1 @@
-export { default as User } from "./user.fragment";
+export { default as UserFields } from "./user.fragment";

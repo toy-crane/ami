@@ -13,19 +13,29 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
-  me: UserPersonalData;
+  me: User;
 };
 
-export type UserPersonalData = {
-  __typename?: 'UserPersonalData';
+export type User = {
+  __typename?: 'User';
   email: Scalars['String'];
   name?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
 };
 
-export type UserFragment = (
-  { __typename?: 'UserPersonalData' }
-  & Pick<UserPersonalData, 'name' | 'email' | 'isActive'>
+export type Mutation = {
+  __typename?: 'Mutation';
+  createAuthToken?: Maybe<AccessToken>;
+};
+
+export type AccessToken = {
+  __typename?: 'accessToken';
+  token: Scalars['String'];
+};
+
+export type UserFieldsFragment = (
+  { __typename?: 'User' }
+  & Pick<User, 'name' | 'email' | 'isActive'>
 );
 
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
@@ -34,13 +44,13 @@ export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 export type MeQuery = (
   { __typename?: 'Query' }
   & { me: (
-    { __typename?: 'UserPersonalData' }
-    & UserFragment
+    { __typename?: 'User' }
+    & UserFieldsFragment
   ) }
 );
 
-export const UserFragmentDoc = gql`
-    fragment User on UserPersonalData {
+export const UserFieldsFragmentDoc = gql`
+    fragment UserFields on User {
   name
   email
   isActive
@@ -49,10 +59,10 @@ export const UserFragmentDoc = gql`
 export const MeDocument = gql`
     query me {
   me {
-    ...User
+    ...UserFields
   }
 }
-    ${UserFragmentDoc}`;
+    ${UserFieldsFragmentDoc}`;
 
 /**
  * __useMeQuery__
