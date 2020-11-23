@@ -2,6 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { getToken } from "../services/tokenService";
 import { onError } from "@apollo/client/link/error";
+import cache from "./cache";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
 	if (graphQLErrors)
@@ -30,5 +31,5 @@ const authLink = setContext((_, { headers }) => {
 
 export default new ApolloClient({
 	link: errorLink.concat(authLink.concat(httpLink)),
-	cache: new InMemoryCache(),
+	cache: cache,
 });

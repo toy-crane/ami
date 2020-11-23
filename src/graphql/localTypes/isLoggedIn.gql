@@ -1,0 +1,7 @@
+type isLoggedIn {
+	isLoggedIn: Boolean!
+}
+
+type Query {
+	isLoggedIn: isLoggedIn
+}
