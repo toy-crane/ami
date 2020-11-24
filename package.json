@@ -20,6 +20,7 @@
 		"@types/react-redux": "^7.1.9",
 		"@types/react-router-dom": "^5.1.6",
 		"@types/yup": "^0.29.8",
+		"apollo-link-refresh-token": "^0.1.2",
 		"emotion": "^10.0.27",
 		"gql": "^1.1.2",
 		"graphql": "^15.3.0",

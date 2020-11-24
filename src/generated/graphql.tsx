@@ -39,6 +39,17 @@ export type UserFieldsFragment = (
   & Pick<User, 'name' | 'email' | 'isActive'>
 );
 
+export type CreateAuthTokenMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CreateAuthTokenMutation = (
+  { __typename?: 'Mutation' }
+  & { createAuthToken?: Maybe<(
+    { __typename?: 'accessToken' }
+    & Pick<AccessToken, 'token'>
+  )> }
+);
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -65,6 +76,37 @@ export const UserFieldsFragmentDoc = gql`
   isActive
 }
     `;
+export const CreateAuthTokenDocument = gql`
+    mutation createAuthToken {
+  createAuthToken {
+    token
+  }
+}
+    `;
+export type CreateAuthTokenMutationFn = Apollo.MutationFunction<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>;
+
+/**
+ * __useCreateAuthTokenMutation__
+ *
+ * To run a mutation, you first call `useCreateAuthTokenMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateAuthTokenMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createAuthTokenMutation, { data, loading, error }] = useCreateAuthTokenMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useCreateAuthTokenMutation(baseOptions?: Apollo.MutationHookOptions<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>) {
+        return Apollo.useMutation<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>(CreateAuthTokenDocument, baseOptions);
+      }
+export type CreateAuthTokenMutationHookResult = ReturnType<typeof useCreateAuthTokenMutation>;
+export type CreateAuthTokenMutationResult = Apollo.MutationResult<CreateAuthTokenMutation>;
+export type CreateAuthTokenMutationOptions = Apollo.BaseMutationOptions<CreateAuthTokenMutation, CreateAuthTokenMutationVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {
