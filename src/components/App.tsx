@@ -3,6 +3,7 @@ import Header from "./Header";
 import styled from "@emotion/styled";
 import { useIsUserLoggedInQuery } from "../generated/graphql";
 import Routes from "./Routes";
+import { useGetMe } from "../services/auth";
 
 const Wrapper = styled.div`
 	margin: 0 auto;
@@ -11,8 +12,10 @@ const Wrapper = styled.div`
 `;
 
 function App() {
-	const { data, loading } = useIsUserLoggedInQuery();
+	const { data: me } = useGetMe();
+	const { data } = useIsUserLoggedInQuery();
 	const isLoggedIn = data?.isLoggedIn || false;
+	console.log(me);
 
 	return (
 		<>
