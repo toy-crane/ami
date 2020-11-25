@@ -14,7 +14,7 @@ const Header = ({ isLoggedIn }: HeaderProps) => {
 		if (isLoggedIn) {
 			getMe();
 		}
-	});
+	}, [getMe, isLoggedIn]);
 
 	if (error) {
 		logout();
