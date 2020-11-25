@@ -41,7 +41,6 @@ const errorLink = onError(
 									.catch((err) => {
 										// 신규 토큰 발급이 실패 했을 때 (login으로 redirect)
 										pendingRequests = [];
-										throw new Error('토큰 발급 실패')
 										return false;
 									})
 									// eslint-disable-next-line no-loop-func

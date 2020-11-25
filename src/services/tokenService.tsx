@@ -1,4 +1,4 @@
-import createAuthTokenMutation from "../graphql/mutations/createAuthToken.mutation";
+import createAuthTokenMutation from "../graphql/mutations/logout.mutation";
 import client from "../apollo/client";
 
 // 신규 Access Token 가져오기

@@ -1,1 +1,1 @@
-export { default as createAuthToken } from "./createAuthToken.mutation";
+export { default as createAuthToken } from "./logout.mutation";
