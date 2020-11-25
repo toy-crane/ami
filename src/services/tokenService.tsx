@@ -1,6 +1,8 @@
 import { useCookies } from "react-cookie";
 import { useCallback } from "react";
 import Cookies from "js-cookie";
+import createAuthTokenMutation from "../graphql/mutations/createAuthToken.mutation";
+import client from "../apollo/client";
 
 const TOKEN_NAME = "token";
 
@@ -23,3 +25,17 @@ export const useToken = () => {
 export const getToken = () => {
 	return Cookies.get(TOKEN_NAME);
 };
+
+// 신규 Access Token 가져오기
+const fetchNewAccessToken = async () => {
+	try {
+		const data = await client.mutate({
+			mutation: createAuthTokenMutation,
+		});
+		return data;
+	} catch {
+		throw Error("새로운 토큰을 가져오는데 실패했습니다.");
+	}
+};
+
+export { fetchNewAccessToken };

@@ -1,39 +1,69 @@
 import { onError } from "@apollo/client/link/error";
-import { ErrorResponse } from "@apollo/link-error";
-import { fetchNewAccessToken } from "../services/auth";
-import { fromPromise } from "apollo-link";
+import { fetchNewAccessToken } from "../services/tokenService";
+import { fromPromise } from "@apollo/client";
+import { accessTokenVar } from "./cache";
+
+let isRefreshing = false;
+let pendingRequests: any = [];
+
+const resolvePendingRequests = () => {
+	pendingRequests.map((callback: any) => callback());
+	pendingRequests = [];
+};
 
 const errorLink = onError(
-	({ graphQLErrors, networkError, operation, forward }: ErrorResponse) => {
-		if (graphQLErrors)
-			graphQLErrors.forEach((err) => {
-				const { message, locations, path, extensions } = err;
-				const errorCode =
-					extensions && extensions.code ? extensions.code : null;
-				console.log(
-					`[GraphQL error]: Message: ${message}, Location: ${locations}, Path: ${path} extensions: ${errorCode}`
-				);
-				switch (errorCode) {
+	({ graphQLErrors, networkError, operation, forward }) => {
+		if (graphQLErrors) {
+			for (let err of graphQLErrors) {
+				switch (err.extensions!.code) {
 					case "UNAUTHENTICATED":
-						return fromPromise(
-							fetchNewAccessToken()
-								.then((accessToken) => {
-									// Store the new tokens for your auth link
-									console.log(accessToken);
-									return accessToken;
+						let forward$;
+						if (!isRefreshing) {
+							isRefreshing = true;
+							forward$ = fromPromise(
+								fetchNewAccessToken()
+									.then(
+										({
+											data: {
+												createAuthToken: { token },
+											},
+										}) => {
+											// 신규 토큰 저장
+											accessTokenVar(token);
+											// 실패한 요청들 다시 시도하기
+											resolvePendingRequests();
+											return true;
+										}
+									)
+									// eslint-disable-next-line no-loop-func
+									.catch(() => {
+										// 신규 토큰 발급이 실패 했을 때 (login으로 redirect)
+										pendingRequests = [];
+										return false;
+									})
+									// eslint-disable-next-line no-loop-func
+									.finally(() => {
+										isRefreshing = false;
+									})
+							);
+						} else {
+							forward$ = fromPromise(
+								// eslint-disable-next-line no-loop-func
+								// refreshing 하는 사이에 들어온 request들을 모아 놓는다.
+								new Promise((resolve) => {
+									pendingRequests.push(() => resolve());
 								})
-								.catch((error) => {
-									// Handle token refresh errors e.g clear stored tokens, redirect to login, ...
-									return;
-								})
-						)
-							.filter((value) => Boolean(value))
-							.flatMap(() => {
-								// retry the request, returning the new observable
-								return forward(operation);
-							});
+							);
+						}
+						return forward$.flatMap(() => forward(operation));
+					default:
+						console.log(
+							`[GraphQL error]: Message: ${err.message}, Location: ${err.locations}, Path: ${err.path}`
+						);
 				}
-			});
+			}
+		}
+
 		if (networkError) console.log(`[Network error]: ${networkError}`);
 	}
 );
