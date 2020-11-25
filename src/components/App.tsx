@@ -3,7 +3,6 @@ import Header from "./Header";
 import styled from "@emotion/styled";
 import { useGetMeQuery, useIsUserLoggedInQuery } from "../generated/graphql";
 import Routes from "./Routes";
-import { isNonEmptyArray } from "@apollo/client/utilities";
 
 const Wrapper = styled.div`
 	margin: 0 auto;
