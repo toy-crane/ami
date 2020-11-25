@@ -58,9 +58,14 @@ const errorLink = onError(
 							);
 						}
 						return forward$.flatMap(() => forward(operation));
+					case "INVALID_REFRESH_TOKEN":
+						history.push("/sign-in");
+						return forward(operation);
 					default:
 						console.log(
-							`[GraphQL error]: Message: ${err.message}, Location: ${err.locations}, Path: ${err.path}`
+							`[GraphQL error]: Message: ${err.message}, Location: ${
+								err.locations
+							}, Path: ${err.path} Code: ${err.extensions!.code}`
 						);
 				}
 			}
