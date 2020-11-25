@@ -16,6 +16,7 @@ const LoggedInRoutes = () => (
 
 const LoggedOutRoutes = () => (
 	<Switch>
+		<Route exact path="/" component={MainPage} />
 		<Route exact path="/sign-(in|up)" component={AuthPage} />
 		<Redirect from="*" to="/sign-in" />
 	</Switch>
