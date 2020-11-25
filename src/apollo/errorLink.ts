@@ -48,8 +48,8 @@ const errorLink = onError(
 							);
 						} else {
 							forward$ = fromPromise(
-								// eslint-disable-next-line no-loop-func
 								// refreshing 하는 사이에 들어온 request들을 모아 놓는다.
+								// eslint-disable-next-line no-loop-func
 								new Promise((resolve) => {
 									pendingRequests.push(() => resolve());
 								})
