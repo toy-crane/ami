@@ -8,7 +8,7 @@ export default new InMemoryCache({
 			fields: {
 				isLoggedIn: {
 					read() {
-						return isLoggedInVar();
+						return !!accessTokenVar();
 					},
 				},
 			},
