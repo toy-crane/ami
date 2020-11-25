@@ -1,4 +1,4 @@
-import { ApolloLink } from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { isLoggedInVar } from "./cache";
 
 type Headers = {
@@ -6,16 +6,14 @@ type Headers = {
 };
 
 // 매 요청마다 토큰을 실어보내는 Link
-const authLink = new ApolloLink((operation, forward) => {
+const authLink = setContext((_, { headers }: { headers: Headers }) => {
 	const accessToken = isLoggedInVar();
-	operation.setContext(({ headers }: { headers: Headers }) => ({
+	return {
 		headers: {
 			...headers,
-			authorization: accessToken ? `Bearer ${accessToken}` : "",
+			authorization: `Bearer ${accessToken}`,
 		},
-	}));
-
-	return forward(operation);
+	};
 });
 
 export default authLink;
