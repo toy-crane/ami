@@ -1,5 +1,6 @@
-import React from "react";
-import { useLogout, useGetMe } from "../services/auth";
+import React, { useEffect } from "react";
+import { useGetMeLazyQuery } from "../generated/graphql";
+import { useLogout } from "../services/auth";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -7,10 +8,18 @@ type HeaderProps = {
 
 const Header = ({ isLoggedIn }: HeaderProps) => {
 	const logout = useLogout();
-	const { data, error } = useGetMe();
+	const [getMe, { data, error }] = useGetMeLazyQuery();
+
+	useEffect(() => {
+		if (isLoggedIn) {
+			getMe();
+		}
+	});
+
 	if (error) {
 		logout();
 	}
+
 	return (
 		<div>
 			{isLoggedIn ? (
