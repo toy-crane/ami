@@ -4,13 +4,14 @@ import App from "./components/App";
 import { CookiesProvider } from "react-cookie";
 import { ApolloProvider } from "@apollo/client";
 import client from "./apollo/client";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { QueryParamProvider } from "use-query-params";
+import { history } from "./services/browserHistory";
 
 ReactDOM.render(
 	<ApolloProvider client={client}>
 		<CookiesProvider>
-			<Router>
+			<Router history={history}>
 				<QueryParamProvider ReactRouterRoute={Route}>
 					<App />
 				</QueryParamProvider>

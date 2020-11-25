@@ -2,6 +2,7 @@ import { onError } from "@apollo/client/link/error";
 import { fetchNewAccessToken } from "../services/tokenService";
 import { fromPromise } from "@apollo/client";
 import { accessTokenVar } from "./cache";
+import { history } from "../services/browserHistory";
 
 let isRefreshing = false;
 let pendingRequests: any = [];
@@ -15,6 +16,7 @@ const errorLink = onError(
 	({ graphQLErrors, networkError, operation, forward }) => {
 		if (graphQLErrors) {
 			for (let err of graphQLErrors) {
+				console.log(err);
 				switch (err.extensions!.code) {
 					case "UNAUTHENTICATED":
 						let forward$;
@@ -36,9 +38,12 @@ const errorLink = onError(
 										}
 									)
 									// eslint-disable-next-line no-loop-func
-									.catch(() => {
+									.catch((err) => {
 										// 신규 토큰 발급이 실패 했을 때 (login으로 redirect)
+										console.log(err);
 										pendingRequests = [];
+										console.log(history);
+										history.push("/sign-in");
 										return false;
 									})
 									// eslint-disable-next-line no-loop-func
