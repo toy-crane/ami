@@ -1,33 +1,21 @@
-import React, { useEffect } from "react";
-import { useGetMeLazyQuery } from "../generated/graphql";
-import { useLogout } from "../services/auth";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useGetMeQuery } from "../generated/graphql";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
 };
 
 const Header = ({ isLoggedIn }: HeaderProps) => {
-	const logout = useLogout();
-	const [getMe, { data, error }] = useGetMeLazyQuery();
-
-	useEffect(() => {
-		if (isLoggedIn) {
-			getMe();
-		}
-	}, [getMe, isLoggedIn]);
-
-	if (error) {
-		logout();
-	}
-
+	const { data } = useGetMeQuery();
 	return (
 		<div>
 			{isLoggedIn ? (
 				<div>
-					ID: {data && data.me.email} <button onClick={logout}>로그아웃</button>
+					ID: {data && data.me.email} <button>로그아웃</button>
 				</div>
 			) : (
-				<div>비로그인</div>
+				<Link to="/sign-in">로그인 하기</Link>
 			)}
 		</div>
 	);

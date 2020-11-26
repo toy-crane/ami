@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 function App() {
 	const { data } = useIsUserLoggedInQuery();
 	const isLoggedIn = data?.isLoggedIn || false;
+	console.log(isLoggedIn);
 	return (
 		<>
 			<Header isLoggedIn={isLoggedIn} />

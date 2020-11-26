@@ -1,5 +1,5 @@
-import createAuthTokenMutation from "../graphql/mutations/logout.mutation";
 import client from "../apollo/client";
+import createAuthTokenMutation from "../graphql/mutations/createAuthToken.mutation";
 
 // 신규 Access Token 가져오기
 const fetchNewAccessToken = async () => {
@@ -8,5 +8,4 @@ const fetchNewAccessToken = async () => {
 	});
 	return data;
 };
-
 export { fetchNewAccessToken };
