@@ -9,7 +9,7 @@ export const useGetMe = useGetMeQuery;
 // logout hooks
 export const useLogout = () => {
 	const apolloClient = useApolloClient();
-	const [logoutMutation, { data, error }] = useLogoutMutation();
+	const [logoutMutation, { data }] = useLogoutMutation();
 	const history = useHistory();
 
 	const logout = useCallback(async () => {
