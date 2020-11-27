@@ -4,8 +4,8 @@ import ActivateUserPage from "../Routes/Auth/ActivateUserPage";
 import MainPage from "../Routes/Main";
 import MyPage from "../Routes/MyPage";
 import { useGetMeQuery } from "../types/graphql-types";
-import PrivateRoute from "./PrivateRoute";
-import ActivateRoute from "./ActivateRoute";
+import PrivateRoute from "./Router/PrivateRoute";
+import ActivateRoute from "./Router/ActivateRoute";
 import SignUpPage from "../Routes/Auth/SignUpPage";
 import LoginPage from "../Routes/Auth/LoginPage";
 
