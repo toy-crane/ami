@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
 import MainPage from "../Routes/Main";
-import { useGetMeQuery } from "../generated/graphql";
+import { useGetMeQuery } from "../types/graphql-types";
 
 const LoggedInRoutes = () => (
 	<Switch>

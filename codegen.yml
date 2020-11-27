@@ -4,7 +4,7 @@ schema:
   - ./src/graphql/localTypes/*.gql
 documents: "./src/**/*.{tsx,ts}"
 generates:
-  src/generated/graphql.tsx:
+  src/types/graphql-types.ts:
     plugins:
       - "typescript"
       - "typescript-operations"

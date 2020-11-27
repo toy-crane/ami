@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetMeQuery } from "../generated/graphql";
+import { useGetMeQuery } from "../types/graphql-types";
 
 const Header = () => {
 	const { data, loading } = useGetMeQuery();

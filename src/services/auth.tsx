@@ -1,4 +1,4 @@
-import { useGetMeQuery, useLogoutMutation } from "../generated/graphql";
+import { useGetMeQuery, useLogoutMutation } from "../types/graphql-types";
 import { useApolloClient } from "@apollo/client";
 import { useHistory } from "react-router-dom";
 import { accessTokenVar } from "../apollo/cache";
