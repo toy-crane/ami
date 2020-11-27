@@ -2,7 +2,6 @@ import { onError } from "@apollo/client/link/error";
 import { fetchNewAccessToken } from "../services/tokenService";
 import { fromPromise } from "@apollo/client";
 import { accessTokenVar } from "./cache";
-import { history } from "../services/browserHistory";
 
 let isRefreshing = false;
 let pendingRequests: any = [];
