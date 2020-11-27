@@ -1,31 +1,19 @@
-import { useGetMeQuery, useLogoutMutation } from "../types/graphql-types";
-import { useApolloClient } from "@apollo/client";
-import { useHistory } from "react-router-dom";
+import { useLogoutMutation } from "../types/graphql-types";
 import { accessTokenVar } from "../apollo/cache";
-import { useCallback, useEffect } from "react";
+import { useEffect } from "react";
 
-// useGetMe hooks
-export const useGetMe = useGetMeQuery;
-// logout hooks
+// logout custom hooks
 export const useLogout = () => {
-	const apolloClient = useApolloClient();
-	const [logoutMutation, { data }] = useLogoutMutation();
-	const history = useHistory();
-
-	const logout = useCallback(async () => {
-		// cache 초기화
-		await apolloClient.clearStore();
-		// 서버 refresh token 초기화
+	const [logoutMutation, { data, error }] = useLogoutMutation();
+	const handleLogout = () => {
 		logoutMutation();
-	}, [apolloClient, logoutMutation]);
+	};
 
 	useEffect(() => {
 		if (data?.logout) {
-			console.log("logout", data);
-			// 메모리에 있는 토큰 초기화
 			accessTokenVar(null);
-			history.push("/");
 		}
-	}, [data, history]);
-	return logout;
+	}, [data]);
+
+	return handleLogout;
 };
