@@ -11,10 +11,7 @@ const AuthPage = () => {
 	return (
 		<>
 			<div>
-				<a href="http://localhost:4000/github">github</a>
-			</div>
-			<div>
-				<a href="http://localhost:4000/google">google</a>
+				<a href="http://localhost:4000/github">github 로그인</a>
 			</div>
 		</>
 	);
