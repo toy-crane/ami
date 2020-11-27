@@ -38,8 +38,7 @@ const errorLink = onError(
 									)
 									// eslint-disable-next-line no-loop-func
 									.catch((err) => {
-										// 신규 토큰 발급이 실패 했을 때 (login으로 redirect)
-										console.log("신규 토큰 발급 실패");
+										// 신규 토큰 발급이 실패 했을 때 (기존 request 전부 삭제)
 										pendingRequests = [];
 										return false;
 									})
@@ -58,8 +57,9 @@ const errorLink = onError(
 							);
 						}
 						return forward$.flatMap(() => forward(operation));
+					// 잘못된 토큰의 경우 그대로 두기
 					case "INVALID_REFRESH_TOKEN":
-						history.push("/sign-in");
+					case "INVALID_ACCESS_TOKEN":
 						return forward(operation);
 					default:
 						console.log(
