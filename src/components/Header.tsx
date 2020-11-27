@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useMemo } from "react";
+import React, { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { useLogout } from "../services/auth";
 import { useGetMeQuery } from "../types/graphql-types";
