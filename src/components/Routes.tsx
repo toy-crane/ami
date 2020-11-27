@@ -1,32 +1,39 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
+import ActivateUserPage from "../Routes/Auth/ActivateUserPage";
 import MainPage from "../Routes/Main";
 import MyPage from "../Routes/MyPage";
 import { useGetMeQuery } from "../types/graphql-types";
-
-const LoggedInRoutes = () => (
-	<Switch>
-		<Route exact path="/mypage" component={MyPage} />
-		<Route exact path="/" component={MainPage} />
-		<Redirect from="*" to="/" />
-	</Switch>
-);
-const LoggedOutRoutes = () => (
-	<Switch>
-		<Route exact path="/" component={MainPage} />
-		<Route exact path="/sign-(in|up)" component={AuthPage} />
-		<Redirect from="*" to="/sign-in" />
-	</Switch>
-);
+import PrivateRoute from "./PrivateRoute";
+import ActivateRoute from "./ActivateRoute";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
 	const isLoggedIn = data?.isLoggedIn || false;
+	const isActive = data?.me.isActive || false;
 	if (loading) {
 		return <div>loading...</div>;
 	}
-	return isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
+	return (
+		<>
+			<Route exact path="/" component={MainPage} />
+			<Route path="/signup" component={AuthPage} />
+			<Route path="/login" component={AuthPage} />
+			<ActivateRoute
+				path="/activate"
+				component={ActivateUserPage}
+				isActive={isActive}
+				isLoggedIn={isLoggedIn}
+			/>
+			<PrivateRoute
+				path="/mypage"
+				component={MyPage}
+				isActive={isActive}
+				isLoggedIn={isLoggedIn}
+			/>
+		</>
+	);
 };
 
 export default AppRouter;
