@@ -6,6 +6,7 @@ export default gql`
 		me {
 			...UserFields
 		}
+		isLoggedIn @client
 	}
 	${fragments.UserFields}
 `;

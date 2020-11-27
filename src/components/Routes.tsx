@@ -2,10 +2,7 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
 import MainPage from "../Routes/Main";
-
-type AppRouterProps = {
-	isLoggedIn: boolean;
-};
+import { useGetMeQuery } from "../generated/graphql";
 
 const LoggedInRoutes = () => (
 	<Switch>
@@ -21,7 +18,13 @@ const LoggedOutRoutes = () => (
 	</Switch>
 );
 
-const AppRouter = ({ isLoggedIn }: AppRouterProps) =>
-	isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
+const AppRouter = () => {
+	const { data, loading } = useGetMeQuery();
+	const isLoggedIn = data?.isLoggedIn || false;
+	if (loading) {
+		return <div>loading...</div>;
+	}
+	return isLoggedIn ? <LoggedInRoutes /> : <LoggedOutRoutes />;
+};
 
 export default AppRouter;

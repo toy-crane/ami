@@ -64,6 +64,7 @@ export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type GetMeQuery = (
   { __typename?: 'Query' }
+  & Pick<Query, 'isLoggedIn'>
   & { me: (
     { __typename?: 'User' }
     & UserFieldsFragment
@@ -150,6 +151,7 @@ export const GetMeDocument = gql`
   me {
     ...UserFields
   }
+  isLoggedIn @client
 }
     ${UserFieldsFragmentDoc}`;
 

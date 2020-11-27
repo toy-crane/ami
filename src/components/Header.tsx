@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useGetMeQuery } from "../generated/graphql";
 
-type HeaderProps = {
-	isLoggedIn: boolean;
-};
+const Header = () => {
+	const { data, loading } = useGetMeQuery();
+	const isLoggedIn = data?.isLoggedIn || false;
 
-const Header = ({ isLoggedIn }: HeaderProps) => {
-	const { data } = useGetMeQuery();
+	if (loading) {
+		return <div>loading...</div>;
+	}
+
 	return (
 		<div>
 			{isLoggedIn ? (
