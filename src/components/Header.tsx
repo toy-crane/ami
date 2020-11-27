@@ -19,7 +19,7 @@ const Header = () => {
 					<button onClick={handleLogout}>로그아웃</button>
 				</div>
 			) : (
-				<Link to="/sign-in">로그인 하기</Link>
+				<Link to="/login">로그인 하기</Link>
 			)}
 		</div>
 	);

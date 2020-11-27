@@ -1,12 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import AuthPage from "../Routes/Auth";
 import ActivateUserPage from "../Routes/Auth/ActivateUserPage";
 import MainPage from "../Routes/Main";
 import MyPage from "../Routes/MyPage";
 import { useGetMeQuery } from "../types/graphql-types";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
+import SignUpPage from "../Routes/Auth/SignUpPage";
+import LoginPage from "../Routes/Auth/LoginPage";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -18,8 +19,8 @@ const AppRouter = () => {
 	return (
 		<>
 			<Route exact path="/" component={MainPage} />
-			<Route path="/signup" component={AuthPage} />
-			<Route path="/login" component={AuthPage} />
+			<Route path="/signup" component={SignUpPage} />
+			<Route path="/login" component={LoginPage} />
 			<ActivateRoute
 				path="/activate"
 				component={ActivateUserPage}
