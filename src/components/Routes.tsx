@@ -1,7 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import AuthPage from "../Routes/Auth";
-import LoginSuccessPage from "../Routes/Auth/LoginSuccessPage";
 import MainPage from "../Routes/Main";
 
 type AppRouterProps = {
