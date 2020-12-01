@@ -12,15 +12,11 @@ const HeaderContainer = () => {
 		return <div>loading...</div>;
 	}
 	return (
-		<div>
-			{data && (
-				<Header
-					email={data.me.email}
-					isLoggedIn={isLoggedIn}
-					handleLogout={handleLogout}
-				/>
-			)}
-		</div>
+		<Header
+			email={data?.me.email}
+			isLoggedIn={isLoggedIn}
+			handleLogout={handleLogout}
+		/>
 	);
 };
 
