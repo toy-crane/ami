@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import Routes from "../Routes";
-import Header from "../Header";
+import { Header } from "../Header";
 
 const Wrapper = styled.div`
 	margin: 0 auto;
