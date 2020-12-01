@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Routes from "../Routes";
+import { AppRouter } from "../Router";
 import { Header } from "../Header";
 
 const Wrapper = styled.div`
@@ -14,7 +14,7 @@ function App() {
 		<>
 			<Wrapper>
 				<Header></Header>
-				<Routes></Routes>
+				<AppRouter></AppRouter>
 			</Wrapper>
 		</>
 	);
