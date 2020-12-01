@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Main } from "../Main";
-import MyPage from "../../Routes/MyPage";
+import { MyPage } from "../MyPage";
 import { useGetMeQuery } from "../../types/graphql-types";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
