@@ -12,6 +12,7 @@ type ActivateRouteProps = {
 function ActivateRoute(props: ActivateRouteProps) {
 	const { isLoggedIn, isActive, component: Component, ...rest } = props;
 	const handleRoute = (props: any) => {
+		// 비활성화된 경우에만 Component rendering하도록 함.
 		if (isLoggedIn && !isActive) {
 			return <Component {...props} />;
 		} else {
