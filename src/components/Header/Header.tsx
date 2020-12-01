@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 type HeaderProps = {
 	isLoggedIn: boolean;
 	email: string;
-	handleLogout: any;
+	handleLogout(): void;
 };
 
 const Header = ({ isLoggedIn, email, handleLogout }: HeaderProps) => {

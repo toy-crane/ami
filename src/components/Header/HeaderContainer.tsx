@@ -11,16 +11,17 @@ const HeaderContainer = () => {
 	if (loading) {
 		return <div>loading...</div>;
 	}
-	if (data) {
-		return (
-			<Header
-				email={data.me.email}
-				isLoggedIn={isLoggedIn}
-				handleLogout={handleLogout}
-			/>
-		);
-	}
-	return <></>;
+	return (
+		<div>
+			{data && (
+				<Header
+					email={data.me.email}
+					isLoggedIn={isLoggedIn}
+					handleLogout={handleLogout}
+				/>
+			)}
+		</div>
+	);
 };
 
 export default HeaderContainer;
