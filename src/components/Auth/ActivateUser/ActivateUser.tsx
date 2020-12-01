@@ -21,7 +21,9 @@ const ActivateUser = () => {
 		resolver: yupResolver(schema),
 	});
 	const [activateUser, { data }] = useActivateUserMutation();
-	const onSubmit = (data: ActivateUserFormInputs) => activateUser({ variables: data });
+	const onSubmit = (data: ActivateUserFormInputs) => {
+		activateUser({ variables: data });
+	};
 	const history = useHistory();
 
 	useEffect(() => {
