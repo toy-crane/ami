@@ -11,17 +11,17 @@ export const schema = yup.object().shape({
 	mobile: mobileValidator,
 });
 
-interface IFormInputs {
+interface ActivateUserFormInputs {
 	mobile: string;
 	name: string;
 }
 
 const ActivateUser = () => {
-	const { register, handleSubmit, errors } = useForm<IFormInputs>({
+	const { register, handleSubmit, errors } = useForm<ActivateUserFormInputs>({
 		resolver: yupResolver(schema),
 	});
-	const [activateUser, { data, error, loading }] = useActivateUserMutation();
-	const onSubmit = (data: IFormInputs) => activateUser({ variables: data });
+	const [activateUser, { data }] = useActivateUserMutation();
+	const onSubmit = (data: ActivateUserFormInputs) => activateUser({ variables: data });
 	const history = useHistory();
 
 	useEffect(() => {
