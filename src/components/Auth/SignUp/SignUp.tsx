@@ -7,7 +7,7 @@ export const Alternative = styled.div`
 	}
 `;
 
-const SignUpPage = () => {
+const SignUp = () => {
 	return (
 		<>
 			회원 가입 페이지
@@ -18,4 +18,4 @@ const SignUpPage = () => {
 	);
 };
 
-export default SignUpPage;
+export default SignUp;

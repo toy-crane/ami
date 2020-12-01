@@ -8,7 +8,7 @@ export const Alternative = styled.div`
 	}
 `;
 
-const LoginPage = () => {
+const Login = () => {
 	return (
 		<>
 			<div>
@@ -22,4 +22,4 @@ const LoginPage = () => {
 	);
 };
 
-export default LoginPage;
+export default Login;
