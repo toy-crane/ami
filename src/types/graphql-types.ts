@@ -21,13 +21,21 @@ export type User = {
   __typename?: 'User';
   email: Scalars['String'];
   name?: Maybe<Scalars['String']>;
+  mobile?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
+  activateUser: User;
   createAuthToken?: Maybe<AccessToken>;
   logout?: Maybe<Scalars['Boolean']>;
+};
+
+
+export type MutationActivateUserArgs = {
+  mobile: Scalars['String'];
+  name: Scalars['String'];
 };
 
 export type AccessToken = {
