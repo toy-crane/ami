@@ -8,6 +8,7 @@ import ActivateRoute from "./ActivateRoute";
 import { ActivateUser } from "../Auth";
 import { Login } from "../Auth";
 import { SignUp } from "../Auth";
+import NotFound from "../NotFound/NotFound";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -33,6 +34,7 @@ const AppRouter = () => {
 				isActive={isActive}
 				isLoggedIn={isLoggedIn}
 			/>
+			<Route path="*" component={NotFound} />
 		</>
 	);
 };
