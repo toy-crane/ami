@@ -1,3 +1,3 @@
-import Header from "./HeaderContainer";
+import HeaderContainer from "./HeaderContainer";
 
-export { Header };
+export { HeaderContainer as Header };
