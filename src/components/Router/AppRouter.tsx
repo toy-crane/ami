@@ -18,7 +18,7 @@ const AppRouter = () => {
 	return (
 		<Switch>
 			<Route exact path="/" component={Main} />
-			<Route path="/signup" component={SignUp} />
+			<Route path="/sign-up" component={SignUp} />
 			<Route path="/login" component={Login} />
 			<ActivateRoute
 				path="/activate"
