@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import MainPage from "../../Routes/Main";
+import { Main } from "../Main";
 import MyPage from "../../Routes/MyPage";
 import { useGetMeQuery } from "../../types/graphql-types";
 import PrivateRoute from "./PrivateRoute";
@@ -19,7 +19,7 @@ const AppRouter = () => {
 	}
 	return (
 		<>
-			<Route exact path="/" component={MainPage} />
+			<Route exact path="/" component={Main} />
 			<Route path="/signup" component={SignUp} />
 			<Route path="/login" component={Login} />
 			<ActivateRoute
