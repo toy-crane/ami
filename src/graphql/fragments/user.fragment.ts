@@ -4,6 +4,7 @@ export default gql`
 	fragment UserFields on User {
 		name
 		email
+		mobile
 		isActive
 	}
 `;

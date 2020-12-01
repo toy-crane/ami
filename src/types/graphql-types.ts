@@ -45,7 +45,21 @@ export type AccessToken = {
 
 export type UserFieldsFragment = (
   { __typename?: 'User' }
-  & Pick<User, 'name' | 'email' | 'isActive'>
+  & Pick<User, 'name' | 'email' | 'mobile' | 'isActive'>
+);
+
+export type ActivateUserMutationVariables = Exact<{
+  mobile: Scalars['String'];
+  name: Scalars['String'];
+}>;
+
+
+export type ActivateUserMutation = (
+  { __typename?: 'Mutation' }
+  & { activateUser: (
+    { __typename?: 'User' }
+    & UserFieldsFragment
+  ) }
 );
 
 export type CreateAuthTokenMutationVariables = Exact<{ [key: string]: never; }>;
@@ -83,9 +97,43 @@ export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
   name
   email
+  mobile
   isActive
 }
     `;
+export const ActivateUserDocument = gql`
+    mutation activateUser($mobile: String!, $name: String!) {
+  activateUser(mobile: $mobile, name: $name) {
+    ...UserFields
+  }
+}
+    ${UserFieldsFragmentDoc}`;
+export type ActivateUserMutationFn = Apollo.MutationFunction<ActivateUserMutation, ActivateUserMutationVariables>;
+
+/**
+ * __useActivateUserMutation__
+ *
+ * To run a mutation, you first call `useActivateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useActivateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [activateUserMutation, { data, loading, error }] = useActivateUserMutation({
+ *   variables: {
+ *      mobile: // value for 'mobile'
+ *      name: // value for 'name'
+ *   },
+ * });
+ */
+export function useActivateUserMutation(baseOptions?: Apollo.MutationHookOptions<ActivateUserMutation, ActivateUserMutationVariables>) {
+        return Apollo.useMutation<ActivateUserMutation, ActivateUserMutationVariables>(ActivateUserDocument, baseOptions);
+      }
+export type ActivateUserMutationHookResult = ReturnType<typeof useActivateUserMutation>;
+export type ActivateUserMutationResult = Apollo.MutationResult<ActivateUserMutation>;
+export type ActivateUserMutationOptions = Apollo.BaseMutationOptions<ActivateUserMutation, ActivateUserMutationVariables>;
 export const CreateAuthTokenDocument = gql`
     mutation createAuthToken {
   createAuthToken {
