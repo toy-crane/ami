@@ -1,6 +1,6 @@
 import React from "react";
 
-const ActivateUserPage = () => {
+const ActivateUser = () => {
 	return (
 		<>
 			<div>유저 활성화 페이지</div>
@@ -8,4 +8,4 @@ const ActivateUserPage = () => {
 	);
 };
 
-export default ActivateUserPage;
+export default ActivateUser;

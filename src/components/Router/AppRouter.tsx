@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import ActivateUserPage from "../../Routes/Auth/ActivateUserPage";
 import MainPage from "../../Routes/Main";
 import MyPage from "../../Routes/MyPage";
 import { useGetMeQuery } from "../../types/graphql-types";
@@ -8,6 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import SignUpPage from "../../Routes/Auth/SignUpPage";
 import LoginPage from "../../Routes/Auth/LoginPage";
+import ActivateUser from "../Auth/ActivateUser/ActivateUser";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -23,7 +23,7 @@ const AppRouter = () => {
 			<Route path="/login" component={LoginPage} />
 			<ActivateRoute
 				path="/activate"
-				component={ActivateUserPage}
+				component={ActivateUser}
 				isActive={isActive}
 				isLoggedIn={isLoggedIn}
 			/>
