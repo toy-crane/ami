@@ -7,6 +7,7 @@ import client from "./apollo/client";
 import { Router, Route } from "react-router-dom";
 import { QueryParamProvider } from "use-query-params";
 import { history } from "./services/browserHistory";
+import "./index.css";
 
 ReactDOM.render(
 	<ApolloProvider client={client}>
