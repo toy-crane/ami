@@ -1,20 +1,14 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { AppRouter } from "../Router";
-
-const Wrapper = styled.div`
-	margin: 0 auto;
-	max-width: 1600px;
-	width: 100%;
-`;
+import { Box, Flex } from "rebass";
 
 function App() {
 	return (
-		<>
-			<Wrapper>
+		<Flex alignItems="center" justifyContent="center">
+			<Box width={[1, 3 / 4, 3 / 4]}>
 				<AppRouter></AppRouter>
-			</Wrapper>
-		</>
+			</Box>
+		</Flex>
 	);
 }
 
