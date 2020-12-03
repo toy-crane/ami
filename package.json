@@ -20,6 +20,7 @@
 		"@types/react-dom": "^16.9.0",
 		"@types/react-redux": "^7.1.9",
 		"@types/react-router-dom": "^5.1.6",
+		"@types/theme-ui": "^0.3.7",
 		"@types/yup": "^0.29.8",
 		"emotion": "^10.0.27",
 		"gql": "^1.1.2",
@@ -33,7 +34,8 @@
 		"react-hook-form": "^6.9.2",
 		"react-router-dom": "^5.2.0",
 		"react-scripts": "3.4.3",
-		"typescript": "~3.7.2",
+		"theme-ui": "^0.3.4",
+		"typescript": "4.1.2",
 		"use-query-params": "^1.1.8",
 		"yup": "^0.29.3"
 	},

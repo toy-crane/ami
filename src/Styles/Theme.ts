@@ -5,9 +5,9 @@ export default {
 	colors: {
 		primary: "#f6f6ff",
 		gray: "#f6f6ff",
-		something: "#FF0000",
+		background: "#fff",
 	},
-	font: {
+	fonts: {
 		body:
 			"-apple-system, BlinkMacSystemFont, Bazier Square, Noto Sans KR, Segoe UI, Apple SD Gothic Neo, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji",
 		heading:
