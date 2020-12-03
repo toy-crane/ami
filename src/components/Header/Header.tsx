@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from "../Logo/Logo";
 import { Link } from "react-router-dom";
 
 type HeaderProps = {
@@ -10,6 +11,7 @@ type HeaderProps = {
 const Header = ({ isLoggedIn, email, handleLogout }: HeaderProps) => {
 	return (
 		<div>
+			<Logo />
 			{isLoggedIn ? (
 				<div>
 					ID: {email}

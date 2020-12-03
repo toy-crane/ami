@@ -6,14 +6,21 @@ import client from "./apollo/client";
 import { Router } from "react-router-dom";
 import { history } from "./services/browserHistory";
 import { ThemeProvider, Global } from "@emotion/react";
-import Theme from "./Styles/Theme";
 import "./index.css";
 import GlobalStyles from "./Styles/GlobalStyles";
 
+const theme = {
+	colors: {
+		primary: "#f6f6ff",
+		gray: "#f6f6ff",
+		something: "#FF0000",
+	},
+};
+
 ReactDOM.render(
 	<ApolloProvider client={client}>
-		<ThemeProvider theme={Theme}>
-			<Global styles={GlobalStyles} />
+		<Global styles={GlobalStyles} />
+		<ThemeProvider theme={theme}>
 			<Router history={history}>
 				<App />
 			</Router>

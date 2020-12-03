@@ -3,8 +3,9 @@ export default {
 	breakpoints: ["40em", "52em", "64em"],
 	space: [0, 4, 8, 16, 32, 64, 128, 256],
 	colors: {
-		primary: "#07c",
+		primary: "#f6f6ff",
 		gray: "#f6f6ff",
+		something: "#FF0000",
 	},
 	font: {
 		body:
@@ -25,8 +26,38 @@ export default {
 	},
 	buttons: {
 		primary: {
-			color: "white",
+			fontSize: 2,
+			fontWeight: "bold",
+			color: "background",
 			bg: "primary",
+			borderRadius: "default",
+		},
+		outline: {
+			variant: "buttons.primary",
+			color: "primary",
+			bg: "transparent",
+			boxShadow: "inset 0 0 2px",
+		},
+		secondary: {
+			variant: "buttons.primary",
+			color: "background",
+			bg: "secondary",
+		},
+	},
+	variants: {
+		link: {
+			color: "red",
+		},
+		nav: {
+			fontSize: 1,
+			fontWeight: "bold",
+			display: "inline-block",
+			p: 2,
+			color: "inherit",
+			textDecoration: "none",
+			":hover,:focus,.active": {
+				color: "primary",
+			},
 		},
 	},
 };
