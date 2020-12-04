@@ -2,6 +2,9 @@ export default {
 	fontSizes: [12, 14, 16, 24, 32, 48, 64],
 	breakpoints: ["40em", "52em", "64em"],
 	space: [0, 4, 8, 16, 32, 64, 128, 256],
+	sizes: {
+		container: 1024,
+	},
 	colors: {
 		primary: "#f6f6ff",
 		gray: "#f6f6ff",
@@ -63,7 +66,36 @@ export default {
 	styles: {
 		root: {
 			fontFamily: "body",
+			lineHeight: "body",
 			fontWeight: "body",
+		},
+		h1: {
+			variant: "text.heading",
+			fontSize: 5,
+		},
+		h2: {
+			variant: "text.heading",
+			fontSize: 4,
+		},
+		h3: {
+			variant: "text.heading",
+			fontSize: 3,
+		},
+		h4: {
+			variant: "text.heading",
+			fontSize: 2,
+		},
+		h5: {
+			variant: "text.heading",
+			fontSize: 1,
+		},
+		h6: {
+			variant: "text.heading",
+			fontSize: 0,
+		},
+		code: {
+			fontFamily: "monospace",
+			fontSize: "inherit",
 		},
 	},
 };

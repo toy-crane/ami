@@ -8,6 +8,7 @@ import ActivateRoute from "./ActivateRoute";
 import { ActivateUser, Login, SignUp } from "../Auth";
 import { NotFound } from "../NotFound";
 import { Header } from "../Header";
+import { Layout } from "../Layout";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -29,17 +30,18 @@ const AppRouter = () => {
 			/>
 			{/* Header가 필요한 URL  */}
 			<Route>
-				<Header />
-				<Switch>
-					<PrivateRoute
-						path="/mypage"
-						component={MyPage}
-						isActive={isActive}
-						isLoggedIn={isLoggedIn}
-					/>
-					<Route exact path="/" component={Main} />
-					<Route component={NotFound} />
-				</Switch>
+				<Layout>
+					<Switch>
+						<PrivateRoute
+							path="/mypage"
+							component={MyPage}
+							isActive={isActive}
+							isLoggedIn={isLoggedIn}
+						/>
+						<Route exact path="/" component={Main} />
+						<Route component={NotFound} />
+					</Switch>
+				</Layout>
 			</Route>
 		</Switch>
 	);
