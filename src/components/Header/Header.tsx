@@ -4,6 +4,7 @@ import { Avatar, jsx, Link, Button } from "theme-ui";
 import Container from "../Layout/Container";
 import { Logo } from "../Logo";
 import React from "react";
+import { Divider } from "theme-ui";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -16,7 +17,7 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 		<header
 			sx={{
 				width: "100%",
-				backgroundColor: "muted",
+				py: 3,
 			}}
 		>
 			<Container>
@@ -27,13 +28,21 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 						alignItems: "center",
 					}}
 				>
-					<Logo />
+					<Link href="/">
+						<Logo />
+					</Link>
 					{/* 여백 채우는 div */}
 					<div sx={{ mx: "auto" }} />
 					{isLoggedIn ? (
 						<React.Fragment>
 							{avatar ? (
-								<Avatar src={avatar} sx={{ variant: "images.avatar" }} mr={2} />
+								<Link href="/mypage">
+									<Avatar
+										src={avatar}
+										sx={{ variant: "images.avatar" }}
+										mr={2}
+									/>
+								</Link>
 							) : null}
 							<Button mr={2} onClick={handleLogout}>
 								로그아웃
@@ -41,12 +50,19 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 						</React.Fragment>
 					) : (
 						<div>
-							<Button mr={2}>로그인</Button>
-							<Button mr={2}>회원가입</Button>
+							<Link href="/login">
+								<Button mr={2} variant="secondary">
+									로그인
+								</Button>
+							</Link>
+							<Link href="/sign-up">
+								<Button mr={2}>회원가입</Button>
+							</Link>
 						</div>
 					)}
 				</div>
 			</Container>
+			<Divider sx={{ color: "gray" }} />
 		</header>
 	);
 };

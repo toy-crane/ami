@@ -38,10 +38,28 @@ const theme: Theme = {
 	},
 	colors: {
 		text: "#000",
+		subText: "#666666",
 		background: "#fff",
-		primary: "#07c",
+		primary: "#166AF4",
+		darkenPrimary: "#2556BC",
 		secondary: "#30c",
 		muted: "#f6f6f6",
+		gray: "#E6E6E6",
+	},
+	buttons: {
+		primary: {
+			color: "background",
+			bg: "primary",
+			"&:hover": {
+				bg: "darkenPrimary",
+			},
+			cursor: "pointer",
+		},
+		secondary: {
+			color: "subText",
+			bg: "background",
+			cursor: "pointer",
+		},
 	},
 	styles: {
 		nav: {
