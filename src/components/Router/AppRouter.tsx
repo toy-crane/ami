@@ -7,7 +7,6 @@ import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import { ActivateUser, Login, SignUp } from "../Auth";
 import { NotFound } from "../NotFound";
-import { Header } from "../Header";
 import { Layout } from "../Layout";
 
 const AppRouter = () => {
