@@ -2,14 +2,15 @@ import { Theme } from "@theme-ui/css";
 
 const imageVariant = {
 	mainLogo: {
-		width: 224,
-		height: 56,
+		width: 36 * 4,
+		height: 36,
 		borderRadius: 99999,
 	},
 	avatar: {
-		width: 48,
-		height: 48,
+		width: 36,
+		height: 36,
 		borderRadius: 99999,
+		display: "block",
 	},
 };
 

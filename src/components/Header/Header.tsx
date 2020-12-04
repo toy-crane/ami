@@ -1,8 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Avatar, jsx, Link } from "theme-ui";
+import { Avatar, jsx, Link, Button } from "theme-ui";
 import Container from "../Layout/Container";
 import { Logo } from "../Logo";
+import React from "react";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -15,6 +16,7 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 		<header
 			sx={{
 				width: "100%",
+				backgroundColor: "muted",
 			}}
 		>
 			<Container>
@@ -29,29 +31,19 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 					{/* 여백 채우는 div */}
 					<div sx={{ mx: "auto" }} />
 					{isLoggedIn ? (
-						<div>
-							<Link
-								onClick={handleLogout}
-								sx={{
-									variant: "styles.nav",
-									ml: 3,
-								}}
-							>
+						<React.Fragment>
+							{avatar ? (
+								<Avatar src={avatar} sx={{ variant: "images.avatar" }} mr={2} />
+							) : null}
+							<Button mr={2} onClick={handleLogout}>
 								로그아웃
-							</Link>
-							{avatar ? <Avatar src={avatar} /> : null}
-						</div>
+							</Button>
+						</React.Fragment>
 					) : (
-						<Link
-							href="/login"
-							sx={{
-								variant: "styles.nav",
-								ml: 3,
-								py: 2,
-							}}
-						>
-							로그인
-						</Link>
+						<div>
+							<Button mr={2}>로그인</Button>
+							<Button mr={2}>회원가입</Button>
+						</div>
 					)}
 				</div>
 			</Container>
