@@ -1,6 +1,8 @@
-import React from "react";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx, Link } from "theme-ui";
 import Logo from "../Logo/Logo";
-import { Link } from "react-router-dom";
+import Container from "../Layout/Container";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -10,17 +12,44 @@ type HeaderProps = {
 
 const Header = ({ isLoggedIn, email, handleLogout }: HeaderProps) => {
 	return (
-		<div>
-			<Logo />
-			{isLoggedIn ? (
-				<div>
-					ID: {email}
-					<button onClick={handleLogout}>로그아웃</button>
+		<header
+			sx={{
+				width: "100%",
+			}}
+		>
+			<Container>
+				<div
+					sx={{
+						mx: "auto",
+						display: "flex",
+						alignItems: "baseline",
+					}}
+				>
+					<Link
+						href="/"
+						sx={{
+							variant: "styles.nav",
+							fontSize: 5,
+							py: 2,
+						}}
+					>
+						Code Pot
+					</Link>
+					{/* 여백 채우는 div */}
+					<div sx={{ mx: "auto" }} />
+					<Link
+						href="/mypage"
+						sx={{
+							variant: "styles.nav",
+							ml: 3,
+							py: 2,
+						}}
+					>
+						My page
+					</Link>
 				</div>
-			) : (
-				<Link to="/login">로그인 하기</Link>
-			)}
-		</div>
+			</Container>
+		</header>
 	);
 };
 

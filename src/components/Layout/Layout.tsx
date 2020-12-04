@@ -1,17 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-
-const Container: React.FunctionComponent = (props) => (
-	<div
-		{...props}
-		sx={{
-			maxWidth: "container",
-			mx: "auto",
-			px: 3,
-		}}
-	/>
-);
+import HeaderContainer from "../Header/HeaderContainer";
+import Container from "./Container";
 
 export default ({ children }: { children: React.ReactNode }) => (
 	<div
@@ -21,13 +12,7 @@ export default ({ children }: { children: React.ReactNode }) => (
 			minHeight: "100vh",
 		}}
 	>
-		<header
-			sx={{
-				width: "100%",
-			}}
-		>
-			<Container>Header</Container>
-		</header>
+		<HeaderContainer />
 		<main
 			sx={{
 				width: "100%",
