@@ -1,7 +1,12 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx, Image } from "theme-ui";
 
 const Logo = () => (
-	<img src="/logo/black-logo.svg" width="128px" height="32px" alt="logo" />
+	<Image
+		src="/logo/black-logo.svg"
+		sx={{ variant: "images.mainLogo" }}
+		alt="logo"
+	/>
 );
 
 export default Logo;

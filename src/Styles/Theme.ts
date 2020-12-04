@@ -1,5 +1,13 @@
 import { Theme } from "@theme-ui/css";
 
+const imageVariant = {
+	mainLogo: {
+		width: 192,
+		height: 48,
+		borderRadius: 99999,
+	},
+};
+
 const theme: Theme = {
 	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 	sizes: {
@@ -11,6 +19,7 @@ const theme: Theme = {
 		heading: "inherit",
 		monospace: "Menlo, monospace",
 	},
+	images: imageVariant,
 	fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],
 	fontWeights: {
 		body: 400,
@@ -29,6 +38,10 @@ const theme: Theme = {
 		muted: "#f6f6f6",
 	},
 	styles: {
+		nav: {
+			color: "primary",
+			textDecoration: "none",
+		},
 		root: {
 			fontFamily: "body",
 			lineHeight: "body",
