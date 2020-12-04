@@ -1,11 +1,4 @@
 import React from "react";
-import styled from "@emotion/styled";
-
-export const Alternative = styled.div`
-	label {
-		color: red;
-	}
-`;
 
 const SignUp = () => {
 	return (

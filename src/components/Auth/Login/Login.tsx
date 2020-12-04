@@ -1,12 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-
-export const Alternative = styled.div`
-	label {
-		color: red;
-	}
-`;
 
 const Login = () => {
 	return (
