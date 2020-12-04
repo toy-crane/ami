@@ -13,7 +13,7 @@ const HeaderContainer = () => {
 	}
 	return (
 		<Header
-			email={data?.me.email}
+			avatar={data?.me?.profile?.avatar}
 			isLoggedIn={isLoggedIn}
 			handleLogout={handleLogout}
 		/>

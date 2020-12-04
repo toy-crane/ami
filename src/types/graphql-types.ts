@@ -14,7 +14,13 @@ export type Scalars = {
 export type Query = {
   __typename?: 'Query';
   isLoggedIn: Scalars['Boolean'];
-  me: User;
+  me?: Maybe<Me>;
+};
+
+export type Me = {
+  __typename?: 'me';
+  user: User;
+  profile?: Maybe<Profile>;
 };
 
 export type User = {
@@ -23,6 +29,13 @@ export type User = {
   name?: Maybe<Scalars['String']>;
   mobile?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
+};
+
+export type Profile = {
+  __typename?: 'Profile';
+  avatar?: Maybe<Scalars['String']>;
+  bio?: Maybe<Scalars['String']>;
+  githubUrl?: Maybe<Scalars['String']>;
 };
 
 export type Mutation = {
@@ -87,10 +100,16 @@ export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 export type GetMeQuery = (
   { __typename?: 'Query' }
   & Pick<Query, 'isLoggedIn'>
-  & { me: (
-    { __typename?: 'User' }
-    & UserFieldsFragment
-  ) }
+  & { me?: Maybe<(
+    { __typename?: 'me' }
+    & { user: (
+      { __typename?: 'User' }
+      & UserFieldsFragment
+    ), profile?: Maybe<(
+      { __typename?: 'Profile' }
+      & Pick<Profile, 'avatar' | 'githubUrl'>
+    )> }
+  )> }
 );
 
 export const UserFieldsFragmentDoc = gql`
@@ -197,7 +216,13 @@ export type LogoutMutationOptions = Apollo.BaseMutationOptions<LogoutMutation, L
 export const GetMeDocument = gql`
     query getMe {
   me {
-    ...UserFields
+    user {
+      ...UserFields
+    }
+    profile {
+      avatar
+      githubUrl
+    }
   }
   isLoggedIn @client
 }

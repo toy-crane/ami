@@ -12,7 +12,7 @@ import { Layout } from "../Layout";
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
 	const isLoggedIn = data?.isLoggedIn || false;
-	const isActive = data?.me.isActive || false;
+	const isActive = data?.me?.user.isActive || false;
 	if (loading) {
 		return <div>loading...</div>;
 	}

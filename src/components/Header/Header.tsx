@@ -1,16 +1,16 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Link } from "theme-ui";
+import { Avatar, jsx, Link } from "theme-ui";
 import Container from "../Layout/Container";
 import { Logo } from "../Logo";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
-	email: string | undefined;
+	avatar: string | null | undefined;
 	handleLogout(): void;
 };
 
-const Header = ({ isLoggedIn, email, handleLogout }: HeaderProps) => {
+const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 	return (
 		<header
 			sx={{
@@ -30,17 +30,16 @@ const Header = ({ isLoggedIn, email, handleLogout }: HeaderProps) => {
 					<div sx={{ mx: "auto" }} />
 					{isLoggedIn ? (
 						<div>
-							{email}
 							<Link
 								onClick={handleLogout}
 								sx={{
 									variant: "styles.nav",
 									ml: 3,
-									py: 2,
 								}}
 							>
 								로그아웃
 							</Link>
+							{avatar ? <Avatar src={avatar} /> : null}
 						</div>
 					) : (
 						<Link

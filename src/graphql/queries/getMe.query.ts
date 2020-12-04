@@ -4,7 +4,13 @@ import * as fragments from "../fragments";
 export default gql`
 	query getMe {
 		me {
-			...UserFields
+			user {
+				...UserFields
+			}
+			profile {
+				avatar
+				githubUrl
+			}
 		}
 		isLoggedIn @client
 	}
