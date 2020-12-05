@@ -59,6 +59,9 @@ const theme: Theme = {
 			color: "subText",
 			bg: "background",
 			cursor: "pointer",
+			"&:hover": {
+				bg: "muted",
+			},
 		},
 	},
 	styles: {
