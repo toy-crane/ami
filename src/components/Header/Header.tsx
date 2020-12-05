@@ -44,7 +44,7 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 									/>
 								</Link>
 							) : null}
-							<Button mr={2} onClick={handleLogout}>
+							<Button mr={2} onClick={handleLogout} variant="secondary">
 								로그아웃
 							</Button>
 						</React.Fragment>
