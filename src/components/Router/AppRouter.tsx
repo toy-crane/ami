@@ -2,7 +2,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Main } from "../Main";
 import { MyPage } from "../MyPage";
-import { useGetMeQuery } from "../../types/graphql-types";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import { ActivateUser, Login, SignUp } from "../Auth";
@@ -12,18 +11,17 @@ import { AuthLayout, MainLayout } from "../Layout";
 const AppRouter = () => {
 	return (
 		<Switch>
-			<Route path={["/login", "/sign-up", "activate"]} exact>
+			<Route exact path={["/login", "/sign-up"]}>
 				<AuthLayout>
 					<Route path="/sign-up" component={SignUp} />
 					<Route path="/login" component={Login} />
-					{/* <ActivateRoute
-						path="/activate"
-						component={ActivateUser}
-						isActive={isActive}
-						isLoggedIn={isLoggedIn}
-					/> */}
 				</AuthLayout>
 			</Route>
+			<ActivateRoute exact path={["/activate"]}>
+				<AuthLayout>
+					<Route path="/activate" component={ActivateUser} />
+				</AuthLayout>
+			</ActivateRoute>
 			<PrivateRoute exact path={["/mypage", "/"]}>
 				<MainLayout>
 					<Switch>
