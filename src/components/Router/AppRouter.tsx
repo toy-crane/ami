@@ -7,7 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import { ActivateUser, Login, SignUp } from "../Auth";
 import { NotFound } from "../NotFound";
-import { Layout } from "../Layout";
+import { MainLayout } from "../Layout";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -29,7 +29,7 @@ const AppRouter = () => {
 			/>
 			{/* Header가 필요한 URL  */}
 			<Route>
-				<Layout>
+				<MainLayout>
 					<Switch>
 						<PrivateRoute
 							path="/mypage"
@@ -40,7 +40,7 @@ const AppRouter = () => {
 						<Route exact path="/" component={Main} />
 						<Route component={NotFound} />
 					</Switch>
-				</Layout>
+				</MainLayout>
 			</Route>
 		</Switch>
 	);

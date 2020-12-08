@@ -5,7 +5,7 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import Container from "./Container";
 
-const Layout: React.FC = ({ children }) => (
+const MainLayout: React.FC = ({ children }) => (
 	<div
 		sx={{
 			display: "flex",
@@ -26,4 +26,4 @@ const Layout: React.FC = ({ children }) => (
 	</div>
 );
 
-export default Layout;
+export default MainLayout;
