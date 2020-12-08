@@ -7,7 +7,7 @@ import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import { ActivateUser, Login, SignUp } from "../Auth";
 import { NotFound } from "../NotFound";
-import { MainLayout } from "../Layout";
+import { AuthLayout, MainLayout } from "../Layout";
 
 const AppRouter = () => {
 	const { data, loading } = useGetMeQuery();
@@ -18,15 +18,18 @@ const AppRouter = () => {
 	}
 	return (
 		<Switch>
-			{/* Headerless URL */}
-			<Route path="/sign-up" component={SignUp} />
-			<Route path="/login" component={Login} />
-			<ActivateRoute
-				path="/activate"
-				component={ActivateUser}
-				isActive={isActive}
-				isLoggedIn={isLoggedIn}
-			/>
+			<Route path={["/login", "/sign-up", "activate"]}>
+				<AuthLayout>
+					<Route path="/sign-up" component={SignUp} />
+					<Route path="/login" component={Login} />
+					<ActivateRoute
+						path="/activate"
+						component={ActivateUser}
+						isActive={isActive}
+						isLoggedIn={isLoggedIn}
+					/>
+				</AuthLayout>
+			</Route>
 			{/* Header가 필요한 URL  */}
 			<Route>
 				<MainLayout>
