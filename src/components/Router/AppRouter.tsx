@@ -18,7 +18,7 @@ const AppRouter = () => {
 	}
 	return (
 		<Switch>
-			<Route path={["/login", "/sign-up", "activate"]}>
+			<Route path={["/login", "/sign-up", "activate"]} exact>
 				<AuthLayout>
 					<Route path="/sign-up" component={SignUp} />
 					<Route path="/login" component={Login} />
@@ -30,21 +30,20 @@ const AppRouter = () => {
 					/>
 				</AuthLayout>
 			</Route>
-			{/* Header가 필요한 URL  */}
-			<Route>
+			<PrivateRoute
+				exact
+				isActive={isActive}
+				isLoggedIn={isLoggedIn}
+				path={["/mypage", "/"]}
+			>
 				<MainLayout>
 					<Switch>
-						<PrivateRoute
-							path="/mypage"
-							component={MyPage}
-							isActive={isActive}
-							isLoggedIn={isLoggedIn}
-						/>
+						<Route exact path="/mypage" component={MyPage} />
 						<Route exact path="/" component={Main} />
-						<Route component={NotFound} />
 					</Switch>
 				</MainLayout>
-			</Route>
+			</PrivateRoute>
+			<Route component={NotFound} />
 		</Switch>
 	);
 };
