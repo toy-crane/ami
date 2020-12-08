@@ -26,7 +26,7 @@ export default ({ children }: { children: React.ReactNode }) => (
 				width: "100%",
 			}}
 		>
-			<Container>Footer</Container>
+			Footer
 		</footer>
 	</div>
 );
