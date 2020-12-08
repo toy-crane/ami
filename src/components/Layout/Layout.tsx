@@ -5,7 +5,7 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import Container from "./Container";
 
-export default ({ children }: { children: React.ReactNode }) => (
+const Layout: React.FC = ({ children }) => (
 	<div
 		sx={{
 			display: "flex",
@@ -16,7 +16,7 @@ export default ({ children }: { children: React.ReactNode }) => (
 		<Header />
 		<main
 			sx={{
-				width: "100%",
+				// header와 footer간의 빈공간을 채우도록 설정
 				flex: "1 1 auto",
 			}}
 		>
@@ -25,3 +25,5 @@ export default ({ children }: { children: React.ReactNode }) => (
 		<Footer />
 	</div>
 );
+
+export default Layout;
