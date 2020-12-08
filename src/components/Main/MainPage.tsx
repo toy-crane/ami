@@ -5,7 +5,7 @@ import { Button, jsx, Image, Box, Grid } from "theme-ui";
 const Main = () => {
 	return (
 		<Grid gap={4} columns={"repeat(auto-fit, minmax(300px, 1fr))"}>
-			<Box sx={{ "align-self": "center" }}>
+			<Box>
 				<h1 sx={{ variant: "styles.h1" }}>
 					<span sx={{ color: "primary" }}>습관</span>처럼 코딩하자.
 				</h1>
