@@ -1,14 +1,13 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Flex } from "theme-ui";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import Container from "./Container";
 
 const MainLayout: React.FC = ({ children }) => (
-	<div
+	<Flex
 		sx={{
-			display: "flex",
 			flexDirection: "column",
 			minHeight: "100vh",
 		}}
@@ -23,7 +22,7 @@ const MainLayout: React.FC = ({ children }) => (
 			<Container>{children}</Container>
 		</main>
 		<Footer />
-	</div>
+	</Flex>
 );
 
 export default MainLayout;
