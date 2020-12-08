@@ -1,7 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import HeaderContainer from "../Header/HeaderContainer";
+import { Footer } from "../Footer";
+import { Header } from "../Header";
 import Container from "./Container";
 
 export default ({ children }: { children: React.ReactNode }) => (
@@ -12,7 +13,7 @@ export default ({ children }: { children: React.ReactNode }) => (
 			minHeight: "100vh",
 		}}
 	>
-		<HeaderContainer />
+		<Header />
 		<main
 			sx={{
 				width: "100%",
@@ -21,12 +22,6 @@ export default ({ children }: { children: React.ReactNode }) => (
 		>
 			<Container>{children}</Container>
 		</main>
-		<footer
-			sx={{
-				width: "100%",
-			}}
-		>
-			Footer
-		</footer>
+		<Footer />
 	</div>
 );
