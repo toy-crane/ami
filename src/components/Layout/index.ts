@@ -1,3 +1,4 @@
 import MainLayout from "./MainLayout";
 import Container from "./Container";
-export { MainLayout, Container };
+import AuthLayout from "./AuthLayout";
+export { MainLayout, Container, AuthLayout };
