@@ -39,7 +39,7 @@ const theme: Theme = {
 	colors: {
 		text: "#000",
 		subText: "#666666",
-		background: "#fff",
+		background: "#ffffff",
 		primary: "#166AF4",
 		darkenPrimary: "#2556BC",
 		secondary: "#30c",
@@ -62,6 +62,16 @@ const theme: Theme = {
 			cursor: "pointer",
 			"&:hover": {
 				bg: "muted",
+			},
+		},
+		github: {
+			color: "white",
+			bg: "#333333",
+			cursor: "pointer",
+			outlineColor: "black",
+			"&:hover": {
+				bg: "black",
+				outlineColor: "black",
 			},
 		},
 	},

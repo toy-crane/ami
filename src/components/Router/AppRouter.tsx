@@ -17,16 +17,20 @@ const AppRouter = () => {
 					<Route path="/login" component={Login} />
 				</AuthLayout>
 			</Route>
+			<Route exact path={["/"]}>
+				<MainLayout>
+					<Route exact path="/" component={Main} />
+				</MainLayout>
+			</Route>
 			<ActivateRoute exact path={["/activate"]}>
 				<AuthLayout>
 					<Route path="/activate" component={ActivateUser} />
 				</AuthLayout>
 			</ActivateRoute>
-			<PrivateRoute exact path={["/mypage", "/"]}>
+			<PrivateRoute exact path={["/mypage"]}>
 				<MainLayout>
 					<Switch>
 						<Route exact path="/mypage" component={MyPage} />
-						<Route exact path="/" component={Main} />
 					</Switch>
 				</MainLayout>
 			</PrivateRoute>
