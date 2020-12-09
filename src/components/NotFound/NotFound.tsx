@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Image, Button, Flex, Heading, Text } from "theme-ui";
+import { jsx, Image, Button, Flex, Heading } from "theme-ui";
 import Container from "../Layout/Container";
 import { useHistory } from "react-router-dom";
 
