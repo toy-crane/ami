@@ -1,3 +1,3 @@
-import ActivateUser from "./ActivateUser";
+import ActivateUserContainer from "./ActivateUserContainer";
 
-export { ActivateUser };
+export { ActivateUserContainer as ActivateUser };
