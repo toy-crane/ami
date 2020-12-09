@@ -134,6 +134,7 @@ const theme: Theme = {
 			fontWeight: "heading",
 			fontSize: 0,
 		},
+
 		p: {
 			color: "text",
 			fontFamily: "body",
@@ -169,6 +170,12 @@ const theme: Theme = {
 		},
 		img: {
 			maxWidth: "100%",
+		},
+	},
+	text: {
+		subTitle: {
+			color: "grey",
+			fontSize: 2,
 		},
 	},
 };

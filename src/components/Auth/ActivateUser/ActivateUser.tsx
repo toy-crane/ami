@@ -1,4 +1,6 @@
-import React from "react";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { Label, Input, Heading, Button, Box, Text, jsx } from "theme-ui";
 
 type ActivateUserPropTypes = {
 	onSubmit: () => void;
@@ -12,22 +14,23 @@ const ActivateUser: React.FC<ActivateUserPropTypes> = ({
 	errors,
 }) => {
 	return (
-		<div>
-			회원 가입을 가입을 완료하기 위해 아래의 정보가 필요합니다.
-			<form onSubmit={onSubmit}>
-				<div>
-					<label htmlFor="name">name</label>
-					<input type="text" name="name" ref={register} />
-					<p>{errors.name?.message}</p>
-				</div>
-				<div>
-					<label htmlFor="mobile">mobile</label>
-					<input type="text" name="mobile" ref={register} />
-					<p>{errors.mobile?.message}</p>
-				</div>
-				<input type="submit" />
-			</form>
-		</div>
+		<Box>
+			<Box mb={4}>
+				<Heading as="h1">추가 정보 입력하기</Heading>
+				<Text variant="subTitle">
+					회원 가입을 위해 이름과 휴대폰 번호를 입력해 주세요.
+				</Text>
+			</Box>
+			<Box as="form" onSubmit={onSubmit} mb={2}>
+				<Label htmlFor="name">이름</Label>
+				<Input type="text" name="name" ref={register} />
+				<p>{errors.name?.message}</p>
+				<Label htmlFor="mobile">휴대폰 번호</Label>
+				<Input type="text" name="mobile" ref={register} />
+				<p>{errors.mobile?.message}</p>
+				<Button>계속하기</Button>
+			</Box>
+		</Box>
 	);
 };
 

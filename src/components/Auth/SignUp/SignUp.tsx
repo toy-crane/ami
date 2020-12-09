@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Link, Flex, Heading, Image, Text } from "theme-ui";
+import { jsx, Link, Flex, Heading, Image, Text, Box } from "theme-ui";
 import GitHubButton from "../../Button/GithubButton";
 
 const SignUp = () => {
@@ -12,19 +12,17 @@ const SignUp = () => {
 				flexDirection: "column",
 			}}
 		>
-			<Heading as="h1" my={3}>
-				회원 가입하기
-			</Heading>
-			<Image src="/illustration/sign-in.svg" my={4} />
+			<Box mb={4}>
+				<Heading as="h1">회원 가입하기</Heading>
+			</Box>
+			<Image src="/illustration/sign-in.svg" mb={4} />
 			<GitHubButton
 				text="github으로 시작하기"
 				url="http://localhost:4000/github"
 			/>
-			<Text my={2}>
+			<Text mb={2}>
 				이미 Code Pot 계정이 있으신가요?
-				<Link href="/login" mx={1}>
-					로그인
-				</Link>
+				<Link href="/login">로그인</Link>
 			</Text>
 		</Flex>
 	);
