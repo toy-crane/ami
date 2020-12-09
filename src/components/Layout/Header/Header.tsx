@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { Avatar, jsx, Link, Button } from "theme-ui";
-import Container from "../Layout/Container";
-import { Logo } from "../Logo";
+import Container from "../Container";
+import { Logo } from "../../Logo";
 import React from "react";
 import { Divider } from "theme-ui";
 

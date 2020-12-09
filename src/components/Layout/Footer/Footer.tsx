@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Flex, Heading, Text } from "theme-ui";
-import Container from "../Layout/Container";
+import Container from "../Container";
 import React from "react";
 
 const Footer: React.FC = () => {

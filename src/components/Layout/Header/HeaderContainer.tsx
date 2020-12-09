@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
-import { useLogout } from "../../services/auth";
-import { useGetMeQuery } from "../../types/graphql-types";
+import { useLogout } from "../../../services/auth";
+import { useGetMeQuery } from "../../../types/graphql-types";
 import Header from "./Header";
 
 const HeaderContainer = () => {

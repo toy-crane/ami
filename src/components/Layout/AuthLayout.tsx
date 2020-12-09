@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui";
-import { Header } from "../Header";
+import { Header } from "./Header";
 import Container from "./Container";
 
 const AuthLayout: React.FC = ({ children }) => (

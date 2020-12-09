@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui";
-import { Footer } from "../Footer";
-import { Header } from "../Header";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 import Container from "./Container";
 
 const MainLayout: React.FC = ({ children }) => (
