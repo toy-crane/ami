@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Link, Button, Flex, Heading, Image, Text } from "theme-ui";
+import { jsx, Link, Flex, Heading, Image, Text } from "theme-ui";
+import GitHubButton from "../../Button/GithubButton";
 
 const SignUp = () => {
 	return (
@@ -14,15 +15,11 @@ const SignUp = () => {
 			<Heading as="h1" my={3}>
 				회원 가입하기
 			</Heading>
-			<Image src="/illustration/sign-in.svg" my={4}></Image>
-			<Link href="http://localhost:4000/github" my={2}>
-				<Button variant="github">
-					<Flex sx={{ justifyContent: "center", alignItems: "center" }}>
-						<Image src="/social/github-logo.svg" mx={2}></Image>
-						<Text mx={2}>Github로 시작하기</Text>
-					</Flex>
-				</Button>
-			</Link>
+			<Image src="/illustration/sign-in.svg" my={4} />
+			<GitHubButton
+				text="github으로 시작하기"
+				url="http://localhost:4000/github"
+			/>
 			<Text my={2}>
 				이미 Code Pot 계정이 있으신가요?
 				<Link href="/login" mx={1}>
