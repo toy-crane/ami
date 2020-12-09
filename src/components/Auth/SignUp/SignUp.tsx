@@ -1,14 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import {
-	jsx,
-	Link,
-	Button,
-	Flex,
-	Heading,
-	Image,
-	Text,
-} from "theme-ui";
+import { jsx, Link, Button, Flex, Heading, Image, Text } from "theme-ui";
 
 const SignUp = () => {
 	return (
@@ -19,10 +11,10 @@ const SignUp = () => {
 				flexDirection: "column",
 			}}
 		>
-			<Heading as="h1" my={2}>
+			<Heading as="h1" my={3}>
 				회원 가입하기
 			</Heading>
-			<Image src="/illustration/sign-in.svg" width="500px" my={3}></Image>
+			<Image src="/illustration/sign-in.svg" my={4}></Image>
 			<Link href="http://localhost:4000/github" my={2}>
 				<Button variant="github">
 					<Flex sx={{ justifyContent: "center", alignItems: "center" }}>

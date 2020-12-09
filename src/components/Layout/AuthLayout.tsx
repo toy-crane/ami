@@ -12,7 +12,7 @@ const AuthLayout: React.FC = ({ children }) => (
 	>
 		<Header />
 		<main>
-			<Container>{children}</Container>
+			<Container sx={{ width: "480px" }}>{children}</Container>
 		</main>
 	</Flex>
 );
