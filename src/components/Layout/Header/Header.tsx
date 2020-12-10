@@ -5,6 +5,7 @@ import Container from "../Container";
 import { Logo } from "../../Logo";
 import React from "react";
 import { Divider } from "theme-ui";
+import Dropdown from "../../Button/Dropdown";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -36,13 +37,13 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 					{isLoggedIn ? (
 						<React.Fragment>
 							{avatar ? (
-								<Link href="/mypage">
+								<Dropdown>
 									<Avatar
 										src={avatar}
 										sx={{ variant: "images.avatar" }}
 										mr={2}
 									/>
-								</Link>
+								</Dropdown>
 							) : null}
 						</React.Fragment>
 					) : (

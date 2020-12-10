@@ -5,6 +5,7 @@
 	"dependencies": {
 		"@apollo/client": "^3.2.4",
 		"@apollo/link-error": "^2.0.0-beta.3",
+		"@emotion/react": "^11.1.2",
 		"@graphql-tools/load-files": "^6.2.5",
 		"@hookform/resolvers": "^1.0.0",
 		"@testing-library/jest-dom": "^4.2.4",
