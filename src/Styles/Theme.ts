@@ -44,8 +44,9 @@ const theme: Theme = {
 		darkenPrimary: "#2556BC",
 		secondary: "#30c",
 		muted: "#f6f6f6",
-		gray: "#E6E6E6",
 		brightenGray: "#F9FAFB",
+		gray: "#E6E6E6",
+		darkenGray: "#a2a7ab",
 	},
 	buttons: {
 		primary: {
