@@ -2,8 +2,8 @@
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui";
 import { Footer } from "./Footer";
-import { Header } from "./Header";
 import Container from "./Container";
+import Header from "../Organisms/Header";
 
 const MainLayout: React.FC = ({ children }) => (
 	<Flex

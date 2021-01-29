@@ -19,6 +19,7 @@ const gridVariant = {
 		gridColumnGap: 3,
 		gridRowGap: 4,
 		gridTemplateColumns: "repeat(6, 1fr)",
+		mx: 3,
 	},
 };
 
