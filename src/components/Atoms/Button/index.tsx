@@ -1,9 +1,12 @@
 import React from "react";
-import { Button as ThemeUIButton, ButtonProps } from "theme-ui";
+import {
+	Button as ThemeUIButton,
+	ButtonProps as ThemeUIButtonProps,
+} from "theme-ui";
 
-interface MyButtonProps extends ButtonProps {}
+export interface ButtonProps extends ThemeUIButtonProps {}
 
-const Button: React.FC<MyButtonProps> = (props: MyButtonProps) => (
+const Button: React.FC<ButtonProps> = (props: ButtonProps) => (
 	<ThemeUIButton {...props}>{props.children}</ThemeUIButton>
 );
 

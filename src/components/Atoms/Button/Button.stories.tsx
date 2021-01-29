@@ -1,12 +1,24 @@
 import React from "react";
-import Button from "./index";
+import { Story } from "@storybook/react";
+import Button, { ButtonProps } from "./index";
 
 export default {
 	title: "Components/Button",
 	component: Button,
+	argTypes: {
+		variant: {
+			control: {
+				type: "select",
+				options: ["primary", "secondary"],
+			},
+		},
+	},
 };
 
-export const PrimaryButton = () => <Button variant="primary">Primary</Button>;
-export const SecondaryButton = () => (
-	<Button variant="secondary">Secondary</Button>
+const Template: Story<ButtonProps> = (args) => (
+	<Button {...args}>Button</Button>
 );
+export const PrimaryButton = Template.bind({});
+PrimaryButton.args = { variant: "primary" };
+export const SecondaryButton = Template.bind({});
+SecondaryButton.args = { variant: "secondary" };
