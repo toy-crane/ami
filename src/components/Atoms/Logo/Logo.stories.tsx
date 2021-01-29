@@ -4,7 +4,7 @@ import Logo from "./index";
 import { Box } from "theme-ui";
 
 export default {
-	title: "Components/Logo",
+	title: "Atoms/Logo",
 	component: Logo,
 };
 

@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 import Button, { ButtonProps } from "./index";
 
 export default {
-	title: "Components/Button",
+	title: "Atoms/Button",
 	component: Button,
 	argTypes: {
 		variant: {

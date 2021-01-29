@@ -4,7 +4,7 @@ import Link, { LinkProps } from "./index";
 import Icon from "../Icon";
 
 export default {
-	title: "Components/Link",
+	title: "Atoms/Link",
 	component: Link,
 };
 
