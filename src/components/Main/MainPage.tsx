@@ -1,6 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Button, jsx, Image, Box, Grid, Flex } from "theme-ui";
+import { jsx, Image, Box, Grid, Flex } from "theme-ui";
+import Button from "../Atoms/Button/index";
 
 const Main = () => {
 	return (

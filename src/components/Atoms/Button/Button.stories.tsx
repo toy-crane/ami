@@ -2,9 +2,11 @@ import React from "react";
 import Button from "./index";
 
 export default {
-	title: "Tag title",
+	title: "Components/Button",
 	component: Button,
 };
 
-export const Basic = () => <Button title="basic" />;
-export const Second = () => <Button title="My second tag" />;
+export const PrimaryButton = () => <Button variant="primary">Primary</Button>;
+export const SecondaryButton = () => (
+	<Button variant="secondary">Secondary</Button>
+);
