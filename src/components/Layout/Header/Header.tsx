@@ -2,10 +2,10 @@
 /** @jsx jsx */
 import { Avatar, jsx, Link, Button } from "theme-ui";
 import Container from "../Container";
-import { Logo } from "../../Logo";
 import React from "react";
 import { Divider } from "theme-ui";
 import Dropdown from "../../Button/Dropdown";
+import Logo from "../../Atoms/Logo";
 
 type HeaderProps = {
 	isLoggedIn: boolean;
@@ -30,7 +30,7 @@ const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
 					}}
 				>
 					<Link href="/">
-						<Logo />
+						<Logo></Logo>
 					</Link>
 					{/* 여백 채우는 div */}
 					<div sx={{ mx: "auto" }} />
