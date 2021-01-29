@@ -14,6 +14,14 @@ const imageVariant = {
 	},
 };
 
+const gridVariant = {
+	mobileLayout: {
+		gridColumnGap: 3,
+		gridRowGap: 4,
+		gridTemplateColumns: "repeat(6, 1fr)",
+	},
+};
+
 const theme: Theme = {
 	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 	sizes: {
@@ -25,6 +33,7 @@ const theme: Theme = {
 		heading: "inherit",
 	},
 	images: imageVariant,
+	grids: gridVariant,
 	fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72],
 	fontWeights: {
 		body: 400,
