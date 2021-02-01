@@ -4,18 +4,17 @@ import { Main } from "../Main";
 import { MyPage } from "../MyPage";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
-import { ActivateUser, Login, SignUp } from "../Auth";
+import { ActivateUser } from "../Auth";
 import { NotFound } from "../NotFound";
 import { AuthLayout, MainLayout } from "../Layout";
+import { SignUp, Login } from "../Pages/Auth";
 
 const AppRouter = () => {
 	return (
 		<Switch>
 			<Route exact path={["/login", "/sign-up"]}>
-				<AuthLayout>
-					<Route path="/sign-up" component={SignUp} />
-					<Route path="/login" component={Login} />
-				</AuthLayout>
+				<Route path="/sign-up" component={SignUp} />
+				<Route path="/login" component={Login} />
 			</Route>
 			<Route exact path={["/"]}>
 				<MainLayout>
