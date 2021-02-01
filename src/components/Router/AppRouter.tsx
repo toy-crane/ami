@@ -4,10 +4,10 @@ import { Main } from "../Main";
 import { MyPage } from "../MyPage";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
-import { NotFound } from "../NotFound";
 import { MainLayout } from "../Layout";
 import { SignUp, Login } from "../Pages/Auth";
 import ActivateUser from "../Pages/Auth/ActivateUser/ActivateUser";
+import { NotFound } from "../Pages/Common";
 
 const AppRouter = () => {
 	return (
