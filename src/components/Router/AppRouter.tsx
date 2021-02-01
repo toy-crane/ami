@@ -4,10 +4,10 @@ import { Main } from "../Main";
 import { MyPage } from "../MyPage";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
-import { ActivateUser } from "../Auth";
 import { NotFound } from "../NotFound";
-import { AuthLayout, MainLayout } from "../Layout";
+import { MainLayout } from "../Layout";
 import { SignUp, Login } from "../Pages/Auth";
+import ActivateUser from "../Pages/Auth/ActivateUser/ActivateUser";
 
 const AppRouter = () => {
 	return (
@@ -22,9 +22,7 @@ const AppRouter = () => {
 				</MainLayout>
 			</Route>
 			<ActivateRoute exact path={["/activate"]}>
-				<AuthLayout>
-					<Route path="/activate" component={ActivateUser} />
-				</AuthLayout>
+				<Route path="/activate" component={ActivateUser} />
 			</ActivateRoute>
 			<PrivateRoute exact path={["/mypage"]}>
 				<MainLayout>

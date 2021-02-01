@@ -1,5 +1,0 @@
-import { ActivateUser } from "./ActivateUser";
-import { Login } from "./Login";
-import { SignUp } from "./SignUp";
-
-export { Login, SignUp, ActivateUser };
