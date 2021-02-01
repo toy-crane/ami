@@ -1,7 +1,7 @@
 import React from "react";
-import { Flex } from "theme-ui";
+import { Flex, BoxProps, BoxOwnProps } from "theme-ui";
 
-interface LogoProps {
+interface LogoProps extends BoxProps, BoxOwnProps {
 	height?: number;
 	color?: "black" | "white";
 }

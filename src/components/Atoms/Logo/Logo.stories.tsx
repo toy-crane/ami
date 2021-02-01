@@ -1,7 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import Logo from "./index";
-import { Box } from "theme-ui";
 
 export default {
 	title: "Atoms/Logo",
@@ -9,18 +8,11 @@ export default {
 };
 
 const Template: Story = (args) => {
-	if (args.color === "black") {
-		return (
-			<Box>
-				<Logo {...args} />
-			</Box>
-		);
+	if (args.color === "white") {
+		return <Logo bg="black" {...args} />;
 	} else {
-		return (
-			<Box bg="black">
-				<Logo {...args} />;
-			</Box>
-		);
+		return <Logo {...args} />;
 	}
 };
 export const Basic = Template.bind({});
+Basic.args = { color: "black" };
