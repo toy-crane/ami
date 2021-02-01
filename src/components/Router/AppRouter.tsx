@@ -1,13 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Main } from "../Pages/Intro";
 import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
-import { MainLayout } from "../Layout";
-import { SignUp, Login } from "../Pages/Auth";
-import ActivateUser from "../Pages/Auth/ActivateUser/ActivateUser";
+import { SignUp, Login, ActivateUser } from "../Pages/Auth";
 import { NotFound } from "../Pages/Common";
 import { MyPage } from "../Pages/Me";
+import { Main } from "../Pages/Intro";
 
 const AppRouter = () => {
 	return (
