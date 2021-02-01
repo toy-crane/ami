@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex } from "theme-ui";
+import { Flex } from "theme-ui";
 
 interface LogoProps {
 	height?: number;
