@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "../../Atoms/Grid";
+import Grid from "../../Layout/Grid";
 import Logo from "../../Atoms/Logo";
 import Icon from "../../Atoms/Icon";
 

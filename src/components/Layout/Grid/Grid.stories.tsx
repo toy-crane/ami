@@ -3,7 +3,7 @@ import { Story } from "@storybook/react";
 import Grid from "./index";
 import { Box } from "theme-ui";
 export default {
-	title: "Atoms/Grid",
+	title: "Layout/Grid",
 	component: Grid,
 	argTypes: {
 		variant: {
