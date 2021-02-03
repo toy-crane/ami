@@ -1,4 +1,5 @@
 import { Theme } from "@theme-ui/css";
+import FontVariant from "./FontVariant";
 
 const imageVariant = {
 	mainLogo: {
@@ -45,7 +46,24 @@ const theme: Theme = {
 	lineHeights: {
 		body: 1.5,
 		heading: 1.5,
-		subitle: 1.6,
+		subTitle: 1.6,
+	},
+	text: {
+		heading: {
+			fontFamily: "heading",
+			lineHeight: "heading",
+			fontWeight: "heading",
+		},
+		subTitle: {
+			fontFamily: "body",
+			lineHeight: "subTitle",
+			fontWeight: "subTitle",
+		},
+		body: {
+			fontFamily: "body",
+			lineHeight: "body",
+			fontWeight: "body",
+		},
 	},
 	colors: {
 		text: "#000",
@@ -96,6 +114,7 @@ const theme: Theme = {
 		},
 	},
 	styles: {
+		...FontVariant,
 		root: {
 			fontFamily: "body",
 			lineHeight: "body",
@@ -107,12 +126,6 @@ const theme: Theme = {
 		a: {
 			textDecoration: "none",
 			color: "text",
-		},
-	},
-	text: {
-		subTitle: {
-			color: "grey",
-			fontSize: 2,
 		},
 	},
 };
