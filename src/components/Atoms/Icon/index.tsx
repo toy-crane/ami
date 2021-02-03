@@ -1,14 +1,16 @@
 import React from "react";
-import { Flex } from "theme-ui";
+import { Flex, Link } from "theme-ui";
 import { IconName, ICONS } from "./constants";
 interface IconProps {
 	icon: IconName;
 	width?: number;
 	height?: number;
+	hasLink?: boolean;
+	href?: string;
 }
 
 const Icon: React.FC<IconProps> = (props: IconProps) => {
-	return (
+	const IconComponent = (
 		<Flex sx={{ alignItems: "center" }} {...props}>
 			<svg
 				width={props.width}
@@ -25,6 +27,15 @@ const Icon: React.FC<IconProps> = (props: IconProps) => {
 				/>
 			</svg>
 		</Flex>
+	);
+	return (
+		<>
+			{props.hasLink && props.href ? (
+				<Link href={props.href}>{IconComponent}</Link>
+			) : (
+				IconComponent
+			)}
+		</>
 	);
 };
 
