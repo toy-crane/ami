@@ -8,7 +8,6 @@ import {
 	LinkButtonProps,
 	IconButtonProps,
 } from "./index";
-import { IconNames } from "../Icon/constants";
 export default {
 	title: "Atoms/Button",
 	component: [Button, LinkButton],
