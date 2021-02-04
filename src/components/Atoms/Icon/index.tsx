@@ -1,9 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui";
-import { IconName, ICONS } from "./constants";
+import { ICONS } from "./constants";
 export interface IconProps {
-	icon: IconName;
+	icon: ICONS;
 	width?: number;
 	height?: number;
 }
@@ -21,7 +21,7 @@ const Icon: React.FC<IconProps> = (props: IconProps) => {
 					margin: 0,
 				}}
 			>
-				<path d={ICONS[props.icon]} fill="#1A1A1A" />
+				<path d={ICONS.menu} fill="#1A1A1A" />
 			</svg>
 		</Flex>
 	);

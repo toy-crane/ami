@@ -3,6 +3,7 @@ import Grid from "../../Layout/Grid";
 import Logo from "../../Atoms/Logo";
 import { Flex } from "theme-ui";
 import { IconButton, LinkButton } from "../../Atoms/Button";
+import { ICONS } from "../../Atoms/Icon/constants";
 
 const Header = () => (
 	<Grid>
@@ -15,7 +16,7 @@ const Header = () => (
 				}}
 			/>
 			<IconButton
-				icon="menu"
+				icon={ICONS.menu}
 				sx={{
 					display: ["block", "none"],
 					ml: ["auto", "none"],
