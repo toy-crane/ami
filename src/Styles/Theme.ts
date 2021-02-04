@@ -95,6 +95,20 @@ const theme: Theme = {
 				bg: "secondary100",
 			},
 		},
+		icon: {
+			appearance: "none",
+			bg: "transparent",
+			border: 0,
+			p: 1,
+			m: 0,
+			":focus": {
+				outline: "2px solid",
+			},
+			":hover": {
+				bg: "transparent",
+				cursor: "pointer",
+			},
+		},
 		github: {
 			color: "white",
 			bg: "#333333",

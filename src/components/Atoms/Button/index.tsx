@@ -1,6 +1,8 @@
-import React from "react";
+/** @jsxRuntime classic */
+/** @jsx jsx */
 import { useHistory } from "react-router-dom";
 import {
+	jsx,
 	Button as ThemeUIButton,
 	ButtonProps as ThemeUIButtonProps,
 } from "theme-ui";
@@ -32,22 +34,7 @@ const LinkButton = (props: LinkButtonProps) => {
 
 const IconButton = (props: IconButtonProps) => {
 	return (
-		<Button
-			sx={{
-				appearance: "none",
-				bg: "transparent",
-				border: 0,
-				p: 1,
-				m: 0,
-				":focus": {
-					outline: "2px solid",
-				},
-				":hover": {
-					bg: "transparent",
-				},
-			}}
-			{...props}
-		>
+		<Button {...props} variant="icon">
 			<Icon {...props} icon={props.icon}></Icon>
 		</Button>
 	);

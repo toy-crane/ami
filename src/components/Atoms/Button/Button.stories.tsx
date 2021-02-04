@@ -36,7 +36,7 @@ const LinkButtonTemplate: Story<LinkButtonProps> = (args) => (
 export const ButtonWithLink = LinkButtonTemplate.bind({});
 
 const IconButtonTemplate: Story<IconButtonProps> = (args) => (
-	<IconButton {...args} icon={IconNames[0]}>
+	<IconButton {...args} icon="menu">
 		Button with Icon
 	</IconButton>
 );

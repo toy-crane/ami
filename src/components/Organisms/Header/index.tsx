@@ -1,9 +1,8 @@
 import React from "react";
 import Grid from "../../Layout/Grid";
 import Logo from "../../Atoms/Logo";
-import Icon from "../../Atoms/Icon";
 import { Flex } from "theme-ui";
-import { LinkButton } from "../../Atoms/Button";
+import { IconButton, LinkButton } from "../../Atoms/Button";
 
 const Header = () => (
 	<Grid>
@@ -15,12 +14,13 @@ const Header = () => (
 					alignSelf: "center",
 				}}
 			/>
-			<Icon
+			<IconButton
+				icon="menu"
 				sx={{
 					display: ["block", "none"],
+					ml: ["auto", "none"],
 				}}
-				icon="menu"
-			/>
+			></IconButton>
 			<LinkButton
 				route="/login"
 				ml={["none", "auto"]}
