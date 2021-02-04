@@ -2,6 +2,7 @@ import React from "react";
 import Grid from "../../Layout/Grid";
 import Logo from "../../Atoms/Logo";
 import Icon from "../../Atoms/Icon";
+import { ButtonLink } from "../../Atoms/Button";
 
 const Header = () => (
 	<Grid sx={{ py: 3 }}>

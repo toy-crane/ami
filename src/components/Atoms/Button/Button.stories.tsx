@@ -1,10 +1,10 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import Button, { ButtonProps } from "./index";
+import { Button, ButtonProps, ButtonLink, ButtonLinkProps } from "./index";
 
 export default {
 	title: "Atoms/Button",
-	component: Button,
+	component: [Button, ButtonLink],
 	argTypes: {
 		variant: {
 			control: {
@@ -15,10 +15,15 @@ export default {
 	},
 };
 
-const Template: Story<ButtonProps> = (args) => (
+const ButtonTemplate: Story<ButtonProps> = (args) => (
 	<Button {...args}>Button</Button>
 );
-export const PrimaryButton = Template.bind({});
-PrimaryButton.args = { variant: "primary" };
-export const SecondaryButton = Template.bind({});
-SecondaryButton.args = { variant: "secondary" };
+export const BasicButton = ButtonTemplate.bind({});
+BasicButton.args = { variant: "primary" };
+
+const ButtonLinkTemplate: Story<ButtonLinkProps> = (args) => (
+	<ButtonLink {...args} route="/">
+		Button with Link
+	</ButtonLink>
+);
+export const LinkButton = ButtonLinkTemplate.bind({});
