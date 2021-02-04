@@ -1,4 +1,5 @@
 import { Theme } from "@theme-ui/css";
+import ButtonVariant from "./ButtonVariant";
 import FontVariant from "./FontVariant";
 import gridVariant from "./gridVariant";
 
@@ -29,6 +30,7 @@ const theme: Theme = {
 	},
 	images: imageVariant,
 	grids: gridVariant,
+	buttons: ButtonVariant,
 	fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72],
 	fontWeights: {
 		body: 400,
@@ -77,48 +79,6 @@ const theme: Theme = {
 		secondary100: "#04BD8D",
 		secondary50: "#06D19C",
 		secondary05: "#38DAB0",
-	},
-	buttons: {
-		primary: {
-			color: "background",
-			bg: "primary50",
-			"&:hover": {
-				bg: "primary100",
-			},
-			cursor: "pointer",
-		},
-		secondary: {
-			color: "background",
-			bg: "secondary50",
-			cursor: "pointer",
-			"&:hover": {
-				bg: "secondary100",
-			},
-		},
-		icon: {
-			appearance: "none",
-			bg: "transparent",
-			border: 0,
-			p: 1,
-			m: 0,
-			":focus": {
-				outline: "2px solid",
-			},
-			":hover": {
-				bg: "transparent",
-				cursor: "pointer",
-			},
-		},
-		github: {
-			color: "white",
-			bg: "#333333",
-			cursor: "pointer",
-			outlineColor: "black",
-			"&:hover": {
-				bg: "black",
-				outlineColor: "black",
-			},
-		},
 	},
 	styles: {
 		...FontVariant,
