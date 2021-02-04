@@ -20,7 +20,11 @@ const ButtonLink = (props: ButtonLinkProps) => {
 		e.preventDefault();
 		history.push(props.route);
 	};
-	return <Button onClick={handleClick}>{props.children}</Button>;
+	return (
+		<Button onClick={handleClick} {...props}>
+			{props.children}
+		</Button>
+	);
 };
 
 export { Button, ButtonLink };
