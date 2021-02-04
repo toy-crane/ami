@@ -1,6 +1,14 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { Button, ButtonProps, LinkButton, ButtonLinkProps } from "./index";
+import {
+	Button,
+	ButtonProps,
+	LinkButton,
+	IconButton,
+	LinkButtonProps,
+	IconButtonProps,
+} from "./index";
+import { IconNames } from "../Icon/constants";
 export default {
 	title: "Atoms/Button",
 	component: [Button, LinkButton],
@@ -20,9 +28,16 @@ const ButtonTemplate: Story<ButtonProps> = (args) => (
 export const BasicButton = ButtonTemplate.bind({});
 BasicButton.args = { variant: "primary" };
 
-const ButtonLinkTemplate: Story<ButtonLinkProps> = (args) => (
+const LinkButtonTemplate: Story<LinkButtonProps> = (args) => (
 	<LinkButton {...args} route="/">
 		Button with Link
 	</LinkButton>
 );
-export const ButtonWithLink = ButtonLinkTemplate.bind({});
+export const ButtonWithLink = LinkButtonTemplate.bind({});
+
+const IconButtonTemplate: Story<IconButtonProps> = (args) => (
+	<IconButton {...args} icon={IconNames[0]}>
+		Button with Icon
+	</IconButton>
+);
+export const ButtonWithIcon = IconButtonTemplate.bind({});

@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx, Flex } from "theme-ui";
 import { IconName, ICONS } from "./constants";
-interface IconProps {
+export interface IconProps {
 	icon: IconName;
 	width?: number;
 	height?: number;
