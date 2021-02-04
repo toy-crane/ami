@@ -8,6 +8,7 @@ import {
 	LinkButtonProps,
 	IconButtonProps,
 } from "./index";
+import { ICONS } from "../Icon/constants";
 export default {
 	title: "Atoms/Button",
 	component: [Button, LinkButton],
@@ -35,7 +36,7 @@ const LinkButtonTemplate: Story<LinkButtonProps> = (args) => (
 export const ButtonWithLink = LinkButtonTemplate.bind({});
 
 const IconButtonTemplate: Story<IconButtonProps> = (args) => (
-	<IconButton {...args} icon="menu">
+	<IconButton {...args} icon={ICONS.menu}>
 		Button with Icon
 	</IconButton>
 );
