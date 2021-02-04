@@ -3,7 +3,7 @@ import Grid from "../../Layout/Grid";
 import Logo from "../../Atoms/Logo";
 import Icon from "../../Atoms/Icon";
 import { Flex } from "theme-ui";
-import { ButtonLink } from "../../Atoms/Button";
+import { LinkButton } from "../../Atoms/Button";
 
 const Header = () => (
 	<Grid>
@@ -21,7 +21,7 @@ const Header = () => (
 				}}
 				icon="menu"
 			/>
-			<ButtonLink
+			<LinkButton
 				route="/login"
 				ml={["none", "auto"]}
 				sx={{
@@ -29,8 +29,8 @@ const Header = () => (
 				}}
 			>
 				로그인
-			</ButtonLink>
-			<ButtonLink
+			</LinkButton>
+			<LinkButton
 				ml={["none", 2]}
 				sx={{
 					display: ["none", "block"],
@@ -38,7 +38,7 @@ const Header = () => (
 				route="/sign-up"
 			>
 				회원가입
-			</ButtonLink>
+			</LinkButton>
 		</Flex>
 	</Grid>
 );

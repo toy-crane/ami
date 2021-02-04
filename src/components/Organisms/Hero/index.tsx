@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Heading, Flex, Text } from "theme-ui";
-import { ButtonLink } from "../../Atoms/Button";
+import { LinkButton } from "../../Atoms/Button";
 const Hero = () => (
 	<Flex sx={{ flexDirection: "column", alignItems: "flex-start" }}>
 		<Heading variant="styles.h3" mb={4} mt={6}>
@@ -14,9 +14,9 @@ const Hero = () => (
 			<br />
 			코드팟과 함께 꾸준히 코딩하는 습관을 만들어 봐요!
 		</Text>
-		<ButtonLink variant="primary" route="/list">
+		<LinkButton variant="primary" route="/list">
 			4주 코딩 챌린지 도전하기
-		</ButtonLink>
+		</LinkButton>
 	</Flex>
 );
 

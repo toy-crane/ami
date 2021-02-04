@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import {
 	Button as ThemeUIButton,
@@ -14,7 +14,7 @@ const Button: React.FC<ButtonProps> = (props: ButtonProps) => (
 	<ThemeUIButton {...props}>{props.children}</ThemeUIButton>
 );
 
-const ButtonLink = (props: ButtonLinkProps) => {
+const LinkButton = (props: ButtonLinkProps) => {
 	const history = useHistory();
 	const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
@@ -27,4 +27,4 @@ const ButtonLink = (props: ButtonLinkProps) => {
 	);
 };
 
-export { Button, ButtonLink };
+export { Button, LinkButton };

@@ -1,10 +1,9 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { Button, ButtonProps, ButtonLink, ButtonLinkProps } from "./index";
-
+import { Button, ButtonProps, LinkButton, ButtonLinkProps } from "./index";
 export default {
 	title: "Atoms/Button",
-	component: [Button, ButtonLink],
+	component: [Button, LinkButton],
 	argTypes: {
 		variant: {
 			control: {
@@ -22,8 +21,8 @@ export const BasicButton = ButtonTemplate.bind({});
 BasicButton.args = { variant: "primary" };
 
 const ButtonLinkTemplate: Story<ButtonLinkProps> = (args) => (
-	<ButtonLink {...args} route="/">
+	<LinkButton {...args} route="/">
 		Button with Link
-	</ButtonLink>
+	</LinkButton>
 );
-export const LinkButton = ButtonLinkTemplate.bind({});
+export const ButtonWithLink = ButtonLinkTemplate.bind({});
