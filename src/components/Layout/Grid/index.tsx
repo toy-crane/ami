@@ -3,7 +3,7 @@ import { Grid as ThemeUIGrid } from "theme-ui";
 
 const Grid: React.FC = (props) => {
 	return (
-		<ThemeUIGrid variant="mobileLayout" {...props}>
+		<ThemeUIGrid variant="mainLayout" {...props}>
 			{props.children}
 		</ThemeUIGrid>
 	);

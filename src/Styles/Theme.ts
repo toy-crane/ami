@@ -1,5 +1,6 @@
 import { Theme } from "@theme-ui/css";
 import FontVariant from "./FontVariant";
+import gridVariant from "./gridVariant";
 
 const imageVariant = {
 	mainLogo: {
@@ -15,17 +16,9 @@ const imageVariant = {
 	},
 };
 
-const gridVariant = {
-	mobileLayout: {
-		gridColumnGap: 3,
-		gridRowGap: 4,
-		gridTemplateColumns: "repeat(6, 1fr)",
-		mx: 3,
-	},
-};
-
 const theme: Theme = {
 	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+	breakpoints: ["40em"],
 	sizes: {
 		container: 1024,
 	},

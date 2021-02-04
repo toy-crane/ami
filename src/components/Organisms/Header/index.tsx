@@ -8,12 +8,17 @@ const Header = () => (
 		<Logo
 			sx={{
 				gridColumnStart: 1,
-				gridColumnEnd: 3,
+				gridColumnEnd: [3, 4],
 				alignSelf: "center",
 			}}
 		/>
 		<Icon
-			sx={{ gridColumn: -2, justifySelf: "flex-end", alignSelf: "center" }}
+			sx={{
+				gridColumnStart: -1,
+				justifySelf: "flex-end",
+				alignSelf: "center",
+				display: ["block", "none"],
+			}}
 			icon="menu"
 		/>
 	</Grid>
