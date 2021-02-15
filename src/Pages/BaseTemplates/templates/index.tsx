@@ -1,24 +1,14 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Flex, Box } from "theme-ui";
+import { jsx, Flex } from "theme-ui";
 import Header from "../../../components/Organisms/Header";
 import React from "react";
-
-const Container: React.FunctionComponent = (props) => (
-	<Box
-		{...props}
-		sx={{
-			maxWidth: "container",
-			mx: "auto",
-			px: 3,
-		}}
-	/>
-);
 
 const HeaderWrapper: React.FC = (props) => (
 	<Flex
 		sx={{
-			width: ["100%", "container"],
+			width: "100%",
+			maxWidth: "container",
 			alignItems: "center",
 			py: 3,
 			mx: [3, "auto"],
