@@ -28,6 +28,7 @@ const Header = () => (
 				sx={{
 					display: ["none", "block"],
 				}}
+				variant="primary"
 			>
 				로그인
 			</LinkButton>
@@ -37,6 +38,7 @@ const Header = () => (
 					display: ["none", "block"],
 				}}
 				route="/sign-up"
+				variant="secondary"
 			>
 				회원가입
 			</LinkButton>

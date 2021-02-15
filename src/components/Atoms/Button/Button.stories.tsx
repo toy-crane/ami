@@ -25,8 +25,11 @@ export default {
 const ButtonTemplate: Story<ButtonProps> = (args) => (
 	<Button {...args}>Button</Button>
 );
-export const BasicButton = ButtonTemplate.bind({});
-BasicButton.args = { variant: "primary" };
+export const PrimaryButton = ButtonTemplate.bind({});
+PrimaryButton.args = { variant: "primary" };
+
+export const SecondaryButton = ButtonTemplate.bind({});
+SecondaryButton.args = { variant: "secondary" };
 
 const LinkButtonTemplate: Story<LinkButtonProps> = (args) => (
 	<LinkButton {...args} route="/">

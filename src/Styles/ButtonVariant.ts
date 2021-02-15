@@ -1,4 +1,5 @@
 import { ThemeUIStyleObject } from "theme-ui";
+
 const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 	primary: {
 		color: "background",
@@ -9,11 +10,13 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 		cursor: "pointer",
 	},
 	secondary: {
-		color: "background",
-		bg: "secondary50",
+		color: "primary100",
+		bg: "background",
+		borderColor: "primary50",
+		border: "1px solid",
 		cursor: "pointer",
 		"&:hover": {
-			bg: "secondary100",
+			bg: "primary0",
 		},
 	},
 	icon: {
