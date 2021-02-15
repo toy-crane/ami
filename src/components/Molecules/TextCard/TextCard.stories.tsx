@@ -1,8 +1,8 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import TextCard from "./";
+import TextCard from ".";
 export default {
-	title: "Organisms/TextCard",
+	title: "Molecules/TextCard",
 	component: TextCard,
 };
 
