@@ -7,7 +7,6 @@ import React from "react";
 const HeaderWrapper: React.FC = (props) => (
 	<Flex
 		sx={{
-			width: "100%",
 			maxWidth: "container",
 			alignItems: "center",
 			py: 3,
