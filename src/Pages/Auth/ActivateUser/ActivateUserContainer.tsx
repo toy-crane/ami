@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useHistory } from "react-router-dom";
 import ActivateUser from "./ActivateUser";
-import AuthLayout from "../../../Layout/AuthLayout";
-import { useActivateUserMutation } from "../../../../types/graphql-types";
-import { nameValidator, mobileValidator } from "../../../validator";
+import AuthLayout from "../../../components/Layout/AuthLayout";
+import { useActivateUserMutation } from "../../../types/graphql-types";
+import { nameValidator, mobileValidator } from "../../../components/validator";
 
 export const schema = yup.object().shape({
 	name: nameValidator,

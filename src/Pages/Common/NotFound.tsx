@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Image, Button, Flex, Heading } from "theme-ui";
-import Container from "../../Layout/Container";
+import Container from "../../components/Layout/Container";
 import { useHistory } from "react-router-dom";
 
 const NotFound = () => {

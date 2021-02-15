@@ -1,10 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Link, Flex, Heading, Image, Text, Box } from "theme-ui";
-import GitHubButton from "../../Button/GithubButton";
-import { AuthLayout } from "../../Layout";
+import GitHubButton from "../../components/Button/GithubButton";
+import { AuthLayout } from "../../components/Layout";
 
-const Login = () => {
+const SignUp = () => {
 	return (
 		<AuthLayout>
 			<Flex
@@ -15,19 +15,20 @@ const Login = () => {
 				}}
 			>
 				<Box mb={4}>
-					<Heading as="h1">로그인</Heading>
+					<Heading as="h1">회원 가입하기</Heading>
 				</Box>
-				<Image src="/illustration/login.svg" mb={4} />
+				<Image src="/illustration/sign-in.svg" mb={4} />
 				<GitHubButton
-					text="github으로 로그인하기"
+					text="github으로 시작하기"
 					url="http://localhost:4000/github"
 				/>
 				<Text mb={2}>
-					<Link href="/sign-up">코드팟 계정이 없으신가요?</Link>
+					이미 Code Pot 계정이 있으신가요?
+					<Link href="/login">로그인</Link>
 				</Text>
 			</Flex>
 		</AuthLayout>
 	);
 };
 
-export default Login;
+export default SignUp;

@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { MainLayout } from "../../Layout";
-import Hero from "../../Organisms/Hero";
+import { MainLayout } from "../../components/Layout";
+import Hero from "../../components/Organisms/Hero";
 const Main = () => {
 	return (
 		<MainLayout>
