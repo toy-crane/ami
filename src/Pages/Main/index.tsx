@@ -2,13 +2,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Hero from "../../components/Organisms/Hero";
-import BaseTemplate from "../BaseTemplates/templates";
+import MainTemplate from "./templates";
 const Main = () => {
-	return (
-		<BaseTemplate>
-			<Hero />
-		</BaseTemplate>
-	);
+	return <MainTemplate hero={<Hero />}></MainTemplate>;
 };
 
 export default Main;

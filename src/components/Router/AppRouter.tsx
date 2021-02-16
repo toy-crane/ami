@@ -5,7 +5,7 @@ import ActivateRoute from "./ActivateRoute";
 import { SignUp, Login, ActivateUser } from "../../Pages/Auth";
 import { NotFound } from "../../Pages/Common";
 import { MyPage } from "../../Pages/Me";
-import { Main } from "../../Pages/Intro";
+import { Main } from "../../Pages";
 
 const AppRouter = () => {
 	return (
