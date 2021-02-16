@@ -4,8 +4,7 @@ import PrivateRoute from "./PrivateRoute";
 import ActivateRoute from "./ActivateRoute";
 import { SignUp, Login, ActivateUser } from "../../Pages/Auth";
 import { NotFound } from "../../Pages/Common";
-import { MyPage } from "../../Pages/Me";
-import { Main } from "../../Pages";
+import { Main, MyPage } from "../../Pages";
 
 const AppRouter = () => {
 	return (
