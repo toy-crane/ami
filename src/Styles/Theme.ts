@@ -70,6 +70,7 @@ const theme: Theme = {
 		brightenGray: "#F9FAFB",
 		gray: "#E6E6E6",
 		darkenGray: "#a2a7ab",
+		gray100: "#1A1A1A",
 		primary100: "#3221BF",
 		primary50: "#3F29EE",
 		primary20: "#6554F2",
