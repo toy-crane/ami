@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Flex, Box } from "theme-ui";
+import { jsx, Box } from "theme-ui";
 import Header from "../../../components/Organisms/Header";
 import React from "react";
 
