@@ -1,13 +1,13 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { MainLayout } from "../../components/Layout";
 import Hero from "../../components/Organisms/Hero";
+import BaseTemplate from "../BaseTemplates/templates";
 const Main = () => {
 	return (
-		<MainLayout>
+		<BaseTemplate>
 			<Hero />
-		</MainLayout>
+		</BaseTemplate>
 	);
 };
 
