@@ -6,5 +6,10 @@ export default {
 	component: BaseTemplate,
 };
 
-const Template: Story = () => <BaseTemplate></BaseTemplate>;
+const Template: Story = () => (
+	<BaseTemplate>
+		<h1>Hello</h1>
+		<p>Base Template!</p>
+	</BaseTemplate>
+);
 export const Basic = Template.bind({});
