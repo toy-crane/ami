@@ -9,8 +9,8 @@ const Footer = () => (
 		<Text variant="styles.bodySmall" color="white" mb="4">
 			06236 서울특별시 강남구 테헤란로 라이언 빌딩, 대표자: 김한울
 			<br /> 사업자 등록 번호: 123-456-789
-			<br /> 개인정보보호책임자: 김한울,
-			<br /> 전화번호:02-1111-1111,
+			<br /> 개인정보보호책임자: 김한울
+			<br /> 전화번호:02-1111-1111
 			<br />
 			고객센터: codepot-help@gmail.com
 		</Text>
