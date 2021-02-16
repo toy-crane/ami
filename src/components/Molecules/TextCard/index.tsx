@@ -10,7 +10,7 @@ const TextCard: React.FC<TextCardProps> = (props: TextCardProps) => {
 	return (
 		<Box>
 			<SubTitle>{props.title}</SubTitle>
-			<Text mt={1} variant="bodyLarge">
+			<Text mt={1} variant="styles.bodyLarge">
 				{props.content}
 			</Text>
 		</Box>

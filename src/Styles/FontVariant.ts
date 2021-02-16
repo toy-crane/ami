@@ -18,23 +18,23 @@ const FontVariant: ThemeStyles = {
 		variant: "text.heading",
 	},
 	h5: {
-		fontSize: 6,
-		variant: "text.heading",
-	},
-	h6: {
-		fontSize: 5,
-		variant: "text.heading",
-	},
-	h7: {
 		fontSize: 4,
 		variant: "text.heading",
 	},
-	h8: {
+	h6: {
 		fontSize: 3,
 		variant: "text.heading",
 	},
-	h9: {
+	h7: {
 		fontSize: 2,
+		variant: "text.heading",
+	},
+	h8: {
+		fontSize: 1,
+		variant: "text.heading",
+	},
+	h9: {
+		fontSize: 0,
 		variant: "text.heading",
 	},
 	subtitle: {
