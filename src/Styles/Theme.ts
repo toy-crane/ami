@@ -71,6 +71,7 @@ const theme: Theme = {
 		gray: "#E6E6E6",
 		darkenGray: "#a2a7ab",
 		gray100: "#1A1A1A",
+		gray0: "#F1F1F1",
 		primary100: "#3221BF",
 		primary50: "#3F29EE",
 		primary20: "#6554F2",

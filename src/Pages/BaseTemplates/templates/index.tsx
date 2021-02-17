@@ -6,14 +6,15 @@ import React from "react";
 import Footer from "../../../components/Organisms/Footer";
 
 export interface ContainerProps extends BoxProps {
-	color?: string;
+	baseColor?: string;
 }
 const Container: React.FC<ContainerProps> = (props: ContainerProps) => (
-	<Box bg={props.color}>
+	<Box bg={props.baseColor}>
 		<Box
 			sx={{
+				px: [3, "none"],
+				mx: ["none", "auto"],
 				maxWidth: "container",
-				mx: [3, "auto"],
 			}}
 			{...props}
 		>
@@ -36,11 +37,9 @@ const HeaderWrapper: React.FC = (props) => (
 
 const FooterWrapper: React.FC = (props) => (
 	<Container
-		color="gray100"
+		baseColor="gray100"
 		sx={{
-			alignItems: "center",
 			display: "flex",
-			width: "100%",
 			backgroundColor: "gray100",
 		}}
 		py={4}
@@ -49,16 +48,12 @@ const FooterWrapper: React.FC = (props) => (
 	</Container>
 );
 
-const MainWrapper: React.FC = (props) => (
-	<Container sx={{ minHeight: "70vh" }}>{props.children}</Container>
-);
-
 const BaseTemplate: React.FC = ({ children }) => (
 	<React.Fragment>
 		<HeaderWrapper>
 			<Header />
 		</HeaderWrapper>
-		<MainWrapper>{children}</MainWrapper>
+		{children}
 		<FooterWrapper>
 			<Footer />
 		</FooterWrapper>
@@ -66,3 +61,4 @@ const BaseTemplate: React.FC = ({ children }) => (
 );
 
 export default BaseTemplate;
+export { Container };
