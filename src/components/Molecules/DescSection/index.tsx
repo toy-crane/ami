@@ -17,11 +17,11 @@ const DescSection: React.FC<DescSectionProps> = (props: DescSectionProps) => {
 
 	let imageGridStyle, descGridStyle;
 	if (imagePosition === "right") {
-		imageGridStyle = { gridColumn: ["span 6", "8 / span 3"], order: [1, 2] };
-		descGridStyle = { gridColumn: ["span 6", "span 6"], order: [2, 1] };
+		imageGridStyle = { gridColumn: ["span 6", "9 / span 4"], order: [1, 2] };
+		descGridStyle = { gridColumn: ["span 6", "span 7"], order: [2, 1] };
 	} else {
-		imageGridStyle = { gridColumn: ["span 6", "span 3"] };
-		descGridStyle = { gridColumn: ["span 6", "5 /span 6"] };
+		imageGridStyle = { gridColumn: ["span 6", "span 4"] };
+		descGridStyle = { gridColumn: ["span 6", "6 /span 7"] };
 	}
 
 	return (

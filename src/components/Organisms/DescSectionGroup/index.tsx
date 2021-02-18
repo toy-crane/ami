@@ -49,7 +49,7 @@ const DescSectionGroup: React.FC<SectionGroupProps> = (
 			sx={{
 				listStyle: "none",
 				display: "grid",
-				gridGap: 5,
+				gridGap: 6,
 				m: 0,
 				p: 0,
 			}}
