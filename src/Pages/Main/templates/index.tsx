@@ -11,13 +11,13 @@ interface MainTemplateProps {
 
 const HeroContainer: React.FC = (props) => (
 	<Container>
-		<Box mb={[5, 6]}>{props.children}</Box>
+		<Box>{props.children}</Box>
 	</Container>
 );
 
 const DescSectionGroupContainer: React.FC = (props) => (
 	<Container>
-		<Box mb={[5, 6]}>{props.children}</Box>
+		<Box>{props.children}</Box>
 	</Container>
 );
 
