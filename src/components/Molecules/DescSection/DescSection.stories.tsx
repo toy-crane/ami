@@ -1,7 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import DescSection from ".";
-import languageImage from "../../../assets/img/mainSection/language-group.png";
+import sectionImage from "../../../assets/img/mainSection/section_1.png";
 import { Container } from "../../../Pages/BaseTemplates/templates";
 export default {
 	title: "Molecules/DescSection",
@@ -23,7 +23,7 @@ const Template: Story = (args) => (
 			boldTitle="챌린지 "
 			title="찾기"
 			desc="안녕하세요"
-			image={languageImage}
+			image={sectionImage}
 		></DescSection>
 	</Container>
 );
