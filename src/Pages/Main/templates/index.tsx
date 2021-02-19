@@ -6,15 +6,23 @@ import BaseTemplate, { Container } from "../../BaseTemplates/templates";
 
 interface MainTemplateProps {
 	hero: React.ReactNode;
-	DescSectionGroup: React.ReactNode;
+	DescSectionGroup: React.ReactNode[];
+}
+
+interface DescSectionContainerProps {
+	baseColor?: string;
 }
 
 const HeroContainer: React.FC = (props) => (
-	<Container py={[5, 6]}>{props.children}</Container>
+	<Container py={[5, 6]} baseColor="gray0">
+		{props.children}
+	</Container>
 );
 
-const DescSectionGroupContainer: React.FC = (props) => (
-	<Container>{props.children}</Container>
+const DescSectionContainer: React.FC<DescSectionContainerProps> = (props) => (
+	<Container py={[5, 6]} {...props}>
+		{props.children}
+	</Container>
 );
 
 const MainTemplate: React.FC<MainTemplateProps> = ({
@@ -24,7 +32,15 @@ const MainTemplate: React.FC<MainTemplateProps> = ({
 	return (
 		<BaseTemplate>
 			<HeroContainer>{hero}</HeroContainer>
-			<DescSectionGroupContainer>{DescSectionGroup}</DescSectionGroupContainer>
+			{DescSectionGroup.map((DescSection, index) =>
+				index % 2 === 0 ? (
+					<DescSectionContainer>{DescSection}</DescSectionContainer>
+				) : (
+					<DescSectionContainer baseColor="gray0">
+						{DescSection}
+					</DescSectionContainer>
+				)
+			)}
 		</BaseTemplate>
 	);
 };

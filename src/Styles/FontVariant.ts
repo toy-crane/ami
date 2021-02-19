@@ -2,23 +2,23 @@ import { ThemeStyles } from "theme-ui";
 
 const FontVariant: ThemeStyles = {
 	h1: {
-		fontSize: 8,
+		fontSize: [6, 8],
 		variant: "text.heading",
 	},
 	h2: {
-		fontSize: 7,
+		fontSize: [5, 7],
 		variant: "text.heading",
 	},
 	h3: {
-		fontSize: 6,
+		fontSize: [4, 6],
 		variant: "text.heading",
 	},
 	h4: {
-		fontSize: 5,
+		fontSize: [3, 5],
 		variant: "text.heading",
 	},
 	h5: {
-		fontSize: 4,
+		fontSize: [1, 4],
 		variant: "text.heading",
 	},
 	h6: {
