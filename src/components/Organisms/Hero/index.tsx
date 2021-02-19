@@ -4,7 +4,7 @@ import { jsx, Heading, Flex, Text } from "theme-ui";
 import { LinkButton } from "../../Atoms/Button";
 const Hero = () => (
 	<Flex sx={{ flexDirection: "column", alignItems: "flex-start" }}>
-		<Heading variant="styles.h3" mb={4} pt={6}>
+		<Heading variant="styles.h3" mb={4}>
 			<span sx={{ color: "primary50" }}>습관</span>처럼
 			<br />
 			꾸준히 코딩하자.

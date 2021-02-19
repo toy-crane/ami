@@ -12,8 +12,8 @@ const Container: React.FC<ContainerProps> = (props: ContainerProps) => (
 	<Box bg={props.baseColor}>
 		<Box
 			sx={{
-				px: [3, "none"],
-				mx: ["none", "auto"],
+				px: [3, 0],
+				mx: [0, "auto"],
 				maxWidth: "container",
 			}}
 			{...props}
