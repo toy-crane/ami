@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Box, jsx } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
 import BaseTemplate, { Container } from "../../BaseTemplates/templates";
 
