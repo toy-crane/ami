@@ -31,6 +31,20 @@ const theme: Theme = {
 	images: imageVariant,
 	grids: gridVariant,
 	buttons: ButtonVariant,
+	badges: {
+		primary: {
+			color: "background",
+			bg: "primary50",
+		},
+		secondary: {
+			color: "background",
+			bg: "secondary50",
+		},
+		warning: {
+			color: "background",
+			bg: "warning50",
+		},
+	},
 	fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72],
 	fontWeights: {
 		body: 400,
@@ -71,6 +85,10 @@ const theme: Theme = {
 		gray: "#E6E6E6",
 		darkenGray: "#a2a7ab",
 		gray100: "#1A1A1A",
+		gray80: "#656565",
+		gray60: "#A1A1A1",
+		gray40: "#C7C7C7",
+		gray05: "#E4E4E4",
 		gray0: "#F8F8F8",
 		primary100: "#3221BF",
 		primary50: "#3F29EE",
@@ -81,6 +99,9 @@ const theme: Theme = {
 		secondary100: "#04BD8D",
 		secondary50: "#06D19C",
 		secondary05: "#38DAB0",
+		warning100: "#FDB431",
+		warning50: "#FDC35A",
+		warning05: "#FED283",
 	},
 	styles: {
 		...FontVariant,
