@@ -18,7 +18,7 @@ const FontVariant: ThemeStyles = {
 		variant: "text.heading",
 	},
 	h5: {
-		fontSize: [1, 4],
+		fontSize: [2, 4],
 		variant: "text.heading",
 	},
 	h6: {
