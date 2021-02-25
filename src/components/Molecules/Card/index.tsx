@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, Text, Grid, Box, Heading, Badge, AspectRatio } from "theme-ui";
+import { Image, Text, Grid, Box, Heading, Badge } from "theme-ui";
 import typescriptImg from "../../../assets/img/languages/typescript.svg";
 import reactImg from "../../../assets/img/languages/react.svg";
 import JSImg from "../../../assets/img/languages/javascript.svg";
@@ -14,8 +14,18 @@ const languageImg = {
 	graphql: graphqlImg,
 } as const;
 
+type status = "inProgress" | "Close";
+type statusObj = {
+	text: string;
+	variant: string;
+};
+const StatusSet: Record<status, statusObj> = {
+	inProgress: { text: "모집중", variant: "primary" },
+	Close: { text: "모집완료", variant: "secondary" },
+};
 interface CardProps {
 	language: "typescript" | "react" | "javascript" | "python" | "graphql";
+	status: status;
 }
 
 const Card: React.FC<CardProps> = (props: CardProps) => {
@@ -31,6 +41,9 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 		>
 			<Image src={languageImg[props.language]} />
 			<Box>
+				<Badge variant={StatusSet[props.status].variant}>
+					{StatusSet[props.status].text}
+				</Badge>
 				<Heading variant="styles.h5" mb={1}>
 					타입스크립트 챌린지
 				</Heading>

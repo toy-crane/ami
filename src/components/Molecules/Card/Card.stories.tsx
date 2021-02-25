@@ -6,5 +6,7 @@ export default {
 	component: Card,
 };
 
-const Template: Story = (args) => <Card language="typescript" {...args}></Card>;
+const Template: Story = (args) => (
+	<Card language="typescript" status="inProgress" {...args}></Card>
+);
 export const Basic = Template.bind({});
