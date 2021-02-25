@@ -9,7 +9,13 @@ export default {
 
 const Template: Story = (args) => (
 	<Box sx={{ display: "inline-flex" }}>
-		<Card to="/" language="typescript" status="inProgress" {...args}></Card>
+		<Card
+			to="/"
+			language="typescript"
+			status="inProgress"
+			start_at={new Date()}
+			{...args}
+		></Card>
 	</Box>
 );
 export const Basic = Template.bind({});

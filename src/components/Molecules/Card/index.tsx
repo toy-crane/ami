@@ -1,36 +1,18 @@
+import moment from "moment";
+import "moment/locale/ko";
 import React from "react";
 import { Image, Text, Grid, Box, Heading, Badge, Link } from "theme-ui";
-import typescriptImg from "../../../assets/img/languages/typescript.svg";
-import reactImg from "../../../assets/img/languages/react.svg";
-import JSImg from "../../../assets/img/languages/javascript.svg";
-import graphqlImg from "../../../assets/img/languages/graphql.svg";
-import pythonImg from "../../../assets/img/languages/python.svg";
-import { responsePathAsArray } from "graphql";
+import { language, status, LanguageSet, StatusSet } from "./constants";
 
-const languageImg = {
-	typescript: typescriptImg,
-	react: reactImg,
-	javascript: JSImg,
-	python: pythonImg,
-	graphql: graphqlImg,
-} as const;
-
-type status = "inProgress" | "Close";
-type statusObj = {
-	text: string;
-	variant: string;
-};
-const StatusSet: Record<status, statusObj> = {
-	inProgress: { text: "모집중", variant: "primary" },
-	Close: { text: "모집완료", variant: "secondary" },
-};
 interface CardProps {
-	language: "typescript" | "react" | "javascript" | "python" | "graphql";
+	language: language;
 	status: status;
 	to: string;
+	start_at: Date;
 }
 
 const Card: React.FC<CardProps> = (props: CardProps) => {
+	const { image, desc, title } = LanguageSet[props.language];
 	return (
 		<Link href={props.to}>
 			<Grid
@@ -42,18 +24,20 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 				}}
 				p={3}
 			>
-				<Image src={languageImg[props.language]} />
+				<Image src={image} />
 				<Box>
 					<Badge variant={StatusSet[props.status].variant}>
 						{StatusSet[props.status].text}
 					</Badge>
 					<Heading variant="styles.h5" mb={1}>
-						타입스크립트 챌린지
+						{title}
 					</Heading>
 					<Text sx={{ fontSize: 2 }} mb={3}>
-						단단한 javascript 코드가 만들고 싶다면?
+						{desc}
 					</Text>
-					<Text sx={{ fontSize: 1, color: "gray80" }}>첫 시작일 2/24(토)</Text>
+					<Text sx={{ fontSize: 1, color: "gray80" }}>
+						첫 시작일 | {moment(props.start_at).format("MM/DD(dd)")}
+					</Text>
 				</Box>
 			</Grid>
 		</Link>
