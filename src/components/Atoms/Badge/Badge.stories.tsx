@@ -1,10 +1,18 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import Badge from "./index";
-import { ICONS } from "../Icon/constants";
+
 export default {
 	title: "Atoms/Badge",
 	component: [Badge],
+	argTypes: {
+		variant: {
+			control: {
+				type: "select",
+				options: ["primary", "secondary"],
+			},
+		},
+	},
 };
 
 const BadgeTemplate: Story = (args) => <Badge {...args}>Badge</Badge>;
