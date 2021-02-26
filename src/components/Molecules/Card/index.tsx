@@ -30,9 +30,22 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 						sx={{
 							width: "100%",
 							height: "auto",
-							backgroundColor: "brightenGray",
+							backgroundColor: "gray0",
 						}}
 					/>
+					<Box
+						sx={{
+							position: "absolute",
+							top: 0,
+							bottom: 0,
+							left: 0,
+							right: 0,
+							height: "100%",
+							width: "100%",
+							opacity: props.status === "inProgress" ? 0 : 0.1,
+							backgroundColor: "gray100",
+						}}
+					></Box>
 					<Badge
 						variant={StatusSet[props.status].variant}
 						sx={{ position: "absolute", mt: "8px", ml: "8px" }}
