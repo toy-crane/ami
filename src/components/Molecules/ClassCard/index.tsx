@@ -4,7 +4,7 @@ import React from "react";
 import { Image, Text, Grid, Box, Heading, Badge, Link } from "theme-ui";
 import { language, status, LanguageSet, StatusSet } from "./constants";
 
-export interface CardProps {
+export interface ClassCardProps {
 	id: string;
 	language: language;
 	status: status;
@@ -12,7 +12,7 @@ export interface CardProps {
 	start_at: Date;
 }
 
-const Card: React.FC<CardProps> = (props: CardProps) => {
+const ClassCard: React.FC<ClassCardProps> = (props: ClassCardProps) => {
 	const { image, desc, title } = LanguageSet[props.language];
 	return (
 		<Link href={props.to}>
@@ -78,4 +78,4 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 	);
 };
 
-export default Card;
+export default ClassCard;

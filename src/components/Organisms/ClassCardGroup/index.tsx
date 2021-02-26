@@ -1,12 +1,14 @@
 import React from "react";
-import { Grid, Box, Heading, jsx } from "theme-ui";
-import Card, { CardProps } from "../../Molecules/Card";
+import { Grid, Box, Heading } from "theme-ui";
+import ClassCard, { ClassCardProps } from "../../Molecules/ClassCard";
 
-interface CardGroupProps {
-	cards?: CardProps[];
+interface ClassCardGroupProps {
+	cards?: ClassCardProps[];
 }
 
-const CardGroup: React.FC<CardGroupProps> = (props: CardGroupProps) => (
+const ClassCardGroup: React.FC<ClassCardGroupProps> = (
+	props: ClassCardGroupProps
+) => (
 	<Box>
 		<Heading variant="styles.h3" mb={4}>
 			모집중인 챌린지
@@ -14,7 +16,7 @@ const CardGroup: React.FC<CardGroupProps> = (props: CardGroupProps) => (
 		<Grid sx={{ gridTemplateColumns: ["repeat(2, 1fr)", "repeat(4, 1fr)"] }}>
 			{props.cards ? (
 				props.cards.map((card) => (
-					<Card
+					<ClassCard
 						id={card.id}
 						to={card.to}
 						language={card.language}
@@ -29,4 +31,4 @@ const CardGroup: React.FC<CardGroupProps> = (props: CardGroupProps) => (
 	</Box>
 );
 
-export default CardGroup;
+export default ClassCardGroup;

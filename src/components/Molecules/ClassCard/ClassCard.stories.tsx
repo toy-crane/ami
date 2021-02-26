@@ -1,22 +1,22 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import Card from ".";
+import ClassCard from ".";
 import { Box } from "theme-ui";
 export default {
-	title: "Molecules/Card",
-	component: Card,
+	title: "Molecules/Class Card",
+	component: ClassCard,
 };
 
 const Template: Story = (args) => (
 	<Box sx={{ display: "inline-flex" }}>
-		<Card
+		<ClassCard
 			id="1"
 			to="/"
 			language="typescript"
 			status="inProgress"
 			start_at={new Date()}
 			{...args}
-		></Card>
+		></ClassCard>
 	</Box>
 );
 export const Basic = Template.bind({});

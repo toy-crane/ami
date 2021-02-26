@@ -1,13 +1,13 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import CardGroup from ".";
-import { CardProps } from "../../Molecules/Card";
+import ClassCardGroup from ".";
+import { ClassCardProps } from "../../Molecules/ClassCard";
 export default {
-	title: "Organisms/Card Group",
-	component: CardGroup,
+	title: "Organisms/Class Card Group",
+	component: ClassCardGroup,
 };
 
-export const sampleCards: CardProps[] = [
+export const sampleCards: ClassCardProps[] = [
 	{
 		id: "1",
 		language: "typescript",
@@ -45,5 +45,7 @@ export const sampleCards: CardProps[] = [
 	},
 ];
 
-const Template: Story = () => <CardGroup cards={sampleCards}></CardGroup>;
+const Template: Story = () => (
+	<ClassCardGroup cards={sampleCards}></ClassCardGroup>
+);
 export const Basic = Template.bind({});
