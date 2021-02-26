@@ -17,9 +17,9 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 		<Link href={props.to}>
 			<Grid
 				sx={{
-					maxWidth: "256px",
 					border: "1px solid",
 					borderColor: "gray05",
+					backgroundColor: "white",
 					borderRadius: 8,
 				}}
 				p={3}
