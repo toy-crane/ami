@@ -89,7 +89,7 @@ const theme: Theme = {
 		gray60: "#A1A1A1",
 		gray40: "#C7C7C7",
 		gray05: "#E4E4E4",
-		gray0: "#F8F8F8",
+		gray0: "#F9FAFB",
 		primary100: "#3221BF",
 		primary50: "#3F29EE",
 		primary20: "#6554F2",

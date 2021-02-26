@@ -51,7 +51,7 @@ export const LanguageSet: Record<language, languageObj> = {
 	},
 	graphql: {
 		image: graphqlImg,
-		title: "grapql 챌린지",
+		title: "graphql 챌린지",
 		desc: "단단한 javascript 코드가 만들고 싶다면?",
 	},
 };

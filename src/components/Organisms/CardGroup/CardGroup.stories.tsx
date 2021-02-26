@@ -29,6 +29,20 @@ export const sampleCards: CardProps[] = [
 		to: "/",
 		start_at: new Date(),
 	},
+	{
+		id: "4",
+		language: "react",
+		status: "close",
+		to: "/",
+		start_at: new Date(),
+	},
+	{
+		id: "5",
+		language: "python",
+		status: "close",
+		to: "/",
+		start_at: new Date(),
+	},
 ];
 
 const Template: Story = () => <CardGroup cards={sampleCards}></CardGroup>;

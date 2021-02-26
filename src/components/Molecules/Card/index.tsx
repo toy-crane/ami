@@ -23,13 +23,24 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 					backgroundColor: "white",
 					borderRadius: 8,
 				}}
-				p={3}
 			>
-				<Image src={image} />
-				<Box>
-					<Badge variant={StatusSet[props.status].variant}>
+				<Box sx={{ display: "flex", position: "relative" }}>
+					<Image
+						src={image}
+						sx={{
+							width: "100%",
+							height: "auto",
+							backgroundColor: "brightenGray",
+						}}
+					/>
+					<Badge
+						variant={StatusSet[props.status].variant}
+						sx={{ position: "absolute", mt: "8px", ml: "8px" }}
+					>
 						{StatusSet[props.status].text}
 					</Badge>
+				</Box>
+				<Box p={3}>
 					<Heading variant="styles.h5" mb={1}>
 						{title}
 					</Heading>
