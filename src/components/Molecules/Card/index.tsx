@@ -22,9 +22,18 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 					borderColor: "gray05",
 					backgroundColor: "white",
 					borderRadius: 8,
+					transition: "0.2s ease",
+					":hover": {
+						transform: "scale(1.02)",
+					},
 				}}
 			>
-				<Box sx={{ display: "flex", position: "relative" }}>
+				<Box
+					sx={{
+						display: "flex",
+						position: "relative",
+					}}
+				>
 					<Image
 						src={image}
 						sx={{

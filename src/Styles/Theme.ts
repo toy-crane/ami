@@ -35,14 +35,20 @@ const theme: Theme = {
 		primary: {
 			color: "background",
 			bg: "primary50",
+			fontSize: 1,
+			paddingX: 1,
 		},
 		secondary: {
 			color: "background",
 			bg: "secondary50",
+			fontSize: 1,
+			paddingX: 1,
 		},
 		warning: {
 			color: "background",
 			bg: "warning50",
+			fontSize: 1,
+			paddingX: 1,
 		},
 	},
 	fontSizes: [12, 14, 16, 20, 24, 32, 40, 56, 72],
