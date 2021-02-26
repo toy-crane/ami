@@ -37,10 +37,9 @@ const HeaderWrapper: React.FC = (props) => (
 
 const FooterWrapper: React.FC = (props) => (
 	<Container
-		baseColor="gray100"
+		baseColor="gray0"
 		sx={{
 			display: "flex",
-			backgroundColor: "gray100",
 		}}
 		py={4}
 	>

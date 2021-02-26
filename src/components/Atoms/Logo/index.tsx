@@ -3,10 +3,17 @@ import { BoxProps, BoxOwnProps, Link, Flex, Box } from "theme-ui";
 
 interface LogoProps extends BoxProps, BoxOwnProps {
 	height?: number;
-	color?: "black" | "white";
+	color?: "black" | "white" | "gray";
 }
 const Logo: React.FC<LogoProps> = (props: LogoProps) => {
-	const color = props.color ? props.color : "black";
+	let color;
+	if (props.color === "gray") {
+		color = "#A1A1A1";
+	} else if (props.color === "white") {
+		color = "white";
+	} else {
+		color = "black";
+	}
 	return (
 		<Box {...props}>
 			<Link href="/">
