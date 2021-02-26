@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = (props: CardProps) => {
 							right: 0,
 							height: "100%",
 							width: "100%",
-							opacity: props.status === "inProgress" ? 0 : 0.1,
+							opacity: props.status === "inProgress" ? 0 : 0.4,
 							backgroundColor: "gray100",
 						}}
 					></Box>
