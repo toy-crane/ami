@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import { Avatar } from "theme-ui";
+import Avatar from ".";
 
 export default {
 	title: "Atoms/Avatar",
