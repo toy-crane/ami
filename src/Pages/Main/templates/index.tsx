@@ -7,7 +7,6 @@ import BaseTemplate, { Container } from "../../BaseTemplates/templates";
 interface MainTemplateProps {
 	hero: React.ReactNode;
 	classCardGroup: React.ReactNode;
-	DescSectionGroup: React.ReactNode[];
 }
 
 interface DescSectionContainerProps {
@@ -24,30 +23,14 @@ const ClassCardGroupContainer: React.FC = (props) => (
 	<Container py={[4, 5]}>{props.children}</Container>
 );
 
-const DescSectionContainer: React.FC<DescSectionContainerProps> = (props) => (
-	<Container py={[4, 5]} {...props}>
-		{props.children}
-	</Container>
-);
-
 const MainTemplate: React.FC<MainTemplateProps> = ({
 	hero,
-	DescSectionGroup,
 	classCardGroup,
 }) => {
 	return (
 		<BaseTemplate>
 			<HeroContainer>{hero}</HeroContainer>
 			<ClassCardGroupContainer>{classCardGroup}</ClassCardGroupContainer>
-			{DescSectionGroup.map((DescSection, index) =>
-				index % 2 === 0 ? (
-					<DescSectionContainer>{DescSection}</DescSectionContainer>
-				) : (
-					<DescSectionContainer baseColor="gray0">
-						{DescSection}
-					</DescSectionContainer>
-				)
-			)}
 		</BaseTemplate>
 	);
 };
