@@ -4,7 +4,7 @@ import JSImg from "../../../assets/img/languages/javascript.svg";
 import graphqlImg from "../../../assets/img/languages/graphql.svg";
 import pythonImg from "../../../assets/img/languages/python.svg";
 
-export type status = "inProgress" | "Close";
+export type status = "inProgress" | "close";
 export type language =
 	| "typescript"
 	| "react"
@@ -19,7 +19,7 @@ type statusObj = {
 
 export const StatusSet: Record<status, statusObj> = {
 	inProgress: { text: "모집중", variant: "primary" },
-	Close: { text: "모집완료", variant: "secondary" },
+	close: { text: "모집완료", variant: "secondary" },
 };
 
 type languageObj = {

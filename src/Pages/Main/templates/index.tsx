@@ -19,13 +19,13 @@ const HeroContainer: React.FC = (props) => (
 );
 
 const ClassCardGroupContainer: React.FC = (props) => (
-	<Container py={[5, 6]} baseColor="gray0">
+	<Container py={[4, 5]} baseColor="gray0">
 		{props.children}
 	</Container>
 );
 
 const DescSectionContainer: React.FC<DescSectionContainerProps> = (props) => (
-	<Container py={[5, 6]} {...props}>
+	<Container py={[4, 5]} {...props}>
 		{props.children}
 	</Container>
 );

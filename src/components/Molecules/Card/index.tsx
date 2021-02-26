@@ -4,7 +4,8 @@ import React from "react";
 import { Image, Text, Grid, Box, Heading, Badge, Link } from "theme-ui";
 import { language, status, LanguageSet, StatusSet } from "./constants";
 
-interface CardProps {
+export interface CardProps {
+	id: string;
 	language: language;
 	status: status;
 	to: string;
