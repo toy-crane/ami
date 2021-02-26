@@ -2,14 +2,17 @@ import React from "react";
 import { Flex, Text, Heading } from "theme-ui";
 import Avatar from "../../Atoms/Avatar";
 
-interface EpilogueCard {
+export interface EpilogueCardProps {
+	id: string;
 	text: string;
 	name: string;
 	job: string;
 	imgSrc: string;
 }
 
-const EpilogueCard: React.FC<EpilogueCard> = (props: EpilogueCard) => {
+const EpilogueCard: React.FC<EpilogueCardProps> = (
+	props: EpilogueCardProps
+) => {
 	return (
 		<Flex
 			sx={{
