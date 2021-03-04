@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Box, Heading } from "theme-ui";
 import ClassCard, { ClassCardProps } from "../../Molecules/ClassCard";
+import SectionContainer from "../SectionContainer/SectionContainer";
 
 interface ChallangeSectionProps {
 	cards?: ClassCardProps[];
@@ -9,10 +10,7 @@ interface ChallangeSectionProps {
 const ChallangeSection: React.FC<ChallangeSectionProps> = (
 	props: ChallangeSectionProps
 ) => (
-	<Box>
-		<Heading variant="styles.h2" mb={[3, 4]}>
-			모집중인 챌린지
-		</Heading>
+	<SectionContainer title="모집중인 챌린지">
 		<Grid sx={{ gridTemplateColumns: ["repeat(2, 1fr)", "repeat(4, 1fr)"] }}>
 			{props.cards ? (
 				props.cards.map((card) => (
@@ -28,7 +26,7 @@ const ChallangeSection: React.FC<ChallangeSectionProps> = (
 				<div>카드가 없습니다.</div>
 			)}
 		</Grid>
-	</Box>
+	</SectionContainer>
 );
 
 export default ChallangeSection;

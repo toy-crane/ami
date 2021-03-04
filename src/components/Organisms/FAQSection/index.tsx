@@ -1,6 +1,7 @@
 import React from "react";
-import { Grid, Box, Heading } from "theme-ui";
+import { Grid } from "theme-ui";
 import Drawer, { DrawerProps } from "../../Molecules/Drawer";
+import SectionContainer from "../SectionContainer/SectionContainer";
 
 const FAQContents: DrawerProps[] = [
 	{
@@ -21,18 +22,14 @@ const FAQContents: DrawerProps[] = [
 		text: "최대 10명입니다.",
 	},
 ];
-
 const FAQSection: React.FC = (props) => (
-	<Box>
-		<Heading variant="styles.h2" mb={[3, 4]}>
-			자주 묻는 질문
-		</Heading>
+	<SectionContainer title="자주 묻는 질문">
 		<Grid sx={{ gap: 2 }}>
 			{FAQContents.map(({ id, text, title }) => (
 				<Drawer id={id} text={text} title={title}></Drawer>
 			))}
 		</Grid>
-	</Box>
+	</SectionContainer>
 );
 
 export default FAQSection;

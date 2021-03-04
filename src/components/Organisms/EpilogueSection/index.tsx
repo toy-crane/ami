@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Box, Heading } from "theme-ui";
 import EpilogueCard, { EpilogueCardProps } from "../../Molecules/EpilogueCard";
+import SectionContainer from "../SectionContainer/SectionContainer";
 
 const EpilogueCardContents: EpilogueCardProps[] = [
 	{
@@ -38,10 +39,7 @@ const EpilogueCardContents: EpilogueCardProps[] = [
 ];
 
 const EpilogueSection: React.FC = (props) => (
-	<Box>
-		<Heading variant="styles.h2" mb={[3, 4]}>
-			챌린지 후기
-		</Heading>
+	<SectionContainer title="챌린지 후기">
 		<Grid
 			sx={{
 				gridTemplateColumns: ["repeat(1, 1fr)", "repeat(2, 1fr)"],
@@ -53,7 +51,7 @@ const EpilogueSection: React.FC = (props) => (
 				<EpilogueCard {...content} />
 			))}
 		</Grid>
-	</Box>
+	</SectionContainer>
 );
 
 export default EpilogueSection;
