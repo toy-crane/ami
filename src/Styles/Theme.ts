@@ -64,6 +64,10 @@ const theme: Theme = {
 		subTitle: 1.6,
 	},
 	text: {
+		default: {
+			color: "text",
+			fontSize: [1, 2],
+		},
 		heading: {
 			fontFamily: "heading",
 			lineHeight: "heading",

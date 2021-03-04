@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Text } from "theme-ui";
-import Icon from "../../Atoms/Icon";
+import Icon, { IconProps } from "../../Atoms/Icon";
 import { ICONS } from "../../Atoms/Icon/constants";
 
 interface DrawerProps {
@@ -9,12 +9,15 @@ interface DrawerProps {
 }
 
 const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
-	const [showContent, setShowContent] = useState("none");
+	const [showContent, setShowContent] = useState<boolean>(false);
+	const [arrowIcon, setArrowIcon] = useState<ICONS>(ICONS.chevron_right);
 	const handleClick = () => {
-		if (showContent === "none") {
-			setShowContent("block");
+		if (showContent) {
+			setShowContent(false);
+			setArrowIcon(ICONS.chevron_right);
 		} else {
-			setShowContent("none");
+			setShowContent(true);
+			setArrowIcon(ICONS.chevron_down);
 		}
 	};
 	return (
@@ -38,12 +41,14 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
 				}}
 				onClick={handleClick}
 			>
-				<Text>{props.title}</Text>
-				<Icon icon={ICONS.menu} height={16}></Icon>
+				<Text color="inherit">{props.title}</Text>
+				<Icon icon={arrowIcon} size={16}></Icon>
 			</Box>
-			<Text p={3} sx={{ display: showContent }}>
-				{props.text}
-			</Text>
+			{showContent && (
+				<Text p={3} color="gray100">
+					{props.text}
+				</Text>
+			)}
 		</Box>
 	);
 };
