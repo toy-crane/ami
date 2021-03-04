@@ -23,7 +23,7 @@ const EpilogueCardContents: EpilogueCardProps[] = [
 
 const EpilogueCardGroup: React.FC = (props) => (
 	<Box>
-		<Heading variant="styles.h4" mb={3}>
+		<Heading variant="styles.h2" mb={[3, 4]}>
 			챌린지 후기
 		</Heading>
 		<Grid

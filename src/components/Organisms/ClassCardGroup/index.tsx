@@ -10,7 +10,7 @@ const ClassCardGroup: React.FC<ClassCardGroupProps> = (
 	props: ClassCardGroupProps
 ) => (
 	<Box>
-		<Heading variant="styles.h4" mb={3}>
+		<Heading variant="styles.h2" mb={[3,4]}>
 			모집중인 챌린지
 		</Heading>
 		<Grid sx={{ gridTemplateColumns: ["repeat(2, 1fr)", "repeat(4, 1fr)"] }}>

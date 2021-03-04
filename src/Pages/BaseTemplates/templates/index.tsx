@@ -42,6 +42,7 @@ const FooterWrapper: React.FC = (props) => (
 			display: "flex",
 		}}
 		py={4}
+		mt={4}
 	>
 		{props.children}
 	</Container>

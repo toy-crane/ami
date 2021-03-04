@@ -60,8 +60,8 @@ const theme: Theme = {
 	},
 	lineHeights: {
 		body: 1.5,
-		heading: 1.5,
-		subTitle: 1.6,
+		heading: 1.6,
+		subTitle: 1.5,
 	},
 	text: {
 		default: {

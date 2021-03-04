@@ -24,10 +24,10 @@ const FAQContents: DrawerProps[] = [
 
 const FAQSection: React.FC = (props) => (
 	<Box>
-		<Heading variant="styles.h4" mb={3}>
-			자주 묻는 질문	
+		<Heading variant="styles.h2" mb={[3, 4]}>
+			자주 묻는 질문
 		</Heading>
-		<Grid sx={{ gap: 1 }}>
+		<Grid sx={{ gap: 2 }}>
 			{FAQContents.map(({ id, text, title }) => (
 				<Drawer id={id} text={text} title={title}></Drawer>
 			))}

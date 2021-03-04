@@ -8,6 +8,7 @@ interface MainTemplateProps {
 	hero: React.ReactNode;
 	classCardGroup: React.ReactNode;
 	EPCardGroup: React.ReactNode;
+	FAQSection: React.ReactNode;
 }
 
 interface DescSectionContainerProps {
@@ -28,16 +29,24 @@ const EPCardGroupContainer: React.FC = (props) => (
 	<Container py={[4, 5]}>{props.children}</Container>
 );
 
+const FAQSectionContainer: React.FC = (props) => (
+	<Container py={[4, 5]} baseColor="gray0">
+		{props.children}
+	</Container>
+);
+
 const MainTemplate: React.FC<MainTemplateProps> = ({
 	hero,
 	classCardGroup,
 	EPCardGroup,
+	FAQSection,
 }) => {
 	return (
 		<BaseTemplate>
 			<HeroContainer>{hero}</HeroContainer>
 			<ClassCardGroupContainer>{classCardGroup}</ClassCardGroupContainer>
 			<EPCardGroupContainer>{EPCardGroup}</EPCardGroupContainer>
+			<FAQSectionContainer>{FAQSection}</FAQSectionContainer>
 		</BaseTemplate>
 	);
 };
