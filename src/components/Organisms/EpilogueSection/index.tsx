@@ -37,7 +37,7 @@ const EpilogueCardContents: EpilogueCardProps[] = [
 	},
 ];
 
-const EpilogueCardGroup: React.FC = (props) => (
+const EpilogueSection: React.FC = (props) => (
 	<Box>
 		<Heading variant="styles.h2" mb={[3, 4]}>
 			챌린지 후기
@@ -56,4 +56,4 @@ const EpilogueCardGroup: React.FC = (props) => (
 	</Box>
 );
 
-export default EpilogueCardGroup;
+export default EpilogueSection;

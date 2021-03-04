@@ -8,7 +8,7 @@ import Divider from "../../../components/Atoms/Divider";
 interface MainTemplateProps {
 	hero: React.ReactNode;
 	classCardGroup: React.ReactNode;
-	EPCardGroup: React.ReactNode;
+	EPSection: React.ReactNode;
 	FAQSection: React.ReactNode;
 }
 
@@ -37,14 +37,14 @@ const FAQSectionContainer: React.FC = (props) => (
 const MainTemplate: React.FC<MainTemplateProps> = ({
 	hero,
 	classCardGroup,
-	EPCardGroup,
+	EPSection,
 	FAQSection,
 }) => {
 	return (
 		<BaseTemplate>
 			<HeroContainer>{hero}</HeroContainer>
 			<ClassCardGroupContainer>{classCardGroup}</ClassCardGroupContainer>
-			<EPCardGroupContainer>{EPCardGroup}</EPCardGroupContainer>
+			<EPCardGroupContainer>{EPSection}</EPCardGroupContainer>
 			<Divider></Divider>
 			<FAQSectionContainer>{FAQSection}</FAQSectionContainer>
 		</BaseTemplate>
