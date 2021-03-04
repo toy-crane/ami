@@ -3,6 +3,7 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import BaseTemplate, { Container } from "../../BaseTemplates/templates";
+import Divider from "../../../components/Atoms/Divider";
 
 interface MainTemplateProps {
 	hero: React.ReactNode;
@@ -30,9 +31,7 @@ const EPCardGroupContainer: React.FC = (props) => (
 );
 
 const FAQSectionContainer: React.FC = (props) => (
-	<Container py={[4, 5]} baseColor="gray0">
-		{props.children}
-	</Container>
+	<Container py={[4, 5]}>{props.children}</Container>
 );
 
 const MainTemplate: React.FC<MainTemplateProps> = ({
@@ -46,6 +45,7 @@ const MainTemplate: React.FC<MainTemplateProps> = ({
 			<HeroContainer>{hero}</HeroContainer>
 			<ClassCardGroupContainer>{classCardGroup}</ClassCardGroupContainer>
 			<EPCardGroupContainer>{EPCardGroup}</EPCardGroupContainer>
+			<Divider></Divider>
 			<FAQSectionContainer>{FAQSection}</FAQSectionContainer>
 		</BaseTemplate>
 	);
