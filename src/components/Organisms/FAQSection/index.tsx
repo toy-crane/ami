@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "theme-ui";
+import { Grid, Box, Heading } from "theme-ui";
 import Drawer, { DrawerProps } from "../../Molecules/Drawer";
 
 const FAQContents: DrawerProps[] = [
@@ -23,11 +23,16 @@ const FAQContents: DrawerProps[] = [
 ];
 
 const FAQSection: React.FC = (props) => (
-	<Grid sx={{ gap: 1 }}>
-		{FAQContents.map(({ id, text, title }) => (
-			<Drawer id={id} text={text} title={title}></Drawer>
-		))}
-	</Grid>
+	<Box>
+		<Heading variant="styles.h4" mb={3}>
+			자주 묻는 질문	
+		</Heading>
+		<Grid sx={{ gap: 1 }}>
+			{FAQContents.map(({ id, text, title }) => (
+				<Drawer id={id} text={text} title={title}></Drawer>
+			))}
+		</Grid>
+	</Box>
 );
 
 export default FAQSection;
