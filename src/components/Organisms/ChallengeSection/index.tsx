@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Heading } from "theme-ui";
+import { Grid } from "theme-ui";
 import ClassCard, { ClassCardProps } from "../../Molecules/ClassCard";
 import SectionContainer from "../SectionContainer/SectionContainer";
 

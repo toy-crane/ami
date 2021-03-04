@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Box, Heading } from "theme-ui";
+import { Grid } from "theme-ui";
 import EpilogueCard, { EpilogueCardProps } from "../../Molecules/EpilogueCard";
 import SectionContainer from "../SectionContainer/SectionContainer";
 
