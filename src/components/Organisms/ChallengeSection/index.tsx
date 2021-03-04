@@ -2,15 +2,15 @@ import React from "react";
 import { Grid, Box, Heading } from "theme-ui";
 import ClassCard, { ClassCardProps } from "../../Molecules/ClassCard";
 
-interface ClassCardGroupProps {
+interface ChallangeSectionProps {
 	cards?: ClassCardProps[];
 }
 
-const ClassCardGroup: React.FC<ClassCardGroupProps> = (
-	props: ClassCardGroupProps
+const ChallangeSection: React.FC<ChallangeSectionProps> = (
+	props: ChallangeSectionProps
 ) => (
 	<Box>
-		<Heading variant="styles.h2" mb={[3,4]}>
+		<Heading variant="styles.h2" mb={[3, 4]}>
 			모집중인 챌린지
 		</Heading>
 		<Grid sx={{ gridTemplateColumns: ["repeat(2, 1fr)", "repeat(4, 1fr)"] }}>
@@ -31,4 +31,4 @@ const ClassCardGroup: React.FC<ClassCardGroupProps> = (
 	</Box>
 );
 
-export default ClassCardGroup;
+export default ChallangeSection;

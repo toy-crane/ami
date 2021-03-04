@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import ClassCardGroup from "../../components/Organisms/ClassCardGroup";
-import { sampleCards } from "../../components/Organisms/ClassCardGroup/ClassCardGroup.stories";
+import ChallangeSection from "../../components/Organisms/ChallengeSection";
+import { sampleCards } from "../../components/Organisms/ChallengeSection/ChallengeSection.stories";
 import EpilogueSection from "../../components/Organisms/EpilogueSection";
 import FAQSection from "../../components/Organisms/FAQSection";
 import Hero from "../../components/Organisms/Hero";
@@ -11,7 +11,9 @@ const Main = () => {
 	return (
 		<MainTemplate
 			hero={<Hero />}
-			classCardGroup={<ClassCardGroup cards={sampleCards}></ClassCardGroup>}
+			ChallangeSection={
+				<ChallangeSection cards={sampleCards}></ChallangeSection>
+			}
 			EPSection={<EpilogueSection />}
 			FAQSection={<FAQSection />}
 		></MainTemplate>

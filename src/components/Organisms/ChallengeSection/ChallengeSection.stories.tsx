@@ -1,10 +1,10 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import ClassCardGroup from ".";
+import ChallangeSection from ".";
 import { ClassCardProps } from "../../Molecules/ClassCard";
 export default {
 	title: "Organisms/Class Card Group",
-	component: ClassCardGroup,
+	component: ChallangeSection,
 };
 
 export const sampleCards: ClassCardProps[] = [
@@ -46,6 +46,6 @@ export const sampleCards: ClassCardProps[] = [
 ];
 
 const Template: Story = () => (
-	<ClassCardGroup cards={sampleCards}></ClassCardGroup>
+	<ChallangeSection cards={sampleCards}></ChallangeSection>
 );
 export const Basic = Template.bind({});
