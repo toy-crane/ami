@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Text } from "theme-ui";
-import Icon, { IconProps } from "../../Atoms/Icon";
+import Icon from "../../Atoms/Icon";
 import { ICONS } from "../../Atoms/Icon/constants";
 
 interface DrawerProps {
