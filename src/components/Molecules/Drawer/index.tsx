@@ -3,7 +3,8 @@ import { Box, Text } from "theme-ui";
 import Icon from "../../Atoms/Icon";
 import { ICONS } from "../../Atoms/Icon/constants";
 
-interface DrawerProps {
+export interface DrawerProps {
+	id: number;
 	title: string;
 	text: string;
 }
