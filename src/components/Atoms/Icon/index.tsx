@@ -6,22 +6,27 @@ export interface IconProps {
 	icon: ICONS;
 	size?: number;
 	color?: string;
+	hasText?: boolean;
 }
 
 const Icon: React.FC<IconProps> = (props: IconProps) => {
 	return (
-		<svg
-			width={props.size ? props.size : 24}
-			height={props.size ? props.size : 24}
-			viewBox="0 0 20 20"
-			xmlns="http://www.w3.org/2000/svg"
-			sx={{
-				display: "inline",
-				margin: 0,
-			}}
+		<span
+			sx={
+				props.hasText
+					? { display: "inline-flex", lineHeight: 0, marginRight: 1 }
+					: { display: "inline-flex", lineHeight: 0 }
+			}
 		>
-			<path d={props.icon} fill="currentColor" />
-		</svg>
+			<svg
+				width={props.size ? props.size : 20}
+				height={props.size ? props.size : 20}
+				viewBox="0 0 20 20"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path d={props.icon} fill="currentColor" />
+			</svg>
+		</span>
 	);
 };
 
