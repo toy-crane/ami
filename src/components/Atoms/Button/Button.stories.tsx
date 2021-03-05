@@ -9,7 +9,6 @@ import {
 	IconButtonProps,
 } from "./index";
 import { ICONS } from "../Icon/constants";
-import { StyledButton } from "./Button";
 export default {
 	title: "Atoms/Button",
 	component: [Button, LinkButton],
@@ -45,10 +44,3 @@ const IconButtonTemplate: Story<IconButtonProps> = (args) => (
 	</IconButton>
 );
 export const ButtonWithIcon = IconButtonTemplate.bind({});
-
-const newButton: Story = (args) => (
-	<>
-		<StyledButton href="javascript:;">Button Link</StyledButton>
-	</>
-);
-export const newButtonWithEmotion = newButton.bind({});
