@@ -9,7 +9,9 @@ import {
 import Icon from "../Icon";
 import { IconProps } from "../Icon/index";
 
-export interface ButtonProps extends ThemeUIButtonProps {}
+export interface ButtonProps extends ThemeUIButtonProps {
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
 export interface LinkButtonProps extends ButtonProps {
 	route: string;
 }

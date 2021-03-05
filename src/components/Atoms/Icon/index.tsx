@@ -6,25 +6,32 @@ export interface IconProps {
 	icon: ICONS;
 	size?: number;
 	color?: string;
-	hasText?: boolean;
+	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Icon: React.FC<IconProps> = (props: IconProps) => {
+const Icon: React.FC<IconProps> = ({
+	size,
+	icon,
+	onClick,
+	...props
+}: IconProps) => {
 	return (
 		<span
-			sx={
-				props.hasText
-					? { display: "inline-flex", lineHeight: 0, marginRight: 1 }
-					: { display: "inline-flex", lineHeight: 0 }
-			}
+			onClick={onClick}
+			sx={{
+				display: "inline-flex",
+				cursor: "pointer",
+				lineHeight: 0,
+				...props,
+			}}
 		>
 			<svg
-				width={props.size ? props.size : 20}
-				height={props.size ? props.size : 20}
+				width={size ? size : 20}
+				height={size ? size : 20}
 				viewBox="0 0 20 20"
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<path d={props.icon} fill="currentColor" />
+				<path d={icon} fill="currentColor" />
 			</svg>
 		</span>
 	);

@@ -1,19 +1,20 @@
 import React from "react";
-import { Story } from "@storybook/react";
-import Icon, { IconProps } from "./index";
+import Icon from "./index";
 import { ICONS } from "./constants";
+import { Flex } from "theme-ui";
+
 export default {
 	title: "Atoms/Icon",
-	component: Icon,
-	icon: {
-		variant: {
-			control: {
-				type: "select",
-				options: ICONS,
-			},
-		},
-	},
 };
 
-const Template: Story<IconProps> = (args) => <Icon {...args}></Icon>;
-export const Basic = Template.bind({});
+export const allIcon = () => (
+	<Flex>
+		<Icon icon={ICONS.chevron_down}></Icon>
+		<Icon icon={ICONS.chevron_right}></Icon>
+		<Icon icon={ICONS.menu}></Icon>
+	</Flex>
+);
+
+export const IconWithColor = () => (
+	<Icon icon={ICONS.menu} color="secondary100"></Icon>
+);
