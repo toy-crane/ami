@@ -1,18 +1,19 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import Logo from "./index";
+import { Flex } from "theme-ui";
+import Link from "../Link";
 
 export default {
 	title: "Atoms/Logo",
 	component: Logo,
 };
 
-const Template: Story = (args) => {
-	if (args.color === "white") {
-		return <Logo bg="black" {...args} />;
-	} else {
-		return <Logo {...args} />;
-	}
-};
-export const Basic = Template.bind({});
-Basic.args = { color: "black" };
+export const DefaultLogo = () => <Logo></Logo>;
+export const LogoWithColors = () => (
+	<Flex sx={{ flexDirection: "column" }}>
+		<Logo color="primary100"></Logo>
+		<Logo color="white" bg="gray100"></Logo>
+	</Flex>
+);
+export const LogoWithLink = () => <Logo href="/"></Logo>;
