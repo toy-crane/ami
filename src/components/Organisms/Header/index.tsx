@@ -1,8 +1,9 @@
 import React from "react";
 import Logo from "../../Atoms/Logo";
 import { Flex } from "theme-ui";
-import { IconButton, LinkButton } from "../../Atoms/Button";
+import { IconButton } from "../../Atoms/Button";
 import { ICONS } from "../../Atoms/Icon/constants";
+import { Button } from "components";
 
 const Header = () => (
 	<Flex sx={{ py: 3, width: "100%", alignItems: "center" }}>
@@ -19,8 +20,8 @@ const Header = () => (
 				ml: ["auto", "none"],
 			}}
 		></IconButton>
-		<LinkButton
-			route="/login"
+		<Button
+			href="/login"
 			ml={["none", "auto"]}
 			sx={{
 				display: ["none", "block"],
@@ -28,17 +29,17 @@ const Header = () => (
 			variant="primary"
 		>
 			로그인
-		</LinkButton>
-		<LinkButton
+		</Button>
+		<Button
 			ml={["none", 2]}
 			sx={{
 				display: ["none", "block"],
 			}}
-			route="/sign-up"
+			href="/sign-up"
 			variant="secondary"
 		>
 			회원가입
-		</LinkButton>
+		</Button>
 	</Flex>
 );
 

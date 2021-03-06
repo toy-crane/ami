@@ -1,17 +1,11 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import {
-	Button,
-	ButtonProps,
-	LinkButton,
-	IconButton,
-	LinkButtonProps,
-	IconButtonProps,
-} from "./index";
+import { IconButton, IconButtonProps } from "./index";
+import { Button } from "components";
 import { ICONS } from "../Icon/constants";
 export default {
 	title: "Atoms/Button",
-	component: [Button, LinkButton],
+	component: [Button],
 	argTypes: {
 		variant: {
 			control: {
@@ -22,21 +16,14 @@ export default {
 	},
 };
 
-const ButtonTemplate: Story<ButtonProps> = (args) => (
-	<Button {...args}>Button</Button>
+export const PrimaryButton = () => (
+	<Button variant="primary">Primary Button</Button>
 );
-export const PrimaryButton = ButtonTemplate.bind({});
-PrimaryButton.args = { variant: "primary" };
-
-export const SecondaryButton = ButtonTemplate.bind({});
-SecondaryButton.args = { variant: "secondary" };
-
-const LinkButtonTemplate: Story<LinkButtonProps> = (args) => (
-	<LinkButton {...args} route="/">
-		Button with Link
-	</LinkButton>
+export const SecondaryButton = () => (
+	<Button variant="secondary">Secondary Button</Button>
 );
-export const ButtonWithLink = LinkButtonTemplate.bind({});
+export const ButtonWithOutlink = () => <Button href="/">outlink Button</Button>;
+export const ButtonWithInlink = () => <Button href="/">inlink Button</Button>;
 
 const IconButtonTemplate: Story<IconButtonProps> = (args) => (
 	<IconButton {...args} icon={ICONS.menu}>

@@ -1,5 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import { Link } from "components";
 import { useHistory } from "react-router-dom";
 import {
 	jsx,
@@ -11,27 +12,25 @@ import { IconProps } from "../Icon/index";
 
 export interface ButtonProps extends ThemeUIButtonProps {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	href?: string;
 }
 export interface LinkButtonProps extends ButtonProps {
 	route: string;
 }
 export interface IconButtonProps extends ButtonProps, IconProps {}
 
-const Button: React.FC<ButtonProps> = (props: ButtonProps) => (
-	<ThemeUIButton {...props}>{props.children}</ThemeUIButton>
-);
-
-const LinkButton = (props: LinkButtonProps) => {
-	const history = useHistory();
-	const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		e.preventDefault();
-		history.push(props.route);
-	};
-	return (
-		<Button onClick={handleClick} {...props}>
-			{props.children}
-		</Button>
-	);
+const Button: React.FC<ButtonProps> = ({ href, ...props }: ButtonProps) => {
+	let history = useHistory();
+	if (href) {
+		return (
+			<ThemeUIButton
+				{...props}
+				onClick={() => history.push(href)}
+			></ThemeUIButton>
+		);
+	} else {
+		return <ThemeUIButton {...props}>{props.children}</ThemeUIButton>;
+	}
 };
 
 const IconButton = (props: IconButtonProps) => {
@@ -42,4 +41,5 @@ const IconButton = (props: IconButtonProps) => {
 	);
 };
 
-export { Button, LinkButton, IconButton };
+export default Button;
+export { IconButton };
