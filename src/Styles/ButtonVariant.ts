@@ -20,6 +20,7 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 		},
 	},
 	icon: {
+		color: "gray100",
 		appearance: "none",
 		bg: "transparent",
 		border: 0,

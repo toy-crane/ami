@@ -2,13 +2,14 @@ import React from "react";
 import Logo from "../../Atoms/Logo";
 import { Flex } from "theme-ui";
 import { ICONS } from "../../Atoms/Icon/constants";
-import { Button, Icon } from "components";
+import { Button } from "components";
 
 const Header = () => (
 	<Flex sx={{ py: 3, width: "100%", alignItems: "center" }}>
 		<Logo href="/" />
 		<Button
 			icon={ICONS.menu}
+			iconSize={24}
 			variant="icon"
 			sx={{
 				display: ["inline-flex", "none"],

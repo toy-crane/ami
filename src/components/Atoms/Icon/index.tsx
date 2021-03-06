@@ -2,28 +2,21 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { ICONS } from "./constants";
-export interface IconProps {
+import { SxProps } from "theme-ui";
+export interface IconProps extends SxProps {
 	icon: ICONS;
 	size?: number;
 	color?: string;
-	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Icon: React.FC<IconProps> = ({
-	size,
-	icon,
-	onClick,
-	...props
-}: IconProps) => {
+const Icon: React.FC<IconProps> = ({ size, icon, ...props }: IconProps) => {
 	return (
 		<span
-			onClick={onClick}
 			sx={{
 				display: "inline-flex",
-				cursor: onClick ? "pointer" : "default",
 				lineHeight: 0,
-				...props,
 			}}
+			{...props}
 		>
 			<svg
 				width={size ? size : 20}
