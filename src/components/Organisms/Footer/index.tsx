@@ -3,7 +3,7 @@ import { Flex, Heading, Text } from "theme-ui";
 import Logo from "../../Atoms/Logo";
 const Footer = () => (
 	<Flex sx={{ flexDirection: "column", width: "100%" }}>
-		<Heading variant="styles.h8" mb="2" color="gray60">
+		<Heading variant="styles.h8" mb="2" color="gray80">
 			주식회사 코드팟 컴퍼니
 		</Heading>
 		<Text variant="styles.bodySmall" mb="4" color="gray60">
@@ -16,10 +16,10 @@ const Footer = () => (
 			고객센터: codepot-help@gmail.com
 		</Text>
 		<Flex sx={{ flexDirection: ["column", "row"] }}>
-			<Logo color="gray" />
+			<Logo color="gray80" />
 			<Text
 				variant="styles.bodySmall"
-				color="gray60"
+				color="gray80"
 				ml={[0, 2]}
 				sx={{ alignSelf: ["none", "center"] }}
 			>
