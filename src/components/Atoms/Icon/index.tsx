@@ -20,7 +20,7 @@ const Icon: React.FC<IconProps> = ({
 			onClick={onClick}
 			sx={{
 				display: "inline-flex",
-				cursor: "pointer",
+				cursor: onClick ? "pointer" : "default",
 				lineHeight: 0,
 				...props,
 			}}
