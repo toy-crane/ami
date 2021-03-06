@@ -5,8 +5,9 @@ import { IconButton, LinkButton } from "../../Atoms/Button";
 import { ICONS } from "../../Atoms/Icon/constants";
 
 const Header = () => (
-	<Flex sx={{ py: 3, width: "100%" }}>
+	<Flex sx={{ py: 3, width: "100%", alignItems: "center" }}>
 		<Logo
+			href="/"
 			sx={{
 				alignSelf: "center",
 			}}
