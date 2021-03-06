@@ -1,8 +1,6 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import Logo from "./index";
 import { Flex } from "theme-ui";
-import Link from "../Link";
 
 export default {
 	title: "Atoms/Logo",
