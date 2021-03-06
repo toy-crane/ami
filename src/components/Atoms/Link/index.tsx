@@ -1,10 +1,32 @@
 import React from "react";
-import { Link as ThemeUILink, LinkProps as ThemeUILinkProps } from "theme-ui";
+import { Link as ThemeUILink } from "theme-ui";
+import { Link as RLink } from "react-router-dom";
 
-export interface LinkProps extends ThemeUILinkProps {}
+type LinkProps = OuterLinkProps | InnerLinkProps;
+interface OuterLinkProps {
+	href: string;
+	children?: React.ReactNode;
+}
 
-const Link: React.FC<LinkProps> = (props: LinkProps) => (
-	<ThemeUILink {...props}>{props.children}</ThemeUILink>
-);
+interface InnerLinkProps {
+	to: string;
+	children?: React.ReactNode;
+}
+
+function instanceOfOLP(props: LinkProps): props is OuterLinkProps {
+	return "href" in props;
+}
+
+const Link = (props: LinkProps) => {
+	if (instanceOfOLP(props)) {
+		return <ThemeUILink href={props.href}>{props.children}</ThemeUILink>;
+	} else {
+		return (
+			<RLink to={props.to} style={{ textDecoration: "none", color: "inherit" }}>
+				{props.children}
+			</RLink>
+		);
+	}
+};
 
 export default Link;
