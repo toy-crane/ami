@@ -1,25 +1,20 @@
 import React from "react";
 import Logo from "../../Atoms/Logo";
 import { Flex } from "theme-ui";
-import { IconButton } from "../../Atoms/Button";
 import { ICONS } from "../../Atoms/Icon/constants";
-import { Button } from "components";
+import { Button, Icon } from "components";
 
 const Header = () => (
 	<Flex sx={{ py: 3, width: "100%", alignItems: "center" }}>
-		<Logo
-			href="/"
-			sx={{
-				alignSelf: "center",
-			}}
-		/>
-		<IconButton
+		<Logo href="/" />
+		<Button
 			icon={ICONS.menu}
+			variant="icon"
 			sx={{
-				display: ["block", "none"],
+				display: ["inline-flex", "none"],
 				ml: ["auto", "none"],
 			}}
-		></IconButton>
+		></Button>
 		<Button
 			href="/login"
 			ml={["none", "auto"]}
