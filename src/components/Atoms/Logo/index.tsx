@@ -10,7 +10,12 @@ interface LogoProps {
 	bg?: string;
 }
 
-const Logo: React.FC<LogoProps> = ({ href, height, ...props }: LogoProps) => {
+const Logo: React.FC<LogoProps> = ({
+	href,
+	height,
+	color,
+	...props
+}: LogoProps) => {
 	let history = useHistory();
 	const cursor = href ? "pointer" : "default";
 	return (
@@ -21,6 +26,7 @@ const Logo: React.FC<LogoProps> = ({ href, height, ...props }: LogoProps) => {
 				alignItems: "center",
 				lineHeight: 0,
 				cursor: cursor,
+				color: color,
 			}}
 			{...props}
 		>
