@@ -18,18 +18,18 @@ const Header = () => (
 		></Button>
 		<Button
 			href="/login"
-			ml={["none", "auto"]}
 			sx={{
 				display: ["none", "block"],
+				ml: ["none", "auto"],
 			}}
 			variant="primary"
 		>
 			로그인
 		</Button>
 		<Button
-			ml={["none", 2]}
 			sx={{
 				display: ["none", "block"],
+				ml: ["none", 1],
 			}}
 			href="/sign-up"
 			variant="secondary"

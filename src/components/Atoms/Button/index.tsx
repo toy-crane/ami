@@ -9,23 +9,26 @@ import {
 } from "theme-ui";
 import Icon from "../Icon";
 import { ICONS } from "../Icon/constants";
+import Link from "../Link";
 export interface ButtonProps extends ThemeUIButtonProps {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	href?: string;
 	icon?: ICONS;
 	iconSize?: number;
+	children?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
 	icon,
 	iconSize,
 	href,
+	onClick,
+	children,
 	...props
 }: ButtonProps) => {
-	let history = useHistory();
-	return (
+	const StyledButton = (
 		<ThemeUIButton
-			onClick={href ? () => history.push(href) : props.onClick}
+			onClick={onClick}
 			sx={{
 				display: "inline-flex",
 				alignItems: "center",
@@ -37,14 +40,21 @@ const Button: React.FC<ButtonProps> = ({
 					<Icon
 						icon={icon}
 						size={iconSize}
-						sx={props.children ? { mr: 2 } : {}}
+						sx={children ? { mr: 2 } : {}}
 					></Icon>
-					{props.children}
+					{children}
 				</React.Fragment>
 			) : (
-				props.children
+				children
 			)}
 		</ThemeUIButton>
+	);
+	return href ? (
+		<Link href={href} sx={props.sx}>
+			{StyledButton}
+		</Link>
+	) : (
+		StyledButton
 	);
 };
 
