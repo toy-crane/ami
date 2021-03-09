@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { useHistory } from "react-router";
-import { jsx } from "theme-ui";
+import { jsx, Link } from "theme-ui";
 
 interface LogoProps {
 	href?: string;
@@ -16,11 +16,9 @@ const Logo: React.FC<LogoProps> = ({
 	color,
 	...props
 }: LogoProps) => {
-	let history = useHistory();
 	const cursor = href ? "pointer" : "default";
-	return (
+	const StyledLogo = (
 		<span
-			onClick={href ? () => history.push(href) : undefined}
 			sx={{
 				display: "inline-flex",
 				alignItems: "center",
@@ -43,6 +41,13 @@ const Logo: React.FC<LogoProps> = ({
 				/>
 			</svg>
 		</span>
+	);
+	return href ? (
+		<Link sx={{ lineHeight: 0 }} href={href}>
+			{StyledLogo}
+		</Link>
+	) : (
+		StyledLogo
 	);
 };
 

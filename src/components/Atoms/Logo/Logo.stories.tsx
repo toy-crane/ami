@@ -14,4 +14,4 @@ export const LogoWithColors = () => (
 		<Logo color="white" bg="gray100"></Logo>
 	</Flex>
 );
-export const LogoWithLink = () => <Logo href="/"></Logo>;
+export const LogoWithLink = () => <Logo href="/mypage"></Logo>;
