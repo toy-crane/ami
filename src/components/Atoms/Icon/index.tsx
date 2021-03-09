@@ -3,20 +3,22 @@
 import { jsx } from "theme-ui";
 import { ICONS } from "./constants";
 import { SxProps } from "theme-ui";
+import { Link } from "components";
 export interface IconProps extends SxProps {
 	icon: ICONS;
 	size?: number;
 	color?: string;
+	href?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ size, icon, ...props }: IconProps) => {
-	return (
+const Icon: React.FC<IconProps> = ({ size, icon, color, href }: IconProps) => {
+	const StyledIcon = (
 		<span
 			sx={{
 				display: "inline-flex",
 				lineHeight: 0,
+				color: color,
 			}}
-			{...props}
 		>
 			<svg
 				width={size ? size : 20}
@@ -27,6 +29,21 @@ const Icon: React.FC<IconProps> = ({ size, icon, ...props }: IconProps) => {
 				<path d={icon} fill="currentColor" />
 			</svg>
 		</span>
+	);
+	return href ? (
+		<Link
+			href={href}
+			sx={{
+				display: "inline-flex",
+				alignItems: "center",
+				justifyContent: "center",
+				cursor: "pointer",
+			}}
+		>
+			{StyledIcon}
+		</Link>
+	) : (
+		StyledIcon
 	);
 };
 

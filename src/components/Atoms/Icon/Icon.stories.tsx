@@ -18,3 +18,5 @@ export const allIcon = () => (
 export const IconWithColor = () => (
 	<Icon icon={ICONS.menu} color="secondary100"></Icon>
 );
+
+export const IconWithLink = () => <Icon icon={ICONS.menu} href="/"></Icon>;

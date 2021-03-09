@@ -27,6 +27,3 @@ export const ButtonWithIconAndText = () => (
 		Hello
 	</Button>
 );
-export const ButtonWithIcon = () => (
-	<Button href="/" icon={ICONS.menu} variant="icon"></Button>
-);
