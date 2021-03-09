@@ -1,7 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import React from "react";
-import { useHistory } from "react-router-dom";
 import {
 	jsx,
 	Button as ThemeUIButton,
