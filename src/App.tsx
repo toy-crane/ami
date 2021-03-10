@@ -1,6 +1,4 @@
-import { Global } from "@emotion/react";
 import React from "react";
-import globalStyle from "./Styles/GlobalStyle";
 import { AppRouter } from "./components/Router";
 import { ThemeProvider } from "theme-ui";
 import theme from "./Styles/Theme";
@@ -16,7 +14,6 @@ function App() {
 			<ThemeProvider theme={theme}>
 				<ApolloProvider client={client}>
 					<Router history={history}>
-						<Global styles={globalStyle} />
 						<AppRouter></AppRouter>
 					</Router>
 				</ApolloProvider>
