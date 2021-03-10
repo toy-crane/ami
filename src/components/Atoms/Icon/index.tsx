@@ -4,20 +4,31 @@ import { jsx } from "theme-ui";
 import { ICONS } from "./constants";
 import { SxProps } from "theme-ui";
 import { Link } from "components";
-export interface IconProps extends SxProps {
+export interface IconProps {
 	icon: ICONS;
 	size?: number;
 	color?: string;
 	href?: string;
+	mr?: number;
+	ml?: number;
 }
 
-const Icon: React.FC<IconProps> = ({ size, icon, color, href }: IconProps) => {
+const Icon: React.FC<IconProps> = ({
+	size,
+	icon,
+	color,
+	href,
+	mr,
+	ml,
+}: IconProps) => {
 	const StyledIcon = (
 		<span
 			sx={{
 				display: "inline-flex",
 				lineHeight: 0,
 				color: color,
+				mr,
+				ml,
 			}}
 		>
 			<svg

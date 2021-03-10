@@ -39,31 +39,13 @@ const Button: React.FC<ButtonProps> = ({
 		>
 			<React.Fragment>
 				{icon && (
-					<Icon
-						icon={icon}
-						size={iconSize}
-						sx={children ? { mr: 2 } : {}}
-					></Icon>
+					<Icon icon={icon} size={iconSize} mr={children ? 2 : 0}></Icon>
 				)}
 				{children}
 			</React.Fragment>
 		</ThemeUIButton>
 	);
-	return href ? (
-		<Link
-			href={href}
-			sx={{
-				display: "inline-flex",
-				alignItems: "center",
-				justifyContent: "center",
-				cursor: "pointer",
-			}}
-		>
-			{StyledButton}
-		</Link>
-	) : (
-		StyledButton
-	);
+	return href ? <Link href={href}>{StyledButton}</Link> : StyledButton;
 };
 
 Button.defaultProps = {

@@ -1,5 +1,10 @@
-import React from "react";
-import { Link as ThemeUILink, LinkProps as ThemeUILinkProps } from "theme-ui";
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import {
+	Link as ThemeUILink,
+	LinkProps as ThemeUILinkProps,
+	jsx,
+} from "theme-ui";
 import { Link as RouterLink } from "react-router-dom";
 
 interface LinkProps extends ThemeUILinkProps {
@@ -11,7 +16,9 @@ const isInLink = (href: string) => (href.startsWith("/") ? true : false);
 
 const Link: React.FC<LinkProps> = ({ href, children }: LinkProps) => {
 	return isInLink(href) ? (
-		<RouterLink to={href}>{children}</RouterLink>
+		<RouterLink to={href} sx={{ variant: "styles.a" }}>
+			{children}
+		</RouterLink>
 	) : (
 		<ThemeUILink href={href}>{children}</ThemeUILink>
 	);

@@ -20,7 +20,9 @@ export const PrimaryButton = () => (
 export const SecondaryButton = () => (
 	<Button variant="secondary">Secondary Button</Button>
 );
-export const ButtonWithOutlink = () => <Button href="/">outlink Button</Button>;
+export const ButtonWithOutlink = () => (
+	<Button href="http://react.codepot.kr">outlink Button</Button>
+);
 export const ButtonWithInlink = () => <Button href="/">inlink Button</Button>;
 export const ButtonWithIconAndText = () => (
 	<Button href="/" icon={ICONS.menu}>
