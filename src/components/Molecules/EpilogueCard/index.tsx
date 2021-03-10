@@ -3,7 +3,7 @@ import { Flex, Text, Heading } from "theme-ui";
 import Avatar from "../../Atoms/Avatar";
 
 export interface EpilogueCardProps {
-	id: string;
+	key: string;
 	text: string;
 	name: string;
 	job: string;

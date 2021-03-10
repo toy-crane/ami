@@ -15,7 +15,7 @@ const ChallangeSection: React.FC<ChallangeSectionProps> = (
 			{props.cards ? (
 				props.cards.map((card) => (
 					<ClassCard
-						id={card.id}
+						key={card.key}
 						to={card.to}
 						language={card.language}
 						status={card.status}

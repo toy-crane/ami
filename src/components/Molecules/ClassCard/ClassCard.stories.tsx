@@ -10,7 +10,7 @@ export default {
 const Template: Story = (args) => (
 	<Box sx={{ display: "inline-flex" }}>
 		<ClassCard
-			id="1"
+			key="1"
 			to="/"
 			language="typescript"
 			status="inProgress"

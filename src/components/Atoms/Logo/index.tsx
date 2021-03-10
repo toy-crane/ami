@@ -1,6 +1,5 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { useHistory } from "react-router";
 import { jsx, Link } from "theme-ui";
 
 interface LogoProps {

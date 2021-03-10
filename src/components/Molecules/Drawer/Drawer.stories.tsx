@@ -8,7 +8,7 @@ export default {
 
 const Template: Story = (args) => (
 	<Drawer
-		id={1}
+		key={1}
 		title="챌린지는 어떻게 진행되나요?"
 		text="셀프 페이스 4주 코스예요. 자기 일정에 맞게 할 수 있어요!
 		매주 한 개의 앱/웹 서비스를 케이스 스터디하여 글로 작성하는 챌린지예요.

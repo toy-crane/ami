@@ -5,7 +5,7 @@ import { Image, Text, Grid, Box, Heading, Badge, Link } from "theme-ui";
 import { language, status, LanguageSet, StatusSet } from "./constants";
 
 export interface ClassCardProps {
-	id: string;
+	key: string;
 	language: language;
 	status: status;
 	to: string;

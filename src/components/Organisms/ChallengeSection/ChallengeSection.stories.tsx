@@ -9,35 +9,35 @@ export default {
 
 export const sampleCards: ClassCardProps[] = [
 	{
-		id: "1",
+		key: "1",
 		language: "typescript",
 		status: "inProgress",
 		to: "/",
 		start_at: new Date(),
 	},
 	{
-		id: "2",
+		key: "2",
 		language: "graphql",
 		status: "close",
 		to: "/",
 		start_at: new Date(),
 	},
 	{
-		id: "3",
+		key: "3",
 		language: "javascript",
 		status: "close",
 		to: "/",
 		start_at: new Date(),
 	},
 	{
-		id: "4",
+		key: "4",
 		language: "react",
 		status: "close",
 		to: "/",
 		start_at: new Date(),
 	},
 	{
-		id: "5",
+		key: "5",
 		language: "python",
 		status: "close",
 		to: "/",

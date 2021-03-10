@@ -4,7 +4,7 @@ import Icon from "../../Atoms/Icon";
 import { ICONS } from "../../Atoms/Icon/constants";
 
 export interface DrawerProps {
-	id: number;
+	key: number;
 	title: string;
 	text: string;
 }
