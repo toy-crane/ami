@@ -13,7 +13,11 @@ type HeaderProps = {
 	handleLogout(): void;
 };
 
-const Header = ({ isLoggedIn, handleLogout, avatar }: HeaderProps) => {
+const Header = ({
+	isLoggedIn,
+	handleLogout,
+	avatar,
+}: HeaderProps) => {
 	return (
 		<header
 			sx={{
