@@ -1,41 +1,45 @@
-import React from "react";
+/** @jsxRuntime classic */
+/** @jsx jsx */
 import Logo from "../../Atoms/Logo";
-import { Flex } from "theme-ui";
+import { Flex, jsx } from "theme-ui";
 import { ICONS } from "../../Atoms/Icon/constants";
 import { Button } from "components";
 
 const Header = () => (
-	<Flex sx={{ py: 3, width: "100%", alignItems: "center" }}>
+	<Flex
+		sx={{
+			py: 3,
+			width: "100%",
+			alignItems: "center",
+			justifyContent: "space-between",
+		}}
+	>
 		<Logo href="/" />
-		<Button
-			icon={ICONS.menu}
-			iconSize={24}
-			variant="icon"
+		<ul sx={{ display: ["flex", "none"], listStyle: "none" }}>
+			<li>
+				<Button icon={ICONS.menu} iconSize={24} variant="icon"></Button>
+			</li>
+		</ul>
+		<ul
 			sx={{
-				display: ["inline-flex", "none"],
-				ml: ["auto", "none"],
+				display: ["none", "flex"],
+				listStyle: "none",
+				"& > li:not(:last-child)": {
+					marginRight: 2,
+				},
 			}}
-		></Button>
-		<Button
-			href="/login"
-			sx={{
-				display: ["none", "block"],
-				ml: ["none", "auto"],
-			}}
-			variant="primary"
 		>
-			로그인
-		</Button>
-		<Button
-			sx={{
-				display: ["none", "block"],
-				ml: ["none", 1],
-			}}
-			href="/sign-up"
-			variant="secondary"
-		>
-			회원가입
-		</Button>
+			<li>
+				<Button href="/login" variant="primary">
+					로그인
+				</Button>
+			</li>
+			<li>
+				<Button href="/sign-up" variant="secondary">
+					회원가입
+				</Button>
+			</li>
+		</ul>
 	</Flex>
 );
 
