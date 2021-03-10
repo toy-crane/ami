@@ -1,8 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import ActivateRoute from "./ActivateRoute";
-import { SignUp, Login, ActivateUser } from "../../Pages/Auth";
+import { SignUp, Login } from "../../Pages/Auth";
 import { NotFound } from "../../Pages/Common";
 import { Main, MyPage } from "../../Pages";
 
@@ -14,9 +13,6 @@ const AppRouter = () => {
 				<Route path="/login" component={Login} />
 				<Route exact path="/" component={Main} />
 			</Route>
-			<ActivateRoute exact path={["/activate"]}>
-				<Route path="/activate" component={ActivateUser} />
-			</ActivateRoute>
 			<PrivateRoute exact path={["/mypage"]}>
 				<Route exact path="/mypage" component={MyPage} />
 			</PrivateRoute>
