@@ -25,6 +25,7 @@ export type Me = {
 
 export type User = {
   __typename?: 'User';
+  id: Scalars['Int'];
   email: Scalars['String'];
   name?: Maybe<Scalars['String']>;
   mobile?: Maybe<Scalars['String']>;
@@ -58,7 +59,7 @@ export type AccessToken = {
 
 export type UserFieldsFragment = (
   { __typename?: 'User' }
-  & Pick<User, 'name' | 'email' | 'mobile' | 'isActive'>
+  & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive'>
 );
 
 export type ActivateUserMutationVariables = Exact<{
@@ -112,8 +113,17 @@ export type GetMeQuery = (
   )> }
 );
 
+export type IsLoginQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type IsLoginQuery = (
+  { __typename?: 'Query' }
+  & Pick<Query, 'isLoggedIn'>
+);
+
 export const UserFieldsFragmentDoc = gql`
     fragment UserFields on User {
+  id
   name
   email
   mobile
@@ -252,3 +262,33 @@ export function useGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetM
 export type GetMeQueryHookResult = ReturnType<typeof useGetMeQuery>;
 export type GetMeLazyQueryHookResult = ReturnType<typeof useGetMeLazyQuery>;
 export type GetMeQueryResult = Apollo.QueryResult<GetMeQuery, GetMeQueryVariables>;
+export const IsLoginDocument = gql`
+    query isLogin {
+  isLoggedIn @client
+}
+    `;
+
+/**
+ * __useIsLoginQuery__
+ *
+ * To run a query within a React component, call `useIsLoginQuery` and pass it any options that fit your needs.
+ * When your component renders, `useIsLoginQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useIsLoginQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useIsLoginQuery(baseOptions?: Apollo.QueryHookOptions<IsLoginQuery, IsLoginQueryVariables>) {
+        return Apollo.useQuery<IsLoginQuery, IsLoginQueryVariables>(IsLoginDocument, baseOptions);
+      }
+export function useIsLoginLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IsLoginQuery, IsLoginQueryVariables>) {
+          return Apollo.useLazyQuery<IsLoginQuery, IsLoginQueryVariables>(IsLoginDocument, baseOptions);
+        }
+export type IsLoginQueryHookResult = ReturnType<typeof useIsLoginQuery>;
+export type IsLoginLazyQueryHookResult = ReturnType<typeof useIsLoginLazyQuery>;
+export type IsLoginQueryResult = Apollo.QueryResult<IsLoginQuery, IsLoginQueryVariables>;

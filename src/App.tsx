@@ -7,23 +7,26 @@ import { createBrowserHistory } from "history";
 import client from "./apollo/client";
 import { Login, SignUp, Main, MyPage } from "Pages";
 import { PrivateRoute, PublicRoute } from "Router";
+import AuthCacheProvider from "caches/AuthCache";
 
 function App() {
 	const history = createBrowserHistory();
 	return (
 		<>
-			<ThemeProvider theme={theme}>
-				<ApolloProvider client={client}>
-					<Router history={history}>
-						<Switch>
-							<PublicRoute exact path="/" component={Main}></PublicRoute>
-							<PublicRoute path="/login" component={Login}></PublicRoute>
-							<PublicRoute path="/sign-up" component={SignUp}></PublicRoute>
-							<PrivateRoute path="/mypage" component={MyPage}></PrivateRoute>
-						</Switch>
-					</Router>
-				</ApolloProvider>
-			</ThemeProvider>
+			<ApolloProvider client={client}>
+				<AuthCacheProvider>
+					<ThemeProvider theme={theme}>
+						<Router history={history}>
+							<Switch>
+								<PublicRoute exact path="/" component={Main}></PublicRoute>
+								<PublicRoute path="/login" component={Login}></PublicRoute>
+								<PublicRoute path="/sign-up" component={SignUp}></PublicRoute>
+								<PrivateRoute path="/mypage" component={MyPage}></PrivateRoute>
+							</Switch>
+						</Router>
+					</ThemeProvider>
+				</AuthCacheProvider>
+			</ApolloProvider>
 		</>
 	);
 }
