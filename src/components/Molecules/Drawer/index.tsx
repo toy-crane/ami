@@ -11,14 +11,14 @@ export interface DrawerProps {
 
 const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
 	const [showContent, setShowContent] = useState<boolean>(false);
-	const [arrowIcon, setArrowIcon] = useState<ICONS>(ICONS.chevron_right);
+	const [arrowIcon, setArrowIcon] = useState<ICONS>(ICONS.chevronRight);
 	const handleClick = () => {
 		if (showContent) {
 			setShowContent(false);
-			setArrowIcon(ICONS.chevron_right);
+			setArrowIcon(ICONS.chevronRight);
 		} else {
 			setShowContent(true);
-			setArrowIcon(ICONS.chevron_down);
+			setArrowIcon(ICONS.chevronDown);
 		}
 	};
 	return (
