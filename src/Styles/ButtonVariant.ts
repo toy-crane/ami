@@ -36,12 +36,12 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 	},
 	github: {
 		color: "white",
-		bg: "#333333",
+		bg: "gray80",
 		cursor: "pointer",
-		outlineColor: "black",
+		outlineColor: "gray100",
 		"&:hover": {
-			bg: "black",
-			outlineColor: "black",
+			bg: "gray100",
+			outlineColor: "gray100",
 		},
 	},
 };

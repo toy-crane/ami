@@ -1,7 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import { Button } from "components";
+import { ICONS } from "components/Atoms/Icon/constants";
 import { jsx, Link, Flex, Heading, Image, Text, Box } from "theme-ui";
-import GitHubButton from "../../components/Button/GithubButton";
 import { AuthLayout } from "../../components/Layout";
 
 const Login = () => {
@@ -18,10 +19,13 @@ const Login = () => {
 					<Heading as="h1">로그인</Heading>
 				</Box>
 				<Image src="/illustration/login.svg" mb={4} />
-				<GitHubButton
-					text="github으로 로그인하기"
-					url="http://localhost:4000/github"
-				/>
+				<Button
+					variant="github"
+					href="http://localhost:4000/github"
+					icon={ICONS.github}
+				>
+					Github로 로그인하기
+				</Button>
 				<Text mb={2}>
 					<Link href="/sign-up">코드팟 계정이 없으신가요?</Link>
 				</Text>

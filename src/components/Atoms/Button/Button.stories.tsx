@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "components";
 import { ICONS } from "../Icon/constants";
+
 export default {
 	title: "Atoms/Button",
 	component: [Button],
@@ -27,5 +28,11 @@ export const ButtonWithInlink = () => <Button href="/">inlink Button</Button>;
 export const ButtonWithIconAndText = () => (
 	<Button href="/" icon={ICONS.menu}>
 		Hello
+	</Button>
+);
+
+export const socialButtons = () => (
+	<Button variant="github" href="/" icon={ICONS.github}>
+		Github로 로그인하기
 	</Button>
 );
