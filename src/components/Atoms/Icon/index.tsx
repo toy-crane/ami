@@ -1,10 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { IconNames, IconSet } from "./constants";
+import { ICONS, IconSet } from "./constants";
 import { Link } from "components";
 export interface IconProps {
-	icon: IconNames;
+	icon: ICONS;
 	size?: number;
 	color?: string;
 	href?: string;

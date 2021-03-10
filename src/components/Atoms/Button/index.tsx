@@ -7,12 +7,12 @@ import {
 	ButtonProps as ThemeUIButtonProps,
 } from "theme-ui";
 import Icon from "../Icon";
-import { IconNames } from "../Icon/constants";
+import { ICONS } from "../Icon/constants";
 import Link from "../Link";
 export interface ButtonProps extends ThemeUIButtonProps {
 	onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	href?: string;
-	icon?: IconNames;
+	icon?: ICONS;
 	iconSize?: number;
 	children?: React.ReactNode;
 	variant?: string;

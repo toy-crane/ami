@@ -1,4 +1,4 @@
-export enum IconNames {
+export enum ICONS {
 	menu = "menu",
 	chevronDown = "chevronDown",
 	chevronRight = "chevronRight",
@@ -10,7 +10,7 @@ type Icon = {
 };
 
 // icon의 path와 viewbox
-const IconSet: Record<IconNames, Icon> = {
+const IconSet: Record<ICONS, Icon> = {
 	menu: {
 		path:
 			"M17 15a1 1 0 110 2H3a1 1 0 110-2h14zm0-4a1 1 0 110 2H3a1 1 0 110-2h14zm0-4a1 1 0 110 2H3a1 1 0 010-2h14zm0-4a1 1 0 110 2H3a1 1 0 010-2h14z",

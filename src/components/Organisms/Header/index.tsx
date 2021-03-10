@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import Logo from "../../Atoms/Logo";
 import { Flex, jsx } from "theme-ui";
-import { IconNames } from "../../Atoms/Icon/constants";
+import { ICONS } from "../../Atoms/Icon/constants";
 import { Button } from "components";
 
 const Header = () => (
@@ -17,7 +17,7 @@ const Header = () => (
 		<Logo href="/" />
 		<ul sx={{ display: ["flex", "none"], listStyle: "none" }}>
 			<li>
-				<Button icon={IconNames.menu} iconSize={24} variant="icon"></Button>
+				<Button icon={ICONS.menu} iconSize={24} variant="icon"></Button>
 			</li>
 		</ul>
 		<ul
