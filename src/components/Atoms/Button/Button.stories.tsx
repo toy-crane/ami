@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "components";
-import { ICONS } from "../Icon/constants";
+import { IconNames } from "../Icon/constants";
 export default {
 	title: "Atoms/Button",
 	component: [Button],
@@ -25,7 +25,7 @@ export const ButtonWithOutlink = () => (
 );
 export const ButtonWithInlink = () => <Button href="/">inlink Button</Button>;
 export const ButtonWithIconAndText = () => (
-	<Button href="/" icon={ICONS.menu}>
+	<Button href="/" icon={IconNames.menu}>
 		Hello
 	</Button>
 );

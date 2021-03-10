@@ -1,10 +1,10 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { ICONS } from "./constants";
+import { IconNames, IconSet } from "./constants";
 import { Link } from "components";
 export interface IconProps {
-	icon: ICONS;
+	icon: IconNames;
 	size?: number;
 	color?: string;
 	href?: string;
@@ -33,10 +33,10 @@ const Icon: React.FC<IconProps> = ({
 			<svg
 				width={size ? size : 20}
 				height={size ? size : 20}
-				viewBox="0 0 20 20"
+				viewBox={IconSet[icon].viewBox}
 				xmlns="http://www.w3.org/2000/svg"
 			>
-				<path d={icon} fill="currentColor" />
+				<path d={IconSet[icon].path} fill="currentColor" />
 			</svg>
 		</span>
 	);

@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "./index";
-import { ICONS } from "./constants";
+import { IconNames } from "./constants";
 import { Flex } from "theme-ui";
 
 export default {
@@ -9,14 +9,15 @@ export default {
 
 export const allIcon = () => (
 	<Flex>
-		<Icon icon={ICONS.chevron_down}></Icon>
-		<Icon icon={ICONS.chevron_right}></Icon>
-		<Icon icon={ICONS.menu}></Icon>
+		<Icon icon={IconNames.chevronDown}></Icon>
+		<Icon icon={IconNames.chevronRight}></Icon>
+		<Icon icon={IconNames.menu}></Icon>
+		<Icon icon={IconNames.github}></Icon>
 	</Flex>
 );
 
 export const IconWithColor = () => (
-	<Icon icon={ICONS.menu} color="secondary100"></Icon>
+	<Icon icon={IconNames.menu} color="secondary100"></Icon>
 );
 
-export const IconWithLink = () => <Icon icon={ICONS.menu} href="/"></Icon>;
+export const IconWithLink = () => <Icon icon={IconNames.menu} href="/"></Icon>;
