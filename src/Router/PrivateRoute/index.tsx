@@ -3,17 +3,15 @@ import { Route, Redirect, RouteProps } from "react-router-dom";
 import { useGetMeQuery } from "../../types/graphql-types";
 
 // 로그인 필요 페이지 전용 Route
-const PrivateRoute: React.FC<RouteProps> = (props) => {
+const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
 	const { data, loading } = useGetMeQuery();
 	const isLoggedIn = data?.isLoggedIn || false;
-	const isActive = data?.me?.user.isActive || false;
 
 	if (loading) {
 		return <div>loading...</div>;
 	}
-	const { children, ...rest } = props;
 	const handleRoute = (props: any) => {
-		if (isLoggedIn && isActive) {
+		if (isLoggedIn) {
 			return children;
 		} else {
 			return (
