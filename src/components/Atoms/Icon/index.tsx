@@ -2,7 +2,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { ICONS } from "./constants";
-import { SxProps } from "theme-ui";
 import { Link } from "components";
 export interface IconProps {
 	icon: ICONS;
