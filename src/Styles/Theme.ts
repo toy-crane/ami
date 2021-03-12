@@ -123,7 +123,7 @@ const theme: Theme = {
 		ul: {
 			margin: 0,
 			padding: 0,
-			listStyle: "none",
+			listStyleType: "none",
 		},
 		a: {
 			display: "inline-block",
@@ -131,6 +131,7 @@ const theme: Theme = {
 			color: "text",
 			"&:hover": {
 				color: "primary100",
+				cursor: "pointer",
 			},
 		},
 	},
