@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { useGetMeLazyQuery, useGetMeQuery } from "types/graphql-types";
-import { useReactiveVar } from "@apollo/client";
+import { useGetMeQuery } from "types/graphql-types";
 import { accountInfoCache } from "./cache";
 
 interface AuthCacheProviderProps {
@@ -8,7 +7,6 @@ interface AuthCacheProviderProps {
 }
 
 const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
-	// cache에서 로그인 여부 조회
 	const { data: getMeData, loading } = useGetMeQuery();
 	const user = getMeData?.me?.user;
 	const profile = getMeData?.me?.profile;
