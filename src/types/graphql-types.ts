@@ -13,6 +13,7 @@ export type Scalars = {
 
 export type Query = {
   __typename?: 'Query';
+  AccountInfo: AccountInfo;
   isLoggedIn: Scalars['Boolean'];
   me?: Maybe<Me>;
 };
@@ -57,6 +58,16 @@ export type AccessToken = {
   token: Scalars['String'];
 };
 
+export type AccountInfo = {
+  __typename?: 'AccountInfo';
+  id?: Maybe<Scalars['Int']>;
+  email?: Maybe<Scalars['String']>;
+  avatar?: Maybe<Scalars['String']>;
+  githubUrl?: Maybe<Scalars['String']>;
+  name?: Maybe<Scalars['String']>;
+  isLoggedIn?: Maybe<Scalars['Boolean']>;
+};
+
 export type UserFieldsFragment = (
   { __typename?: 'User' }
   & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive'>
@@ -95,12 +106,22 @@ export type LogoutMutation = (
   & Pick<Mutation, 'logout'>
 );
 
+export type GetAccountInfoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetAccountInfoQuery = (
+  { __typename?: 'Query' }
+  & { AccountInfo: (
+    { __typename?: 'AccountInfo' }
+    & Pick<AccountInfo, 'email' | 'id' | 'avatar' | 'githubUrl' | 'name' | 'isLoggedIn'>
+  ) }
+);
+
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type GetMeQuery = (
   { __typename?: 'Query' }
-  & Pick<Query, 'isLoggedIn'>
   & { me?: Maybe<(
     { __typename?: 'me' }
     & { user: (
@@ -111,14 +132,6 @@ export type GetMeQuery = (
       & Pick<Profile, 'avatar' | 'githubUrl'>
     )> }
   )> }
-);
-
-export type IsLoginQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type IsLoginQuery = (
-  { __typename?: 'Query' }
-  & Pick<Query, 'isLoggedIn'>
 );
 
 export const UserFieldsFragmentDoc = gql`
@@ -223,6 +236,43 @@ export function useLogoutMutation(baseOptions?: Apollo.MutationHookOptions<Logou
 export type LogoutMutationHookResult = ReturnType<typeof useLogoutMutation>;
 export type LogoutMutationResult = Apollo.MutationResult<LogoutMutation>;
 export type LogoutMutationOptions = Apollo.BaseMutationOptions<LogoutMutation, LogoutMutationVariables>;
+export const GetAccountInfoDocument = gql`
+    query getAccountInfo {
+  AccountInfo @client {
+    email
+    id
+    avatar
+    githubUrl
+    name
+    isLoggedIn
+  }
+}
+    `;
+
+/**
+ * __useGetAccountInfoQuery__
+ *
+ * To run a query within a React component, call `useGetAccountInfoQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetAccountInfoQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetAccountInfoQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useGetAccountInfoQuery(baseOptions?: Apollo.QueryHookOptions<GetAccountInfoQuery, GetAccountInfoQueryVariables>) {
+        return Apollo.useQuery<GetAccountInfoQuery, GetAccountInfoQueryVariables>(GetAccountInfoDocument, baseOptions);
+      }
+export function useGetAccountInfoLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAccountInfoQuery, GetAccountInfoQueryVariables>) {
+          return Apollo.useLazyQuery<GetAccountInfoQuery, GetAccountInfoQueryVariables>(GetAccountInfoDocument, baseOptions);
+        }
+export type GetAccountInfoQueryHookResult = ReturnType<typeof useGetAccountInfoQuery>;
+export type GetAccountInfoLazyQueryHookResult = ReturnType<typeof useGetAccountInfoLazyQuery>;
+export type GetAccountInfoQueryResult = Apollo.QueryResult<GetAccountInfoQuery, GetAccountInfoQueryVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {
@@ -234,7 +284,6 @@ export const GetMeDocument = gql`
       githubUrl
     }
   }
-  isLoggedIn @client
 }
     ${UserFieldsFragmentDoc}`;
 
@@ -262,33 +311,3 @@ export function useGetMeLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetM
 export type GetMeQueryHookResult = ReturnType<typeof useGetMeQuery>;
 export type GetMeLazyQueryHookResult = ReturnType<typeof useGetMeLazyQuery>;
 export type GetMeQueryResult = Apollo.QueryResult<GetMeQuery, GetMeQueryVariables>;
-export const IsLoginDocument = gql`
-    query isLogin {
-  isLoggedIn @client
-}
-    `;
-
-/**
- * __useIsLoginQuery__
- *
- * To run a query within a React component, call `useIsLoginQuery` and pass it any options that fit your needs.
- * When your component renders, `useIsLoginQuery` returns an object from Apollo Client that contains loading, error, and data properties
- * you can use to render your UI.
- *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
- *
- * @example
- * const { data, loading, error } = useIsLoginQuery({
- *   variables: {
- *   },
- * });
- */
-export function useIsLoginQuery(baseOptions?: Apollo.QueryHookOptions<IsLoginQuery, IsLoginQueryVariables>) {
-        return Apollo.useQuery<IsLoginQuery, IsLoginQueryVariables>(IsLoginDocument, baseOptions);
-      }
-export function useIsLoginLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<IsLoginQuery, IsLoginQueryVariables>) {
-          return Apollo.useLazyQuery<IsLoginQuery, IsLoginQueryVariables>(IsLoginDocument, baseOptions);
-        }
-export type IsLoginQueryHookResult = ReturnType<typeof useIsLoginQuery>;
-export type IsLoginLazyQueryHookResult = ReturnType<typeof useIsLoginLazyQuery>;
-export type IsLoginQueryResult = Apollo.QueryResult<IsLoginQuery, IsLoginQueryVariables>;

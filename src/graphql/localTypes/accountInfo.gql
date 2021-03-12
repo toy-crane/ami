@@ -1,0 +1,12 @@
+type Query {
+	AccountInfo: AccountInfo!
+}
+
+type AccountInfo {
+	id: Int
+	email: String
+	avatar: String
+	githubUrl: String
+	name: String
+	isLoggedIn: Boolean
+}
