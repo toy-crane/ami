@@ -10,9 +10,10 @@ import React from "react";
 type HeaderProps = {
 	isLoggedIn: boolean;
 	avatar?: string | undefined | null;
+	loading: boolean;
 };
 
-const Header = ({ isLoggedIn, avatar }: HeaderProps) => (
+const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => (
 	<Flex
 		sx={{
 			py: 3,
@@ -36,7 +37,7 @@ const Header = ({ isLoggedIn, avatar }: HeaderProps) => (
 				},
 			}}
 		>
-			{isLoggedIn ? (
+			{loading ? null : isLoggedIn ? (
 				<li>
 					<Avatar src={avatar || ""}></Avatar>
 				</li>

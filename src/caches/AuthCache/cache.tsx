@@ -7,6 +7,7 @@ type AccountInfo = {
 	githubUrl: string | null | undefined;
 	name: string | null | undefined;
 	isLoggedIn: boolean;
+	loading: boolean;
 };
 
 const defaultAccountInfo: AccountInfo = {
@@ -16,6 +17,7 @@ const defaultAccountInfo: AccountInfo = {
 	githubUrl: null,
 	name: null,
 	isLoggedIn: false,
+	loading: false,
 };
 
 const accessTokenCache = makeVar<null | string>(null);

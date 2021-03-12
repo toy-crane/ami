@@ -6,8 +6,10 @@ import { accountInfoCache } from "caches";
 import Header from "./Header";
 
 const HeaderContainer = () => {
-	const { isLoggedIn, avatar } = useReactiveVar(accountInfoCache);
-	return <Header isLoggedIn={isLoggedIn} avatar={avatar}></Header>;
+	const { isLoggedIn, avatar, loading } = useReactiveVar(accountInfoCache);
+	return (
+		<Header isLoggedIn={isLoggedIn} avatar={avatar} loading={loading}></Header>
+	);
 };
 
 export default HeaderContainer;
