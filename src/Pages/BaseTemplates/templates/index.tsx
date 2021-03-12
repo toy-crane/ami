@@ -21,7 +21,7 @@ const Container: React.FC<ContainerProps> = ({
 	>
 		<Box
 			sx={{
-				px: [3, 0],
+				px: 3,
 				mx: [0, "auto"],
 				maxWidth: "container",
 			}}

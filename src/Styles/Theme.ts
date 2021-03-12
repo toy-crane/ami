@@ -21,7 +21,8 @@ const theme: Theme = {
 	space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
 	breakpoints: ["40em"],
 	sizes: {
-		container: 1024,
+		// 태블릿 양쪽 마진 확보
+		container: 1024 + 32,
 	},
 	fonts: {
 		body:
