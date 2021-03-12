@@ -5,9 +5,20 @@ import React from "react";
 import { Header, Footer } from "components";
 export interface ContainerProps extends BoxProps {
 	baseColor?: string;
+	position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
+	width?: string;
+	zindex?: number;
 }
-const Container: React.FC<ContainerProps> = (props: ContainerProps) => (
-	<Box bg={props.baseColor}>
+const Container: React.FC<ContainerProps> = ({
+	position,
+	width,
+	zindex,
+	...props
+}: ContainerProps) => (
+	<Box
+		bg={props.baseColor}
+		sx={{ position: position || "static", width: width, zIndex: zindex }}
+	>
 		<Box
 			sx={{
 				px: [3, 0],
@@ -23,6 +34,10 @@ const Container: React.FC<ContainerProps> = (props: ContainerProps) => (
 
 const HeaderWrapper: React.FC = (props) => (
 	<Container
+		position="fixed"
+		width="100%"
+		baseColor="background"
+		zindex={5}
 		sx={{
 			alignItems: "center",
 			height: "10vh",
