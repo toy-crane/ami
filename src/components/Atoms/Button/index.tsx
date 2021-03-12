@@ -31,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
 			variant={variant}
 			sx={{
 				minWidth: children ? "10ch" : "none",
+				minHeight: "48px",
 				display: "inline-flex",
 				justifyContent: "center",
 				alignItems: "center",
