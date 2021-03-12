@@ -6,6 +6,8 @@ interface LogoProps {
 	href?: string;
 	height?: number;
 	color?: string;
+	mt?: number;
+	mb?: number;
 	bg?: string;
 }
 
@@ -13,6 +15,8 @@ const Logo: React.FC<LogoProps> = ({
 	href,
 	height,
 	color,
+	mt,
+	mb,
 	...props
 }: LogoProps) => {
 	const cursor = href ? "pointer" : "default";
@@ -24,6 +28,8 @@ const Logo: React.FC<LogoProps> = ({
 				lineHeight: 0,
 				cursor: cursor,
 				color: color,
+				mt: mt,
+				mb: mb,
 			}}
 			{...props}
 		>
