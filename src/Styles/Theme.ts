@@ -1,4 +1,5 @@
 import { Theme } from "@theme-ui/css";
+import { NONAME } from "dns";
 import ButtonVariant from "./ButtonVariant";
 import FontVariant from "./FontVariant";
 import gridVariant from "./gridVariant";
@@ -119,8 +120,15 @@ const theme: Theme = {
 		img: {
 			maxWidth: "100%",
 		},
+		ul: {
+			margin: 0,
+			padding: 0,
+			listStyle: "none",
+		},
 		a: {
+			display: "inline-block",
 			textDecoration: "none",
+			lineHeight: 0,
 			color: "text",
 			"&:hover": {
 				color: "primary100",
