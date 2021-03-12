@@ -88,12 +88,7 @@ const theme: Theme = {
 		text: "#000",
 		subText: "#666666",
 		background: "#ffffff",
-		primary: "#166AF4",
-		secondary: "#30c",
 		muted: "#f6f6f6",
-		brightenGray: "#F9FAFB",
-		gray: "#E6E6E6",
-		darkenGray: "#a2a7ab",
 		gray100: "#1A1A1A",
 		gray80: "#656565",
 		gray60: "#A1A1A1",
@@ -126,6 +121,9 @@ const theme: Theme = {
 		a: {
 			textDecoration: "none",
 			color: "text",
+			"&:hover": {
+				color: "primary100",
+			},
 		},
 	},
 };
