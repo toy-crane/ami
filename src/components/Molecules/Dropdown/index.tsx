@@ -1,4 +1,4 @@
-import { Box, Flex, NavLink } from "@theme-ui/components";
+import { Box, Flex } from "@theme-ui/components";
 import React, { useRef, useState, useEffect } from "react";
 import { Link } from "components";
 
@@ -46,9 +46,17 @@ const Dropdown = ({ children }: DropdownProps) => {
 						boxShadow: (theme) => `0px 1px 5px 0px ${theme.colors?.gray40}`,
 					}}
 				>
-					<Flex sx={{ flexDirection: "column" }}>
+					<Flex
+						sx={{
+							flexDirection: "column",
+							alignItems: "flex-start",
+							"& > a": {
+								margin: 2,
+							},
+						}}
+					>
 						<Link href="/mypage">마이 페이지</Link>
-						<Link onClick={()=>alert('로그아웃 버튼 클릭')}>로그아웃</Link>
+						<Link onClick={() => alert("로그아웃 버튼 클릭")}>로그아웃</Link>
 					</Flex>
 				</Box>
 			)}
