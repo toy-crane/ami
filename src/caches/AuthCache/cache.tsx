@@ -18,5 +18,7 @@ const defaultAccountInfo: AccountInfo = {
 	isLoggedIn: false,
 };
 
-const accountInfo = makeVar<AccountInfo>(defaultAccountInfo);
-export default accountInfo;
+const accessTokenCache = makeVar<null | string>(null);
+const accountInfoCache = makeVar<AccountInfo>(defaultAccountInfo);
+
+export { accountInfoCache, accessTokenCache };

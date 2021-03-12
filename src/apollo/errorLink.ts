@@ -1,7 +1,7 @@
 import { onError } from "@apollo/client/link/error";
 import { fetchNewAccessToken } from "../services/tokenService";
 import { fromPromise } from "@apollo/client";
-import { accessTokenVar } from "./cache";
+import { accessTokenCache } from "caches";
 
 let isRefreshing = false;
 let pendingRequests: any = [];
@@ -29,7 +29,7 @@ const errorLink = onError(
 											},
 										}) => {
 											// 신규 토큰 저장
-											accessTokenVar(token);
+											accessTokenCache(token);
 											// 실패한 요청들 다시 시도하기
 											resolvePendingRequests();
 											return true;

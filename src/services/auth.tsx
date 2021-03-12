@@ -1,6 +1,6 @@
 import { useLogoutMutation } from "../types/graphql-types";
-import { accessTokenVar } from "../apollo/cache";
 import { useEffect, useCallback } from "react";
+import { accessTokenCache } from "caches";
 
 // logout custom hooks
 export const useLogout = () => {
@@ -10,7 +10,7 @@ export const useLogout = () => {
 	}, [logoutMutation]);
 	useEffect(() => {
 		if (data?.logout) {
-			accessTokenVar(null);
+			accessTokenCache(null);
 		}
 	}, [data]);
 	return handleLogout;

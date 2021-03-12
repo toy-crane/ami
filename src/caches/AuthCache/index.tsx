@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useGetMeLazyQuery } from "types/graphql-types";
 import { useReactiveVar } from "@apollo/client";
-import accountInfoCache from "./cache";
+import { accountInfoCache } from "./cache";
 
 interface AuthCacheProviderProps {
 	children: React.ReactElement;
@@ -15,7 +15,6 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 	const [getMe, { data: getMeData }] = useGetMeLazyQuery();
 	const user = getMeData?.me?.user;
 	const profile = getMeData?.me?.profile;
-	console.log(isLoggedIn, accountInfo);
 
 	useEffect(() => {
 		// 로그인 상태가 아닐 때, refresh 토큰으로 access token refresh 시도
