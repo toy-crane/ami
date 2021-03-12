@@ -1,10 +1,14 @@
 import React from "react";
-import { Story } from "@storybook/react";
-import Header from "./index";
+import Header from "./Header";
 export default {
 	title: "Organisms/Header",
 	component: Header,
 };
 
-const Template: Story = () => <Header></Header>;
-export const Basic = Template.bind({});
+export const LogoutStatusHeader = () => <Header isLoggedIn={false}></Header>;
+export const LoginStatusHeader = () => (
+	<Header
+		isLoggedIn={true}
+		avatar="https://avatars1.githubusercontent.com/u/3426196?v=4"
+	></Header>
+);

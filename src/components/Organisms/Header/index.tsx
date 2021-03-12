@@ -1,46 +1,13 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import Logo from "../../Atoms/Logo";
-import { Flex, jsx } from "theme-ui";
-import { ICONS } from "../../Atoms/Icon/constants";
-import { Button } from "components";
+import { useReactiveVar } from "@apollo/client";
+import { jsx } from "@theme-ui/core";
+import { accountInfoCache } from "caches";
+import Header from "./Header";
 
-const Header = () => (
-	<Flex
-		sx={{
-			py: 3,
-			width: "100%",
-			alignItems: "center",
-			justifyContent: "space-between",
-		}}
-	>
-		<Logo href="/" />
-		<ul sx={{ display: ["flex", "none"], listStyle: "none" }}>
-			<li>
-				<Button icon={ICONS.menu} iconSize={24} variant="icon"></Button>
-			</li>
-		</ul>
-		<ul
-			sx={{
-				display: ["none", "flex"],
-				listStyle: "none",
-				"& > li:not(:last-child)": {
-					marginRight: 2,
-				},
-			}}
-		>
-			<li>
-				<Button href="/login" variant="primary">
-					로그인
-				</Button>
-			</li>
-			<li>
-				<Button href="/sign-up" variant="secondary">
-					회원가입
-				</Button>
-			</li>
-		</ul>
-	</Flex>
-);
+const HeaderContainer = () => {
+	const { isLoggedIn, avatar } = useReactiveVar(accountInfoCache);
+	return <Header isLoggedIn={isLoggedIn} avatar={avatar}></Header>;
+};
 
-export default Header;
+export default HeaderContainer;

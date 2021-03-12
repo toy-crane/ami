@@ -6,7 +6,7 @@ type AccountInfo = {
 	avatar: string | null | undefined;
 	githubUrl: string | null | undefined;
 	name: string | null | undefined;
-	isLoggedIn: Boolean;
+	isLoggedIn: boolean;
 };
 
 const defaultAccountInfo: AccountInfo = {
