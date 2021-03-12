@@ -1,10 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, Box, BoxProps } from "theme-ui";
-import Header from "../../../components/Organisms/Header";
 import React from "react";
-import Footer from "../../../components/Organisms/Footer";
-
+import { Header, Footer } from "components";
 export interface ContainerProps extends BoxProps {
 	baseColor?: string;
 }
