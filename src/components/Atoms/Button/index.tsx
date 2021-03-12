@@ -30,7 +30,7 @@ const Button: React.FC<ButtonProps> = ({
 		<ThemeUIButton
 			variant={variant}
 			sx={{
-				minWidth: "10ch",
+				minWidth: children ? "10ch" : "none",
 				display: "inline-flex",
 				justifyContent: "center",
 				alignItems: "center",

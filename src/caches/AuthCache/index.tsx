@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
 import { useGetMeQuery } from "types/graphql-types";
-import { accountInfoCache } from "./cache";
+import { accountInfoCache, defaultAccountInfo } from "./cache";
 
 interface AuthCacheProviderProps {
 	children: React.ReactElement;
 }
 
 const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
-	const { data: getMeData, loading } = useGetMeQuery();
+	const { data: getMeData, loading, error } = useGetMeQuery();
 	const user = getMeData?.me?.user;
 	const profile = getMeData?.me?.profile;
+	console.log(loading, user, profile, accountInfoCache(), error);
 
 	useEffect(() => {
+		// Todo 모든 에러말고 리프레쉬 에러만 처리하도록 변경
+		if (error) {
+			accountInfoCache(defaultAccountInfo);
+		}
 		if (loading) {
 			accountInfoCache({ ...accountInfoCache(), loading: true });
 		}
@@ -28,7 +33,7 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 				loading: false,
 			});
 		}
-	}, [profile, user, loading]);
+	}, [profile, user, loading, error]);
 
 	return <>{children}</>;
 };

@@ -23,4 +23,4 @@ const defaultAccountInfo: AccountInfo = {
 const accessTokenCache = makeVar<null | string>(null);
 const accountInfoCache = makeVar<AccountInfo>(defaultAccountInfo);
 
-export { accountInfoCache, accessTokenCache };
+export { accountInfoCache, accessTokenCache, defaultAccountInfo };

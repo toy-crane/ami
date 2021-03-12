@@ -3,7 +3,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { Link } from "components";
 
 interface DropdownProps {
-	children: React.ReactElement;
+	children: React.ReactNode;
 }
 
 const Dropdown = ({ children }: DropdownProps) => {

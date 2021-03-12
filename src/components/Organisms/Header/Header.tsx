@@ -3,7 +3,7 @@
 import Logo from "../../Atoms/Logo";
 import { Flex, jsx } from "theme-ui";
 import { ICONS } from "../../Atoms/Icon/constants";
-import { Button } from "components";
+import { Button, Dropdown } from "components";
 import Avatar from "components/Atoms/Avatar";
 import React from "react";
 
@@ -23,10 +23,17 @@ const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => (
 		}}
 	>
 		<Logo href="/" />
-		<ul sx={{ display: ["flex", "none"], listStyle: "none" }}>
-			<li>
+		<ul
+			sx={{
+				display: ["flex", "none"],
+				listStyle: "none",
+				padding: 0,
+				margin: 0,
+			}}
+		>
+			<Dropdown>
 				<Button icon={ICONS.menu} iconSize={24} variant="icon"></Button>
-			</li>
+			</Dropdown>
 		</ul>
 		<ul
 			sx={{
@@ -39,7 +46,9 @@ const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => (
 		>
 			{loading ? null : isLoggedIn ? (
 				<li>
-					<Avatar src={avatar || ""}></Avatar>
+					<Dropdown>
+						<Avatar src={avatar || ""}></Avatar>
+					</Dropdown>
 				</li>
 			) : (
 				<React.Fragment>
