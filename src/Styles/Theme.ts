@@ -128,7 +128,6 @@ const theme: Theme = {
 		a: {
 			display: "inline-block",
 			textDecoration: "none",
-			lineHeight: 0,
 			color: "text",
 			"&:hover": {
 				color: "primary100",
