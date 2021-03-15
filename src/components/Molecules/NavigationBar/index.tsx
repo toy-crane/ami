@@ -21,6 +21,8 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 					alignItems: "center",
 					"& > li": {
 						lineHeight: 0,
+					},
+					"& > li:not(:first-child)": {
 						marginLeft: 2,
 					},
 				}}
@@ -60,18 +62,28 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 						top: "64px",
 						right: ["0px", "32px"],
 						width: ["inherit", "200px"],
+						boxShadow: (theme) => `0px 1px 5px 0px ${theme.colors?.gray40}`,
+						zIndex: 10000,
 					}}
 				>
 					<ul
 						sx={{
 							variant: "styles.ul",
 							display: "flex",
-							alignItems: ["center", "flex-end"],
+							alignItems: ["center", "flex-start"],
 							flexDirection: "column",
+							padding: 2,
+							"& > li:not(:last-child)": {
+								marginBottom: 2,
+							},
 						}}
 					>
-						<Link href="/mypage">마이 페이지</Link>
-						<Link onClick={() => alert("로그아웃 버튼 클릭")}>로그아웃</Link>
+						<li>
+							<Link href="/mypage">마이 페이지</Link>
+						</li>
+						<li>
+							<Link onClick={() => alert("로그아웃 버튼 클릭")}>로그아웃</Link>
+						</li>
 					</ul>
 				</Box>
 			)}
