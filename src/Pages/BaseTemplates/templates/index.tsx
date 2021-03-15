@@ -40,7 +40,6 @@ const HeaderWrapper: React.FC = (props) => (
 		zindex={5}
 		sx={{
 			alignItems: "center",
-			height: "10vh",
 			display: "flex",
 		}}
 	>

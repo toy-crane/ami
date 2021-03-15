@@ -1,26 +1,13 @@
 import React from "react";
-import Header from "./Header";
-import HeaderMobile from "./HeaderMobile";
+import { Header } from "./";
 export default {
 	title: "Organisms/Header",
 	component: Header,
 };
 
-export const LogoutStatusHeader = () => (
-	<Header isLoggedIn={false} loading={false}></Header>
+export const HeaderWithWideScreen = () => (
+	<Header isLoggedIn={false} avatar={undefined}></Header>
 );
-export const LoginStatusHeader = () => (
-	<Header
-		isLoggedIn={true}
-		loading={false}
-		avatar="https://avatars1.githubusercontent.com/u/3426196?v=4"
-	></Header>
-);
-
-export const HeaderWithMobile = () => (
-	<HeaderMobile
-		isLoggedIn={true}
-		loading={false}
-		avatar="https://avatars1.githubusercontent.com/u/3426196?v=4"
-	></HeaderMobile>
+export const HeaderWithLoggedIn = () => (
+	<Header isLoggedIn={true} avatar={undefined}></Header>
 );

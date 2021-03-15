@@ -58,11 +58,11 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 			{showNav && (
 				<Box
 					sx={{
-						position: "fixed",
-						top: "64px",
-						right: ["0px", "32px"],
+						position: "absolute",
+						top: "58px",
+						right: ["0px", "0px"],
 						width: ["inherit", "200px"],
-						boxShadow: (theme) => `0px 1px 5px 0px ${theme.colors?.gray40}`,
+						bg: "white",
 						zIndex: 10000,
 					}}
 				>
@@ -70,11 +70,20 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 						sx={{
 							variant: "styles.ul",
 							display: "flex",
-							alignItems: ["center", "flex-start"],
+							alignItems: ["strech", "flex-start"],
 							flexDirection: "column",
-							padding: 2,
-							"& > li:not(:last-child)": {
-								marginBottom: 2,
+							border: ["0px", "1px solid"],
+							borderColor: ["gray05", "gray05"],
+							paddingX: 2,
+							"& > li": {
+								textAlign: "center",
+								paddingY: 2,
+								borderBottom: ["1px solid", "0px"],
+								borderColor: "gray05",
+							},
+							"& > li:first-child": {
+								borderTop: ["1px solid", "0px"],
+								borderColor: "gray05",
 							},
 						}}
 					>

@@ -1,18 +1,37 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import Logo from "../../Atoms/Logo";
+import { Box, jsx } from "theme-ui";
+import { NavigationBar } from "components";
 import { useReactiveVar } from "@apollo/client";
-import { jsx } from "@theme-ui/core";
 import { accountInfoCache } from "caches";
-import HeaderMobile from "./HeaderMobile";
+
+interface HeaderProps {
+	isLoggedIn: boolean;
+	avatar: string | null | undefined;
+}
 
 const HeaderContainer = () => {
-	const { isLoggedIn, avatar, loading } = useReactiveVar(accountInfoCache);
+	const { isLoggedIn, avatar } = useReactiveVar(accountInfoCache);
+	return <Header isLoggedIn={isLoggedIn} avatar={avatar}></Header>;
+};
+
+export const Header = ({ isLoggedIn, avatar }: HeaderProps) => {
 	return (
-		<HeaderMobile
-			isLoggedIn={isLoggedIn}
-			avatar={avatar}
-			loading={loading}
-		></HeaderMobile>
+		<Box
+			sx={{
+				height: "42px",
+				marginY: 3,
+				display: "flex",
+				width: "100%",
+				justifyContent: "space-between",
+				alignItems: "center",
+				position: "relative",
+			}}
+		>
+			<Logo href="/" mt={2} />
+			<NavigationBar isLoggedIn={isLoggedIn} avatar={avatar}></NavigationBar>
+		</Box>
 	);
 };
 
