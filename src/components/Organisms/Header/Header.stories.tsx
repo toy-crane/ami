@@ -6,8 +6,8 @@ export default {
 };
 
 export const HeaderWithWideScreen = () => (
-	<Header isLoggedIn={false} avatar={undefined}></Header>
+	<Header isLoggedIn={false} avatar={undefined} loading={false}></Header>
 );
 export const HeaderWithLoggedIn = () => (
-	<Header isLoggedIn={true} avatar={undefined}></Header>
+	<Header isLoggedIn={true} avatar={undefined} loading={false}></Header>
 );

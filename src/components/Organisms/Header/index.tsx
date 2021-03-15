@@ -8,15 +8,18 @@ import { accountInfoCache } from "caches";
 
 interface HeaderProps {
 	isLoggedIn: boolean;
+	loading: boolean;
 	avatar: string | null | undefined;
 }
 
 const HeaderContainer = () => {
-	const { isLoggedIn, avatar } = useReactiveVar(accountInfoCache);
-	return <Header isLoggedIn={isLoggedIn} avatar={avatar}></Header>;
+	const { isLoggedIn, avatar, loading } = useReactiveVar(accountInfoCache);
+	return (
+		<Header isLoggedIn={isLoggedIn} avatar={avatar} loading={loading}></Header>
+	);
 };
 
-export const Header = ({ isLoggedIn, avatar }: HeaderProps) => {
+export const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => {
 	return (
 		<Box
 			sx={{
@@ -30,7 +33,9 @@ export const Header = ({ isLoggedIn, avatar }: HeaderProps) => {
 			}}
 		>
 			<Logo href="/" mt={2} />
-			<NavigationBar isLoggedIn={isLoggedIn} avatar={avatar}></NavigationBar>
+			{!loading && (
+				<NavigationBar isLoggedIn={isLoggedIn} avatar={avatar}></NavigationBar>
+			)}
 		</Box>
 	);
 };
