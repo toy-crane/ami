@@ -17,7 +17,9 @@ interface DescSectionContainerProps {
 }
 
 const HeroContainer: React.FC = (props) => (
-	<Container py={[5, 6]}>{props.children}</Container>
+	<Container pt={6} pb={5}>
+		{props.children}
+	</Container>
 );
 
 const ClassCardGroupContainer: React.FC = (props) => (
