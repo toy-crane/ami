@@ -10,7 +10,6 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 	const { data: getMeData, loading, error } = useGetMeQuery();
 	const user = getMeData?.me?.user;
 	const profile = getMeData?.me?.profile;
-	console.log(loading, user, profile, accountInfoCache(), error);
 
 	useEffect(() => {
 		// Todo 모든 에러말고 리프레쉬 에러만 처리하도록 변경
