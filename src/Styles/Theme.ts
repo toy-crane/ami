@@ -1,5 +1,4 @@
 import { Theme } from "@theme-ui/css";
-import { NONAME } from "dns";
 import ButtonVariant from "./ButtonVariant";
 import FontVariant from "./FontVariant";
 import gridVariant from "./gridVariant";
