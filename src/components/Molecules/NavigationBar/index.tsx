@@ -4,6 +4,7 @@ import { Box, jsx } from "theme-ui";
 import { Button, Icon, Avatar, Link } from "components";
 import { ICONS } from "components/Atoms/Icon/constants";
 import React, { useState } from "react";
+import { useLogout } from "services/auth";
 
 interface NavigationProps {
 	avatar?: string | undefined | null;
@@ -11,6 +12,7 @@ interface NavigationProps {
 }
 
 const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
+	const handleLogout = useLogout();
 	const [showNav, setShowNav] = useState<boolean>(false);
 	return (
 		<React.Fragment>
@@ -91,7 +93,14 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 							<Link href="/mypage">마이 페이지</Link>
 						</li>
 						<li>
-							<Link onClick={() => alert("로그아웃 버튼 클릭")}>로그아웃</Link>
+							<Link
+								onClick={() => {
+									handleLogout();
+									setShowNav(false);
+								}}
+							>
+								로그아웃
+							</Link>
 						</li>
 					</ul>
 				</Box>

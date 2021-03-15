@@ -38,3 +38,4 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 };
 
 export default AuthCacheProvider;
+export { defaultAccountInfo, accountInfoCache };

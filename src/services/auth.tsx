@@ -1,6 +1,7 @@
 import { useLogoutMutation } from "../types/graphql-types";
 import { useEffect, useCallback } from "react";
-import { accessTokenCache } from "caches";
+import { accessTokenCache, accountInfoCache } from "caches";
+import { defaultAccountInfo } from "caches";
 
 // logout custom hooks
 export const useLogout = () => {
@@ -11,6 +12,7 @@ export const useLogout = () => {
 	useEffect(() => {
 		if (data?.logout) {
 			accessTokenCache(null);
+			accountInfoCache(defaultAccountInfo);
 		}
 	}, [data]);
 	return handleLogout;

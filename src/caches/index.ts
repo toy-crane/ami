@@ -1,1 +1,5 @@
-export { accessTokenCache, accountInfoCache } from "./AuthCache/cache";
+export {
+	accessTokenCache,
+	accountInfoCache,
+	defaultAccountInfo,
+} from "./AuthCache/cache";
