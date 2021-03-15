@@ -22,7 +22,7 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 					"& > li": {
 						lineHeight: 0,
 					},
-					"& > li:not(:first-child)": {
+					"& > li:not(:first-of-type)": {
 						marginLeft: 2,
 					},
 				}}
@@ -81,7 +81,7 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 								borderBottom: ["1px solid", "0px"],
 								borderColor: "gray05",
 							},
-							"& > li:first-child": {
+							"& > li:first-of-type": {
 								borderTop: ["1px solid", "0px"],
 								borderColor: "gray05",
 							},
