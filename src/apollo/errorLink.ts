@@ -18,7 +18,6 @@ const errorLink = onError(
 				switch (err.extensions!.code) {
 					case "UNAUTHENTICATED":
 						let forward$;
-						console.log("hello1");
 						if (!isRefreshing) {
 							isRefreshing = true;
 							forward$ = fromPromise(
@@ -31,7 +30,6 @@ const errorLink = onError(
 										}) => {
 											// 신규 토큰 저장
 											accessTokenCache(token);
-											console.log(token);
 											// 실패한 요청들 다시 시도하기
 											resolvePendingRequests();
 											return true;
