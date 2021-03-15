@@ -1,5 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import Avatar from ".";
 
 export default {
@@ -7,7 +6,8 @@ export default {
 	component: [Avatar],
 };
 
-const AvatarTemplate: Story = (args) => (
+export const AvatarWithImage = () => (
 	<Avatar src="https://avatars1.githubusercontent.com/u/3426196?v=4"></Avatar>
 );
-export const Basic = AvatarTemplate.bind({});
+
+export const AvatarWithDefaultImage = () => <Avatar></Avatar>;
