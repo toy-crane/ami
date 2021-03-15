@@ -20,4 +20,6 @@ export const IconWithColor = () => (
 	<Icon icon={ICONS.menu} color="secondary100"></Icon>
 );
 
-export const IconWithLink = () => <Icon icon={ICONS.menu} href="/"></Icon>;
+export const IconWithClick = () => (
+	<Icon icon={ICONS.menu} onClick={() => console.log("Hello")}></Icon>
+);
