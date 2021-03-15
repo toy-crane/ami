@@ -1,6 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
-import Login from ".";
 import SignUp from "./index";
 
 export default {
