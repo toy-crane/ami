@@ -6,7 +6,7 @@ import { Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import client from "./apollo/client";
 import { Login, SignUp, Main, MyPage } from "Pages";
-import { PrivateRoute, PublicRoute } from "Router";
+import { ActivateRoute, PrivateRoute, PublicRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
 
 function App() {
@@ -18,10 +18,14 @@ function App() {
 					<ThemeProvider theme={theme}>
 						<Router history={history}>
 							<Switch>
-								<PublicRoute exact path="/" component={Main}></PublicRoute>
-								<PublicRoute path="/login" component={Login}></PublicRoute>
-								<PublicRoute path="/sign-up" component={SignUp}></PublicRoute>
-								<PrivateRoute path="/mypage" component={MyPage}></PrivateRoute>
+								<PublicRoute exact path="/" component={Main} />
+								<PublicRoute path="/login" component={Login} />
+								<PublicRoute path="/sign-up" component={SignUp} />
+								<PrivateRoute path="/mypage" component={MyPage} />
+								<ActivateRoute
+									path="/activate"
+									component={<div>need Activate</div>}
+								/>
 							</Switch>
 						</Router>
 					</ThemeProvider>

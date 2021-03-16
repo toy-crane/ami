@@ -1,5 +1,6 @@
+import { useReactiveVar } from "@apollo/client";
 import React, { useEffect } from "react";
-import { useGetMeQuery } from "types/graphql-types";
+import { useGetMeLazyQuery } from "types/graphql-types";
 import { accountInfoCache, defaultAccountInfo } from "./cache";
 
 interface AuthCacheProviderProps {
@@ -7,17 +8,27 @@ interface AuthCacheProviderProps {
 }
 
 const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
-	const { data: getMeData, loading, error } = useGetMeQuery();
+	const [
+		getMe,
+		{ data: getMeData, loading: getMeLoading, error: getMeError },
+	] = useGetMeLazyQuery();
 	const user = getMeData?.me?.user;
 	const profile = getMeData?.me?.profile;
+	const { loading } = useReactiveVar(accountInfoCache);
+
+	// 최초 유저 정보 호출
+	useEffect(() => {
+		getMe();
+	}, [getMe]);
 
 	useEffect(() => {
-		// Todo 모든 에러말고 리프레쉬 에러만 처리하도록 변경
-		if (error) {
-			accountInfoCache(defaultAccountInfo);
-		}
-		if (loading) {
-			accountInfoCache({ ...accountInfoCache(), loading: true });
+		if (getMeError) {
+			accountInfoCache({
+				...accountInfoCache(),
+				isError: true,
+				isLoggedIn: false,
+				loading: false,
+			});
 		}
 		// 서버에서 신규 user와 profile 정보를 받아와서 cache 업데이트
 		if (user && profile) {
@@ -31,11 +42,12 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 				githubUrl: profile.githubUrl,
 				loading: false,
 				isActive: user.isActive,
+				isError: false,
 			});
 		}
-	}, [profile, user, loading, error]);
+	}, [getMeError, getMeLoading, profile, user]);
 
-	return <>{children}</>;
+	return <>{loading ? <div></div> : children}</>;
 };
 
 export default AuthCacheProvider;

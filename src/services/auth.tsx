@@ -6,13 +6,15 @@ import { defaultAccountInfo } from "caches";
 // logout custom hooks
 export const useLogout = () => {
 	const [logoutMutation, { data }] = useLogoutMutation();
+
 	const handleLogout = useCallback(() => {
 		logoutMutation();
 	}, [logoutMutation]);
+
 	useEffect(() => {
 		if (data?.logout) {
 			accessTokenCache(null);
-			accountInfoCache(defaultAccountInfo);
+			accountInfoCache({ ...defaultAccountInfo, loading: false });
 		}
 	}, [data]);
 	return handleLogout;

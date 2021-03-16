@@ -9,6 +9,7 @@ type AccountInfo = {
 	isLoggedIn: boolean;
 	loading: boolean;
 	isActive: boolean;
+	isError: boolean;
 };
 
 const defaultAccountInfo: AccountInfo = {
@@ -17,9 +18,10 @@ const defaultAccountInfo: AccountInfo = {
 	avatar: null,
 	githubUrl: null,
 	name: null,
-	isLoggedIn: false,
-	loading: false,
 	isActive: false,
+	isLoggedIn: false,
+	loading: true,
+	isError: false,
 };
 
 const accessTokenCache = makeVar<null | string>(null);
