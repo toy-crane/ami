@@ -30,6 +30,7 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 				avatar: profile.avatar,
 				githubUrl: profile.githubUrl,
 				loading: false,
+				isActive: user.isActive,
 			});
 		}
 	}, [profile, user, loading, error]);

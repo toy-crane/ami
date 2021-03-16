@@ -8,6 +8,7 @@ type AccountInfo = {
 	name: string | null | undefined;
 	isLoggedIn: boolean;
 	loading: boolean;
+	isActive: boolean;
 };
 
 const defaultAccountInfo: AccountInfo = {
@@ -18,6 +19,7 @@ const defaultAccountInfo: AccountInfo = {
 	name: null,
 	isLoggedIn: false,
 	loading: false,
+	isActive: false,
 };
 
 const accessTokenCache = makeVar<null | string>(null);
