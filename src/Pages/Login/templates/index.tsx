@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Flex, jsx } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
 import { AuthContainer, AuthTemplates } from "Pages/templates";
 
