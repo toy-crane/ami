@@ -6,20 +6,34 @@ import { NavigationBar } from "components";
 import { useReactiveVar } from "@apollo/client";
 import { accountInfoCache } from "caches";
 
-interface HeaderProps {
+interface HeaderContainerProps {
+	navless?: boolean;
+}
+
+interface HeaderProps extends HeaderContainerProps {
 	isLoggedIn: boolean;
 	loading: boolean;
 	avatar: string | null | undefined;
 }
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ navless }: HeaderContainerProps) => {
 	const { isLoggedIn, avatar, loading } = useReactiveVar(accountInfoCache);
 	return (
-		<Header isLoggedIn={isLoggedIn} avatar={avatar} loading={loading}></Header>
+		<Header
+			isLoggedIn={isLoggedIn}
+			avatar={avatar}
+			loading={loading}
+			navless={navless}
+		></Header>
 	);
 };
 
-export const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => {
+export const Header = ({
+	isLoggedIn,
+	avatar,
+	loading,
+	navless,
+}: HeaderProps) => {
 	return (
 		<Box
 			sx={{
@@ -33,7 +47,7 @@ export const Header = ({ isLoggedIn, avatar, loading }: HeaderProps) => {
 			}}
 		>
 			<Logo href="/" mt={2} />
-			{!loading && (
+			{!loading && !navless && (
 				<NavigationBar isLoggedIn={isLoggedIn} avatar={avatar}></NavigationBar>
 			)}
 		</Box>

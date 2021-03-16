@@ -11,3 +11,12 @@ export const HeaderWithWideScreen = () => (
 export const HeaderWithLoggedIn = () => (
 	<Header isLoggedIn={true} avatar={undefined} loading={false}></Header>
 );
+
+export const HeaderWithoutNav = () => (
+	<Header
+		isLoggedIn={true}
+		avatar={undefined}
+		loading={false}
+		navless={true}
+	></Header>
+);
