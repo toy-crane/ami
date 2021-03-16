@@ -2,10 +2,21 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import React from "react";
-import BaseTemplate from "../../templates/BaseTemplates";
+import { AuthContainer, AuthTemplates } from "Pages/templates";
 
-const SignUpTemplate: React.FC = (props) => {
-	return <BaseTemplate>{props.children}</BaseTemplate>;
+interface LoginTemplateProps {
+	signUp: React.ReactNode;
+}
+const SignUpContainer: React.FC = (props) => (
+	<AuthContainer pb={5}>{props.children}</AuthContainer>
+);
+
+const SignUpTemplate = ({ signUp }: LoginTemplateProps) => {
+	return (
+		<AuthTemplates>
+			<SignUpContainer>{signUp}</SignUpContainer>
+		</AuthTemplates>
+	);
 };
 
 export default SignUpTemplate;
