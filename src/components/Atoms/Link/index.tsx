@@ -7,21 +7,29 @@ interface LinkProps {
 	href?: string;
 	children: React.ReactNode;
 	onClick?: () => void;
+	width?: string;
 }
 
 const isInLink = (href: string) => (href.startsWith("/") ? true : false);
 
-const Link: React.FC<LinkProps> = ({ href, onClick, children }: LinkProps) => {
-	return href ? (
-		isInLink(href) ? (
-			<RouterLink to={href} sx={{ variant: "styles.a" }}>
-				{children}
-			</RouterLink>
-		) : (
-			<ThemeUILink href={href}>{children}</ThemeUILink>
-		)
+const Link: React.FC<LinkProps> = ({
+	href,
+	onClick,
+	children,
+	width,
+}: LinkProps) => {
+	const style = {
+		variant: "styles.a",
+		width: width,
+	};
+	return href && isInLink(href) ? (
+		<RouterLink to={href} sx={style}>
+			{children}
+		</RouterLink>
 	) : (
-		<ThemeUILink onClick={onClick}>{children}</ThemeUILink>
+		<ThemeUILink onClick={onClick} href={href} sx={style}>
+			{children}
+		</ThemeUILink>
 	);
 };
 

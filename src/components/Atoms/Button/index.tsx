@@ -16,6 +16,7 @@ export interface ButtonProps extends ThemeUIButtonProps {
 	iconSize?: number;
 	children?: React.ReactNode;
 	variant?: string;
+	width?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
 	onClick,
 	children,
 	variant,
+	width,
 }: ButtonProps) => {
 	const StyledButton = (
 		<ThemeUIButton
@@ -35,6 +37,7 @@ const Button: React.FC<ButtonProps> = ({
 				display: "inline-flex",
 				justifyContent: "center",
 				alignItems: "center",
+				width: width,
 			}}
 			onClick={onClick}
 		>
@@ -46,7 +49,13 @@ const Button: React.FC<ButtonProps> = ({
 			</React.Fragment>
 		</ThemeUIButton>
 	);
-	return href ? <Link href={href}>{StyledButton}</Link> : StyledButton;
+	return href ? (
+		<Link href={href} width={width}>
+			{StyledButton}
+		</Link>
+	) : (
+		StyledButton
+	);
 };
 
 Button.defaultProps = {

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "components";
 import { ICONS } from "../Icon/constants";
+import Divider from "../Divider";
 
 export default {
 	title: "Atoms/Button",
@@ -25,6 +26,13 @@ export const ButtonWithOutlink = () => (
 	<Button href="http://react.codepot.kr">outlink Button</Button>
 );
 export const ButtonWithInlink = () => <Button href="/">inlink Button</Button>;
+export const FullSize = () => (
+	<React.Fragment>
+		<Button width="100%" href="/">
+			inlink Button
+		</Button>
+	</React.Fragment>
+);
 export const ButtonWithIconAndText = () => (
 	<Button href="/" icon={ICONS.menu}>
 		Hello
