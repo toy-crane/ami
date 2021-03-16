@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Button, Logo } from "components";
+import { Button } from "components";
 import { ICONS } from "components/Atoms/Icon/constants";
 import React from "react";
 import { Heading, jsx } from "theme-ui";
