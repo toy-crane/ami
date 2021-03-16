@@ -4,20 +4,21 @@ import React from "react";
 import { Route, Redirect, RouteProps } from "react-router-dom";
 
 // 로그인 필요 페이지 전용 Route
-const PrivateRoute: React.FC<RouteProps> = ({ children, ...rest }) => {
+const PrivateRoute = ({ component: Component, ...rest }: any) => {
 	const { isLoggedIn } = useReactiveVar(accountInfoCache);
 
-	const handleRoute = (props: any) => {
+	const handleRoute = (routeProps: RouteProps) => {
 		if (isLoggedIn) {
-			return children;
+			return <Component {...routeProps}></Component>;
 		} else {
 			return (
 				<Redirect
-					to={{ pathname: "/login", state: { referer: props.location } }}
+					to={{ pathname: "/login", state: { referer: routeProps.location } }}
 				/>
 			);
 		}
 	};
+
 	return <Route {...rest} render={handleRoute} />;
 };
 
