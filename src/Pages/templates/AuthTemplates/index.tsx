@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Box, BoxProps } from "theme-ui";
+import { jsx, BoxProps } from "theme-ui";
 import React from "react";
 import { Container } from "../BaseTemplates/index";
 
