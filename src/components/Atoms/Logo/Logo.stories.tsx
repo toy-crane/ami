@@ -7,7 +7,13 @@ export default {
 	component: Logo,
 };
 
-export const DefaultLogo = () => <Logo></Logo>;
+export const DefaultLogo = () => (
+	<Flex sx={{ flexDirection: "column" }}>
+		<Logo size="small"></Logo>
+		<Logo size="medium"></Logo>
+		<Logo size="large"></Logo>
+	</Flex>
+);
 export const LogoWithColors = () => (
 	<Flex sx={{ flexDirection: "column" }}>
 		<Logo color="primary100"></Logo>

@@ -2,21 +2,28 @@
 /** @jsx jsx */
 import { jsx, Link } from "theme-ui";
 
+type size = "small" | "medium" | "large";
 interface LogoProps {
 	href?: string;
-	height?: number;
+	size?: size;
 	color?: string;
 	mt?: number;
 	mb?: number;
 	bg?: string;
 }
 
+const widthBySize: Record<size, number> = {
+	small: 109,
+	medium: 109 * 2,
+	large: 109 * 3,
+};
+
 const Logo: React.FC<LogoProps> = ({
 	href,
-	height,
 	color,
 	mt,
 	mb,
+	size,
 	...props
 }: LogoProps) => {
 	const cursor = href ? "pointer" : "default";
@@ -34,8 +41,7 @@ const Logo: React.FC<LogoProps> = ({
 			{...props}
 		>
 			<svg
-				width="109"
-				height="24"
+				width={size ? widthBySize[size] : widthBySize["small"]}
 				viewBox="0 0 109 24"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
