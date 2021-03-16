@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "components";
 import { ICONS } from "../Icon/constants";
-import Divider from "../Divider";
 
 export default {
 	title: "Atoms/Button",
