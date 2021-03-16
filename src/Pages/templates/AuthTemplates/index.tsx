@@ -15,7 +15,7 @@ const AuthContainer: React.FC<ContainerProps> = ({
 		<Box
 			sx={{
 				px: 3,
-				mx: [0, "auto"],
+				mx: "auto",
 				maxWidth: "authContainer",
 			}}
 			{...props}

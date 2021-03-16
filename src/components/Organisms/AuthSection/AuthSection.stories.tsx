@@ -1,5 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import AuthSection from ".";
 import { Flex } from "@theme-ui/components";
 export default {
@@ -7,7 +6,7 @@ export default {
 	component: AuthSection,
 };
 
-const Template: Story = () => (
+export const LoginSection = () => (
 	<Flex
 		sx={{
 			justifyContent: "center",
@@ -15,7 +14,18 @@ const Template: Story = () => (
 			flexDirection: "column",
 		}}
 	>
-		<AuthSection></AuthSection>
+		<AuthSection type="login"></AuthSection>
 	</Flex>
 );
-export const Basic = Template.bind({});
+
+export const SignUpSection = () => (
+	<Flex
+		sx={{
+			justifyContent: "center",
+			alignItems: "center",
+			flexDirection: "column",
+		}}
+	>
+		<AuthSection type="signUp"></AuthSection>
+	</Flex>
+);

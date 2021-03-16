@@ -5,7 +5,7 @@ import LoginTemplate from "./templates";
 import AuthSection from "components/Organisms/AuthSection";
 
 const Login = () => {
-	return <LoginTemplate login={<AuthSection />}></LoginTemplate>;
+	return <LoginTemplate login={<AuthSection type="login" />}></LoginTemplate>;
 };
 
 export default Login;
