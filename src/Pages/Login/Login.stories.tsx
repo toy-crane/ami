@@ -1,5 +1,4 @@
 import React from "react";
-import { Story } from "@storybook/react";
 import Login from ".";
 
 export default {
@@ -7,5 +6,4 @@ export default {
 	component: Login,
 };
 
-const Template: Story = () => <Login></Login>;
-export const Basic = Template.bind({});
+export const LoginPage = () => <Login></Login>;
