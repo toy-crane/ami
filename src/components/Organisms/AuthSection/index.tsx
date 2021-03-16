@@ -25,6 +25,8 @@ const AuthSection: React.FC<AuthSectionProps> = ({
 				꾸준히 코딩하는
 				<br />
 				<span sx={{ color: "primary50" }}>습관</span> 만들기
+				<br />
+				프로젝트
 			</Heading>
 			<Button
 				variant="github"
