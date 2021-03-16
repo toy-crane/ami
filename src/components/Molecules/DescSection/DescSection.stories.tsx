@@ -1,7 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
 import DescSection from ".";
-import { Container } from "../../../Pages/BaseTemplates/templates";
+import { Container } from "../../../Pages/templates/BaseTemplates";
 export default {
 	title: "Molecules/DescSection",
 	component: DescSection,

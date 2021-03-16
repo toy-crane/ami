@@ -2,7 +2,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import React from "react";
-import BaseTemplate, { Container } from "../../BaseTemplates/templates";
+import BaseTemplate, { Container } from "../../templates/BaseTemplates";
 import Divider from "../../../components/Atoms/Divider";
 
 interface MainTemplateProps {
