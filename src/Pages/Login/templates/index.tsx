@@ -1,11 +1,22 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { Flex, jsx } from "theme-ui";
 import React from "react";
-import BaseTemplate from "../../templates/BaseTemplates";
+import { AuthContainer, AuthTemplates } from "Pages/templates";
 
-const LoginTemplate: React.FC = (props) => {
-	return <BaseTemplate>{props.children}</BaseTemplate>;
+interface LoginTemplateProps {
+	login: React.ReactNode;
+}
+const LoginContainer: React.FC = (props) => (
+	<AuthContainer pb={5}>{props.children}</AuthContainer>
+);
+
+const LoginTemplate = ({ login }: LoginTemplateProps) => {
+	return (
+		<AuthTemplates>
+			<LoginContainer>{login}</LoginContainer>
+		</AuthTemplates>
+	);
 };
 
 export default LoginTemplate;

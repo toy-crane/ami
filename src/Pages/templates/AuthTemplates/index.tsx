@@ -1,34 +1,42 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, BoxProps } from "theme-ui";
+import { jsx, BoxProps, Box } from "theme-ui";
 import React from "react";
-import { Container } from "../BaseTemplates/index";
+import { Header } from "components";
 
 export interface ContainerProps extends BoxProps {
 	baseColor?: string;
-	position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
-	width?: string;
-	zindex?: number;
 }
 
-const AuthWrapper: React.FC = (props) => (
-	<Container
-		width="100%"
-		baseColor="background"
-		zindex={5}
-		sx={{
-			alignItems: "center",
-			justifyContent: "center",
-			display: "flex",
-		}}
-	>
-		{props.children}
-	</Container>
+const AuthContainer: React.FC<ContainerProps> = ({
+	...props
+}: ContainerProps) => (
+	<Box bg={props.baseColor}>
+		<Box
+			sx={{
+				px: 3,
+				mx: [0, "auto"],
+				maxWidth: "authContainer",
+			}}
+			{...props}
+		>
+			{props.children}
+		</Box>
+	</Box>
 );
 
-const BaseTemplate: React.FC = ({ children }) => (
-	<AuthWrapper>{children}</AuthWrapper>
+const AuthHeaderWrapper: React.FC = (props) => (
+	<AuthContainer>{props.children}</AuthContainer>
 );
 
-export default BaseTemplate;
-export { Container };
+const AuthTemplate: React.FC = ({ children }) => (
+	<React.Fragment>
+		<AuthHeaderWrapper>
+			<Header navless={true} />
+		</AuthHeaderWrapper>
+		{children}
+	</React.Fragment>
+);
+
+export default AuthTemplate;
+export { AuthContainer };

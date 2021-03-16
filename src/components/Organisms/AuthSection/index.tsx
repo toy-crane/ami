@@ -1,18 +1,25 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { Button, Logo } from "components";
+import { ICONS } from "components/Atoms/Icon/constants";
 import React from "react";
-import { Flex, Heading } from "theme-ui";
-import Logo from "../../Atoms/Logo";
+import { Heading, jsx } from "theme-ui";
 
-interface AuthSectionProps {
-	title: string;
-}
+interface AuthSectionProps {}
 
 const AuthSection: React.FC<AuthSectionProps> = (props: AuthSectionProps) => {
 	return (
-		<Flex sx={{ justifyContent: "center" }}>
-			<Heading variant="styles.h2" mb={[3, 4]}>
-				{props.title}
+		<React.Fragment>
+			<Heading variant="styles.h2" mb={5}>
+				<br />
+				꾸준히 코딩하는
+				<br />
+				<span sx={{ color: "primary50" }}>습관</span> 만들기
 			</Heading>
-		</Flex>
+			<Button variant="github" href="/" icon={ICONS.github}>
+				Github으로 바로 시작하기
+			</Button>
+		</React.Fragment>
 	);
 };
 
