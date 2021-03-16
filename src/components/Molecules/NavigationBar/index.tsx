@@ -29,12 +29,20 @@ const NavigationBar = ({ avatar, isLoggedIn }: NavigationProps) => {
 					},
 				}}
 			>
-				<li
-					onClick={() => setShowNav((showNav) => !showNav)}
-					sx={{ display: ["block", "none"], cursor: "pointer" }}
-				>
-					<Icon icon={ICONS.menu} size={24}></Icon>
-				</li>
+				{isLoggedIn ? (
+					<li
+						onClick={() => setShowNav((showNav) => !showNav)}
+						sx={{ display: ["block", "none"], cursor: "pointer" }}
+					>
+						<Icon icon={ICONS.menu} size={24}></Icon>
+					</li>
+				) : (
+					<li sx={{ display: ["block", "none"] }}>
+						<Button href="/login" variant="primary">
+							로그인
+						</Button>
+					</li>
+				)}
 				{isLoggedIn ? (
 					<li
 						sx={{ display: ["none", "block"], cursor: "pointer" }}
