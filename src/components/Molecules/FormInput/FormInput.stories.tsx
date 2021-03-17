@@ -7,14 +7,19 @@ export default {
 };
 
 export const NomalInput = () => (
-	<FormInput label="ID" placeholder="id를 입력해주세요."></FormInput>
+	<FormInput
+		label="ID"
+		placeholder="id를 입력해주세요."
+		sx={{ margin: 1 }}
+	></FormInput>
 );
 
 export const InvalidInput = () => (
-	<InputForm
+	<FormInput
 		label="ID"
 		placeholder="id를 입력해주세요."
 		invalid={true}
 		captionContent="잘못된 문자가 포함되어 있습니다."
-	></InputForm>
+		sx={{ margin: 1 }}
+	></FormInput>
 );
