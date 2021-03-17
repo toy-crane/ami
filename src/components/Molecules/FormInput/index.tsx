@@ -2,7 +2,7 @@ import { Flex, Text } from "@theme-ui/components";
 import { Label, Input } from "components";
 import React from "react";
 
-export interface InputFormProps {
+export interface FormInputProps {
 	label: string;
 	placeholder: string;
 	invalid?: boolean;
@@ -10,12 +10,12 @@ export interface InputFormProps {
 	captionContent?: string;
 }
 
-const InputForm = ({
+const FormInput = ({
 	label,
 	placeholder,
 	invalid,
 	captionContent,
-}: InputFormProps) => {
+}: FormInputProps) => {
 	return (
 		<Flex sx={{ flexDirection: "column" }}>
 			<Label sx={{ mb: "0.2rem" }}>{label}</Label>
@@ -29,4 +29,4 @@ const InputForm = ({
 	);
 };
 
-export default InputForm;
+export default FormInput;
