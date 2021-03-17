@@ -1,7 +1,6 @@
 import { Box } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
-import { Button } from "components";
-import FormInput from "components/Molecules/FormInput";
+import { Button, FormInput } from "components";
 import React from "react";
 
 interface ActivationFormProps {
