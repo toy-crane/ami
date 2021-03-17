@@ -1,11 +1,12 @@
 import React from "react";
-import { Label as ThemeUILabel } from "theme-ui";
+import { Label as ThemeUILabel, SxStyleProp } from "theme-ui";
 
 interface LabelProps {
 	children: React.ReactNode;
+	sx?: SxStyleProp;
 }
 
-const Label = ({ children }: LabelProps) => (
-	<ThemeUILabel>{children}</ThemeUILabel>
+const Label = ({ children, ...props }: LabelProps) => (
+	<ThemeUILabel {...props}>{children}</ThemeUILabel>
 );
 export default Label;

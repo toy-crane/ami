@@ -7,3 +7,6 @@ export default {
 };
 
 export const InputWithText = () => <Input placeholder="비밀번호"></Input>;
+export const InputWithInvalidValue = () => (
+	<Input placeholder="비밀번호" invalid={true}></Input>
+);

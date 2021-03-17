@@ -85,6 +85,10 @@ const theme: Theme = {
 			lineHeight: "body",
 			fontWeight: "body",
 		},
+		caption: {
+			color: "alert50",
+			fontSize: 1,
+		},
 	},
 	colors: {
 		text: "#000",
@@ -109,6 +113,9 @@ const theme: Theme = {
 		warning100: "#FDB431",
 		warning50: "#FDC35A",
 		warning05: "#FED283",
+		alert100: "#C8191F",
+		alert50: "#E13338",
+		alert05: "#EF8E91",
 	},
 	styles: {
 		...FontVariant,
@@ -140,6 +147,13 @@ const theme: Theme = {
 			"&:focus": {
 				borderColor: "primary",
 				boxShadow: (t) => `0 0 0 1px ${t.colors?.primary}`,
+				outline: "none",
+			},
+		},
+		invalidInput: {
+			borderColor: "alert100",
+			"&:focus": {
+				boxShadow: (t) => `0 0 0 1px ${t.colors?.alert100}`,
 				outline: "none",
 			},
 		},
