@@ -8,7 +8,7 @@ interface LoginTemplateProps {
 	signUp: React.ReactNode;
 }
 const SignUpContainer: React.FC = (props) => (
-	<AuthContainer pb={5}>{props.children}</AuthContainer>
+	<AuthContainer>{props.children}</AuthContainer>
 );
 
 const SignUpTemplate = ({ signUp }: LoginTemplateProps) => {

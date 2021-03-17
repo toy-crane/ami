@@ -26,7 +26,7 @@ const AuthContainer: React.FC<ContainerProps> = ({
 );
 
 const AuthHeaderWrapper: React.FC = (props) => (
-	<AuthContainer>{props.children}</AuthContainer>
+	<AuthContainer mb={5}>{props.children}</AuthContainer>
 );
 
 const AuthTemplate: React.FC = ({ children }) => (
