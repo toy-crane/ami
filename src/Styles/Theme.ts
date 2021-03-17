@@ -97,7 +97,7 @@ const theme: Theme = {
 		gray40: "#C7C7C7",
 		gray05: "#E4E4E4",
 		gray0: "#F9FAFB",
-		primary100: "#3221BF",
+		primary: "#3221BF",
 		primary50: "#3F29EE",
 		primary20: "#6554F2",
 		primary10: "#8C7FF5",
@@ -130,8 +130,17 @@ const theme: Theme = {
 			textDecoration: "none",
 			color: "text",
 			"&:hover": {
-				color: "primary100",
+				color: "primary",
 				cursor: "pointer",
+			},
+		},
+	},
+	forms: {
+		input: {
+			"&:focus": {
+				borderColor: "primary",
+				boxShadow: (t) => `0 0 0 1px ${t.colors?.primary}`,
+				outline: "none",
 			},
 		},
 	},

@@ -5,12 +5,12 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 		color: "background",
 		bg: "primary50",
 		"&:hover": {
-			bg: "primary100",
+			bg: "primary",
 		},
 		cursor: "pointer",
 	},
 	secondary: {
-		color: "primary100",
+		color: "primary",
 		bg: "background",
 		borderColor: "primary50",
 		border: "1px solid",
