@@ -12,6 +12,7 @@ export const LoginSection = () => (
 			justifyContent: "center",
 			alignItems: "center",
 			flexDirection: "column",
+			width: "authContainer",
 		}}
 	>
 		<AuthSection type="login"></AuthSection>
@@ -24,6 +25,7 @@ export const SignUpSection = () => (
 			justifyContent: "center",
 			alignItems: "center",
 			flexDirection: "column",
+			width: "authContainer",
 		}}
 	>
 		<AuthSection type="signUp"></AuthSection>
