@@ -8,3 +8,4 @@ export { default as Input } from "./Atoms/Input";
 export { default as Label } from "./Atoms/Label";
 export { default as Header } from "./Organisms/Header";
 export { default as Footer } from "./Organisms/Footer";
+export { default as ActivationForm } from "./Organisms/ActivationForm";
