@@ -29,6 +29,7 @@
     "react-hook-form": "^6.9.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
+    "react-spinners": "^0.10.6",
     "storybook-react-router": "^1.0.8",
     "theme-ui": "^0.3.4",
     "typescript": "4.1.2",
