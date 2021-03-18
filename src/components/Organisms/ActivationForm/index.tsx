@@ -10,8 +10,12 @@ interface ActivationFormProps {
 const ActivationForm = ({ sx, ...props }: ActivationFormProps) => {
 	return (
 		<Box sx={sx}>
-			<FormInput label="이름" sx={{ marginBottom: 1 }}></FormInput>
-			<FormInput label="휴대폰 번호" sx={{ marginBottom: 3 }}></FormInput>
+			<FormInput name="name" label="이름" sx={{ marginBottom: 1 }}></FormInput>
+			<FormInput
+				name="mobile"
+				label="휴대폰 번호"
+				sx={{ marginBottom: 3 }}
+			></FormInput>
 			<Button variant="primary" href="/" width="100%">
 				계정 생성하기
 			</Button>
