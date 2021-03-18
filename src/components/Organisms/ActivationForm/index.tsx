@@ -6,9 +6,16 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useActivateUserMutation } from "types/graphql-types";
 
-interface ActivationFormProps {
+interface ActivationFormContainerProps {
 	sx?: SxStyleProp;
+}
+
+interface ActivationFormProps extends ActivationFormContainerProps {
+	sx?: SxStyleProp;
+	loading?: boolean;
+	onSubmit: (props: any) => void;
 }
 
 interface ActivationFormValues {
@@ -21,47 +28,63 @@ const activationFormSchema = yup.object().shape({
 	mobile: mobileValidator,
 });
 
-const ActivationForm = ({ sx }: ActivationFormProps) => {
+const ActivationFormContainer = () => {
+	const [activateUser, { loading }] = useActivateUserMutation();
+
+	const onSubmit = async ({
+		mobile: originMobile,
+		name,
+	}: ActivationFormValues) => {
+		const mobile = originMobile.replaceAll("-", "");
+		await activateUser({ variables: { name: name, mobile: mobile } });
+	};
+
+	return <ActivationForm onSubmit={onSubmit} loading={loading} />;
+};
+
+const ActivationForm = ({ sx, onSubmit, loading }: ActivationFormProps) => {
 	const { register, errors, handleSubmit } = useForm<ActivationFormValues>({
 		resolver: yupResolver(activationFormSchema),
 		mode: "onBlur",
 	});
 
-	const onSubmit = ({ mobile: originMobile, name }: ActivationFormValues) => {
-		const mobile = originMobile.replaceAll("-", "");
-		console.log(name, mobile);
-	};
-
 	return (
 		<Box sx={sx}>
-			<FormInput
-				name="name"
-				label="이름"
-				register={register}
-				sx={{ marginBottom: 1 }}
-				invalid={!!errors.name}
-				caption={errors.name?.message}
-				required
-			></FormInput>
-			<FormInput
-				name="mobile"
-				label="휴대폰 번호"
-				register={register}
-				invalid={!!errors.mobile}
-				caption={errors.mobile?.message}
-				required
-				sx={{ marginBottom: 4 }}
-			></FormInput>
-			<Button
-				variant="primary"
-				href="/"
-				width="100%"
-				onClick={handleSubmit(onSubmit)}
-			>
-				계정 생성하기
-			</Button>
+			{loading ? (
+				<div>Loading...</div>
+			) : (
+				<React.Fragment>
+					<FormInput
+						name="name"
+						label="이름"
+						register={register}
+						sx={{ marginBottom: 1 }}
+						invalid={!!errors.name}
+						caption={errors.name?.message}
+						required
+					></FormInput>
+					<FormInput
+						name="mobile"
+						label="휴대폰 번호"
+						register={register}
+						invalid={!!errors.mobile}
+						caption={errors.mobile?.message}
+						required
+						sx={{ marginBottom: 4 }}
+					></FormInput>
+					<Button
+						variant="primary"
+						href="/"
+						width="100%"
+						onClick={handleSubmit(onSubmit)}
+					>
+						계정 생성하기
+					</Button>
+				</React.Fragment>
+			)}
 		</Box>
 	);
 };
 
-export default ActivationForm;
+export default ActivationFormContainer;
+export { ActivationForm };

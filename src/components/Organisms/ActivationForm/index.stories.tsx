@@ -1,5 +1,5 @@
 import React from "react";
-import ActivationForm from ".";
+import { ActivationForm } from ".";
 
 export default {
 	title: "Organisms/Activation Form",
@@ -7,5 +7,8 @@ export default {
 };
 
 export const basic = () => (
-	<ActivationForm sx={{ width: "authContainer" }}></ActivationForm>
+	<ActivationForm
+		sx={{ width: "authContainer" }}
+		onSubmit={() => console.log("hello")}
+	></ActivationForm>
 );

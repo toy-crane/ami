@@ -11,7 +11,6 @@ const AuthContainer: React.FC<ContainerProps> = ({
 	sx,
 	...props
 }: ContainerProps) => {
-	console.log(sx);
 	return (
 		<Box bg={props.baseColor} sx={sx}>
 			<Box
