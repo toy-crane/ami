@@ -13,7 +13,7 @@ export interface FormInputProps {
 	placeholder?: string;
 	invalid?: boolean;
 	// input 값이 잘못 되었을 때 노출
-	captionContent?: string;
+	caption?: string;
 	sx: SxStyleProp;
 	name: string;
 	required?: boolean;
@@ -24,22 +24,23 @@ const FormInput = ({
 	label,
 	placeholder,
 	invalid,
-	captionContent,
+	caption,
 	sx,
 	required,
+	name,
 	register,
 }: FormInputProps) => {
 	return (
 		<Flex sx={{ flexDirection: "column", width: "100%", ...sx }}>
 			<Label sx={{ mb: "0.2rem" }}>{label}</Label>
 			<Input
-				name={label}
+				name={name}
 				placeholder={placeholder}
 				sx={{ mb: "0.2rem" }}
 				invalid={invalid}
 				ref={register && register({ required })}
 			/>
-			<Text variant="caption">{captionContent}</Text>
+			<Text variant="caption">{caption}</Text>
 		</Flex>
 	);
 };

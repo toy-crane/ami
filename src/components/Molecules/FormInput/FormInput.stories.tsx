@@ -21,7 +21,7 @@ export const InvalidInput = () => (
 		name="id"
 		placeholder="id를 입력해주세요."
 		invalid={true}
-		captionContent="잘못된 문자가 포함되어 있습니다."
+		caption="잘못된 문자가 포함되어 있습니다."
 		sx={{ margin: 1 }}
 	></FormInput>
 );

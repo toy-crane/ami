@@ -1,8 +1,11 @@
 import { Box } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
 import { Button, FormInput } from "components";
+import { mobileValidator, nameValidator } from "components/validator";
 import React from "react";
 import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 interface ActivationFormProps {
 	sx?: SxStyleProp;
@@ -13,8 +16,16 @@ interface ActivationFormValues {
 	mobile: number;
 }
 
+const activationFormSchema = yup.object().shape({
+	name: nameValidator,
+	mobile: mobileValidator,
+});
+
 const ActivationForm = ({ sx }: ActivationFormProps) => {
-	const { register, handleSubmit } = useForm<ActivationFormValues>();
+	const { register, errors, handleSubmit } = useForm<ActivationFormValues>({
+		resolver: yupResolver(activationFormSchema),
+		mode: "onBlur",
+	});
 
 	const onSubmit = (data: ActivationFormValues) => {
 		console.log(data);
@@ -27,12 +38,16 @@ const ActivationForm = ({ sx }: ActivationFormProps) => {
 				label="이름"
 				register={register}
 				sx={{ marginBottom: 1 }}
+				invalid={!!errors.name}
+				caption={errors.name?.message}
 				required
 			></FormInput>
 			<FormInput
 				name="mobile"
 				label="휴대폰 번호"
 				register={register}
+				invalid={!!errors.mobile}
+				caption={errors.mobile?.message}
 				required
 				sx={{ marginBottom: 3 }}
 			></FormInput>
