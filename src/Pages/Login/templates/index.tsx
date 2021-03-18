@@ -1,20 +1,21 @@
-/** @jsxRuntime classic */
-/** @jsx jsx */
-import { jsx } from "theme-ui";
 import React from "react";
-import { AuthContainer, AuthTemplates } from "Pages/templates";
+import { AuthTemplates } from "Pages/templates";
+import {
+	ContentContainer,
+	TitleContainer,
+} from "Pages/templates/AuthTemplates";
 
 interface LoginTemplateProps {
-	login: React.ReactNode;
+	content: React.ReactNode;
+	title: React.ReactNode;
 }
-const LoginContainer: React.FC = (props) => (
-	<AuthContainer>{props.children}</AuthContainer>
-);
 
-const LoginTemplate = ({ login }: LoginTemplateProps) => {
+// theme UI jsx 사용 시, sx Props 작동 안함
+const LoginTemplate = ({ title, content }: LoginTemplateProps) => {
 	return (
 		<AuthTemplates>
-			<LoginContainer>{login}</LoginContainer>
+			<TitleContainer sx={{ marginBottom: 4 }}>{title}</TitleContainer>
+			<ContentContainer>{content}</ContentContainer>
 		</AuthTemplates>
 	);
 };
