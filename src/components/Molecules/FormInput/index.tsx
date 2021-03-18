@@ -3,6 +3,11 @@ import { Label, Input } from "components";
 import { SxStyleProp } from "theme-ui";
 import React from "react";
 
+type RefReturn =
+	| React.RefObject<HTMLInputElement>
+	| ((instance: HTMLInputElement | null) => void)
+	| null
+	| undefined;
 export interface FormInputProps {
 	label: string;
 	placeholder?: string;
@@ -11,6 +16,8 @@ export interface FormInputProps {
 	captionContent?: string;
 	sx: SxStyleProp;
 	name: string;
+	required?: boolean;
+	register?: ({ required }: { required?: boolean }) => RefReturn;
 }
 
 const FormInput = ({
@@ -18,17 +25,19 @@ const FormInput = ({
 	placeholder,
 	invalid,
 	captionContent,
-	name,
 	sx,
+	required,
+	register,
 }: FormInputProps) => {
 	return (
 		<Flex sx={{ flexDirection: "column", width: "100%", ...sx }}>
 			<Label sx={{ mb: "0.2rem" }}>{label}</Label>
 			<Input
-				name={name}
+				name={label}
 				placeholder={placeholder}
 				sx={{ mb: "0.2rem" }}
 				invalid={invalid}
+				ref={register && register({ required })}
 			/>
 			<Text variant="caption">{captionContent}</Text>
 		</Flex>

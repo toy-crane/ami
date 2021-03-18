@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import {
 	Input as ThemeUIInput,
 	SxStyleProp,
@@ -11,15 +11,22 @@ type BoxPropsWithRef<
 	P extends BoxOwnProps = BoxOwnProps
 > = React.ComponentPropsWithRef<T> & P;
 
-interface CustomInputProps extends ThemeUIInputProps {
-	invalid?: boolean;
-	sx?: SxStyleProp;
-	name: string;
-}
+export type InputProps = BoxPropsWithRef<
+	"input",
+	ThemeUIInputProps & {
+		invalid?: boolean;
+		sx?: SxStyleProp;
+		name: string;
+	}
+>;
 
-export type InputProps = BoxPropsWithRef<"input", CustomInputProps>;
-
-const Input = ({ invalid, ...props }: InputProps) => (
-	<ThemeUIInput {...props} variant={invalid ? "invalidInput" : "input"} />
+const Input = forwardRef<HTMLInputElement, InputProps>(
+	({ invalid, ...props }: InputProps, ref) => (
+		<ThemeUIInput
+			ref={ref}
+			{...props}
+			variant={invalid ? "invalidInput" : "input"}
+		/>
+	)
 );
 export default Input;
