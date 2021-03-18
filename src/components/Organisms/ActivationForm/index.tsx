@@ -7,7 +7,7 @@ interface ActivationFormProps {
 	sx?: SxStyleProp;
 }
 
-const ActivationForm = ({ sx, ...props }: ActivationFormProps) => {
+const ActivationForm = ({ sx }: ActivationFormProps) => {
 	return (
 		<Box sx={sx}>
 			<FormInput name="name" label="이름" sx={{ marginBottom: 1 }}></FormInput>
