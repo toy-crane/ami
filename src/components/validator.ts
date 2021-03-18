@@ -9,10 +9,10 @@ const nameValidator = yup
 const mobileValidator = yup
 	.string()
 	.required("휴대폰 번호를 입력해 주세요.")
-	.min(10, "휴대폰 번호가 잘못 되었습니다.")
 	.matches(
-		/^(?:(010\d{4})|(01[1|6|7|8|9]\d{3,4}))(\d{4})$/,
+		/^(?:(010[-]?\d{4})|(01[1|6|7|8|9][-]?\d{3,4}))([-]?\d{4})$/,
 		"휴대폰 번호가 잘못 되었습니다."
-	);
+	)
+	.max(13, "휴대폰 번호가 잘못 되었습니다.");
 
 export { nameValidator, mobileValidator };

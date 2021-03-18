@@ -13,7 +13,7 @@ interface ActivationFormProps {
 
 interface ActivationFormValues {
 	name: string;
-	mobile: number;
+	mobile: string;
 }
 
 const activationFormSchema = yup.object().shape({
@@ -27,8 +27,9 @@ const ActivationForm = ({ sx }: ActivationFormProps) => {
 		mode: "onBlur",
 	});
 
-	const onSubmit = (data: ActivationFormValues) => {
-		console.log(data);
+	const onSubmit = ({ mobile: originMobile, name }: ActivationFormValues) => {
+		const mobile = originMobile.replaceAll("-", "");
+		console.log(name, mobile);
 	};
 
 	return (
