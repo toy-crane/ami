@@ -1,6 +1,6 @@
 import { Box } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
-import { Button, FormInput } from "components";
+import { Button, FormInput, Spinner } from "components";
 import { mobileValidator, nameValidator } from "components/validator";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -51,7 +51,7 @@ const ActivationForm = ({ sx, onSubmit, loading }: ActivationFormProps) => {
 	return (
 		<Box sx={sx}>
 			{loading ? (
-				<div>Loading...</div>
+				<Spinner loading={loading} />
 			) : (
 				<React.Fragment>
 					<FormInput

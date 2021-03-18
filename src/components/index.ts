@@ -3,6 +3,7 @@ export { default as Button } from "./Atoms/Button";
 export { default as Icon } from "./Atoms/Icon";
 export { default as Avatar } from "./Atoms/Avatar";
 export { default as Logo } from "./Atoms/Logo";
+export { default as Spinner } from "./Atoms/Spinner";
 export { default as NavigationBar } from "./Molecules/NavigationBar";
 export { default as FormInput } from "./Molecules/FormInput";
 export { default as Input } from "./Atoms/Input";
