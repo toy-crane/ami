@@ -20,7 +20,7 @@ const AuthSection: React.FC<AuthSectionProps> = ({
 }: AuthSectionProps) => {
 	return (
 		<React.Fragment>
-			<Heading sx={{ variant: "text.heading", fontSize: 6 }} mb={5}>
+			<Heading variant="pageTitle" mb={5}>
 				꾸준히 코딩하는
 				<br />
 				<span sx={{ color: "primary50" }}>습관</span> 만들기

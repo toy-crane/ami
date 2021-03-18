@@ -89,6 +89,12 @@ const theme: Theme = {
 			color: "alert50",
 			fontSize: 1,
 		},
+		pageTitle: {
+			fontSize: 6,
+			fontFamily: "heading",
+			lineHeight: "heading",
+			fontWeight: "heading",
+		},
 	},
 	colors: {
 		text: "#000",

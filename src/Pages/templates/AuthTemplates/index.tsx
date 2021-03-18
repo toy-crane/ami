@@ -1,17 +1,19 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, BoxProps, Box } from "theme-ui";
+import { jsx, BoxProps, Box, SxStyleProp } from "theme-ui";
 import React from "react";
 import { Header } from "components";
 
 export interface ContainerProps extends BoxProps {
 	baseColor?: string;
+	sx?: SxStyleProp;
 }
 
 const AuthContainer: React.FC<ContainerProps> = ({
+	sx,
 	...props
 }: ContainerProps) => (
-	<Box bg={props.baseColor}>
+	<Box bg={props.baseColor} sx={sx}>
 		<Box
 			sx={{
 				px: 3,
@@ -26,7 +28,7 @@ const AuthContainer: React.FC<ContainerProps> = ({
 );
 
 const AuthHeaderWrapper: React.FC = (props) => (
-	<AuthContainer mb={5}>{props.children}</AuthContainer>
+	<AuthContainer>{props.children}</AuthContainer>
 );
 
 const AuthTemplate: React.FC = ({ children }) => (
