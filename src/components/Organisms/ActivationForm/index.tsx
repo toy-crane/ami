@@ -50,7 +50,7 @@ const ActivationForm = ({ sx }: ActivationFormProps) => {
 				invalid={!!errors.mobile}
 				caption={errors.mobile?.message}
 				required
-				sx={{ marginBottom: 3 }}
+				sx={{ marginBottom: 4 }}
 			></FormInput>
 			<Button
 				variant="primary"
