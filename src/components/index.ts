@@ -12,6 +12,7 @@ export { default as Label } from "./Atoms/Label";
 export { default as NavigationBar } from "./Molecules/NavigationBar";
 export { default as FormInput } from "./Molecules/FormInput";
 export { default as ClassDescription } from "./Molecules/ClassDescription";
+export { default as ClassDescContainer } from "./Molecules/ClassDescContainer";
 
 // organisms
 export { default as Header } from "./Organisms/Header";
