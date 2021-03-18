@@ -11,12 +11,14 @@ export const NomalInput = () => (
 		label="ID"
 		placeholder="id를 입력해주세요."
 		sx={{ margin: 1 }}
+		name="id"
 	></FormInput>
 );
 
 export const InvalidInput = () => (
 	<FormInput
 		label="ID"
+		name="id"
 		placeholder="id를 입력해주세요."
 		invalid={true}
 		captionContent="잘못된 문자가 포함되어 있습니다."

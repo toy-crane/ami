@@ -4581,6 +4581,17 @@
     "@types/styled-system" "*"
     "@types/theme-ui" "*"
 
+"@types/theme-ui__components@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@types/theme-ui__components/-/theme-ui__components-0.3.0.tgz#d9ec0c49b7d2877230cd23fbd82dbeb634725f97"
+  integrity sha512-nFQ3rNWgn1Pmhtv/z8s/uPI8f/bkOT0iS619PIdpsaQ+keloYUUbCKRogjPunnDcI/Xsr56wiC6bpANWJQIRAQ==
+  dependencies:
+    "@emotion/core" "^10.0.0"
+    "@emotion/styled" "^10.0.0"
+    "@types/react" "*"
+    "@types/styled-system" "*"
+    "@types/theme-ui" "*"
+
 "@types/uglify-js@*":
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/@types/uglify-js/-/uglify-js-3.11.1.tgz#97ff30e61a0aa6876c270b5f538737e2d6ab8ceb"

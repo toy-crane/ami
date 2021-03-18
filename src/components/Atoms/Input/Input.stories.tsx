@@ -6,7 +6,9 @@ export default {
 	component: Input,
 };
 
-export const InputWithText = () => <Input placeholder="비밀번호"></Input>;
+export const InputWithText = () => (
+	<Input placeholder="비밀번호" name="password"></Input>
+);
 export const InputWithInvalidValue = () => (
-	<Input placeholder="비밀번호" invalid={true}></Input>
+	<Input placeholder="비밀번호" invalid={true} name="password"></Input>
 );
