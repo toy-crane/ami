@@ -2,7 +2,6 @@
 /** @jsx jsx */
 import { Heading, jsx } from "theme-ui";
 import LoginTemplate from "./templates";
-import AuthSection from "components/Organisms/AuthSection";
 import { Button } from "components";
 import { ICONS } from "components/Atoms/Icon/constants";
 
