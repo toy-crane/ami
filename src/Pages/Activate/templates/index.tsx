@@ -14,7 +14,7 @@ interface ActivateTemplateProps {
 const ActivateTemplate = ({ title, content }: ActivateTemplateProps) => {
 	return (
 		<AuthTemplates>
-			<TitleContainer sx={{ marginBottom: 4 }}>{title}</TitleContainer>
+			<TitleContainer sx={{ margin: 4 }}>{title}</TitleContainer>
 			<ContentContainer>{content}</ContentContainer>
 		</AuthTemplates>
 	);
