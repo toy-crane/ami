@@ -2,8 +2,9 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import React from "react";
-import BaseTemplate, { Container } from "../../templates/BaseTemplates";
+import BaseTemplate from "../../templates/BaseTemplates";
 import Divider from "../../../components/Atoms/Divider";
+import { Container } from "components";
 
 interface MainTemplateProps {
 	hero: React.ReactNode;

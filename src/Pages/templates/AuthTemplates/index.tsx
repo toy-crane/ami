@@ -1,31 +1,6 @@
-import { BoxProps, Box, SxStyleProp } from "theme-ui";
+import { SxStyleProp } from "theme-ui";
 import React from "react";
-import { Header } from "components";
-
-export interface ContainerProps extends BoxProps {
-	baseColor?: string;
-	sx?: SxStyleProp;
-}
-
-const SmallContainer: React.FC<ContainerProps> = ({
-	sx,
-	...props
-}: ContainerProps) => {
-	return (
-		<Box bg={props.baseColor} sx={sx}>
-			<Box
-				sx={{
-					px: 3,
-					mx: "auto",
-					maxWidth: "smallContainer",
-				}}
-				{...props}
-			>
-				{props.children}
-			</Box>
-		</Box>
-	);
-};
+import { Header, SmallContainer } from "components";
 
 interface TitleContainerProps {
 	sx?: SxStyleProp;
@@ -54,4 +29,4 @@ const AuthTemplate: React.FC = ({ children }) => (
 );
 
 export default AuthTemplate;
-export { SmallContainer, TitleContainer, ContentContainer };
+export { TitleContainer, ContentContainer };

@@ -1,36 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { jsx, Box, BoxProps } from "theme-ui";
+import { jsx } from "theme-ui";
 import React from "react";
-import { Header, Footer } from "components";
-export interface ContainerProps extends BoxProps {
-	baseColor?: string;
-	position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
-	width?: string;
-	zindex?: number;
-}
-const Container: React.FC<ContainerProps> = ({
-	position,
-	width,
-	zindex,
-	...props
-}: ContainerProps) => (
-	<Box
-		bg={props.baseColor}
-		sx={{ position: position || "static", width: width, zIndex: zindex }}
-	>
-		<Box
-			sx={{
-				px: 3,
-				mx: [0, "auto"],
-				maxWidth: "container",
-			}}
-			{...props}
-		>
-			{props.children}
-		</Box>
-	</Box>
-);
+import { Header, Footer, Container } from "components";
 
 const HeaderWrapper: React.FC = (props) => (
 	<Container
@@ -77,4 +49,3 @@ const BaseTemplate: React.FC = ({ children }) => (
 );
 
 export default BaseTemplate;
-export { Container };

@@ -3,7 +3,7 @@
 import { jsx } from "theme-ui";
 import React from "react";
 import BaseTemplate from "../../templates/BaseTemplates";
-import { SmallContainer } from "Pages/templates";
+import { SmallContainer } from "components";
 
 interface MainTemplateProps {
 	notFound: React.ReactNode;

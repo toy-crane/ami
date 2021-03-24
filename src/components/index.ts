@@ -20,3 +20,7 @@ export { default as Header } from "./Organisms/Header";
 export { default as Footer } from "./Organisms/Footer";
 export { default as ActivationForm } from "./Organisms/ActivationForm";
 export { default as ChallangeDescriptionSection } from "./Organisms/ChallangeDescSection";
+
+// layout
+export { default as Container } from "./Layout/Container";
+export { default as SmallContainer } from "./Layout/SmallContainer";
