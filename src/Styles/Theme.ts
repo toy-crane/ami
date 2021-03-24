@@ -24,6 +24,7 @@ const theme: Theme = {
 		// 태블릿 양쪽 마진 확보
 		container: 1024 + 32,
 		authContainer: 400 + 32,
+		descContainer: 600 + 32,
 	},
 	fonts: {
 		body:

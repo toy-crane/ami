@@ -12,7 +12,7 @@ export { default as Divider } from "./Atoms/Divider";
 // Molecules
 export { default as NavigationBar } from "./Molecules/NavigationBar";
 export { default as FormInput } from "./Molecules/FormInput";
-export { default as ClassDescription } from "./Molecules/ClassDescription";
+export { default as ChallangeDescription } from "./Molecules/ChallangeDescription";
 export { default as ClassDescContainer } from "./Molecules/ClassDescContainer";
 
 // organisms
