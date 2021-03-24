@@ -37,16 +37,17 @@ export const Header = ({
 	return (
 		<Box
 			sx={{
-				height: "42px",
 				marginY: 3,
 				display: "flex",
 				width: "100%",
 				justifyContent: "space-between",
 				alignItems: "center",
 				position: "relative",
+				// 버튼이 없을 때도 최소 사이즈 유지하기 위해 추가
+				height: "48px",
 			}}
 		>
-			<Logo href="/" mt={2} />
+			<Logo href="/" />
 			{!loading && !navless && (
 				<NavigationBar isLoggedIn={isLoggedIn} avatar={avatar}></NavigationBar>
 			)}

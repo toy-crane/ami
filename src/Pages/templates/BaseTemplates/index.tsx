@@ -47,6 +47,9 @@ const HeaderWrapper: React.FC = (props) => (
 	</Container>
 );
 
+// Header Fixed 빈 공백 채우기
+const EmptyContainer = () => <Container sx={{ height: "80px" }}></Container>;
+
 const FooterWrapper: React.FC = (props) => (
 	<Container
 		baseColor="gray0"
@@ -65,6 +68,7 @@ const BaseTemplate: React.FC = ({ children }) => (
 		<HeaderWrapper>
 			<Header />
 		</HeaderWrapper>
+		<EmptyContainer />
 		{children}
 		<FooterWrapper>
 			<Footer />
