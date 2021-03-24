@@ -1,12 +1,12 @@
-import { ClassDescContainer } from "components";
+import { ClassDescContainer, Divider } from "components";
 import React from "react";
-import { Box, Text } from "theme-ui";
+import { Text } from "theme-ui";
 
 export interface ContentProps {}
 
 const ClassDescription = (props: ContentProps) => {
 	return (
-		<ClassDescContainer title="챌린지는 어떻게 진행되나요?">
+		<ClassDescContainer title="챌린지는 어떻게 진행되나요?" hasDivider={true}>
 			<Text>
 				매주 github을 통해 한 주 동안 배운 것을 정리하여 정해진 깃허브 저장소에
 				PR을 요청합니다. <br />

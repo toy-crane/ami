@@ -1,18 +1,27 @@
+import { Divider } from "components";
 import React from "react";
-import { Box, Heading, BoxProps } from "theme-ui";
+import { Grid, Heading, BoxProps } from "theme-ui";
 
 interface ClassDescContainerProps extends BoxProps {
 	title: string;
 	children: React.ReactNode;
+	hasDivider?: boolean;
 }
 
-const ClassDescContainer = ({ title, children }: ClassDescContainerProps) => (
-	<Box>
-		<Heading variant="styles.h3" mb={[2, 3]}>
-			{title}
-		</Heading>
+const ClassDescContainer = ({
+	title,
+	children,
+	hasDivider,
+}: ClassDescContainerProps) => (
+	<Grid sx={{ gap: 3 }}>
+		<Heading variant="styles.h3">{title}</Heading>
 		{children}
-	</Box>
+		{hasDivider && <Divider />}
+	</Grid>
 );
+
+ClassDescContainer.defaultProps = {
+	hasDivider: false,
+};
 
 export default ClassDescContainer;
