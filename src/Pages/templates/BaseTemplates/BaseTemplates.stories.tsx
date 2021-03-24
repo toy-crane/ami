@@ -1,6 +1,7 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import BaseTemplate, { Container } from ".";
+import BaseTemplate from ".";
+import { Container } from "components";
 export default {
 	title: "Templates /BaseTemplate",
 	component: BaseTemplate,
