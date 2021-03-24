@@ -17,7 +17,7 @@ const SmallContainer: React.FC<ContainerProps> = ({
 				sx={{
 					px: 3,
 					mx: "auto",
-					maxWidth: "authContainer",
+					maxWidth: "smallContainer",
 				}}
 				{...props}
 			>
