@@ -7,7 +7,7 @@ export interface ContainerProps extends BoxProps {
 	sx?: SxStyleProp;
 }
 
-const AuthContainer: React.FC<ContainerProps> = ({
+const SmallContainer: React.FC<ContainerProps> = ({
 	sx,
 	...props
 }: ContainerProps) => {
@@ -33,15 +33,15 @@ interface TitleContainerProps {
 }
 
 const TitleContainer = ({ sx, children }: TitleContainerProps) => (
-	<AuthContainer sx={sx}>{children}</AuthContainer>
+	<SmallContainer sx={sx}>{children}</SmallContainer>
 );
 
 const ContentContainer: React.FC = (props) => (
-	<AuthContainer>{props.children}</AuthContainer>
+	<SmallContainer>{props.children}</SmallContainer>
 );
 
 const AuthHeaderWrapper: React.FC = (props) => (
-	<AuthContainer>{props.children}</AuthContainer>
+	<SmallContainer>{props.children}</SmallContainer>
 );
 
 const AuthTemplate: React.FC = ({ children }) => (
@@ -54,4 +54,4 @@ const AuthTemplate: React.FC = ({ children }) => (
 );
 
 export default AuthTemplate;
-export { AuthContainer, TitleContainer, ContentContainer };
+export { SmallContainer, TitleContainer, ContentContainer };

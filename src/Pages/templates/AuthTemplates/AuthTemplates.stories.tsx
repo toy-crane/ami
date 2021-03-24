@@ -1,6 +1,6 @@
 import React from "react";
 import { Story } from "@storybook/react";
-import BaseTemplate, { AuthContainer } from ".";
+import BaseTemplate, { SmallContainer } from ".";
 import AuthTemplate from ".";
 export default {
 	title: "Templates /AuthTemplate",
@@ -9,10 +9,10 @@ export default {
 
 const Template: Story = () => (
 	<AuthTemplate>
-		<AuthContainer>
+		<SmallContainer>
 			<h1>Hello</h1>
 			<p>Base Template!</p>
-		</AuthContainer>
+		</SmallContainer>
 	</AuthTemplate>
 );
 export const Basic = Template.bind({});
