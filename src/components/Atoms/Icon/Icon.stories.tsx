@@ -13,6 +13,7 @@ export const allIcon = () => (
 		<Icon icon={ICONS.chevronRight}></Icon>
 		<Icon icon={ICONS.menu}></Icon>
 		<Icon icon={ICONS.github}></Icon>
+		<Icon icon={ICONS.warning}></Icon>
 	</Flex>
 );
 
