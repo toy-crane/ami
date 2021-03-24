@@ -10,7 +10,7 @@ interface MainTemplateProps {
 }
 
 const NotFoundContainer: React.FC = (props) => (
-	<SmallContainer py={5}>{props.children}</SmallContainer>
+	<SmallContainer py={6}>{props.children}</SmallContainer>
 );
 
 const MainTemplate: React.FC<MainTemplateProps> = ({ notFound }) => {

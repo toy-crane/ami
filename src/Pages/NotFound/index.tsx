@@ -27,7 +27,7 @@ const NotFoundContent = () => {
 				입력하신 주소가 정확한지 다시 한 번 확인해 주세요.
 			</Text>
 			<Button variant="primary" onClick={() => history.goBack()}>
-				홈페이지로 돌아가기
+				이전 페이지로 돌아가기
 			</Button>
 		</Flex>
 	);
