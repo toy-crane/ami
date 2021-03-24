@@ -7,6 +7,7 @@ import { useReactiveVar } from "@apollo/client";
 import { accountInfoCache } from "caches";
 
 interface HeaderContainerProps {
+	// navigation 여부
 	navless?: boolean;
 }
 
