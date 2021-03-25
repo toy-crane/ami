@@ -49,7 +49,7 @@ const ChallangeDetailTemplate = ({
 }: ActivateTemplateProps) => {
 	return (
 		<BaseTemplate>
-			<Grid sx={{ gap: [3, 4] }}>
+			<Grid sx={{ gap: [4, 5] }}>
 				<ChallangeBannerContainer>{challangeBanner}</ChallangeBannerContainer>
 				<ChallangeDescContainer>{challangeDesc}</ChallangeDescContainer>
 				<ChallangeFAQSectionContainer>

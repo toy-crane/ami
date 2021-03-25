@@ -8,6 +8,7 @@ const ChallangeDescSection = () => {
 			<ChallangeDescription type={1} hasDivider={true} />
 			<ChallangeDescription type={2} hasDivider={true} />
 			<ChallangeDescription type={3} hasDivider={true} />
+			<ChallangeDescription type={4} hasDivider={true} />
 		</Grid>
 	);
 };

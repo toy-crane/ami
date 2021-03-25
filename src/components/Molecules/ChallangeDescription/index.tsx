@@ -3,7 +3,7 @@ import React from "react";
 import { Text } from "theme-ui";
 
 export interface ContentProps {
-	type: 1 | 2 | 3;
+	type: 1 | 2 | 3 | 4;
 	hasDivider?: boolean;
 }
 
@@ -17,7 +17,7 @@ const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 				>
 					<Text>
 						Code Pot, 개발 챌린지는 혼자서 꾸준히 공부가 하기 어려운 분들을 위해
-						예치금으로 동기부여를 할 수 있도록하는 서비스입니다.
+						예치금으로 동기부여를 할 수 있도록하는 프로그램입니다.
 					</Text>
 				</ClassDescContainer>
 			);
@@ -37,8 +37,8 @@ const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 							커밋합니다.
 						</li>
 						<li>
-							리뷰 작성을 마치고, 다른 챌린저들이 쓴 글들을 보고, 자유롭게
-							리뷰를 남깁니다
+							리뷰 작성을 마친 후 다른 챌린저들이 쓴 글들을 보고, 자유롭게
+							리뷰를 남깁니다.
 						</li>
 						<li>
 							다음 날 챌린지 리더가 제출한 리뷰를 확인하고, 챌린지 비용을
@@ -61,6 +61,17 @@ const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 							자기 주도적으로 학습하며 최대한 스스로 문제를 해결해 나갈 수 있는
 							분을 요구합니다.
 						</li>
+					</ul>
+				</ClassDescContainer>
+			);
+		case 4:
+			return (
+				<ClassDescContainer title="챌린지 상세 안내" hasDivider={hasDivider}>
+					<ul>
+						<li>챌린지 비용: 105,000원 (예치금 100,000원, 운영비: 5,000원)</li>
+						<li>챌린지 기간: 3/22 ~ 4/18 (총 4주)</li>
+						<li>리뷰 제출 마감 시간: 매주 일요일 자정</li>
+						<li>모집 인원: 최대 10명</li>
 					</ul>
 				</ClassDescContainer>
 			);
