@@ -8,6 +8,7 @@ import client from "./apollo/client";
 import { Login, SignUp, Main, MyPage, Activate, NotFound } from "Pages";
 import { ActivateRoute, PrivateRoute, PublicRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
+import ChallangeDetail from "Pages/ChallangeDetail";
 
 function App() {
 	const history = createBrowserHistory();
@@ -21,6 +22,10 @@ function App() {
 								<PublicRoute exact path="/" component={Main} />
 								<PublicRoute path="/login" component={Login} />
 								<PublicRoute path="/sign-up" component={SignUp} />
+								<PublicRoute
+									path="/challanges/:challangeId"
+									component={ChallangeDetail}
+								/>
 								<PrivateRoute path="/mypage" component={MyPage} />
 								<ActivateRoute path="/activate" component={Activate} />
 								<PublicRoute path="*" component={NotFound} />
