@@ -8,6 +8,6 @@ export default {
 
 export const Basic = () => (
 	<Box p={4}>
-		<RegisterBanner></RegisterBanner>
+		<RegisterBanner ChallangeId={1}></RegisterBanner>
 	</Box>
 );
