@@ -44,7 +44,7 @@ const MainTemplate: React.FC<MainTemplateProps> = ({
 	FAQSection,
 }) => {
 	return (
-		<BaseTemplate>
+		<BaseTemplate hasFixedHeader={true}>
 			<HeroContainer>{hero}</HeroContainer>
 			<ClassCardGroupContainer>{ChallangeSection}</ClassCardGroupContainer>
 			<EPCardGroupContainer>{EPSection}</EPCardGroupContainer>

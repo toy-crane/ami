@@ -4,10 +4,21 @@ import { jsx } from "theme-ui";
 import React from "react";
 import { Header, Footer, Container } from "components";
 
-const HeaderWrapper: React.FC = (props) => (
+interface HeaderWrapperProps {
+	// Header 상단 fix 여부
+	isFixed?: boolean;
+	children?: React.ReactNode;
+}
+
+interface BaseTemplateProps {
+	hasFixedHeader?: boolean;
+	children?: React.ReactNode;
+}
+
+const HeaderWrapper = ({ isFixed, children }: HeaderWrapperProps) => (
 	<Container
 		borderBottom="0.5px solid"
-		position="fixed"
+		position={isFixed ? "fixed" : "relative"}
 		width="100%"
 		baseColor="background"
 		zindex={5}
@@ -16,12 +27,11 @@ const HeaderWrapper: React.FC = (props) => (
 			display: "flex",
 		}}
 	>
-		{props.children}
+		{/* Header Fixed 빈 공백 채우기 */}
+		{isFixed && <Container sx={{ height: "80px" }}></Container>}
+		{children}
 	</Container>
 );
-
-// Header Fixed 빈 공백 채우기
-const EmptyContainer = () => <Container sx={{ height: "80px" }}></Container>;
 
 const FooterWrapper: React.FC = (props) => (
 	<Container
@@ -36,12 +46,11 @@ const FooterWrapper: React.FC = (props) => (
 	</Container>
 );
 
-const BaseTemplate: React.FC = ({ children }) => (
+const BaseTemplate = ({ children, hasFixedHeader }: BaseTemplateProps) => (
 	<React.Fragment>
-		<HeaderWrapper>
+		<HeaderWrapper isFixed={hasFixedHeader}>
 			<Header />
 		</HeaderWrapper>
-		<EmptyContainer />
 		{children}
 		<FooterWrapper>
 			<Footer />
