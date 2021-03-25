@@ -9,6 +9,7 @@ import { Login, SignUp, Main, MyPage, Activate, NotFound } from "Pages";
 import { ActivateRoute, PrivateRoute, PublicRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
 import ChallangeDetail from "Pages/ChallangeDetail";
+import GlobalStyle from "Styles/GlobalStyle";
 
 function App() {
 	const history = createBrowserHistory();
@@ -17,6 +18,7 @@ function App() {
 			<ApolloProvider client={client}>
 				<AuthCacheProvider>
 					<ThemeProvider theme={theme}>
+						<GlobalStyle />
 						<Router history={history}>
 							<Switch>
 								<PublicRoute exact path="/" component={Main} />
