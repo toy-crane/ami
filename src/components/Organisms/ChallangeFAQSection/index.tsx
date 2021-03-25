@@ -1,7 +1,6 @@
 import React from "react";
 import { Grid, Heading } from "theme-ui";
 import Drawer, { DrawerProps } from "../../Molecules/Drawer";
-import SectionContainer from "../SectionContainer/SectionContainer";
 
 const FAQContents: DrawerProps[] = [
 	{
