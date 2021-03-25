@@ -7,6 +7,7 @@ interface ActivateTemplateProps {
 	challangeBanner: React.ReactNode;
 	challangeDesc: React.ReactNode;
 	challangeFAQSection: React.ReactNode;
+	registerBannder: React.ReactNode;
 }
 
 const ChallangeBannerContainer: React.FC = (props) => (
@@ -23,11 +24,28 @@ const ChallangeFAQSectionContainer: React.FC = (props) => (
 	<Container>{props.children}</Container>
 );
 
+const RegisterBannder: React.FC = (props) => (
+	<Container
+		position="fixed"
+		baseColor="background"
+		width="100%"
+		borderTop="0.5px solid"
+		bottom={0}
+		left={0}
+		sx={{
+			py: 2,
+		}}
+	>
+		{props.children}
+	</Container>
+);
+
 // theme UI jsx 사용 시, sx Props 작동 안함
 const ChallangeDetailTemplate = ({
 	challangeBanner,
 	challangeDesc,
 	challangeFAQSection,
+	registerBannder,
 }: ActivateTemplateProps) => {
 	return (
 		<BaseTemplate>
@@ -37,6 +55,7 @@ const ChallangeDetailTemplate = ({
 				<ChallangeFAQSectionContainer>
 					{challangeFAQSection}
 				</ChallangeFAQSectionContainer>
+				<RegisterBannder>{registerBannder}</RegisterBannder>
 			</Grid>
 		</BaseTemplate>
 	);

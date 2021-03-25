@@ -22,6 +22,7 @@ export { default as ActivationForm } from "./Organisms/ActivationForm";
 export { default as ChallangeDescriptionSection } from "./Organisms/ChallangeDescSection";
 export { default as FAQSection } from "./Organisms/FAQSection";
 export { default as ChallangeFAQSection } from "./Organisms/ChallangeFAQSection";
+export { default as RegisterBanner } from "./Organisms/RegisterBanner";
 
 // layout
 export { default as Container } from "./Layout/Container";

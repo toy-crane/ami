@@ -8,13 +8,24 @@ export interface ContainerProps extends BoxProps {
 	position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
 	width?: string;
 	zindex?: number;
+	left?: number;
+	bottom?: number;
+	top?: number;
+	right?: number;
 	borderBottom?: string;
+	borderTop?: string;
 }
 const Container: React.FC<ContainerProps> = ({
 	position,
 	width,
 	zindex,
 	borderBottom,
+	borderTop,
+	left,
+	top,
+	bottom,
+	right,
+	sx,
 	...props
 }: ContainerProps) => (
 	<Box
@@ -23,7 +34,12 @@ const Container: React.FC<ContainerProps> = ({
 			position: position || "static",
 			width: width,
 			zIndex: zindex,
+			left: left,
+			top: top,
+			bottom: bottom,
+			right: right,
 			borderBottom: borderBottom,
+			borderTop: borderTop,
 			borderColor: "gray05",
 		}}
 	>
@@ -32,6 +48,7 @@ const Container: React.FC<ContainerProps> = ({
 				px: 3,
 				mx: [0, "auto"],
 				maxWidth: "container",
+				...sx,
 			}}
 			{...props}
 		>
