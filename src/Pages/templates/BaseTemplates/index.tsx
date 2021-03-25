@@ -6,6 +6,7 @@ import { Header, Footer, Container } from "components";
 
 const HeaderWrapper: React.FC = (props) => (
 	<Container
+		borderBottom="0.5px solid"
 		position="fixed"
 		width="100%"
 		baseColor="background"

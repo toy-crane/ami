@@ -8,16 +8,24 @@ export interface ContainerProps extends BoxProps {
 	position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
 	width?: string;
 	zindex?: number;
+	borderBottom?: string;
 }
 const Container: React.FC<ContainerProps> = ({
 	position,
 	width,
 	zindex,
+	borderBottom,
 	...props
 }: ContainerProps) => (
 	<Box
 		bg={props.baseColor}
-		sx={{ position: position || "static", width: width, zIndex: zindex }}
+		sx={{
+			position: position || "static",
+			width: width,
+			zIndex: zindex,
+			borderBottom: borderBottom,
+			borderColor: "gray05",
+		}}
 	>
 		<Box
 			sx={{
