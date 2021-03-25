@@ -13,8 +13,8 @@ const ClassDescContainer = ({
 	children,
 	hasDivider,
 }: ClassDescContainerProps) => (
-	<Grid sx={{ gap: 3 }}>
-		<Heading variant="styles.h3">{title}</Heading>
+	<Grid sx={{ gap: 1 }}>
+		<Heading variant="styles.h5">{title}</Heading>
 		{children}
 		{hasDivider && <Divider />}
 	</Grid>
