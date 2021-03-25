@@ -20,7 +20,7 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 		},
 	},
 	icon: {
-		color: "gray100",
+		color: "black",
 		appearance: "none",
 		bg: "transparent",
 		border: 0,
@@ -38,10 +38,9 @@ const ButtonVariant: Record<string, ThemeUIStyleObject> = {
 		color: "white",
 		bg: "gray80",
 		cursor: "pointer",
-		outlineColor: "gray100",
 		"&:hover": {
-			bg: "gray100",
-			outlineColor: "gray100",
+			outlineColor: "black",
+			bg: "black",
 		},
 	},
 };

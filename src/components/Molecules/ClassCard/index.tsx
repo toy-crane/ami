@@ -52,7 +52,7 @@ const ClassCard: React.FC<ClassCardProps> = (props: ClassCardProps) => {
 							height: "100%",
 							width: "100%",
 							opacity: props.status === "inProgress" ? 0 : 0.4,
-							backgroundColor: "gray100",
+							backgroundColor: "black",
 						}}
 					></Box>
 					<Badge

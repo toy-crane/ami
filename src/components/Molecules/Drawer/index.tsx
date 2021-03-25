@@ -46,7 +46,7 @@ const Drawer: React.FC<DrawerProps> = (props: DrawerProps) => {
 				<Icon icon={arrowIcon} size={16}></Icon>
 			</Box>
 			{showContent && (
-				<Text p={3} color="gray100">
+				<Text p={3} color="black">
 					{props.text}
 				</Text>
 			)}

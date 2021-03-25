@@ -17,7 +17,7 @@ export const DefaultLogo = () => (
 export const LogoWithColors = () => (
 	<Flex sx={{ flexDirection: "column" }}>
 		<Logo color="primary"></Logo>
-		<Logo color="white" bg="gray100"></Logo>
+		<Logo color="white" bg="black"></Logo>
 	</Flex>
 );
 export const LogoWithLink = () => <Logo href="/mypage"></Logo>;
