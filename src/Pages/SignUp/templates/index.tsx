@@ -14,7 +14,7 @@ interface LoginTemplateProps {
 const SignUpTemplate = ({ title, content }: LoginTemplateProps) => {
 	return (
 		<AuthTemplates>
-			<TitleContainer sx={{ margin: 4 }}>{title}</TitleContainer>
+			<TitleContainer sx={{ p: [4, 5] }}>{title}</TitleContainer>
 			<ContentContainer>{content}</ContentContainer>
 		</AuthTemplates>
 	);

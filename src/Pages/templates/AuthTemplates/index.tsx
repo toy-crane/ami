@@ -8,7 +8,9 @@ interface TitleContainerProps {
 }
 
 const TitleContainer = ({ sx, children }: TitleContainerProps) => (
-	<SmallContainer sx={sx}>{children}</SmallContainer>
+	<SmallContainer sx={sx}>
+		{children}
+	</SmallContainer>
 );
 
 const ContentContainer: React.FC = (props) => (
