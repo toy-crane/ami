@@ -5,7 +5,15 @@ import { ApolloProvider } from "@apollo/client";
 import { Router, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import client from "./apollo/client";
-import { Login, SignUp, Main, MyPage, Activate, NotFound } from "Pages";
+import {
+	Login,
+	SignUp,
+	Main,
+	MyPage,
+	Activate,
+	NotFound,
+	Checkout,
+} from "Pages";
 import { ActivateRoute, PrivateRoute, PublicRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
 import ChallangeDetail from "Pages/ChallangeDetail";
@@ -29,6 +37,10 @@ function App() {
 									component={ChallangeDetail}
 								/>
 								<PrivateRoute path="/mypage" component={MyPage} />
+								<PrivateRoute
+									path="/checkout/challanges/:challangedId"
+									component={Checkout}
+								/>
 								<ActivateRoute path="/activate" component={Activate} />
 								<PublicRoute path="*" component={NotFound} />
 							</Switch>

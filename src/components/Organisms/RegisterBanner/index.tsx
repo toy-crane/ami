@@ -22,7 +22,10 @@ const RegisterBanner = ({ ChallangeId }: RegisterBannerProps) => (
 		>
 			꾸준히 코딩하는 습관 만들기 프로젝트!
 		</Heading>
-		<Button href={`/register/${ChallangeId}`} width={["100%", "fit-content"]}>
+		<Button
+			href={`/checkout/challanges/${ChallangeId}`}
+			width={["100%", "fit-content"]}
+		>
 			지금 바로 시작하기
 		</Button>
 	</Flex>
