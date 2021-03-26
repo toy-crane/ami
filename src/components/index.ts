@@ -8,6 +8,7 @@ export { default as Spinner } from "./Atoms/Spinner";
 export { default as Input } from "./Atoms/Input";
 export { default as Label } from "./Atoms/Label";
 export { default as Divider } from "./Atoms/Divider";
+export { default as Select } from "./Atoms/Select";
 
 // Molecules
 export { default as NavigationBar } from "./Molecules/NavigationBar";
