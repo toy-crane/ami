@@ -35,7 +35,7 @@ export const FullSize = () => (
 
 export const ResponsiveButton = () => (
 	<React.Fragment>
-		<Button width={["100%", "500px"]} href="/">
+		<Button width={["100%", "fit-content"]} href="/">
 			Responsive Button
 		</Button>
 	</React.Fragment>
