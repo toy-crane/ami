@@ -8,7 +8,7 @@ export interface FormItemProps {
 	invalid?: boolean;
 	// input 값이 잘못 되었을 때 노출
 	caption?: string;
-	sx: SxStyleProp;
+	sx?: SxStyleProp;
 	required?: boolean;
 	children: React.ReactNode;
 }
