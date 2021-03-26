@@ -7,7 +7,7 @@ interface LinkProps {
 	href?: string;
 	children: React.ReactNode;
 	onClick?: () => void;
-	width?: string;
+	width?: string | string[];
 }
 
 const isInLink = (href: string) => (href.startsWith("/") ? true : false);

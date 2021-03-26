@@ -32,6 +32,15 @@ export const FullSize = () => (
 		</Button>
 	</React.Fragment>
 );
+
+export const ResponsiveButton = () => (
+	<React.Fragment>
+		<Button width={["100%", "500px"]} href="/">
+			Responsive Button
+		</Button>
+	</React.Fragment>
+);
+
 export const ButtonWithIconAndText = () => (
 	<Button href="/" icon={ICONS.menu}>
 		Hello

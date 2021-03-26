@@ -16,7 +16,7 @@ export interface ButtonProps extends ThemeUIButtonProps {
 	iconSize?: number;
 	children?: React.ReactNode;
 	variant?: string;
-	width?: string;
+	width?: string | string[];
 }
 
 const Button: React.FC<ButtonProps> = ({
