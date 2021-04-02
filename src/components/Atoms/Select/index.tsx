@@ -1,19 +1,34 @@
-import { Select as ThemeUISelect } from "theme-ui";
-import React from "react";
+import {
+	Select as ThemeUISelect,
+	BoxOwnProps,
+	SelectProps as ThemeUISelectProps,
+} from "theme-ui";
+import React, { forwardRef } from "react";
 
-interface SelectProps {
-	defaultValue: string;
-	options: string[];
-}
+type BoxPropsWithRef<
+	T extends React.ElementType,
+	P extends BoxOwnProps = BoxOwnProps
+> = React.ComponentPropsWithRef<T> & P;
 
-const Select = ({ defaultValue, options }: SelectProps) => {
-	return (
-		<ThemeUISelect defaultValue={defaultValue}>
-			{options.map((option) => (
-				<option>{option}</option>
-			))}
-		</ThemeUISelect>
-	);
-};
+export type SelectProps = BoxPropsWithRef<
+	"select",
+	ThemeUISelectProps & {
+		defaultValue: string;
+		options: string[];
+		name: string;
+	}
+>;
+
+const Select = forwardRef<HTMLSelectElement, SelectProps>(
+	({ defaultValue, options, name }: SelectProps, ref) => {
+		return (
+			<ThemeUISelect defaultValue={defaultValue} ref={ref} name={name}>
+				{options.map((option) => (
+					<option key={option}>{option}</option>
+				))}
+			</ThemeUISelect>
+		);
+	}
+);
 
 export default Select;

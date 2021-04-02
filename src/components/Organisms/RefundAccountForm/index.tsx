@@ -26,7 +26,7 @@ interface RefundAccountFormValues {
 
 const refundAccountFormSchema = yup.object().shape({
 	bankName: bankNameValidator,
-	mobile: bankAccountValidator,
+	bankAccount: bankAccountValidator,
 });
 
 const RefundAccountFormContainer = () => {
@@ -65,15 +65,24 @@ const RefundAccountForm = ({
 			) : (
 				<Grid sx={{ gap: 4 }}>
 					<Grid sx={{ gap: 3 }}>
-						<FormItem label="환급 계좌 은행">
+						<FormItem
+							label="환급 계좌 은행"
+							invalid={!!errors.bankName}
+							caption={errors.bankName?.message}
+						>
 							<Select
-								defaultValue="hello"
-								options={BANK_LIST}
 								name="bankName"
+								defaultValue="카카오뱅크"
+								options={BANK_LIST}
+								ref={register}
 							></Select>
 						</FormItem>
-						<FormItem label="환급 계좌 번호">
-							<Input name="bankAccount"></Input>
+						<FormItem
+							label="환급 계좌 번호"
+							invalid={!!errors.bankAccount}
+							caption={errors.bankAccount?.message}
+						>
+							<Input name="bankAccount" ref={register}></Input>
 						</FormItem>
 					</Grid>
 					<Button

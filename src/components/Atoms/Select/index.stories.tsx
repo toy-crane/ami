@@ -8,6 +8,7 @@ export default {
 
 export const Basic = () => (
 	<Select
+		name="language"
 		defaultValue="typescript"
 		options={["typescript", "javascript", "react"]}
 	></Select>

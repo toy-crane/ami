@@ -9,6 +9,7 @@ export default {
 export const SelectForm = () => (
 	<FormItem label="은행" sx={{ margin: 1 }}>
 		<Select
+			name="bankName"
 			defaultValue="카카오뱅크"
 			options={["국민", "신한"]}
 		></Select>
