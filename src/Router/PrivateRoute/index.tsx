@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, ...rest }: any) => {
 			return (
 				<Redirect
 					to={{
-						pathname: "/activate",
+						pathname: "/register/activate",
 						state: { referer: routeProps.location },
 					}}
 				/>

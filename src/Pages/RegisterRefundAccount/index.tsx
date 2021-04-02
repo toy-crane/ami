@@ -5,7 +5,7 @@ import { Heading } from "theme-ui";
 import RefundAccountTemplate from "./templates";
 import { RefundAccountForm } from "components/Organisms/RefundAccountForm";
 
-const RefundAccountRegister = () => {
+const RegisterRefundAccount = () => {
 	return (
 		<RefundAccountTemplate
 			title={<Heading variant="pageTitle">환급 계좌 등록하기</Heading>}
@@ -14,4 +14,4 @@ const RefundAccountRegister = () => {
 	);
 };
 
-export default RefundAccountRegister;
+export default RegisterRefundAccount;

@@ -13,6 +13,7 @@ import {
 	Activate,
 	NotFound,
 	Checkout,
+	RegisterRefundAccount,
 } from "Pages";
 import { ActivateRoute, PrivateRoute, PublicRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
@@ -38,10 +39,14 @@ function App() {
 								/>
 								<PrivateRoute path="/mypage" component={MyPage} />
 								<PrivateRoute
+									path="/register/refund-account"
+									component={RegisterRefundAccount}
+								/>
+								<PrivateRoute
 									path="/checkout/challanges/:challangedId"
 									component={Checkout}
 								/>
-								<ActivateRoute path="/activate" component={Activate} />
+								<ActivateRoute path="/register/activate" component={Activate} />
 								<PublicRoute path="*" component={NotFound} />
 							</Switch>
 						</Router>
