@@ -30,6 +30,9 @@ export type User = {
   name?: Maybe<Scalars['String']>;
   mobile?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
+  status: Scalars['String'];
+  RBankAccount?: Maybe<Scalars['String']>;
+  RBankCode?: Maybe<Scalars['String']>;
 };
 
 export type Profile = {
@@ -44,12 +47,19 @@ export type Mutation = {
   activateUser: User;
   createAuthToken?: Maybe<AccessToken>;
   logout?: Maybe<Scalars['Boolean']>;
+  registerRefundAccount: User;
 };
 
 
 export type MutationActivateUserArgs = {
   mobile: Scalars['String'];
   name: Scalars['String'];
+};
+
+
+export type MutationRegisterRefundAccountArgs = {
+  bankCode: Scalars['String'];
+  bankAccount: Scalars['String'];
 };
 
 export type AccessToken = {
@@ -93,6 +103,20 @@ export type LogoutMutationVariables = Exact<{ [key: string]: never; }>;
 export type LogoutMutation = (
   { __typename?: 'Mutation' }
   & Pick<Mutation, 'logout'>
+);
+
+export type RegisterRefundAccountMutationVariables = Exact<{
+  bankCode: Scalars['String'];
+  bankAccount: Scalars['String'];
+}>;
+
+
+export type RegisterRefundAccountMutation = (
+  { __typename?: 'Mutation' }
+  & { registerRefundAccount: (
+    { __typename?: 'User' }
+    & UserFieldsFragment
+  ) }
 );
 
 export type GetMeQueryVariables = Exact<{ [key: string]: never; }>;
@@ -214,6 +238,39 @@ export function useLogoutMutation(baseOptions?: Apollo.MutationHookOptions<Logou
 export type LogoutMutationHookResult = ReturnType<typeof useLogoutMutation>;
 export type LogoutMutationResult = Apollo.MutationResult<LogoutMutation>;
 export type LogoutMutationOptions = Apollo.BaseMutationOptions<LogoutMutation, LogoutMutationVariables>;
+export const RegisterRefundAccountDocument = gql`
+    mutation registerRefundAccount($bankCode: String!, $bankAccount: String!) {
+  registerRefundAccount(bankCode: $bankCode, bankAccount: $bankAccount) {
+    ...UserFields
+  }
+}
+    ${UserFieldsFragmentDoc}`;
+export type RegisterRefundAccountMutationFn = Apollo.MutationFunction<RegisterRefundAccountMutation, RegisterRefundAccountMutationVariables>;
+
+/**
+ * __useRegisterRefundAccountMutation__
+ *
+ * To run a mutation, you first call `useRegisterRefundAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRegisterRefundAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [registerRefundAccountMutation, { data, loading, error }] = useRegisterRefundAccountMutation({
+ *   variables: {
+ *      bankCode: // value for 'bankCode'
+ *      bankAccount: // value for 'bankAccount'
+ *   },
+ * });
+ */
+export function useRegisterRefundAccountMutation(baseOptions?: Apollo.MutationHookOptions<RegisterRefundAccountMutation, RegisterRefundAccountMutationVariables>) {
+        return Apollo.useMutation<RegisterRefundAccountMutation, RegisterRefundAccountMutationVariables>(RegisterRefundAccountDocument, baseOptions);
+      }
+export type RegisterRefundAccountMutationHookResult = ReturnType<typeof useRegisterRefundAccountMutation>;
+export type RegisterRefundAccountMutationResult = Apollo.MutationResult<RegisterRefundAccountMutation>;
+export type RegisterRefundAccountMutationOptions = Apollo.BaseMutationOptions<RegisterRefundAccountMutation, RegisterRefundAccountMutationVariables>;
 export const GetMeDocument = gql`
     query getMe {
   me {

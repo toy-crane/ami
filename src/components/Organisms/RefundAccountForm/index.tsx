@@ -1,12 +1,12 @@
 import { Box, Grid } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
 import { Button, Spinner, FormItem, Select, Input } from "components";
-import { mobileValidator, nameValidator } from "components/validator";
+import { bankNameValidator, bankAccountValidator } from "components/validator";
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useActivateUserMutation } from "types/graphql-types";
+import { useRegisterRefundAccountMutation } from "types/graphql-types";
 import { BANK_LIST } from "commons/constants/bank";
 
 interface RefundAccountFormContainerProps {
@@ -20,24 +20,29 @@ interface RefundAccountFormProps extends RefundAccountFormContainerProps {
 }
 
 interface RefundAccountFormValues {
-	name: string;
-	mobile: string;
+	bankName: string;
+	bankAccount: string;
 }
 
 const refundAccountFormSchema = yup.object().shape({
-	name: nameValidator,
-	mobile: mobileValidator,
+	bankName: bankNameValidator,
+	mobile: bankAccountValidator,
 });
 
 const RefundAccountFormContainer = () => {
-	const [activateUser, { loading }] = useActivateUserMutation();
+	const [
+		registerRefundAccount,
+		{ loading },
+	] = useRegisterRefundAccountMutation();
 
 	const onSubmit = async ({
-		mobile: originMobile,
-		name,
+		bankName,
+		bankAccount,
 	}: RefundAccountFormValues) => {
-		const mobile = originMobile.replaceAll("-", "");
-		await activateUser({ variables: { name: name, mobile: mobile } });
+		const bankCode = bankName;
+		await registerRefundAccount({
+			variables: { bankAccount, bankCode },
+		});
 	};
 
 	return <RefundAccountForm onSubmit={onSubmit} loading={loading} />;
@@ -61,10 +66,14 @@ const RefundAccountForm = ({
 				<Grid sx={{ gap: 4 }}>
 					<Grid sx={{ gap: 3 }}>
 						<FormItem label="환급 계좌 은행">
-							<Select defaultValue="hello" options={BANK_LIST}></Select>
+							<Select
+								defaultValue="hello"
+								options={BANK_LIST}
+								name="bankName"
+							></Select>
 						</FormItem>
 						<FormItem label="환급 계좌 번호">
-							<Input name="accountNo"></Input>
+							<Input name="bankAccount"></Input>
 						</FormItem>
 					</Grid>
 					<Button

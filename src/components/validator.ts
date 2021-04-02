@@ -15,4 +15,15 @@ const mobileValidator = yup
 	)
 	.max(13, "휴대폰 번호가 잘못 되었습니다.");
 
-export { nameValidator, mobileValidator };
+const bankNameValidator = yup.string().required("은행 이름을 선택해 주세요.");
+
+const bankAccountValidator = yup
+	.string()
+	.required("계좌 번호를 입력해 주세요.");
+
+export {
+	nameValidator,
+	mobileValidator,
+	bankNameValidator,
+	bankAccountValidator,
+};
