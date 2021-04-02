@@ -30,10 +30,16 @@ export type User = {
   name?: Maybe<Scalars['String']>;
   mobile?: Maybe<Scalars['String']>;
   isActive: Scalars['Boolean'];
-  status: Scalars['String'];
-  RBankAccount?: Maybe<Scalars['String']>;
-  RBankCode?: Maybe<Scalars['String']>;
+  status: AccountStatus;
+  bankAccount?: Maybe<Scalars['String']>;
+  bankCode?: Maybe<Scalars['String']>;
 };
+
+export enum AccountStatus {
+  SignUp = 'SIGN_UP',
+  Activated = 'ACTIVATED',
+  AccountRegistered = 'ACCOUNT_REGISTERED'
+}
 
 export type Profile = {
   __typename?: 'Profile';
@@ -69,7 +75,7 @@ export type AccessToken = {
 
 export type UserFieldsFragment = (
   { __typename?: 'User' }
-  & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive'>
+  & Pick<User, 'id' | 'name' | 'email' | 'mobile' | 'isActive' | 'status'>
 );
 
 export type ActivateUserMutationVariables = Exact<{
@@ -143,6 +149,7 @@ export const UserFieldsFragmentDoc = gql`
   email
   mobile
   isActive
+  status
 }
     `;
 export const ActivateUserDocument = gql`

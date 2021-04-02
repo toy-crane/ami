@@ -181,8 +181,8 @@
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
+                "kind": "ENUM",
+                "name": "AccountStatus",
                 "ofType": null
               }
             },
@@ -190,7 +190,7 @@
             "deprecationReason": null
           },
           {
-            "name": "RBankAccount",
+            "name": "bankAccount",
             "description": "",
             "args": [],
             "type": {
@@ -202,7 +202,7 @@
             "deprecationReason": null
           },
           {
-            "name": "RBankCode",
+            "name": "bankCode",
             "description": "",
             "args": [],
             "type": {
@@ -237,6 +237,35 @@
         "inputFields": null,
         "interfaces": null,
         "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "ENUM",
+        "name": "AccountStatus",
+        "description": "",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": [
+          {
+            "name": "SIGN_UP",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACTIVATED",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "ACCOUNT_REGISTERED",
+            "description": "",
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
         "possibleTypes": null
       },
       {
