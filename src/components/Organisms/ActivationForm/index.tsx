@@ -1,4 +1,4 @@
-import { Box } from "@theme-ui/components";
+import { Box, Grid } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
 import { Button, FormInput, Spinner } from "components";
 import { mobileValidator, nameValidator } from "components/validator";
@@ -53,25 +53,25 @@ const ActivationForm = ({ sx, onSubmit, loading }: ActivationFormProps) => {
 			{loading ? (
 				<Spinner loading={loading} />
 			) : (
-				<React.Fragment>
-					<FormInput
-						name="name"
-						label="이름"
-						register={register}
-						sx={{ marginBottom: 1 }}
-						invalid={!!errors.name}
-						caption={errors.name?.message}
-						required
-					></FormInput>
-					<FormInput
-						name="mobile"
-						label="휴대폰 번호"
-						register={register}
-						invalid={!!errors.mobile}
-						caption={errors.mobile?.message}
-						required
-						sx={{ marginBottom: 4 }}
-					></FormInput>
+				<Grid sx={{ gap: 4 }}>
+					<Grid sx={{ gap: 3 }}>
+						<FormInput
+							name="name"
+							label="이름"
+							register={register}
+							invalid={!!errors.name}
+							caption={errors.name?.message}
+							required
+						></FormInput>
+						<FormInput
+							name="mobile"
+							label="휴대폰 번호"
+							register={register}
+							invalid={!!errors.mobile}
+							caption={errors.mobile?.message}
+							required
+						></FormInput>
+					</Grid>
 					<Button
 						variant="primary"
 						href="/"
@@ -80,7 +80,7 @@ const ActivationForm = ({ sx, onSubmit, loading }: ActivationFormProps) => {
 					>
 						계정 생성하기
 					</Button>
-				</React.Fragment>
+				</Grid>
 			)}
 		</Box>
 	);

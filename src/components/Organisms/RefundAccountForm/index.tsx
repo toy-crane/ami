@@ -58,13 +58,15 @@ const RefundAccountForm = ({
 			{loading ? (
 				<Spinner loading={loading} />
 			) : (
-				<Grid sx={{ gap: 3 }}>
-					<FormItem label="환급 계좌 은행">
-						<Select defaultValue="hello" options={BANK_LIST}></Select>
-					</FormItem>
-					<FormItem label="환급 계좌 번호">
-						<Input name="accountNo"></Input>
-					</FormItem>
+				<Grid sx={{ gap: 4 }}>
+					<Grid sx={{ gap: 3 }}>
+						<FormItem label="환급 계좌 은행">
+							<Select defaultValue="hello" options={BANK_LIST}></Select>
+						</FormItem>
+						<FormItem label="환급 계좌 번호">
+							<Input name="accountNo"></Input>
+						</FormItem>
+					</Grid>
 					<Button
 						variant="primary"
 						href="/"

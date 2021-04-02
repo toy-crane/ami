@@ -14,7 +14,7 @@ export interface FormInputProps {
 	invalid?: boolean;
 	// input 값이 잘못 되었을 때 노출
 	caption?: string;
-	sx: SxStyleProp;
+	sx?: SxStyleProp;
 	name: string;
 	required?: boolean;
 	register?: ({ required }: { required?: boolean }) => RefReturn;
@@ -36,7 +36,6 @@ const FormInput = ({
 			<Input
 				name={name}
 				placeholder={placeholder}
-				sx={{ mb: "0.2rem" }}
 				invalid={invalid}
 				ref={register && register({ required })}
 			/>
