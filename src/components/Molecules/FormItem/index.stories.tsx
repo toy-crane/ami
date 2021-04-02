@@ -1,3 +1,4 @@
+import { BANK_LIST } from "commons/constants/bank";
 import { Select } from "components";
 import React from "react";
 import FormItem from ".";
@@ -11,7 +12,7 @@ export const SelectForm = () => (
 		<Select
 			name="bankName"
 			defaultValue="카카오뱅크"
-			options={["국민", "신한"]}
+			options={BANK_LIST}
 		></Select>
 	</FormItem>
 );

@@ -1,3 +1,4 @@
+import { BANK_LIST } from "commons/constants/bank";
 import React from "react";
 import Select from ".";
 
@@ -8,8 +9,8 @@ export default {
 
 export const Basic = () => (
 	<Select
-		name="language"
-		defaultValue="typescript"
-		options={["typescript", "javascript", "react"]}
+		name="bankCode"
+		defaultValue="카카오 뱅크"
+		options={BANK_LIST}
 	></Select>
 );

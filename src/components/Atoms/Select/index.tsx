@@ -10,11 +10,16 @@ type BoxPropsWithRef<
 	P extends BoxOwnProps = BoxOwnProps
 > = React.ComponentPropsWithRef<T> & P;
 
+type option = {
+	key: string;
+	value: string;
+};
+
 export type SelectProps = BoxPropsWithRef<
 	"select",
 	ThemeUISelectProps & {
 		defaultValue: string;
-		options: string[];
+		options: option[];
 		name: string;
 	}
 >;
@@ -24,7 +29,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
 		return (
 			<ThemeUISelect defaultValue={defaultValue} ref={ref} name={name}>
 				{options.map((option) => (
-					<option key={option}>{option}</option>
+					<option key={option.key}>{option.value}</option>
 				))}
 			</ThemeUISelect>
 		);

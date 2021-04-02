@@ -19,6 +19,7 @@ const bankNameValidator = yup.string().required("은행 이름을 선택해 주�
 
 const bankAccountValidator = yup
 	.string()
+	.matches(/^[0-9]*$/, "계좌번호에 문자가 포함되어 있습니다.")
 	.required("계좌 번호를 입력해 주세요.");
 
 export {
