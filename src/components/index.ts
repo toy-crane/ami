@@ -28,6 +28,7 @@ export { default as FAQSection } from "./Organisms/FAQSection";
 export { default as ChallangeFAQSection } from "./Organisms/ChallangeFAQSection";
 export { default as RegisterBanner } from "./Organisms/RegisterBanner";
 export { default as ChallangeBanner } from "./Organisms/ChallangeBanner";
+export { default as ChallangeDescSection } from "./Organisms/ChallangeDescSection";
 
 // layout
 export { default as Container } from "./Layout/Container";
