@@ -10,7 +10,6 @@ type AccountInfo = {
 	loading: boolean;
 	isActive: boolean;
 	isError: boolean;
-	status: "SIGN_UP" | "ACTIVATED" | "ACCOUNT_REGISTERED" | null;
 };
 
 const defaultAccountInfo: AccountInfo = {
@@ -23,7 +22,6 @@ const defaultAccountInfo: AccountInfo = {
 	isLoggedIn: false,
 	loading: true,
 	isError: false,
-	status: null,
 };
 
 const accessTokenCache = makeVar<null | string>(null);

@@ -38,20 +38,14 @@ function App() {
 									path="/challanges/:challangeId"
 									component={ChallangeDetail}
 								/>
-								<PrivateRoute
-									path="/mypage"
-									component={MyPage}
-									accessibleStatus="ACTIVATED"
-								/>
+								<PrivateRoute path="/mypage" component={MyPage} />
 								<PrivateRoute
 									path="/register/refund-account"
 									component={RegisterRefundAccount}
-									accessibleStatus="ACTIVATED"
 								/>
 								<PrivateRoute
 									path="/checkout/challanges/:challangedId"
 									component={Checkout}
-									accessibleStatus="ACCOUNT_REGISTERED"
 								/>
 								<PublicRoute path="*" component={NotFound} />
 							</Switch>
