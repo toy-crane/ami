@@ -8,5 +8,6 @@ export default gql`
 		mobile
 		isActive
 		status
+		RBankAccount
 	}
 `;

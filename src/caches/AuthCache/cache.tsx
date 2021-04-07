@@ -10,6 +10,8 @@ type AccountInfo = {
 	loading: boolean;
 	isActive: boolean;
 	isError: boolean;
+	// 환급 계좌 등록 여부
+	hasRBankAccount: boolean;
 };
 
 const defaultAccountInfo: AccountInfo = {
@@ -22,6 +24,7 @@ const defaultAccountInfo: AccountInfo = {
 	isLoggedIn: false,
 	loading: true,
 	isError: false,
+	hasRBankAccount: false,
 };
 
 const accessTokenCache = makeVar<null | string>(null);

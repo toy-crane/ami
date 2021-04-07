@@ -1,10 +1,10 @@
 import CheckoutTemplate from "./templates";
 import React from "react";
-import { ChallangeBanner } from "components";
+import { ChallangeBanner, CheckoutForm } from "components";
 
 const Checkout = () => (
 	<CheckoutTemplate
-		checkoutForm={<div>Hello</div>}
+		checkoutForm={<CheckoutForm></CheckoutForm>}
 		challangeBanner={<ChallangeBanner />}
 	></CheckoutTemplate>
 );

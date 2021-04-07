@@ -43,6 +43,7 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 				loading: false,
 				isActive: user.isActive,
 				isError: false,
+				hasRBankAccount: user.RBankAccount ? true : false,
 			});
 		}
 	}, [getMeError, getMeLoading, profile, user]);
