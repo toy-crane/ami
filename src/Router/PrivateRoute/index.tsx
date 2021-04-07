@@ -7,7 +7,7 @@ type AccountStatus = "SIGN_UP" | "ACTIVATED" | "ACCOUNT_REGISTERED";
 enum RedirectPath {
 	SIGN_UP = "/register/activate",
 	ACTIVATED = "/register/refund-account",
-	ACCOUNT_REGISTERED = "",
+	ACCOUNT_REGISTERED = "/list",
 }
 interface PrivateRouteProps extends RouteProps {
 	accessibleStatus?: AccountStatus;
@@ -19,15 +19,16 @@ const PrivateRoute = ({
 	location,
 	...rest
 }: PrivateRouteProps) => {
-	const { isLoggedIn, status } = useReactiveVar(accountInfoCache);
+	const { isLoggedIn, status: accoutStatus } = useReactiveVar(accountInfoCache);
+	console.log(location);
 
-	if (isLoggedIn && accessibleStatus === status) {
+	if (isLoggedIn && accessibleStatus === accoutStatus) {
 		return <Route {...rest} />;
 	} else if (isLoggedIn) {
 		return (
 			<Redirect
 				to={{
-					pathname: status ? RedirectPath[status] : "/sign-up",
+					pathname: accoutStatus ? RedirectPath[accoutStatus] : "/sign-up",
 					state: { referer: location },
 				}}
 			/>
