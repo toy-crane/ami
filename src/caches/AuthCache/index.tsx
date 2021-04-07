@@ -38,7 +38,7 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 				email: user.email,
 				id: user.id,
 				name: user.name,
-				isLoggedIn: true,
+				isLoggedIn: user.isActive ? true : false,
 				avatar: profile.avatar,
 				githubUrl: profile.githubUrl,
 				loading: false,
@@ -49,7 +49,7 @@ const AuthCacheProvider = ({ children }: AuthCacheProviderProps) => {
 		}
 	}, [getMeError, getMeLoading, profile, user]);
 
-	return <>{loading ? <div>Hello</div> : children}</>;
+	return <>{loading ? <div>Loading...</div> : children}</>;
 };
 
 export default AuthCacheProvider;

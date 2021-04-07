@@ -15,7 +15,7 @@ import {
 	Checkout,
 	RegisterRefundAccount,
 } from "Pages";
-import { PrivateRoute, PublicRoute } from "Router";
+import { ActivateRoute, PrivateRoute, PublicRoute, AuthRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
 import ChallangeDetail from "Pages/ChallangeDetail";
 import GlobalStyle from "Styles/GlobalStyle";
@@ -31,8 +31,9 @@ function App() {
 						<Router history={history}>
 							<Switch>
 								<PublicRoute exact path="/" component={Main} />
-								<PublicRoute path="/login" component={Login} />
-								<PublicRoute path="/sign-up" component={SignUp} />
+								<AuthRoute path="/login" component={Login} />
+								<AuthRoute path="/sign-up" component={SignUp} />
+								<ActivateRoute path="/register/activate" component={Activate} />
 								<PublicRoute
 									path="/challanges/:challangeId"
 									component={ChallangeDetail}
@@ -51,11 +52,6 @@ function App() {
 									path="/checkout/challanges/:challangedId"
 									component={Checkout}
 									accessibleStatus="ACCOUNT_REGISTERED"
-								/>
-								<PrivateRoute
-									path="/register/activate"
-									component={Activate}
-									accessibleStatus="SIGN_UP"
 								/>
 								<PublicRoute path="*" component={NotFound} />
 							</Switch>
