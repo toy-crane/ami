@@ -1,6 +1,6 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Grid, Heading, jsx, Flex, Text, Divider } from "theme-ui";
+import { Grid, jsx, Flex, Text, Divider } from "theme-ui";
 
 const CheckoutSummary = () => (
 	<Grid sx={{ gap: 2 }}>
