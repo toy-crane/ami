@@ -1,5 +1,5 @@
 import { useReactiveVar } from "@apollo/client";
-import { Grid, Heading } from "@theme-ui/components";
+import { Grid, Heading, Flex } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
 import { accountInfoCache } from "caches";
 import {
@@ -7,6 +7,8 @@ import {
 	CheckoutSummary,
 	Spinner,
 	PaymentMethod,
+	Button,
+	Checkbox,
 } from "components";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
@@ -51,6 +53,13 @@ const CheckoutForm = ({ sx, onSubmit }: CheckoutFormProps) => {
 			<Grid sx={{ gap: 3 }}>
 				<Heading variant="styles.h4">결제 방법</Heading>
 				<PaymentMethod></PaymentMethod>
+				<Checkbox
+					name="agreement"
+					label="구매조건 및 개인정보취급방침 동의 (필수)"
+				></Checkbox>
+				<Flex sx={{ justifyContent: ["stretch", "flex-end"] }}>
+					<Button width={["100%", "400px"]}>결제하기</Button>
+				</Flex>
 			</Grid>
 		</Grid>
 	);
