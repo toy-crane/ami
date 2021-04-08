@@ -39,6 +39,8 @@ const Icon: React.FC<IconProps> = ({
 			onClick={onClick}
 			sx={{
 				display: "inline-flex",
+				justifyContent: "center",
+				alignItems: "center",
 				lineHeight: 0,
 				cursor: onClick ? "pointer" : "default",
 				color: color,
