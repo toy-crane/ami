@@ -1,5 +1,3 @@
-import { string } from "yup/lib/locale";
-
 export enum ICONS {
 	menu = "menu",
 	chevronDown = "chevronDown",
