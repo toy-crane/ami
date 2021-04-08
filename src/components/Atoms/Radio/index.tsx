@@ -6,10 +6,10 @@ interface RadioButtonProps extends RadioProps {
 	label: string;
 }
 
-const RadioButton = ({ name, label }: RadioButtonProps) => {
+const RadioButton = ({ name, label, checked }: RadioButtonProps) => {
 	return (
 		<Label>
-			<Radio name={name} />
+			<Radio name={name} checked />
 			{label}
 		</Label>
 	);
