@@ -1,7 +1,9 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { Grid, jsx, Heading, Text, Box, Flex } from "theme-ui";
-import { ChallangeBanner, Button } from "components";
+import { ChallangeBanner, Button, Icon } from "components";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { ICONS } from "components/Atoms/Icon/constants";
 
 const TransferGuideSection = () => (
 	<Grid sx={{ gap: [3, 4] }}>
@@ -13,7 +15,14 @@ const TransferGuideSection = () => (
 			<Heading variant="styles.subtitle" color="gray40">
 				입금 계좌
 			</Heading>
-			<Text variant="styles.bodyMedium">카카오뱅크 3333-09-1840091 김한울</Text>
+			<Flex>
+				<Text variant="styles.bodyMedium" sx={{ marginRight: 2 }}>
+					카카오뱅크 3333-09-1840091 김한울
+				</Text>
+				<CopyToClipboard text="3333-09-1840091 카카오뱅크">
+					<Icon icon={ICONS.copy} size={24}></Icon>
+				</CopyToClipboard>
+			</Flex>
 		</Box>
 		<Box>
 			<Heading variant="styles.subtitle" color="gray40">
