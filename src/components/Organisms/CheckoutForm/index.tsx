@@ -1,8 +1,8 @@
 import { useReactiveVar } from "@apollo/client";
-import { Box } from "@theme-ui/components";
+import { Grid, Heading } from "@theme-ui/components";
 import { SxStyleProp } from "@theme-ui/core";
 import { accountInfoCache } from "caches";
-import { Spinner } from "components";
+import { ChallangeBanner, CheckoutSummary, Spinner } from "components";
 import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 
@@ -33,7 +33,18 @@ const CheckoutFormContainer = () => {
 };
 
 const CheckoutForm = ({ sx, onSubmit }: CheckoutFormProps) => {
-	return <Box sx={sx}>checkout</Box>;
+	return (
+		<Grid sx={{ gap: [4, 5] }}>
+			<Grid sx={{ gap: 3 }}>
+				<Heading variant="styles.h4">주문 세부 정보</Heading>
+				<ChallangeBanner color="black" />
+			</Grid>
+			<Grid sx={{ gap: 3 }}>
+				<Heading variant="styles.h4">결제 금액</Heading>
+				<CheckoutSummary></CheckoutSummary>
+			</Grid>
+		</Grid>
+	);
 };
 
 export default CheckoutFormContainer;
