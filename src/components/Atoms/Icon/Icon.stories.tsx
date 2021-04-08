@@ -14,6 +14,7 @@ export const allIcon = () => (
 		<Icon icon={ICONS.menu}></Icon>
 		<Icon icon={ICONS.github}></Icon>
 		<Icon icon={ICONS.warning}></Icon>
+		<Icon icon={ICONS.copy}></Icon>
 	</Flex>
 );
 

@@ -22,7 +22,12 @@ const StyledIcon = ({ size, icon }: StyledIconProps) => (
 		viewBox={IconSet[icon].viewBox}
 		xmlns="http://www.w3.org/2000/svg"
 	>
-		<path d={IconSet[icon].path} fill="currentColor" />
+		<path
+			d={IconSet[icon].path}
+			fill={IconSet[icon].fill || "currentColor"}
+			fill-rule={IconSet[icon].fillRule}
+			clip-rule={IconSet[icon].clipRule}
+		/>
 	</svg>
 );
 
