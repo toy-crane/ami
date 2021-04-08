@@ -33,6 +33,7 @@ export { default as ChallangeBanner } from "./Organisms/ChallangeBanner";
 export { default as ChallangeDescSection } from "./Organisms/ChallangeDescSection";
 export { default as CheckoutSummary } from "./Organisms/CheckoutSummary";
 export { default as PaymentMethod } from "./Organisms/PaymentMethod";
+export { default as TransferGuideSection } from "./Organisms/TransferGuideSection";
 
 // layout
 export { default as Container } from "./Layout/Container";

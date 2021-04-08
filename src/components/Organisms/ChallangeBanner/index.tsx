@@ -21,7 +21,7 @@ const ChallangeBanner = ({ color }: ChallangeBannerProps) => (
 				매주 일요일까지
 			</Badge>
 			<Heading variant="styles.h4">TypeScript 챌린지 2기</Heading>
-			<Text variant="subTitle" sx={{ color: color || "white" }}>
+			<Text variant="styles.subtitle" sx={{ color: color || "white" }}>
 				단단한 javascript 코드가 만들고 싶다면?
 			</Text>
 			<Text variant="caption" sx={{ color: color || "white" }}>

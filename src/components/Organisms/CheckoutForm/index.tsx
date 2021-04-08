@@ -58,7 +58,9 @@ const CheckoutForm = ({ sx, onSubmit }: CheckoutFormProps) => {
 					label="구매조건 및 개인정보취급방침 동의 (필수)"
 				></Checkbox>
 				<Flex sx={{ justifyContent: ["stretch", "flex-end"] }}>
-					<Button width={["100%", "400px"]}>결제하기</Button>
+					<Button width={["100%", "400px"]} href="/transfer-guide">
+						결제하기
+					</Button>
 				</Flex>
 			</Grid>
 		</Grid>

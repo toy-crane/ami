@@ -14,6 +14,7 @@ import {
 	NotFound,
 	Checkout,
 	RegisterRefundAccount,
+	TransferGuide,
 } from "Pages";
 import { ActivateRoute, PrivateRoute, PublicRoute, AuthRoute } from "Router";
 import AuthCacheProvider from "caches/AuthCache";
@@ -46,6 +47,10 @@ function App() {
 								<PrivateRoute
 									path="/checkout/challanges/:challangedId"
 									component={Checkout}
+								/>
+								<PrivateRoute
+									path="/transfer-guide"
+									component={TransferGuide}
 								/>
 								<PublicRoute path="*" component={NotFound} />
 							</Switch>
