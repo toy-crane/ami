@@ -10,12 +10,12 @@ interface CheckBoxProps extends ThemeUICheckBoxProps {
 	label: string;
 }
 
-const CheckBox = ({ name, label, defaultChecked }: CheckBoxProps) => {
+const Checkbox = ({ name, label, defaultChecked }: CheckBoxProps) => {
 	return (
 		<Label>
-			<ThemeUICheckBox name={name} defaultChecked />
+			<ThemeUICheckBox name={name} defaultChecked={defaultChecked} />
 			{label}
 		</Label>
 	);
 };
-export default CheckBox;
+export default Checkbox;

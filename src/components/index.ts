@@ -10,6 +10,7 @@ export { default as Label } from "./Atoms/Label";
 export { default as Divider } from "./Atoms/Divider";
 export { default as Select } from "./Atoms/Select";
 export { default as RadioButton } from "./Atoms/Radio";
+export { default as Checkbox } from "./Atoms/Checkbox";
 
 // Molecules
 export { default as NavigationBar } from "./Molecules/NavigationBar";
