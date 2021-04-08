@@ -1,5 +1,4 @@
 import React from "react";
-import { Heading } from "theme-ui";
 import { Box } from "theme-ui";
 import ChallangeBanner from ".";
 export default {
