@@ -9,6 +9,7 @@ export { default as Input } from "./Atoms/Input";
 export { default as Label } from "./Atoms/Label";
 export { default as Divider } from "./Atoms/Divider";
 export { default as Select } from "./Atoms/Select";
+export { default as RadioButton } from "./Atoms/Radio";
 
 // Molecules
 export { default as NavigationBar } from "./Molecules/NavigationBar";
