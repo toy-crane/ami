@@ -12,7 +12,6 @@ const CheckoutSummary = () => (
 			<Text>플랫폼 수수료</Text>
 			<Text>5,000</Text>
 		</Flex>
-		<Divider></Divider>
 		<Flex sx={{ justifyContent: "space-between" }}>
 			<Text>총 결제 금액</Text>
 			<Text>105,000</Text>
