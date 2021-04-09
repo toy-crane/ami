@@ -18,6 +18,7 @@ export { default as FormInput } from "./Molecules/FormInput";
 export { default as FormItem } from "./Molecules/FormItem";
 export { default as ChallangeDescription } from "./Molecules/ChallangeDescription";
 export { default as ClassDescContainer } from "./Molecules/ClassDescContainer";
+export { default as ClassCard } from "./Molecules/ClassCard";
 
 // organisms
 export { default as Header } from "./Organisms/Header";
@@ -28,12 +29,14 @@ export { default as CheckoutForm } from "./Organisms/CheckoutForm";
 export { default as ChallangeDescriptionSection } from "./Organisms/ChallangeDescSection";
 export { default as FAQSection } from "./Organisms/FAQSection";
 export { default as ChallangeFAQSection } from "./Organisms/ChallangeFAQSection";
+export { default as ChallengeSection } from "./Organisms/ChallengeSection";
 export { default as RegisterBanner } from "./Organisms/RegisterBanner";
 export { default as ChallangeBanner } from "./Organisms/ChallangeBanner";
 export { default as ChallangeDescSection } from "./Organisms/ChallangeDescSection";
 export { default as CheckoutSummary } from "./Organisms/CheckoutSummary";
 export { default as PaymentMethod } from "./Organisms/PaymentMethod";
 export { default as TransferGuideSection } from "./Organisms/TransferGuideSection";
+export { default as MyPageSection } from "./Organisms/MyPageSection";
 
 // layout
 export { default as Container } from "./Layout/Container";

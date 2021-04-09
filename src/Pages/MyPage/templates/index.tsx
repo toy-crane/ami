@@ -1,8 +1,17 @@
+import { Container } from "components";
 import React from "react";
 import BaseTemplate from "../../templates/BaseTemplates";
 
-const MyPageTemplate: React.FC = (props) => {
-	return <BaseTemplate hasFixedHeader={true}>{props.children}</BaseTemplate>;
+interface MyPageTemplateProps {
+	content: React.ReactNode;
+}
+
+const MyPageTemplate = ({ content }: MyPageTemplateProps) => {
+	return (
+		<BaseTemplate>
+			<Container sx={{ mt: 4 }}>{content}</Container>
+		</BaseTemplate>
+	);
 };
 
 export default MyPageTemplate;
