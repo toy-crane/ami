@@ -1,7 +1,7 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Grid, jsx, Heading, Text, Box, Flex } from "theme-ui";
-import { Avatar, Divider } from "components";
+import { Grid, jsx, Text, Box, Flex } from "theme-ui";
+import { Avatar, Heading } from "components";
 import ClassCard from "components/Molecules/ClassCard";
 
 const MyPageSection = () => (
@@ -12,24 +12,24 @@ const MyPageSection = () => (
 					<Avatar size="64px"></Avatar>
 				</Flex>
 				<Box>
-					<Heading variant="styles.h4">김한울님</Heading>
+					<Heading variant="sectionTitle">김한울님</Heading>
 					<Text>alwaysfun2183@gmail.com</Text>
 				</Box>
 			</Flex>
 		</Grid>
-		<Divider></Divider>
-		<Grid sx={{ gap: 2 }}>
-			<Heading variant="styles.h4">나의 정보</Heading>
+		<Grid sx={{ gap: 4 }}>
+			<Heading variant="sectionTitle" hasBorder={true}>
+				나의 정보
+			</Heading>
 			<Flex sx={{ flexDirection: "column" }}>
-				<Heading variant="styles.subtitle" color="gray40">
-					예치금 환급 계좌
-				</Heading>
-				<Text variant="styles.bodyMedium">110-217-985246 신한은행</Text>
+				<Heading variant="sectionSubTitle">예치금 환급 계좌</Heading>
+				<Text mt={1}>110-217-985246 신한은행</Text>
 			</Flex>
 		</Grid>
-		<Divider></Divider>
-		<Grid sx={{ gap: 2 }}>
-			<Heading variant="styles.h4">참여중인 챌린지</Heading>
+		<Grid sx={{ gap: 4 }}>
+			<Heading variant="sectionTitle" hasBorder={true}>
+				참여중인 챌린지
+			</Heading>
 			<Grid sx={{ gridTemplateColumns: ["1fr", "1fr 1fr 1fr 1fr"] }}>
 				<ClassCard
 					key="1"
@@ -47,9 +47,10 @@ const MyPageSection = () => (
 				></ClassCard>
 			</Grid>
 		</Grid>
-		<Divider></Divider>
-		<Grid sx={{ gap: 2 }}>
-			<Heading variant="styles.h4">입금 대기중인 챌린지</Heading>
+		<Grid sx={{ gap: 3 }}>
+			<Heading variant="sectionTitle" hasBorder={true}>
+				입금 대기중인 챌린지
+			</Heading>
 			<Grid sx={{ gridTemplateColumns: ["1fr", "1fr 1fr 1fr 1fr"] }}>
 				<ClassCard
 					key="1"
