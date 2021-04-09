@@ -11,6 +11,7 @@ export { default as Divider } from "./Atoms/Divider";
 export { default as Select } from "./Atoms/Select";
 export { default as RadioButton } from "./Atoms/Radio";
 export { default as Checkbox } from "./Atoms/Checkbox";
+export { default as Heading } from "./Atoms/Heading";
 
 // Molecules
 export { default as NavigationBar } from "./Molecules/NavigationBar";
