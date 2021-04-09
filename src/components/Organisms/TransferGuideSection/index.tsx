@@ -1,40 +1,38 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
-import { Grid, jsx, Heading, Text, Box, Flex } from "theme-ui";
-import { ChallangeBanner, Button, Icon } from "components";
+import { Grid, jsx, Text, Box, Flex } from "theme-ui";
+import { ChallangeBanner, Button, Icon, Heading } from "components";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { ICONS } from "components/Atoms/Icon/constants";
 
 const TransferGuideSection = () => (
 	<Grid sx={{ gap: [3, 4] }}>
 		<Grid sx={{ gap: 3 }}>
-			<Heading variant="styles.h4">신청 완료(입금 대기)</Heading>
+			<Heading variant="sectionTitle">신청 완료(입금 대기)</Heading>
 			<ChallangeBanner color="black" />
 		</Grid>
 		<Box>
-			<Heading variant="styles.subtitle" color="gray40">
-				입금 계좌
-			</Heading>
+			<Text>입금 계좌</Text>
 			<Flex>
-				<Text variant="styles.bodyMedium" sx={{ marginRight: 2 }}>
+				<Heading variant="sectionSubTitle">
 					카카오뱅크 3333-09-1840091 김한울
-				</Text>
+				</Heading>
 				<CopyToClipboard text="3333-09-1840091 카카오뱅크">
-					<Icon icon={ICONS.copy} size={24}></Icon>
+					<Icon icon={ICONS.copy} size={24} ml={2}></Icon>
 				</CopyToClipboard>
 			</Flex>
 		</Box>
 		<Box>
-			<Heading variant="styles.subtitle" color="gray40">
-				입금 하실 금액
+			<Text>입금 하실 금액</Text>
+			<Heading variant="sectionSubTitle" color="gray40">
+				105,000원
 			</Heading>
-			<Text variant="styles.bodyMedium">105,000원</Text>
 		</Box>
 		<Box>
-			<Heading variant="styles.subtitle" color="gray40">
-				입금가능 기한
+			<Text>입금 가능 기한</Text>
+			<Heading variant="sectionSubTitle" color="gray40">
+				2021.03.10 24:00
 			</Heading>
-			<Text variant="styles.bodyMedium">2021.03.10 24:00</Text>
 		</Box>
 		<Text color="alert50">
 			입금 확인은 최대 1일이 소요될 수 있습니다. <br />

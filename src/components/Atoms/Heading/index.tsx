@@ -9,13 +9,14 @@ interface HeadingProps extends ThemeUIHeadingProps {
 	variant: "sectionTitle" | "sectionSubTitle" | "pageTitle" | "subTitle";
 }
 
-const Heading = ({ children, hasBorder, variant }: HeadingProps) => {
+const Heading = ({ children, hasBorder, variant, sx }: HeadingProps) => {
 	return (
 		<ThemeUIHeading
 			variant={variant}
 			sx={{
 				borderBottom: hasBorder ? "1px solid" : "none",
 				borderColor: hasBorder ? "gray05" : "inherit",
+				...sx,
 			}}
 		>
 			{children}
