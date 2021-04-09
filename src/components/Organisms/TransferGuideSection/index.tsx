@@ -42,7 +42,9 @@ const TransferGuideSection = () => (
 			신청이 철회 되지 않게 주의해주세요!
 		</Text>
 		<Flex sx={{ justifyContent: ["stretch", "flex-end"] }}>
-			<Button width={["100%", "400px"]}>입금 완료</Button>
+			<Button width={["100%", "400px"]} href="/mypage">
+				입금 완료
+			</Button>
 		</Flex>
 	</Grid>
 );
