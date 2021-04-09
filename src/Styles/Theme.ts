@@ -61,7 +61,7 @@ const theme: Theme = {
 	},
 	lineHeights: {
 		body: 1.5,
-		heading: 1.6,
+		heading: 1.8,
 		subTitle: 1.5,
 	},
 	text: {
@@ -90,6 +90,18 @@ const theme: Theme = {
 		},
 		pageTitle: {
 			fontSize: 6,
+			fontFamily: "heading",
+			lineHeight: "heading",
+			fontWeight: "heading",
+		},
+		sectionTitle: {
+			fontSize: [4, 5],
+			fontFamily: "heading",
+			lineHeight: "heading",
+			fontWeight: "heading",
+		},
+		sectionSubTitle: {
+			fontSize: [2, 3],
 			fontFamily: "heading",
 			lineHeight: "heading",
 			fontWeight: "heading",
