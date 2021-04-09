@@ -11,3 +11,4 @@ export const AvatarWithImage = () => (
 );
 
 export const AvatarWithDefaultImage = () => <Avatar></Avatar>;
+export const AvatarWithSize = () => <Avatar size={300}></Avatar>;

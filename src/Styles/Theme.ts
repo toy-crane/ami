@@ -10,8 +10,6 @@ const imageVariant = {
 		borderRadius: 99999,
 	},
 	avatar: {
-		width: 40,
-		height: 40,
 		borderRadius: 99999,
 		display: "block",
 	},
