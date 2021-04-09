@@ -1,20 +1,35 @@
-import { ClassDescContainer } from "components";
 import React from "react";
-import { Text } from "theme-ui";
+import { Text, Grid, BoxProps } from "theme-ui";
+import { Heading } from "components";
+
+interface ClassDescContainerProps extends BoxProps {
+	title: string;
+	children: React.ReactNode;
+}
 
 export interface ContentProps {
 	type: 1 | 2 | 3 | 4;
 	hasDivider?: boolean;
 }
 
+const ClassDescContainer = ({ title, children }: ClassDescContainerProps) => (
+	<Grid sx={{ gap: 3 }}>
+		<Heading variant="sectionTitle" hasBorder={true}>
+			{title}
+		</Heading>
+		{children}
+	</Grid>
+);
+
+ClassDescContainer.defaultProps = {
+	hasDivider: false,
+};
+
 const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 	switch (type) {
 		case 1:
 			return (
-				<ClassDescContainer
-					title="코딩 챌린지는 어떤 것인가요?"
-					hasDivider={hasDivider}
-				>
+				<ClassDescContainer title="코딩 챌린지는 어떤 것인가요?">
 					<Text>
 						Code Pot, 개발 챌린지는 혼자서 꾸준히 공부가 하기 어려운 분들을 위해
 						예치금으로 동기부여를 할 수 있도록하는 프로그램입니다.
@@ -24,10 +39,7 @@ const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 
 		case 2:
 			return (
-				<ClassDescContainer
-					title="챌린지는 어떻게 진행 되나요?"
-					hasDivider={hasDivider}
-				>
+				<ClassDescContainer title="챌린지는 어떻게 진행 되나요?">
 					<ul>
 						<li>
 							책, 블로그, 강의 등 각자의 속도에 맞추어 일주일 간 학습합니다.
@@ -49,10 +61,7 @@ const ChallangeDescription = ({ type, hasDivider }: ContentProps) => {
 			);
 		case 3:
 			return (
-				<ClassDescContainer
-					title="어떤 사람이 적합한가요?"
-					hasDivider={hasDivider}
-				>
+				<ClassDescContainer title="어떤 사람이 적합한가요?">
 					<ul>
 						<li>
 							React 챌린지이기 때문에, 기본적인 JavaScript 이해도를 요구합니다.

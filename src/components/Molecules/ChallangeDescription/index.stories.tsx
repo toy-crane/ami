@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "theme-ui";
 import ChallangeDescription from ".";
 export default {
-	title: "Molecules/Challage Default Description",
+	title: "Molecules/Challage Description",
 	component: ChallangeDescription,
 };
 const Basic = () => (

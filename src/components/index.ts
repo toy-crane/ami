@@ -18,8 +18,8 @@ export { default as NavigationBar } from "./Molecules/NavigationBar";
 export { default as FormInput } from "./Molecules/FormInput";
 export { default as FormItem } from "./Molecules/FormItem";
 export { default as ChallangeDescription } from "./Molecules/ChallangeDescription";
-export { default as ClassDescContainer } from "./Molecules/ClassDescContainer";
 export { default as ClassCard } from "./Molecules/ClassCard";
+export { default as Drawer } from "./Molecules/Drawer";
 
 // organisms
 export { default as Header } from "./Organisms/Header";
