@@ -7,7 +7,6 @@ export default gql`
 		email
 		mobile
 		isActive
-		status
 		RBankAccount
 	}
 `;
