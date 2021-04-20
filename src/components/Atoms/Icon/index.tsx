@@ -25,8 +25,8 @@ const StyledIcon = ({ size, icon }: StyledIconProps) => (
 		<path
 			d={IconSet[icon].path}
 			fill={IconSet[icon].fill || "currentColor"}
-			fill-rule={IconSet[icon].fillRule}
-			clip-rule={IconSet[icon].clipRule}
+			fillRule={IconSet[icon].fillRule}
+			clipRule={IconSet[icon].clipRule}
 		/>
 	</svg>
 );

@@ -10,8 +10,8 @@ type Icon = {
 	path: string;
 	viewBox: string;
 	fill?: string;
-	fillRule?: string;
-	clipRule?: string;
+	fillRule?: "evenodd";
+	clipRule?: "evenodd";
 };
 
 // icon의 path와 viewbox
