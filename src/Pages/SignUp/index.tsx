@@ -18,7 +18,7 @@ const SignUpTitle = () => (
 const SignUpContent = () => (
 	<Button
 		variant="github"
-		href="http://localhost:4000/github"
+		href="http://localhost:5000/api/github"
 		width="100%"
 		icon={ICONS.github}
 	>
