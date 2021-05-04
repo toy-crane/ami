@@ -1,6 +1,6 @@
 overwrite: true
 schema:
-  - http://localhost:4000/graphql
+  - ${REACT_APP_GRAPHQL_SERVER_URL}
   - ./src/graphql/localTypes/*.gql
 documents: "./src/**/*.{tsx,ts}"
 generates:
@@ -11,6 +11,3 @@ generates:
       - "typescript-react-apollo"
     config:
       withHooks: true
-  ./graphql.schema.json:
-    plugins:
-      - "introspection"

@@ -4,6 +4,7 @@ import { Heading, jsx } from "theme-ui";
 import SignUpTemplate from "./templates";
 import { Button } from "components";
 import { ICONS } from "components/Atoms/Icon/constants";
+import { environment } from "config";
 
 const SignUpTitle = () => (
 	<Heading variant="pageTitle">
@@ -18,7 +19,7 @@ const SignUpTitle = () => (
 const SignUpContent = () => (
 	<Button
 		variant="github"
-		href="http://localhost:4000/auth/github"
+		href={environment.githubSignUpURL}
 		width="100%"
 		icon={ICONS.github}
 	>

@@ -2,9 +2,10 @@ import { ApolloClient, from, createHttpLink } from "@apollo/client";
 import cache from "./cache";
 import authLink from "./authLink";
 import errorLink from "./errorLink";
+import { environment } from "config";
 
 const httpLink = createHttpLink({
-	uri: "http://localhost:4000/graphql",
+	uri: environment.grapqlServerURL,
 	credentials: "include",
 });
 

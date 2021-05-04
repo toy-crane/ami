@@ -1,76 +1,77 @@
 {
-  "name": "ami",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@apollo/client": "^3.2.4",
-    "@apollo/link-error": "^2.0.0-beta.3",
-    "@emotion/react": "^11.1.2",
-    "@graphql-tools/load-files": "^6.2.5",
-    "@hookform/resolvers": "^1.0.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "@theme-ui/preset-base": "^0.3.4",
-    "@types/jest": "^24.0.0",
-    "@types/node": "^12.0.0",
-    "@types/react": "^16.9.0",
-    "@types/react-dom": "^16.9.0",
-    "@types/react-router-dom": "^5.1.6",
-    "@types/theme-ui": "^0.3.7",
-    "@types/theme-ui__components": "0.3.0",
-    "@types/yup": "^0.29.8",
-    "gql": "^1.1.2",
-    "graphql": "^15.3.0",
-    "graphql-tag": "^2.11.0",
-    "moment": "^2.29.1",
-    "react": "^17.0.1",
-    "react-copy-to-clipboard": "^5.0.3",
-    "react-dom": "^17.0.1",
-    "react-hook-form": "^6.9.2",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "react-spinners": "^0.10.6",
-    "storybook-react-router": "^1.0.8",
-    "theme-ui": "^0.3.4",
-    "typescript": "4.1.2",
-    "use-query-params": "^1.1.8",
-    "yup": "^0.32.9"
-  },
-  "scripts": {
-    "start": "concurrently \"react-scripts start\" \"npm run generate --watch\"",
-    "generate": "graphql-codegen --config codegen.yml",
-    "prestart": "npm run generate",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "@graphql-codegen/cli": "^1.19.4",
-    "@graphql-codegen/introspection": "1.18.0",
-    "@graphql-codegen/typescript": "1.17.10",
-    "@graphql-codegen/typescript-operations": "1.17.8",
-    "@graphql-codegen/typescript-react-apollo": "2.0.7",
-    "@storybook/addon-actions": "^6.1.15",
-    "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/addon-links": "^6.1.15",
-    "@storybook/node-logger": "^6.1.15",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.15",
-    "@types/react-copy-to-clipboard": "^5.0.0"
-  }
+	"name": "ami",
+	"version": "0.1.0",
+	"private": true,
+	"dependencies": {
+		"@apollo/client": "^3.2.4",
+		"@apollo/link-error": "^2.0.0-beta.3",
+		"@emotion/react": "^11.1.2",
+		"@graphql-tools/load-files": "^6.2.5",
+		"@hookform/resolvers": "^1.0.0",
+		"@testing-library/jest-dom": "^4.2.4",
+		"@testing-library/react": "^9.3.2",
+		"@testing-library/user-event": "^7.1.2",
+		"@theme-ui/preset-base": "^0.3.4",
+		"@types/jest": "^24.0.0",
+		"@types/node": "^12.0.0",
+		"@types/react": "^16.9.0",
+		"@types/react-dom": "^16.9.0",
+		"@types/react-router-dom": "^5.1.6",
+		"@types/theme-ui": "^0.3.7",
+		"@types/theme-ui__components": "0.3.0",
+		"@types/yup": "^0.29.8",
+		"dotenv": "^8.2.0",
+		"gql": "^1.1.2",
+		"graphql": "^15.3.0",
+		"graphql-tag": "^2.11.0",
+		"moment": "^2.29.1",
+		"react": "^17.0.1",
+		"react-copy-to-clipboard": "^5.0.3",
+		"react-dom": "^17.0.1",
+		"react-hook-form": "^6.9.2",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "3.4.3",
+		"react-spinners": "^0.10.6",
+		"storybook-react-router": "^1.0.8",
+		"theme-ui": "^0.3.4",
+		"typescript": "4.1.2",
+		"use-query-params": "^1.1.8",
+		"yup": "^0.32.9"
+	},
+	"scripts": {
+		"start": "concurrently \"NODE_ENV=local react-scripts start\" \"yarn generate --watch\"",
+		"generate": "DOTENV_CONFIG_PATH=.env.local graphql-codegen --config codegen.yml -r dotenv/config",
+		"prestart": "npm run generate",
+		"storybook": "start-storybook -p 6006 -s public",
+		"build-storybook": "build-storybook -s public"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "^1.19.4",
+		"@graphql-codegen/introspection": "1.18.0",
+		"@graphql-codegen/typescript": "1.17.10",
+		"@graphql-codegen/typescript-operations": "1.17.8",
+		"@graphql-codegen/typescript-react-apollo": "2.0.7",
+		"@storybook/addon-actions": "^6.1.15",
+		"@storybook/addon-essentials": "^6.1.15",
+		"@storybook/addon-links": "^6.1.15",
+		"@storybook/node-logger": "^6.1.15",
+		"@storybook/preset-create-react-app": "^3.1.5",
+		"@storybook/react": "^6.1.15",
+		"@types/react-copy-to-clipboard": "^5.0.0"
+	}
 }

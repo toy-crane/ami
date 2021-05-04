@@ -4,6 +4,7 @@ import { Heading, jsx } from "theme-ui";
 import LoginTemplate from "./templates";
 import { Button } from "components";
 import { ICONS } from "components/Atoms/Icon/constants";
+import { environment } from "config";
 
 const LoginTitle = () => (
 	<Heading variant="pageTitle">
@@ -14,11 +15,10 @@ const LoginTitle = () => (
 		프로젝트
 	</Heading>
 );
-
 const LoginContent = () => (
 	<Button
 		variant="github"
-		href="http://localhost:4000/auth/github"
+		href={environment.githubSignUpURL}
 		width="100%"
 		icon={ICONS.github}
 	>
