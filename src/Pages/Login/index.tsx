@@ -18,7 +18,7 @@ const LoginTitle = () => (
 const LoginContent = () => (
 	<Button
 		variant="github"
-		href="http://localhost:5000/api/github"
+		href="http://localhost:4000/auth/github"
 		width="100%"
 		icon={ICONS.github}
 	>

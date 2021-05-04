@@ -4,7 +4,7 @@ import authLink from "./authLink";
 import errorLink from "./errorLink";
 
 const httpLink = createHttpLink({
-	uri: "http://localhost:5000/api/graphql",
+	uri: "http://localhost:4000/graphql",
 	credentials: "include",
 });
 
