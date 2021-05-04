@@ -11,18 +11,6 @@ export type Scalars = {
   Float: number;
 };
 
-export type Query = {
-  __typename?: 'Query';
-  isLoggedIn: Scalars['Boolean'];
-  me?: Maybe<Me>;
-};
-
-export type Me = {
-  __typename?: 'me';
-  user: User;
-  profile?: Maybe<Profile>;
-};
-
 export type User = {
   __typename?: 'User';
   id: Scalars['Int'];
@@ -41,18 +29,35 @@ export type Profile = {
   githubUrl?: Maybe<Scalars['String']>;
 };
 
-export type Mutation = {
-  __typename?: 'Mutation';
-  activateUser: User;
-  createAuthToken?: Maybe<AccessToken>;
-  logout?: Maybe<Scalars['Boolean']>;
-  registerRefundAccount: User;
+export type Me = {
+  __typename?: 'me';
+  user: User;
+  profile?: Maybe<Profile>;
+};
+
+export type AccessToken = {
+  __typename?: 'accessToken';
+  token: Scalars['String'];
+};
+
+export type Query = {
+  __typename?: 'Query';
+  isLoggedIn: Scalars['Boolean'];
+  me?: Maybe<Me>;
+  user?: Maybe<User>;
 };
 
 
-export type MutationActivateUserArgs = {
-  mobile: Scalars['String'];
-  name: Scalars['String'];
+export type QueryUserArgs = {
+  id: Scalars['Int'];
+};
+
+export type Mutation = {
+  __typename?: 'Mutation';
+  registerRefundAccount: User;
+  activateUser: User;
+  logout?: Maybe<Scalars['Boolean']>;
+  createAuthToken?: Maybe<AccessToken>;
 };
 
 
@@ -61,18 +66,10 @@ export type MutationRegisterRefundAccountArgs = {
   bankAccount: Scalars['String'];
 };
 
-export type AccessToken = {
-  __typename?: 'accessToken';
-  token: Scalars['String'];
-};
 
-export type Class = {
-  __typename?: 'Class';
-  id: Scalars['Int'];
-  thumbnail: Scalars['String'];
+export type MutationActivateUserArgs = {
+  mobile: Scalars['String'];
   name: Scalars['String'];
-  remarks: Scalars['String'];
-  status: Scalars['String'];
 };
 
 export type UserFieldsFragment = (
